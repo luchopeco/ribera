@@ -1,0 +1,1 @@
+{!!Form::select('idtorneo', $listtorneos,null,array('class' => 'form-control','onchange'=>'buscarEstadisticaXTorneo()','id'=>'idtorneo'))!!}
