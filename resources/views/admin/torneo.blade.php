@@ -64,6 +64,7 @@
                                     <td>{{date('d/m/Y', strtotime($fecha->fecha))}}</td>
                                     <td>{{$fecha->observaciones}}</td>
                                     <td>{{$fecha->esPlayOff()}}</td>
+                                    <td><a href="#" class=" btn btn-xs btn-info" title="Imprimir Planilla Fecha" data-toggle="modal" data-target="#proximamenteModal"> <i class="fa fa-print"></i></a></td>
                                     <td><a href="../fechas/{{$fecha->idfecha}}" class="btn btn-xs btn-primary " data-idtorneo="{{$fecha->idtorneo}}" data-idfecha="{{$fecha->idfecha}}"  title="Gestionar Partidos"> <i class="fa fa-futbol-o"></i></a></td>
                                     <td><a href="" class="btn btn-xs btn-info editarfecha" data-idtorneo="{{$fecha->idtorneo}}" data-idfecha="{{$fecha->idfecha}}"  title="Editar"> <i class=" fa fa-edit"></i></a></td>
                                     <td><a href="../fecha/{{$fecha->idfecha}}" title="Imagenes de la  Fecha" class=" btn-xs btn btn-success" ><i class=" fa fa-image"></i></a></td>
@@ -521,6 +522,29 @@
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
+        <div class="modal fade" id="proximamenteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Proximamente</h4>
+                        </div>
+                        <div class="modal-body">
+                            Aqui se imprimirá la planilla por fecha
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
 
         @endsection
         @section('script')

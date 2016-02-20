@@ -47,7 +47,7 @@
     <div class="login-box">
       <div class="login-logo">
         <a href="http://www.wiphalasistemas.com.ar" target="_blank"><b>Wiphala</b>Sistemas</a>
-        <p>::Tifossi::</p>
+        <p>::Liga La Ribera::</p>
         <p>Gestor De Contenidos</p>
       </div><!-- /.login-logo -->
       <div class="login-box-body">

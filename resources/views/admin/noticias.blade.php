@@ -79,6 +79,38 @@
             </div>
         </div>
 
+        <hr>
+        <div class="row">
+            <div class=" col-md-12">
+               <div class=" panel panel-default">
+                    <div class=" panel-heading">Ordenar Noticias
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="multiselect dropdown-toggle btn btn-xs btn-warning" data-toggle="dropdown" title="Ayuda">
+                                    <i class="fa fa-question-circle"></i><b class="caret"></b>
+                                </button>
+                                <ul class="multiselect-container dropdown-menu pull-right">
+                                    <li>Desde aqui puede Ordenar las noticias para mostrarlas en la web.</li>
+                                    <li>Para ordenar los elementos, haga click sobre uno de ellos, y arrástrelo hasta la posicion que desee.</li>
+                                    <li>Los cambios se veran reflejados en la tabla superior, una vez recargada la pagina</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" panel-body">
+                       <div class="msg"></div>
+                       <ol id="idnoticias">
+                        @foreach($listNoticias as $noticia)
+                           <li  style="cursor: pointer" id="idnoticia-{{$noticia->idnoticia}}">{{$noticia->titulo}}</li>
+                        @endforeach
+                       </ol>
+                    </div>
+               </div>
+            </div>
+        </div>
+
+
+
         <div class="modal fade" id="modalNoticiaAgregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                     <div class="modal-content">
@@ -273,6 +305,13 @@
                 var id_noticia=$(this).attr('data-idnoticia');
                 $("#idnoticiaD").val(id_noticia);
                 $("#modalNoticiaEliminar").modal("show");
+            });
+            $("ol#idnoticias").sortable({ placeholder: "ui-state-highlight",opacity: 0.6, cursor: 'move', update: function() {
+                    var order = $(this).sortable("serialize");
+                        $.post("noticias/ordenar", order, function(respuesta){
+                        $(".msg").html(respuesta).fadeIn("fast").fadeOut(2500);
+                    });
+                }
             });
 
         });

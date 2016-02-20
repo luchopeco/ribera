@@ -105,6 +105,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],
 
         Route::resource('noticias','NoticiasController');
         Route::post('noticias/buscar','NoticiasController@buscar');
+        Route::post('noticias/ordenar','NoticiasController@ordenar');
 
         Route::resource('imagenes','ImagenesController');
         Route::post('imagenes/buscar','ImagenesController@buscar');

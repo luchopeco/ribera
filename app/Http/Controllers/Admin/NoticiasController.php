@@ -2,6 +2,7 @@
 
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use torneo\Noticia;
 use torneo\Http\Requests;
@@ -25,7 +26,7 @@ class NoticiasController extends Controller {
 	 */
 	public function index()
 	{
-        $listNoticias = Noticia::all();
+        $listNoticias = Noticia::orderBy('orden','asc')->get();
         //dd($listArbitros);
         return view('admin.noticias', compact('listNoticias','mensajeOK'));
 	}
@@ -51,6 +52,15 @@ class NoticiasController extends Controller {
             $noticia = new Noticia($request->all());
             $noticia->mostrar_en_home=1;
             $noticia->mostrar_en_seccion=1;
+            $orden =  DB::table('noticias')->max('orden');
+            if ($orden==null )
+            {
+                $orden=1;
+            }
+            else
+            {
+                $orden = $orden+1;
+            }
             $noticia->save();
 
             Session::flash('mensajeOk', 'Noticia Agregada con Exito');
@@ -210,6 +220,29 @@ class NoticiasController extends Controller {
         {
             Session::flash('mensajeError', $ex->getMessage());
             return Redirect::route('admin.noticias.index');
+        }
+    }
+
+    public function ordenar()
+    {
+        try
+        {
+            // array con el nuevo orden de nuestros registros
+            $articulos_ordenados 	= $_POST['idnoticia'];
+
+            $pos = 1;
+            foreach ($articulos_ordenados as $key) {
+                DB::table('noticias')
+                    ->where('idnoticia', $key)
+                    ->update(array('orden' => $pos));
+                $pos++;
+            }
+
+            echo "Las Noticias se ordenaron con exito";
+        }
+        catch(QueryException  $ex)
+        {
+            echo "ERROR. NO SE PUDIERON ORDENAR LAS NOTICIAS";
         }
     }
 

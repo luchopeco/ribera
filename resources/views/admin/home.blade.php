@@ -1,7 +1,7 @@
         @extends('admin.masterAdmin')
 
         @section('title')
-        <h1> Bienvenidos al Sistema de Gestion de Torneos <small ><a href="http://www.ligatifosi.com" target="_blank">www.ligatifosi.com</a></small></h1>
+        <h1> Bienvenidos al Sistema de Gestion de Torneos <small ><a href="http://www.ligalaribera.com.ar/" target="_blank">www.ligalaribera.com.ar</a></small></h1>
         @endsection
 
         @section('breadcrumb')
