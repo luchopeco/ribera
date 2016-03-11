@@ -44,8 +44,9 @@ class HomeController extends \Illuminate\Routing\Controller {
         $listEquipos = Equipo::EquiposSinInscripcion();
         $listTorneos = Torneo::all()->sortBy(function($hackathon)
         {
-            return $hackathon->ListEquipos->count();
+            return $hackathon->ListEquipos()->count();
         });
+
 		return view('admin.home', compact('listTorneos','listEquipos'));
 	}
 

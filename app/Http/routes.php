@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/fixture', 'WelcomeController@fixture');
 Route::get('/fixturetorneo/{id}', 'WelcomeController@fixturetorneo');
 Route::get('/estadisticas', 'WelcomeController@estadisticas');
@@ -117,6 +117,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],
          Route::get('noticiaimagen/{id}','NoticiasController@noticiaimagen');
         Route::post('noticiaimagen/noticiaimagenborrar','NoticiasController@noticiaimagenborrar');
         Route::post('noticiaimagen/noticiaimagenguardar','NoticiasController@noticiaimagenguardar');
+
+        Route::resource('zonas','ZonasController');
 
         
 

@@ -43,10 +43,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-        $listNoticias = Noticia::where('mostrar_en_home',1)->orderBy('idnoticia','DESC')->get();
-        $listEquipoIdeal=Imagen::where('idtipo_imagen',3)->get();
-        $listFiguras=Imagen::where('idtipo_imagen',2)->get();
-		return view('welcome',compact('listFiguras','listEquipoIdeal','listNoticias'));
+		return view('welcome');
 	}
 
     public function fixture()

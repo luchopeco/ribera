@@ -7,7 +7,7 @@ class Fecha extends Model{
 
     protected $table='fechas';
 
-    protected $fillable = ['fecha','observaciones','idtorneo','numero_fecha','imagen_equipo_ideal',
+    protected $fillable = ['fecha','observaciones','idzona','numero_fecha','imagen_equipo_ideal',
         'imagen_figura_fecha','imagen_fecha','es_play_off'];
 
     protected $primaryKey = 'idfecha';
@@ -29,10 +29,14 @@ class Fecha extends Model{
         }
     }
 
+    public function Zona()
+    {
+        return $this->belongsTo('torneo\Zona','idzona');
+    }
 
     public function Torneo()
     {
-        return $this->belongsTo('torneo\Torneo','idtorneo');
+        return $this->Zona->Torneo();
     }
 
     public function ListPartidos()

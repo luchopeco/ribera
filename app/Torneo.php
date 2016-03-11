@@ -2,7 +2,9 @@
 namespace torneo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class Torneo extends Model{
 
@@ -10,10 +12,54 @@ class Torneo extends Model{
 
     protected $table='torneos';
 
-    protected $fillable = ['nombre_torneo','observaciones_torneo','idtipo_torneo','fecha_baja'];
+    protected $fillable = ['nombre_torneo','observaciones_torneo','idtipo_torneo','fecha_baja','tablas_x_torneo','estadisticas_x_torneo'];
 
     protected $primaryKey = 'idtorneo';
 
+    public function MensajeConfiguracion()
+    {
+        $mensaje="";
+        if($this->tablas_x_torneo ==1)
+        {
+            $mensaje=$mensaje . 'Las tablas de posiciones se calculan por Torneo. - ';
+        }
+        else
+        {
+            $mensaje=$mensaje . 'Las tablas de posiciones se calculan por Zonas. - ';
+        }
+        if($this->estadisticas_x_torneo ==1)
+        {
+           $mensaje = $mensaje . 'Las Estadisticas se calculan por Torneo. - ';
+        }
+        else
+        {
+            $mensaje = $mensaje . 'Las Estadisticas se calculan por Zonas. - ';
+        }
+        return $mensaje;
+    }
+
+    public function TablasXTorneo()
+    {
+        if($this->tablas_x_torneo ==1)
+        {
+            return 'SI';
+        }
+        else
+        {
+            return 'NO';
+        }
+    }
+    public function EstadisticasXTorneo()
+    {
+        if($this->estadisticas_x_torneo ==1)
+        {
+            return 'SI';
+        }
+        else
+        {
+            return 'NO';
+        }
+    }
 
     public function TipoTorneo()
     {
@@ -21,11 +67,36 @@ class Torneo extends Model{
     }
     public function ListEquipos()
     {
-        return $this->belongsToMany('torneo\Equipo','torneo_equipo','torneo_idtorneo','equipo_idequipo')->orderBy('nombre_equipo');
+       $list = new \Illuminate\Database\Eloquent\Collection();
+        foreach ($this->ListZonas as $zona)
+        {
+            foreach($zona->ListEquipos as $eq)
+            {
+                $list->add($eq);
+            }
+
+        }
+        return   $list;
+      // return $list;
+        //return $this->belongsToMany('torneo\Equipo','torneo_equipo','torneo_idtorneo','equipo_idequipo')->orderBy('nombre_equipo');
+    }
+    public function ListZonas()
+    {
+        return $this->hasMany('torneo\Zona','idtorneo','idtorneo')->orderBy('orden');
     }
     public function ListFechas()
     {
-        return $this->hasMany('torneo\Fecha','idtorneo','idtorneo')->orderBy('fecha')->orderBy('numero_fecha');
+        $list = new \Illuminate\Database\Eloquent\Collection();
+        foreach ($this->ListZonas as $zona)
+        {
+            //$list->push($zona->ListEquipos);
+
+            foreach($zona->ListFechas as $f)
+            {$list->add($f);}
+
+        }
+        return   $list;
+
     }
 
     public function TablaPosiciones()
@@ -38,7 +109,8 @@ class Torneo extends Model{
                               FROM partidos p
                               INNER JOIN equipos e ON p.idequipo_local = e.idequipo
                               INNER JOIN fechas f ON f.idfecha = p.idfecha
-                            WHERE p.fue_jugado=1 AND p.idtorneo = :p1
+                              INNER JOIN zonas z ON z.idzona = p.idzona
+                            WHERE p.fue_jugado=1 AND z.idtorneo = :p1
                             AND f.es_play_off =0
                             AND e.es_libre=0
                             GROUP BY p.idequipo_local)
@@ -50,7 +122,8 @@ class Torneo extends Model{
                               FROM partidos p
                               INNER JOIN equipos e ON p.idequipo_visitante = e.idequipo
                               INNER JOIN fechas f ON f.idfecha = p.idfecha
-                            WHERE p.fue_jugado=1 AND p.idtorneo = :p2
+                              INNER JOIN zonas z ON z.idzona = p.idzona
+                            WHERE p.fue_jugado=1 AND z.idtorneo = :p2
                             AND f.es_play_off=0
                             AND e.es_libre=0
                             GROUP BY  p.idequipo_visitante)
@@ -68,7 +141,8 @@ class Torneo extends Model{
                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                             INNER JOIN fechas f ON f.idfecha = p.idfecha
                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                            WHERE f.idtorneo= :p1
+                            INNER JOIN zonas z ON z.idzona = f.idzona
+                            WHERE z.idtorneo= :p1
                             AND e.es_libre=0
                             GROUP BY j.nombre_jugador, e.nombre_equipo
                             ORDER BY goles DESC
@@ -86,7 +160,8 @@ class Torneo extends Model{
                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                             INNER JOIN fechas f ON f.idfecha = p.idfecha
                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                            WHERE f.idtorneo= :p1
+                            INNER JOIN zonas z ON z.idzona = f.idzona
+                            WHERE z.idtorneo= :p1
                             AND e.es_libre=0
                             AND phj.tarjeta_amarilla<>0
                             GROUP BY j.nombre_jugador, e.nombre_equipo
@@ -98,19 +173,20 @@ class Torneo extends Model{
     public function Sancionados()
     {
 
-        $tabla =  DB::select(DB::raw("SELECT  aux1.*, (aux1.sancion - ((SELECT count(*) FROM fechas f2 WHERE f2.fecha BETWEEN aux1.fecha AND CURRENT_DATE AND  f2.idtorneo=:p1)-1)) fechas_restantes
+        $tabla =  DB::select(DB::raw("SELECT  aux1.*, (aux1.sancion - ((SELECT count(*) FROM fechas f2 INNER JOIN zonas z2 ON z2.idoza = f2.idzona WHERE f2.fecha BETWEEN aux1.fecha AND CURRENT_DATE AND  z2.idtorneo=:p1)-1)) fechas_restantes
                                       FROM
                                     (
                                         SELECT jugador, sancion, fecha, nombre_equipo FROM
                                     (SELECT j.nombre_jugador jugador, sum(phj.cantidad_fechas_sancion) sancion , f.fecha fecha, e.nombre_equipo
                                     FROM partidos p
                                     INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
                                     LEFT JOIN partido_has_jugador phj  ON p.idpartido = phj.idpartido
                                     left JOIN jugadores j ON j.idjugador = phj.idjugador
                                     LEFT JOIN equipos e ON e.idequipo = j.idequipo
-                                    WHERE p.fue_jugado=1 and f.fecha<= CURRENT_DATE AND f.idtorneo=:p2
+                                    WHERE p.fue_jugado=1 and f.fecha<= CURRENT_DATE AND z.idtorneo=:p2
                                     GROUP BY j.nombre_jugador, phj.cantidad_fechas_sancion, f.fecha) AS aux
-                                    WHERE EXISTS (SELECT count(*) FROM fechas f WHERE f.fecha BETWEEN aux.fecha AND CURRENT_DATE AND f.idtorneo=:p3 HAVING count(*) <=aux.sancion )
+                                    WHERE EXISTS (SELECT count(*) FROM fechas f INNER JOIN zonas z ON z.idoza = f.idzona WHERE f.fecha  BETWEEN aux.fecha AND CURRENT_DATE AND z.idtorneo=:p3 HAVING count(*) <=aux.sancion )
 
                                     )AS aux1
 
@@ -146,8 +222,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p1
+                                            WHERE z.idtorneo= :p1
                                             AND e.es_libre=0
                                             AND phj.tarjeta_amarilla<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -158,8 +235,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p2
+                                            WHERE z.idtorneo= :p2
                                             AND e.es_libre=0
                                             AND phj.tarjeta_azul<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -174,8 +252,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p3
+                                            WHERE z.idtorneo= :p3
                                             AND e.es_libre=0
                                             AND phj.tarjeta_amarilla<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -186,8 +265,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p4
+                                            WHERE z.idtorneo= :p4
                                             AND e.es_libre=0
                                             AND phj.tarjeta_azul<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -201,8 +281,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p5
+                                            WHERE z.idtorneo= :p5
                                             AND e.es_libre=0
                                             AND phj.tarjeta_azul<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -221,8 +302,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p6
+                                            WHERE z.idtorneo= :p6
                                             AND e.es_libre=0
                                             AND phj.tarjeta_amarilla<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -233,8 +315,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p7
+                                            WHERE z.idtorneo= :p7
                                             AND e.es_libre=0
                                             AND phj.tarjeta_azul<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -249,8 +332,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p8
+                                            WHERE z.idtorneo= :p8
                                             AND e.es_libre=0
                                             AND phj.tarjeta_amarilla<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -261,8 +345,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p9
+                                            WHERE z.idtorneo= :p9
                                             AND e.es_libre=0
                                             AND phj.tarjeta_azul<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
@@ -276,8 +361,9 @@ class Torneo extends Model{
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                             INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                            INNER JOIN zonas z ON z.idzona = f.idzona
                                             INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                            WHERE f.idtorneo= :p10
+                                            WHERE z.idtorneo= :p10
                                             AND e.es_libre=0
                                             AND phj.tarjeta_roja<>0
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador

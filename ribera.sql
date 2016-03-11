@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-02-2016 a las 21:05:08
+-- Tiempo de generación: 11-03-2016 a las 03:25:20
 -- Versión del servidor: 5.6.17-log
 -- Versión de PHP: 5.5.12
 
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `fechas` (
   `idfecha` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date DEFAULT NULL,
   `observaciones` varchar(45) DEFAULT NULL,
-  `idtorneo` int(11) NOT NULL,
+  `idzona` int(11) NOT NULL,
   `numero_fecha` varchar(45) DEFAULT NULL,
   `imagen_equipo_ideal` varchar(200) DEFAULT NULL,
   `imagen_figura_fecha` varchar(200) DEFAULT NULL,
@@ -126,35 +126,40 @@ CREATE TABLE IF NOT EXISTS `fechas` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `es_play_off` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idfecha`),
-  KEY `fk_fecha_torneo1_idx` (`idtorneo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=181 ;
+  KEY `fk_fecha_torneo1_idx` (`idzona`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=188 ;
 
 --
 -- Volcado de datos para la tabla `fechas`
 --
 
-INSERT INTO `fechas` (`idfecha`, `fecha`, `observaciones`, `idtorneo`, `numero_fecha`, `imagen_equipo_ideal`, `imagen_figura_fecha`, `imagen_fecha`, `created_at`, `updated_at`, `es_play_off`) VALUES
-(128, '2015-03-14', 'Obs', 7, '1', NULL, NULL, NULL, NULL, '2015-05-27 01:29:27', 0),
-(147, '2015-03-28', ' ', 7, '2', NULL, NULL, NULL, NULL, NULL, 0),
-(149, '2015-04-04', ' ', 7, '3', NULL, NULL, NULL, NULL, NULL, 0),
-(150, '2015-04-11', ' ', 7, '4', NULL, NULL, NULL, NULL, NULL, 0),
-(151, '2015-04-18', ' ', 7, '5', NULL, NULL, NULL, NULL, NULL, 0),
-(152, '2015-04-25', ' ', 7, '6', NULL, NULL, NULL, NULL, NULL, 0),
-(153, '2015-05-02', ' ', 7, '7', NULL, NULL, NULL, NULL, NULL, 0),
-(154, '2015-05-09', ' ', 7, '8', NULL, NULL, NULL, NULL, NULL, 0),
-(155, '2015-05-16', ' ', 7, '9', NULL, NULL, NULL, NULL, NULL, 0),
-(156, '2015-05-23', ' ', 7, '10', NULL, NULL, NULL, NULL, NULL, 0),
-(157, '2015-05-30', ' ', 7, '11', NULL, NULL, NULL, NULL, NULL, 0),
-(158, '2015-06-06', ' ', 7, '12', NULL, NULL, NULL, NULL, NULL, 0),
-(159, '2015-06-13', ' ', 7, '13', NULL, NULL, NULL, NULL, NULL, 0),
-(160, '2015-06-20', ' ', 7, '14', NULL, NULL, NULL, NULL, NULL, 0),
-(161, '2015-06-27', ' ', 7, '15', NULL, NULL, NULL, NULL, NULL, 0),
-(166, '2015-06-02', '', 7, 'Cuartos de Final', NULL, NULL, NULL, '2015-04-11 06:18:07', '2015-06-03 02:08:37', 0),
-(167, '1970-01-01', '', 7, '12', NULL, NULL, NULL, '2015-04-11 06:20:59', '2015-06-03 02:08:10', 0),
-(168, '1970-01-01', 'asd', 7, 'ssssssss', NULL, NULL, NULL, '2015-04-11 06:21:51', '2015-06-03 02:08:15', 0),
-(178, '2015-04-26', '', 15, '1', NULL, NULL, NULL, '2015-04-27 00:03:40', '2015-06-03 02:11:39', 0),
-(179, '2015-06-02', '', 15, '2', NULL, NULL, NULL, '2015-06-03 02:11:48', '2015-06-03 02:11:48', 0),
-(180, '2015-06-06', '', 15, '3', NULL, NULL, NULL, '2015-06-03 02:11:56', '2015-06-03 02:11:56', 0);
+INSERT INTO `fechas` (`idfecha`, `fecha`, `observaciones`, `idzona`, `numero_fecha`, `imagen_equipo_ideal`, `imagen_figura_fecha`, `imagen_fecha`, `created_at`, `updated_at`, `es_play_off`) VALUES
+(128, '2015-03-14', 'Obs', 1, '1', NULL, NULL, NULL, NULL, '2015-05-27 01:29:27', 0),
+(147, '2015-03-28', ' ', 1, '2', NULL, NULL, NULL, NULL, NULL, 0),
+(149, '2015-04-04', ' ', 1, '3', NULL, NULL, NULL, NULL, NULL, 0),
+(150, '2015-04-11', ' ', 1, '4', NULL, NULL, NULL, NULL, NULL, 0),
+(151, '2015-04-18', ' ', 1, '5', NULL, NULL, NULL, NULL, NULL, 0),
+(152, '2015-04-25', ' ', 1, '6', NULL, NULL, NULL, NULL, NULL, 0),
+(153, '2015-05-02', ' ', 1, '7', NULL, NULL, NULL, NULL, NULL, 0),
+(154, '2015-05-09', ' ', 1, '8', NULL, NULL, NULL, NULL, NULL, 0),
+(155, '2015-05-16', ' ', 1, '9', NULL, NULL, NULL, NULL, NULL, 0),
+(156, '2015-05-23', ' ', 1, '10', NULL, NULL, NULL, NULL, NULL, 0),
+(157, '2015-05-30', ' ', 1, '11', NULL, NULL, NULL, NULL, NULL, 0),
+(158, '2015-06-06', ' ', 1, '12', NULL, NULL, NULL, NULL, NULL, 0),
+(159, '2015-06-13', ' ', 1, '13', NULL, NULL, NULL, NULL, NULL, 0),
+(160, '2015-06-20', ' ', 1, '14', NULL, NULL, NULL, NULL, NULL, 0),
+(161, '2015-06-27', ' ', 1, '15', NULL, NULL, NULL, NULL, NULL, 0),
+(166, '2015-06-02', '', 1, 'Cuartos de Final', NULL, NULL, NULL, '2015-04-11 06:18:07', '2015-06-03 02:08:37', 0),
+(167, '1970-01-01', '', 1, '10', NULL, NULL, '167.png', '2015-04-11 06:20:59', '2016-03-07 05:09:16', 0),
+(168, '1970-01-01', 'asd', 1, 'ssssssss', NULL, NULL, NULL, '2015-04-11 06:21:51', '2015-06-03 02:08:15', 0),
+(178, '2015-04-26', '', 2, '1', NULL, NULL, NULL, '2015-04-27 00:03:40', '2015-06-03 02:11:39', 0),
+(179, '2015-06-02', '', 2, '2', NULL, NULL, NULL, '2015-06-03 02:11:48', '2015-06-03 02:11:48', 0),
+(180, '2015-06-06', '', 2, '3', NULL, NULL, NULL, '2015-06-03 02:11:56', '2015-06-03 02:11:56', 0),
+(182, '2016-03-06', '', 1, 'Fecha 34', NULL, NULL, NULL, '2016-03-07 04:51:23', '2016-03-07 04:51:23', 0),
+(184, '2016-03-06', '', 4, 'fecha 78', NULL, NULL, NULL, '2016-03-07 05:23:27', '2016-03-07 05:23:27', 0),
+(185, '2016-03-08', '', 7, 'Fecha 1', NULL, NULL, NULL, '2016-03-10 01:27:52', '2016-03-10 01:27:52', 0),
+(186, '2016-03-09', '', 7, 'Fecha 2', NULL, NULL, NULL, '2016-03-10 01:28:06', '2016-03-10 01:28:06', 0),
+(187, '2016-03-09', '', 8, 'Fecha1', NULL, NULL, NULL, '2016-03-10 01:31:42', '2016-03-10 01:31:42', 0);
 
 -- --------------------------------------------------------
 
@@ -269,9 +274,9 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 --
 
 INSERT INTO `noticias` (`idnoticia`, `titulo`, `fecha`, `texto`, `mostrar_en_home`, `mostrar_en_seccion`, `updated_at`, `created_at`, `imagen`, `link`, `orden`) VALUES
-(1, 'Nueva Noticia', NULL, NULL, 1, 1, '2015-06-05 03:00:02', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', NULL, 1),
+(1, 'Nueva Noticia', NULL, NULL, 1, 1, '2015-06-05 03:00:02', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', NULL, 2),
 (2, 'Nueva', '', 'asdasdasdasd', 1, 1, '2015-06-05 03:00:19', '2015-06-05 02:17:03', 'imagen-noticia2.jpg', 'ssssssssss', 3),
-(3, 'noticia e4aasd', 'asd', 'asdasdasdfasdfasdf', 1, 1, '2016-02-20 22:52:07', '2016-02-20 22:52:07', NULL, 'asd', 2);
+(3, 'noticia e4aasd', 'asd', 'asdasdasdfasdfasdf', 1, 1, '2016-02-20 22:52:07', '2016-02-20 22:52:07', NULL, 'asd', 1);
 
 -- --------------------------------------------------------
 
@@ -289,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `partidos` (
   `hora` varchar(200) DEFAULT NULL,
   `orden_mostrar` varchar(45) DEFAULT NULL,
   `idarbitro` int(11) NOT NULL,
-  `idtorneo` int(11) NOT NULL,
+  `idzona` int(11) NOT NULL,
   `fue_jugado` int(11) DEFAULT '0',
   `puntos_local` int(11) DEFAULT '0',
   `puntos_visitante` int(11) DEFAULT '0',
@@ -302,36 +307,40 @@ CREATE TABLE IF NOT EXISTS `partidos` (
   `ganado_visitante` int(1) DEFAULT '0',
   `perdido_visitante` int(1) DEFAULT '0',
   PRIMARY KEY (`idpartido`),
-  UNIQUE KEY `NewIndex1` (`idfecha`,`idequipo_local`),
-  UNIQUE KEY `NewIndex2` (`idfecha`,`idequipo_visitante`),
   UNIQUE KEY `NewIndex3` (`idfecha`,`idequipo_local`,`idequipo_visitante`),
   KEY `fk_partido_fecha1_idx` (`idfecha`),
   KEY `fk_partido_equipo1_idx` (`idequipo_local`),
   KEY `fk_partido_equipo2_idx` (`idequipo_visitante`),
   KEY `fk_partido_arbitro1_idx` (`idarbitro`),
-  KEY `fk_partido_torneo` (`idtorneo`),
-  KEY `fk_partido_equipo1` (`idequipo_local`,`idtorneo`),
-  KEY `FK_partidos` (`idtorneo`,`idequipo_visitante`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+  KEY `fk_partido_torneo` (`idzona`),
+  KEY `fk_partido_equipo1` (`idequipo_local`,`idzona`),
+  KEY `FK_partidos` (`idzona`,`idequipo_visitante`),
+  KEY `FK_partidos_visitante` (`idequipo_visitante`,`idzona`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
 -- Volcado de datos para la tabla `partidos`
 --
 
-INSERT INTO `partidos` (`idpartido`, `idfecha`, `idequipo_local`, `idequipo_visitante`, `goles_local`, `goles_visitante`, `hora`, `orden_mostrar`, `idarbitro`, `idtorneo`, `fue_jugado`, `puntos_local`, `puntos_visitante`, `created_at`, `updated_at`, `empatado_local`, `ganado_local`, `perdido_local`, `empatado_visitante`, `ganado_visitante`, `perdido_visitante`) VALUES
-(7, 128, 27, 46, 0, 0, '14', NULL, 6, 7, 1, 1, 1, '2015-05-01 02:21:24', '2015-05-27 01:36:05', 0, 0, 0, 0, 0, 0),
-(8, 166, 25, 54, 2, 1, '', NULL, 6, 7, 1, 3, 0, '2015-05-14 00:42:23', '2015-05-27 00:20:30', 0, 0, 0, 0, 0, 0),
-(9, 166, 51, 46, 1, 0, '13:13', NULL, 6, 7, 1, 3, 0, '2015-05-27 01:30:31', '2015-05-27 01:31:58', 0, 0, 0, 0, 0, 0),
-(10, 166, 27, 27, NULL, NULL, '', NULL, 6, 7, 0, 0, 0, '2015-06-02 06:11:11', '2015-06-02 06:11:11', 0, 0, 0, 0, 0, 0),
-(11, 166, 36, 36, NULL, NULL, '', NULL, 6, 7, 0, 0, 0, '2015-06-02 06:11:17', '2015-06-02 06:11:17', 0, 0, 0, 0, 0, 0),
-(12, 168, 27, 27, NULL, NULL, '', NULL, 6, 7, 0, 0, 0, '2015-06-02 06:15:02', '2015-06-02 06:15:02', 0, 0, 0, 0, 0, 0),
-(13, 178, 53, 52, 2, 3, '12:15', NULL, 6, 15, 1, 0, 3, '2015-06-03 02:12:12', '2015-06-03 02:13:10', 0, 0, 0, 0, 0, 0),
-(14, 178, 15, 25, 1, 2, '14:50', NULL, 6, 15, 1, 0, 3, '2015-06-03 02:12:31', '2015-06-03 02:12:47', 0, 0, 0, 0, 0, 0),
-(15, 178, 23, 28, 1, 1, '16', NULL, 6, 15, 1, 1, 1, '2015-06-03 02:12:41', '2015-06-03 02:12:55', 0, 0, 0, 0, 0, 0),
-(16, 179, 53, 28, 1, 0, '12', NULL, 6, 15, 1, 3, 0, '2015-06-03 02:14:33', '2015-06-03 02:15:38', 0, 0, 0, 0, 0, 0),
-(17, 179, 15, 23, 1, 1, '', NULL, 6, 15, 1, 1, 1, '2015-06-03 02:14:46', '2015-06-03 02:32:13', 1, 0, 0, 1, 0, 0),
-(18, 179, 25, 52, 3, 2, '', NULL, 6, 15, 1, 3, 0, '2015-06-03 02:15:04', '2015-06-03 02:15:28', 0, 0, 0, 0, 0, 0),
-(19, 167, 25, 51, 0, 0, '', NULL, 6, 7, 1, 1, 1, '2015-06-12 02:45:22', '2015-06-12 02:45:27', 1, 0, 0, 1, 0, 0);
+INSERT INTO `partidos` (`idpartido`, `idfecha`, `idequipo_local`, `idequipo_visitante`, `goles_local`, `goles_visitante`, `hora`, `orden_mostrar`, `idarbitro`, `idzona`, `fue_jugado`, `puntos_local`, `puntos_visitante`, `created_at`, `updated_at`, `empatado_local`, `ganado_local`, `perdido_local`, `empatado_visitante`, `ganado_visitante`, `perdido_visitante`) VALUES
+(7, 128, 27, 46, 0, 0, '14', NULL, 6, 1, 1, 1, 1, '2015-05-01 02:21:24', '2015-05-27 01:36:05', 0, 0, 0, 0, 0, 0),
+(8, 166, 25, 54, 2, 1, '', NULL, 6, 1, 1, 3, 0, '2015-05-14 00:42:23', '2015-05-27 00:20:30', 0, 0, 0, 0, 0, 0),
+(9, 166, 51, 46, 1, 0, '13:13', NULL, 6, 1, 1, 3, 0, '2015-05-27 01:30:31', '2015-05-27 01:31:58', 0, 0, 0, 0, 0, 0),
+(10, 166, 27, 27, NULL, NULL, '', NULL, 6, 1, 0, 0, 0, '2015-06-02 06:11:11', '2015-06-02 06:11:11', 0, 0, 0, 0, 0, 0),
+(11, 166, 36, 36, NULL, NULL, '', NULL, 6, 1, 0, 0, 0, '2015-06-02 06:11:17', '2015-06-02 06:11:17', 0, 0, 0, 0, 0, 0),
+(12, 168, 27, 27, NULL, NULL, '', NULL, 6, 1, 0, 0, 0, '2015-06-02 06:15:02', '2015-06-02 06:15:02', 0, 0, 0, 0, 0, 0),
+(13, 178, 53, 52, 2, 3, '12:15', NULL, 6, 2, 1, 0, 3, '2015-06-03 02:12:12', '2015-06-03 02:13:10', 0, 0, 0, 0, 0, 0),
+(14, 178, 15, 25, 1, 2, '14:50', NULL, 6, 2, 1, 0, 3, '2015-06-03 02:12:31', '2015-06-03 02:12:47', 0, 0, 0, 0, 0, 0),
+(15, 178, 23, 28, 1, 1, '16', NULL, 6, 2, 1, 1, 1, '2015-06-03 02:12:41', '2015-06-03 02:12:55', 0, 0, 0, 0, 0, 0),
+(16, 179, 53, 28, 1, 0, '12', NULL, 6, 2, 1, 3, 0, '2015-06-03 02:14:33', '2015-06-03 02:15:38', 0, 0, 0, 0, 0, 0),
+(17, 179, 15, 23, 1, 1, '', NULL, 6, 2, 1, 1, 1, '2015-06-03 02:14:46', '2015-06-03 02:32:13', 1, 0, 0, 1, 0, 0),
+(18, 179, 25, 52, 3, 2, '', NULL, 6, 2, 1, 3, 0, '2015-06-03 02:15:04', '2015-06-03 02:15:28', 0, 0, 0, 0, 0, 0),
+(19, 167, 25, 51, 0, 0, '', NULL, 6, 1, 1, 1, 1, '2015-06-12 02:45:22', '2015-06-12 02:45:27', 1, 0, 0, 1, 0, 0),
+(21, 161, 25, 54, 1, 1, '13', NULL, 6, 1, 1, 1, 1, '2016-03-07 05:53:17', '2016-03-07 05:53:36', 1, 0, 0, 1, 0, 0),
+(25, 167, 54, 36, 1, 1, '12:20', NULL, 6, 1, 1, 1, 1, '2016-03-10 01:23:56', '2016-03-10 01:24:06', 1, 0, 0, 1, 0, 0),
+(26, 185, 61, 53, 0, 0, '12', NULL, 6, 7, 1, 1, 1, '2016-03-10 01:28:16', '2016-03-10 01:28:56', 1, 0, 0, 1, 0, 0),
+(27, 185, 52, 25, 0, 1, '', NULL, 6, 7, 1, 0, 3, '2016-03-10 01:28:30', '2016-03-10 01:28:37', 0, 0, 1, 0, 1, 0),
+(28, 187, 54, 58, 2, 0, '', NULL, 6, 8, 1, 3, 0, '2016-03-10 01:34:09', '2016-03-10 01:34:20', 0, 1, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -365,7 +374,13 @@ INSERT INTO `partido_has_jugador` (`idpartido`, `idjugador`, `goles_favor`, `gol
 (14, 815, 1, 0, 0, 0, 0, 0),
 (14, 816, 0, 0, 0, 1, 0, 0),
 (19, 814, 0, 0, 0, 1, 0, 0),
-(19, 816, 0, 0, 0, 4, 0, 0);
+(19, 816, 0, 0, 0, 4, 0, 0),
+(21, 814, 1, 0, 0, 0, 0, 0),
+(21, 817, 1, 0, 0, 0, 0, 0),
+(25, 817, 1, 0, 0, 0, 0, 0),
+(25, 818, 0, 1, 0, 0, 0, 0),
+(27, 814, 1, 0, 0, 0, 0, 0),
+(28, 817, 2, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -454,18 +469,22 @@ CREATE TABLE IF NOT EXISTS `torneos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL,
+  `tablas_x_torneo` tinyint(1) NOT NULL DEFAULT '0',
+  `estadisticas_x_torneo` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idtorneo`),
   KEY `idtipo_torneo_fk_idx` (`idtipo_torneo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Volcado de datos para la tabla `torneos`
 --
 
-INSERT INTO `torneos` (`idtorneo`, `nombre_torneo`, `observaciones_torneo`, `idtipo_torneo`, `fecha_baja`, `updated_at`, `created_at`, `deleted_at`, `imagen`) VALUES
-(7, 'Primera División', 'obs', 1, NULL, '2015-04-27 00:13:58', NULL, NULL, NULL),
-(15, 'Nuevo Torneo', '', 1, NULL, '2015-09-09 01:04:23', '2015-04-27 00:03:13', NULL, NULL),
-(16, 'caca', '', 1, NULL, '2015-09-09 02:18:46', '2015-09-09 02:18:46', NULL, NULL);
+INSERT INTO `torneos` (`idtorneo`, `nombre_torneo`, `observaciones_torneo`, `idtipo_torneo`, `fecha_baja`, `updated_at`, `created_at`, `deleted_at`, `imagen`, `tablas_x_torneo`, `estadisticas_x_torneo`) VALUES
+(7, 'Primera División', 'obs', 1, NULL, '2016-03-07 05:44:36', NULL, NULL, NULL, 0, 1),
+(15, 'Nuevo Torneo', '', 1, NULL, '2015-09-09 01:04:23', '2015-04-27 00:03:13', NULL, NULL, 0, 0),
+(16, 'caca', '', 1, NULL, '2015-09-09 02:18:46', '2015-09-09 02:18:46', NULL, NULL, 0, 0),
+(17, 'Zarpado', '', 1, NULL, '2016-03-07 02:29:58', '2016-03-07 02:29:58', NULL, NULL, 1, 0),
+(18, 'Torneo de Prueba', 'Zarpado torneo', 1, NULL, '2016-03-10 01:31:01', '2016-03-10 01:26:26', NULL, 'imagen-torneo18.png', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -474,32 +493,40 @@ INSERT INTO `torneos` (`idtorneo`, `nombre_torneo`, `observaciones_torneo`, `idt
 --
 
 CREATE TABLE IF NOT EXISTS `torneo_equipo` (
-  `torneo_idtorneo` int(11) NOT NULL,
   `equipo_idequipo` int(11) NOT NULL,
-  PRIMARY KEY (`torneo_idtorneo`,`equipo_idequipo`),
+  `zona_idzona` int(11) NOT NULL,
+  PRIMARY KEY (`equipo_idequipo`,`zona_idzona`),
   KEY `fk_torneo_has_equipo_equipo1_idx` (`equipo_idequipo`),
-  KEY `fk_torneo_has_equipo_torneo1_idx` (`torneo_idtorneo`)
+  KEY `FK_torneo_equipo` (`zona_idzona`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `torneo_equipo`
 --
 
-INSERT INTO `torneo_equipo` (`torneo_idtorneo`, `equipo_idequipo`) VALUES
-(15, 15),
-(15, 23),
-(7, 25),
-(15, 25),
-(7, 27),
-(15, 28),
-(7, 36),
-(7, 46),
-(15, 48),
-(7, 51),
-(15, 52),
-(15, 53),
-(7, 54),
-(7, 58);
+INSERT INTO `torneo_equipo` (`equipo_idequipo`, `zona_idzona`) VALUES
+(15, 2),
+(15, 4),
+(23, 2),
+(25, 1),
+(25, 2),
+(25, 7),
+(27, 1),
+(28, 2),
+(36, 1),
+(46, 1),
+(47, 1),
+(48, 2),
+(51, 1),
+(52, 2),
+(52, 7),
+(53, 2),
+(53, 7),
+(54, 1),
+(54, 8),
+(58, 1),
+(58, 8),
+(61, 7);
 
 -- --------------------------------------------------------
 
@@ -547,6 +574,38 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`idusuario`, `nombre_usuario`, `password`, `updated_at`, `created_at`) VALUES
 (2, 'liga', 'ribera2013', NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `zonas`
+--
+
+CREATE TABLE IF NOT EXISTS `zonas` (
+  `idzona` int(11) NOT NULL AUTO_INCREMENT,
+  `idtorneo` int(11) NOT NULL,
+  `nombre` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL,
+  `orden` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idzona`),
+  KEY `FK_zonas` (`idtorneo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=9 ;
+
+--
+-- Volcado de datos para la tabla `zonas`
+--
+
+INSERT INTO `zonas` (`idzona`, `idtorneo`, `nombre`, `deleted_at`, `created_at`, `updated_at`, `orden`) VALUES
+(1, 7, 'Zona A', NULL, '2015-04-27 00:13:58', '2015-04-27 00:13:58', 0),
+(2, 15, 'Zona A', NULL, '2015-04-21 00:12:00', '2015-04-21 00:12:00', 0),
+(3, 16, 'Zona A', NULL, '2015-04-21 00:12:00', '2015-04-21 00:12:00', 0),
+(4, 7, 'Zona b', NULL, '2015-04-21 00:12:00', '2015-02-21 00:21:00', 0),
+(5, 7, 'Zona C', NULL, '2016-03-07 06:03:14', '2016-03-07 06:03:14', 3),
+(6, 7, 'Zona D', NULL, '2016-03-07 06:03:45', '2016-03-07 06:03:45', 4),
+(7, 18, 'Zona A', NULL, '2016-03-10 01:26:41', '2016-03-10 01:26:41', 0),
+(8, 18, 'Zona B', NULL, '2016-03-10 01:27:04', '2016-03-10 01:27:04', 1);
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -555,7 +614,7 @@ INSERT INTO `usuarios` (`idusuario`, `nombre_usuario`, `password`, `updated_at`,
 -- Filtros para la tabla `fechas`
 --
 ALTER TABLE `fechas`
-  ADD CONSTRAINT `fk_fecha_torneo1` FOREIGN KEY (`idtorneo`) REFERENCES `torneos` (`idtorneo`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_fechas` FOREIGN KEY (`idzona`) REFERENCES `zonas` (`idzona`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `imagenes`
@@ -573,11 +632,11 @@ ALTER TABLE `jugadores`
 -- Filtros para la tabla `partidos`
 --
 ALTER TABLE `partidos`
-  ADD CONSTRAINT `FK_partidos` FOREIGN KEY (`idtorneo`, `idequipo_visitante`) REFERENCES `torneo_equipo` (`torneo_idtorneo`, `equipo_idequipo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_partido_fecha1` FOREIGN KEY (`idfecha`) REFERENCES `fechas` (`idfecha`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_partidos` FOREIGN KEY (`idzona`) REFERENCES `zonas` (`idzona`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_partidos_arbitros` FOREIGN KEY (`idarbitro`) REFERENCES `arbitros` (`idarbitro`),
-  ADD CONSTRAINT `FK_partidos_torneo` FOREIGN KEY (`idtorneo`) REFERENCES `torneos` (`idtorneo`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_partido_equipo1` FOREIGN KEY (`idequipo_local`, `idtorneo`) REFERENCES `torneo_equipo` (`equipo_idequipo`, `torneo_idtorneo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_partido_fecha1` FOREIGN KEY (`idfecha`) REFERENCES `fechas` (`idfecha`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_partidos_local` FOREIGN KEY (`idequipo_local`, `idzona`) REFERENCES `torneo_equipo` (`equipo_idequipo`, `zona_idzona`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_partidos_visitante` FOREIGN KEY (`idequipo_visitante`, `idzona`) REFERENCES `torneo_equipo` (`equipo_idequipo`, `zona_idzona`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `partido_has_jugador`
@@ -596,8 +655,14 @@ ALTER TABLE `torneos`
 -- Filtros para la tabla `torneo_equipo`
 --
 ALTER TABLE `torneo_equipo`
-  ADD CONSTRAINT `fk_torneo_has_equipo_equipo1` FOREIGN KEY (`equipo_idequipo`) REFERENCES `equipos` (`idequipo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_torneo_has_equipo_torneo1` FOREIGN KEY (`torneo_idtorneo`) REFERENCES `torneos` (`idtorneo`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_torneo_has_equipo_equipo1` FOREIGN KEY (`equipo_idequipo`) REFERENCES `equipos` (`idequipo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_torneo_equipo` FOREIGN KEY (`zona_idzona`) REFERENCES `zonas` (`idzona`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `zonas`
+--
+ALTER TABLE `zonas`
+  ADD CONSTRAINT `FK_zonas` FOREIGN KEY (`idtorneo`) REFERENCES `torneos` (`idtorneo`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

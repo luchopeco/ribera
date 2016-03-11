@@ -1,7 +1,7 @@
         @extends('admin.masterAdmin')
 
         @section('title')
-        <h1>Fecha: {{$fecha->numero_fecha}}<small> Torneo : {{$fecha->Torneo->nombre_torneo}} - {{$fecha->Torneo->TipoTorneo->nombre_tipo_torneo}}</small></h1>
+        <h1>Fecha: {{$fecha->numero_fecha}}<small> Torneo : {{$fecha->Torneo->nombre_torneo}} - {{$fecha->Torneo->TipoTorneo->nombre_tipo_torneo}} - Zona: {{$fecha->Zona->nombre}}</small></h1>
         @endsection
 
         @section('breadcrumb')

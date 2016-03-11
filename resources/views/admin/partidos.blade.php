@@ -1,13 +1,14 @@
         @extends('admin.masterAdmin')
 
         @section('title')
-        <h1>Torneo: {{$fecha->Torneo->nombre_torneo}} - {{$fecha->Torneo->TipoTorneo->nombre_tipo_torneo}} - Fecha: {{$fecha->numero_fecha}}<small > </small></h1>
+        <h1>Torneo: {{$fecha->Torneo->nombre_torneo}} - {{$fecha->Torneo->TipoTorneo->nombre_tipo_torneo}} - Zona: {{$fecha->Zona->nombre}} - Fecha: {{$fecha->numero_fecha}}<small > </small></h1>
         @endsection
 
         @section('breadcrumb')
         <li><a href="/admin/home"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="/admin/torneos"><i class="fa fa-trophy"></i> Torneos</a></li>
         <li><a href="/admin/torneos/{{$fecha->Torneo->idtorneo}}"><i class="fa fa-trophy"></i>{{$fecha->Torneo->nombre_torneo}}- {{$fecha->Torneo->TipoTorneo->nombre_tipo_torneo}}</a></li>
+        <li><a href="/admin/zonas/{{$fecha->Zona->idzona}}"><i class="fa fa-trophy"></i>{{$fecha->Zona->nombre}}</a></li>
         @endsection
 
         @section('content')
@@ -91,7 +92,7 @@
                                          <div class=" panel-body">
                                           <div clas="row">
                                               <div class="col-md-12">
-                                                {!!Form::Text('idtorneo',$fecha->idtorneo,['class'=>'hidden'])!!}
+                                                {!!Form::Text('idzona',$fecha->idzona,['class'=>'hidden'])!!}
                                                 {!!Form::Text('idfecha',$fecha->idfecha,['class'=>'hidden'])!!}
                                                 Hora
                                                 {!!Form::Text('hora',null,['class'=>' form-control'])!!}
@@ -130,7 +131,7 @@
                                   <div clas="row">
                                       <div class="col-md-12">
                                         {!!Form::Text('idpartido',null,['class'=>'hidden','id'=>'idpartidoU'])!!}
-                                        {!!Form::Text('idtorneo',null,['class'=>'hidden','id'=>'idtorneoU'])!!}
+                                        {!!Form::Text('idzona',null,['class'=>'hidden','id'=>'idzonaU'])!!}
                                         {!!Form::Text('idfecha',null,['class'=>'hidden','id'=>'idfechaU'])!!}
                                         Hora
                                         {!!Form::Text('hora',null,['class'=>' form-control','id'=>'horaU'])!!}
@@ -168,7 +169,7 @@
                                 <div class=" panel-body">
                                     <div clas="row">
                                         {!!Form::Text('idpartido',null,['class'=>'hidden','id'=>'idpartidoR'])!!}
-                                        {!!Form::Text('idtorneo',null,['class'=>'hidden','id'=>'idtorneoR'])!!}
+                                        {!!Form::Text('idzona',null,['class'=>'hidden','id'=>'idzonaR'])!!}
                                         {!!Form::Text('idfecha',null,['class'=>'hidden','id'=>'idfechaR'])!!}
                                     </div>
                                     <div class="row">
@@ -270,7 +271,7 @@
                                 .done(function(response){
                                         //alert(response.datos.titulo);
                                          $('#idpartidoU').val(response.datos.idpartido);
-                                        $('#idtorneoU').val(response.datos.idtorneo);
+                                        $('#idzonaU').val(response.datos.idzona);
                                         $('#idfechaU').val(response.datos.idfecha);
                                         $('#horaU').val(response.datos.hora);
                                         $('#idequipo_localU').val(response.datos.idequipo_local);
@@ -294,7 +295,7 @@
                 .done(function(response){
                         //alert(response.datos.titulo);
                          $('#idpartidoR').val(response.datos.idpartido);
-                        $('#idtorneoR').val(response.datos.idtorneo);
+                        $('#idzonaR').val(response.datos.idzona);
                         $('#idfechaR').val(response.datos.idfecha);
                         $('#horaR').val(response.datos.hora);
                         $('#idequipo_localR').val(response.datos.idequipo_local);

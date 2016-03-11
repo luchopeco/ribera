@@ -70,7 +70,7 @@
                         	<ul class="nav nav-tabs">
                         	<?php $cont=0; ?>
                         	 @foreach($listTorneos as $torneo)
-                        	  <li <?php if($cont==0){ echo "class='active'"; }?> ><a href="#tab_{{$torneo->idtorneo}}" data-toggle="tab">{{$torneo->nombre_torneo}} ({{$torneo->ListEquipos->count()}})</a></li>
+                        	  <li <?php if($cont==0){ echo "class='active'"; }?> ><a href="#tab_{{$torneo->idtorneo}}" data-toggle="tab">{{$torneo->nombre_torneo}} ({{$torneo->ListEquipos()->count()}})</a></li>
                         	   <?php $cont=$cont+1; ?>
                         	 @endforeach
                         	 <li><a href="#tab_0" data-toggle="tab">Equipos Sin Torneo ({{$listEquipos->count() }})</a></li>
@@ -90,7 +90,7 @@
                                                 <th>Mensaje</th>
                                                 <th>Libre</th>
                                             </tr>
-                                            @foreach($torneo->ListEquipos as $equipo)
+                                            @foreach($torneo->ListEquipos() as $equipo)
                                                 <tr >
                                                     <td>{{$equipo->nombre_equipo}}</td>
                                                     <td>{{$equipo->ListJugadores()->count()}}</td>

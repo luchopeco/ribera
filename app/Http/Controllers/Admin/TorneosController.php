@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use torneo\TipoTorneo;
 use torneo\Torneo;
 use torneo\User;
+use torneo\Zona;
 
 class TorneosController extends Controller {
 
@@ -57,6 +58,16 @@ class TorneosController extends Controller {
 	{
         try{
             $torneo = new Torneo($request->all());
+            if ($request->tablas_x_torneo<> null) {
+                $torneo->tablas_x_torneo = 1;
+            } else {
+                $torneo->tablas_x_torneo  = 0;
+            }
+            if ($request->estadisticas_x_torneo<> null) {
+                $torneo->estadisticas_x_torneo = 1;
+            } else {
+                $torneo->estadisticas_x_torneo  = 0;
+            }
             $torneo->save();
 
             Session::flash('mensajeOk', 'Torneo Agregado con Exito');
@@ -74,7 +85,6 @@ class TorneosController extends Controller {
         $ar = Torneo::withTrashed()->where('idtorneo', $request->idtorneo)->first();
         $response = array(
             "result" => true,
-            "mensaje" => "No se pudo realizar la operacion",
             "datos" => $ar
         );
         return json_encode($response, JSON_HEX_QUOT | JSON_HEX_TAG);
@@ -127,6 +137,18 @@ class TorneosController extends Controller {
             $ar->nombre_torneo = $request->nombre_torneo;
             $ar->observaciones_torneo = $request->observaciones_torneo;
             $ar->idtipo_torneo = $request->idtipo_torneo;
+            if ($request->tablas_x_torneo<> null) {
+                $ar->tablas_x_torneo = 1;
+            } else {
+                $ar->tablas_x_torneo  = 0;
+            }
+            if ($request->estadisticas_x_torneo<> null) {
+                $ar->estadisticas_x_torneo = 1;
+            } else {
+                $ar->estadisticas_x_torneo  = 0;
+            }
+
+
             $ar->save();
 
             Session::flash('mensajeOk', 'Torneo Modificado con Exito');
@@ -165,33 +187,37 @@ class TorneosController extends Controller {
     public function storeequipo(Request $request)
     {
         try {
-            $torneo =Torneo::withTrashed()->where('idtorneo', $request->idtorneo)->first();
+            $z =Zona::findOrFail($request->idzona);
             $equipo = Equipo::find($request->idequipo);
-            $torneo->ListEquipos()->attach($equipo);
+            $z->ListEquipos()->attach($equipo);
 
             Session::flash('mensajeOk', 'Equipo Agregado con Exito');
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //return Redirect::route('admin.torneos.show',array($request->idtorneo));
 
         } catch (QueryException  $ex) {
 
             Session::flash('mensajeError', $ex->getMessage());
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //return Redirect::route('admin.torneos.show',array($request->idtorneo));
         }
     }
     public function destroyequipo(Request $request)
     {
         try {
-            $torneo = Torneo::withTrashed()->where('idtorneo', $request->idtorneo)->first();
+            $z =Zona::findOrFail($request->idzona);
             $equipo = Equipo::find($request->idequipo);
-            $torneo->ListEquipos()->detach($equipo);
+            $z->ListEquipos()->detach($equipo);
 
             Session::flash('mensajeOk', 'Equipo Eliminado con Exito');
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //return Redirect::route('admin.torneos.show',array($request->idtorneo));
 
         } catch (QueryException  $ex) {
 
             Session::flash('mensajeError', $ex->getMessage());
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //return Redirect::route('admin.torneos.show',array($request->idtorneo));
         }
     }
 

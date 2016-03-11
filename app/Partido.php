@@ -8,13 +8,19 @@ class Partido extends Model{
     protected $table='partidos';
 
     protected $fillable = ['idpartido','idfecha','idequipo_local','idequipo_visitante','goles_local',
-        'goles_visitante','hora','idarbitro','idtorneo',];
+        'goles_visitante','hora','idarbitro','idzona'];
 
     protected $primaryKey = 'idpartido';
 
+    public function Zona()
+    {
+        return $this->hasOne('torneo\Zona', 'idzona','idzona');
+    }
+
     public function Torneo()
     {
-        return $this->hasOne('torneo\Torneo', 'idtorneo','idtorneo');
+
+        return $this->Zona->Torneo();
     }
 
     public function Fecha()

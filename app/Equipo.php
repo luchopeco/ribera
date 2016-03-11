@@ -43,22 +43,30 @@ class Equipo extends Model{
 
     public function ListTorneosParaCombo()
     {
-        $tabla = DB::select(DB::raw("SELECT t.idtorneo, t.nombre_torneo FROM torneos t INNER JOIN torneo_equipo te ON te.torneo_idtorneo = t.idtorneo
+        $tabla = DB::select(DB::raw("SELECT t.idtorneo, t.nombre_torneo FROM torneos t INNER JOIN zonas z on z.idtorneo = t.idtorneo
+                                        INNER JOIN torneo_equipo te ON te.zona_idzona= z.idzona
                                         WHERE te.equipo_idequipo = :p1
                                         ORDER BY t.deleted_at ASC , t.created_at DESC"), array('p1' => $this->idequipo));
         return $tabla;
     }
 
+    public function ListZonas()
+    {
+        return $this->belongsToMany('torneo\Zona','torneo_equipo','equipo_idequipo','zona_idzona')->orderBy('nombre');
+    }
     public function ListTorneos()
     {
-        return $this->belongsToMany('torneo\Torneo','torneo_equipo','equipo_idequipo','torneo_idtorneo')->orderBy('nombre_torneo');
+        return $this->hasManyThrough('torneo\Torneo', 'torneo\Zona', 'idtorneo', 'idzona');
+        return $this->belongsToMany('torneo\Torneo','torneo\Zona','equipo_idequipo','torneo_idtorneo')->orderBy('nombre_torneo');
+
     }
 
     public static  function EquiposSinInscripcion()
     {
         $tabla = DB::select(DB::raw("SELECT e.idequipo, e.nombre_equipo  FROM equipos e
                                         WHERE e.idequipo NOT IN
-                                        ( SELECT te.equipo_idequipo FROM torneo_equipo te INNER JOIN torneos t ON t.idtorneo = te.torneo_idtorneo
+                                        ( SELECT DISTINCT te.equipo_idequipo FROM torneo_equipo te INNER JOIN zonas z on z.idzona = te.zona_idzona
+                                          INNER JOIN torneos t ON t.idtorneo = z.idtorneo
                                           WHERE t.deleted_at IS NULL)
                                         ORDER BY e.nombre_equipo"));
         return $tabla;

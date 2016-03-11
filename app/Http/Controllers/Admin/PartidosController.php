@@ -51,12 +51,14 @@ class PartidosController extends Controller {
             $partido->save();
 
             Session::flash('mensajeOk', 'Partido Agregado con Exito');
-            return Redirect::route('admin.fechas.show',$request->idfecha);
+            return back();
+            //return Redirect::route('admin.fechas.show',$request->idfecha);
         }
         catch(QueryException  $ex)
         {
             Session::flash('mensajeError', $ex->getMessage());
-            return Redirect::route('admin.fechas.show',$request->idfecha);
+            return back();
+            //return Redirect::route('admin.fechas.show',$request->idfecha);
         }
 	}
 

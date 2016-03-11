@@ -1,13 +1,14 @@
         @extends('admin.masterAdmin')
 
         @section('title')
-        <h1> Resultado <small> ({{$partido->EquipoLocal->nombre_equipo}} vs {{$partido->EquipoVisitante->nombre_equipo}}) - {{$partido->Torneo->nombre_torneo}} - {{$partido->Torneo->TipoTorneo->nombre_tipo_torneo}} - Fecha: {{$partido->Fecha->numero_fecha}}</small></h1>
+        <h1> Resultado <small> {{$partido->Torneo->nombre_torneo}} - {{$partido->Torneo->TipoTorneo->nombre_tipo_torneo}} - Zona: {{$partido->Zona->nombre}} - Fecha: {{$partido->Fecha->numero_fecha}}</small></h1>
         @endsection
 
         @section('breadcrumb')
         <li><a href="/admin/home"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="/admin/torneos"><i class="fa fa-trophy"></i> Torneos</a></li>
         <li><a href="/admin/torneos/{{$partido->Torneo->idtorneo}}"><i class="fa fa-trophy"></i>{{$partido->Torneo->nombre_torneo}}- {{$partido->Torneo->TipoTorneo->nombre_tipo_torneo}}</a></li>
+        <li><a href="/admin/zonas/{{$partido->Fecha->Zona->idzona}}"><i class="fa fa-trophy"></i>{{$partido->Fecha->Zona->nombre}}</a></li>
         <li><a href="/admin/fechas/{{$partido->Fecha->idfecha}}"><i class="fa fa-calendar"></i>Fecha - {{$partido->Fecha->numero_fecha}}</a></li>
         @endsection
 

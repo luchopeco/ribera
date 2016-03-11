@@ -55,6 +55,8 @@
                                     <th>Torneo</th>
                                     <th>Tipo Torneo</th>
                                       <th>Observaciones</th>
+                                      <th title="Calcular Tabla de Posiciones Por Torneo. O por Zona">Tab.x.Torneo</th>
+                                      <th title="Calcular Goleadores y Sancionados Por Torneo. O por Zona">Estad.x.Torneo</th>
                                       <th>Activo</th>
                                 </tr>
                                 @foreach($listTorneos as $torneo)
@@ -62,6 +64,8 @@
                                         <td>{{$torneo->nombre_torneo}}</td>
                                         <td>{{$torneo->TipoTorneo->nombre_tipo_torneo}}</td>
                                         <td>{{$torneo->observaciones_torneo}}</td>
+                                        <td>{{$torneo->TablasXTorneo()}}</td>
+                                        <td>{{$torneo->EstadisticasXTorneo()}}</td>
                                         <td>{{$torneo->Activo()}}</td>
                                         <td><a href="torneos/{{$torneo->idtorneo}}"  class="btn btn-xs btn-primary" data-idtorneo="{{$torneo->idtorneo}}"  title="Configurar Torneo"><i class="fa fa-cog"></i></a></td>
                                         <td><a href="#"  class="btn btn-xs btn-info editar" data-idtorneo="{{$torneo->idtorneo}}"  title="Editar"> <i class=" fa fa-edit"></i></a></td>
@@ -88,25 +92,30 @@
                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                   <h4 class="modal-title" id="myModalLabel">Agregando Torneo</h4>
                               </div>
-                              <div class="modal-body"><div class=" panel panel-info">
-                              <div class=" panel-heading">Torneo</div>
-                                 <div class=" panel-body">
-                                  <div clas="row">
-                                      <div class="col-md-12">
-                                        <div class="form-group">
-                                            Nombre
-                                            {!!Form::Text('nombre_torneo',null,['class'=>' form-control','required'])!!}
-                                            <span class="help-block with-errors"></span>
+                              <div class="modal-body">
+                                  <div class=" panel panel-info">
+                                    <div class=" panel-heading">Torneo</div>
+                                    <div class=" panel-body">
+                                        <div clas="row">
+                                            <div class="col-md-12">
+                                            <div class="form-group">
+                                                Nombre
+                                                {!!Form::Text('nombre_torneo',null,['class'=>' form-control','required'])!!}
+                                                <span class="help-block with-errors"></span>
+                                            </div>
+                                            Tipo Torneo
+                                            {!!Form::select('idtipo_torneo', $listTipoToneo,null,array('class' => 'form-control'))!!}
+                                            Observaciones
+                                            {!!Form::Text('observaciones_torneo',null,['class'=>' form-control'])!!}
+                                            Tabla de Posiciones por Torneo
+                                            <div>{!!Form::checkbox('tablas_x_torneo','0',false)!!}</div>
+                                            Estadisticas por Torneo (Goleadores y sancionados)
+                                            <div>{!!Form::checkbox('estadisticas_x_torneo','0',false)!!}</div>
+                                          </div>
                                         </div>
-
-                                        Tipo Torneo
-                                        {!!Form::select('idtipo_torneo', $listTipoToneo,null,array('class' => 'form-control'))!!}
-                                        Observaciones
-                                        {!!Form::Text('observaciones_torneo',null,['class'=>' form-control'])!!}
-                                      </div>
-                                   </div>
+                                    </div>
+                                  </div>
                               </div>
-                         </div></div>
                               <div class="modal-footer">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                   {!!Form::submit('Aceptar', array('class' => 'btn btn-success'))!!}
@@ -126,25 +135,30 @@
                             <h4 class="modal-title" id="myModalLabel">Modificando Torneo</h4>
                         </div>
                         <div class="modal-body">
-                                <div class=" panel panel-default">
+                            <div class=" panel panel-default">
                                 <div class=" panel-heading">Torneo</div>
-                                     <div class=" panel-body">
-                                         <div class="row">
-                                              <div class="col-md-12">
-                                                    {!!Form::Text('idtorneo',null,['class'=>' hidden form-control','id'=>'idtorneoU'])!!}
-                                                    <div class="form-group">
-                                                        Torneo
-                                                        {!!Form::Text('nombre_torneo',null,['class'=>' form-control','id'=>'nombre_torneoU','required'])!!}
-                                                        <span class="help-block with-errors"></span>
-                                                    </div>
-                                                    Tipo Torneo
-                                                    {!!Form::select('idtipo_torneo', $listTipoToneo,null,array('class' => 'form-control','id'=>'idtipo_torneoU'))!!}
-                                                    Observaciones
-                                                    {!!Form::Text('observaciones_torneo',null,['class'=>' form-control','id'=>'observaciones_torneoU'])!!}
-                                              </div>
-                                         </div>
+                                 <div class=" panel-body">
+                                     <div class="row">
+                                          <div class="col-md-12">
+                                                {!!Form::Text('idtorneo',null,['class'=>' hidden form-control','id'=>'idtorneoU'])!!}
+                                                <div class="form-group">
+                                                    Torneo
+                                                    {!!Form::Text('nombre_torneo',null,['class'=>' form-control','id'=>'nombre_torneoU','required'])!!}
+                                                    <span class="help-block with-errors"></span>
+                                                </div>
+                                                Tipo Torneo
+                                                {!!Form::select('idtipo_torneo', $listTipoToneo,null,array('class' => 'form-control','id'=>'idtipo_torneoU'))!!}
+                                                Observaciones
+                                                {!!Form::Text('observaciones_torneo',null,['class'=>' form-control','id'=>'observaciones_torneoU'])!!}
+                                                 Tabla de Posiciones por Torneo
+                                                <div>{!!Form::checkbox('tablas_x_torneo','0',false,['id'=>'tablas_x_torneoU'])!!}</div>
+                                                Estadisticas por Torneo (Goleadores y sancionados)
+                                                <div>{!!Form::checkbox('estadisticas_x_torneo','0',false,['id'=>'estadisticas_x_torneoU'])!!}</div>
+                                          </div>
                                      </div>
-                                </div>
+                                 </div>
+                            </div>
+                        </div>
                         <div class="modal-footer">
                             <div class="row ">
                                 <div class="col-md-12">
@@ -159,38 +173,37 @@
                 </div>
                 <!-- /.modal-dialog -->
           </div>
-        </div>
         <div class="modal fade" id="modalTorneoBaja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                           <div class="modal-content">
-                              {!!Form::open(['url'=>['admin/torneos/baja'],'method'=>'POST'])!!}
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h4 class="modal-title" id="myModalLabel">Dando de Baja el Torneo</h4>
-                                </div>
-                                <div class="modal-body">
-                                       <div class="row">
-                                            <div class="col-md-12">
-                                                {!!Form::Text('idtorneo',null,['class'=>'hidden','id'=>'idtorneoB'])!!}
-                                                <h3>¿Desea dar de baja el Torneo?</h3>
-                                                <p class=" text-danger">El torneo no se mostrara en la web publica. Luego puede activar el torneo nuevamente</p>
-                                            </div>
-                                       </div>
-                                <div class="modal-footer">
-                                    <div class="row ">
-                                        <div class="col-md-12">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                            {!!Form::submit('Aceptar', array('class' => 'btn btn-success'))!!}
-                                        </div>
-                                    </div>
-                                </div>
-                              {!! Form::close() !!}
-                           </div>
-                            <!-- /.modal-content -->
+                <div class="modal-dialog">
+                   <div class="modal-content">
+                      {!!Form::open(['url'=>['admin/torneos/baja'],'method'=>'POST'])!!}
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Dando de Baja el Torneo</h4>
                         </div>
-                        <!-- /.modal-dialog -->
-                  </div>
+                        <div class="modal-body">
+                               <div class="row">
+                                    <div class="col-md-12">
+                                        {!!Form::Text('idtorneo',null,['class'=>'hidden','id'=>'idtorneoB'])!!}
+                                        <h3>¿Desea dar de baja el Torneo?</h3>
+                                        <p class=" text-danger">El torneo no se mostrara en la web publica. Luego puede activar el torneo nuevamente</p>
+                                    </div>
+                               </div>
+                        <div class="modal-footer">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    {!!Form::submit('Aceptar', array('class' => 'btn btn-success'))!!}
+                                </div>
+                            </div>
+                        </div>
+                      {!! Form::close() !!}
+                   </div>
+                    <!-- /.modal-content -->
                 </div>
+                <!-- /.modal-dialog -->
+          </div>
+        </div>
         <div class="modal fade" id="modalTorneoAlta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -223,36 +236,36 @@
             <!-- /.modal-dialog -->
         </div>
         <div class="modal fade" id="modalTorneoEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            {!!Form::open(['route'=>['admin.torneos.destroy'],'method'=>'DELETE'])!!}
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h4 class="modal-title" id="myModalLabel">Eliminando el Torneo</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            {!!Form::Text('idtorneo',null,['class'=>'hidden','id'=>'idtorneoD'])!!}
-                                            <h3>¿Desea Eliminar el Torneo?</h3>
-                                            <p class=" text-danger">El torneo no se podra recuperar y se perdera todo su contenido</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="row ">
-                                        <div class="col-md-12">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                            {!!Form::submit('Eliminar', array('class' => 'btn btn-success'))!!}
-                                        </div>
-                                    </div>
-                                </div>
-                            {!! Form::close() !!}
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    {!!Form::open(['route'=>['admin.torneos.destroy'],'method'=>'DELETE'])!!}
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Eliminando el Torneo</h4>
                         </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {!!Form::Text('idtorneo',null,['class'=>'hidden','id'=>'idtorneoD'])!!}
+                                    <h3>¿Desea Eliminar el Torneo?</h3>
+                                    <p class=" text-danger">El torneo no se podra recuperar y se perdera todo su contenido</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    {!!Form::submit('Eliminar', array('class' => 'btn btn-success'))!!}
+                                </div>
+                            </div>
+                        </div>
+                    {!! Form::close() !!}
                 </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
         @endsection
         @section('script')
         <script>
@@ -270,13 +283,28 @@
                         //alert(response.datos.nombre_torneo);
                         $('#nombre_torneoU').val(response.datos.nombre_torneo);
                         $('#idtorneoU').val(response.datos.idtorneo);
-                         $('#idtipo_torneoU').val(response.datos.idtipo_torneo);
-                          $('#observaciones_torneoU').val(response.datos.observaciones_torneo);
+                        $('#idtipo_torneoU').val(response.datos.idtipo_torneo);
+                        $('#observaciones_torneoU').val(response.datos.observaciones_torneo);
+
+                        if(response.datos.tablas_x_torneo==1){
+                        $('#tablas_x_torneoU').prop('checked',true);
+                        }
+                        else{
+                        $('#tablas_x_torneoU').prop('checked',false);
+                        }
+
+                        if(response.datos.estadisticas_x_torneo==1){
+                        $('#estadisticas_x_torneoU').prop('checked',true);
+                        }
+                        else{
+                        $('#estadisticas_x_torneoU').prop('checked',false);
+                        }
+
                         $("#modalTorneoModificar").modal("show");
                     })
-                    .fail(function(){
-                        alert(id_articulo);
-                    });
+                .fail(function(){
+                    alert(id_articulo);
+                });
             });
             $('body').on('click', '.baja', function (event) {
                 event.preventDefault();

@@ -70,13 +70,15 @@ class FechasController extends Controller {
             $fech->save();
 
             Session::flash('mensajeOk', 'Fecha Agregada con Exito');
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //Redirect::route('admin.torneos.show',array($request->idtorneo));
         }
         catch(QueryException  $ex)
         {
 
             Session::flash('mensajeError', $ex->getMessage());
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //Redirect::route('admin.torneos.show',array($request->idtorneo));
         }
 	}
 
@@ -96,7 +98,7 @@ class FechasController extends Controller {
             Session::flash('mensajeError','El Torneo se encuentra inactivo. No puede Gestionar sus partidos');
             return redirect()->route('admin.torneos.index');
         }
-        $listEquipos = $fecha->Torneo->ListEquipos->lists('nombre_equipo', 'idequipo');
+        $listEquipos = $fecha->Zona->ListEquipos()->lists('nombre_equipo', 'idequipo');
         $listArbitros= Arbitro::all()->lists('nombre','idarbitro');
         return view('admin.partidos', compact('fecha','listEquipos','listArbitros'));
 	}
@@ -267,12 +269,14 @@ class FechasController extends Controller {
             $ar->save();
 
             Session::flash('mensajeOk', 'Fecha Modificada con Exito');
-            return Redirect::route('admin.torneos.show',array($ar->idtorneo));
+            return back();
+            //Redirect::route('admin.torneos.show',array($ar->idtorneo));
         }
         catch(QueryException  $ex)
         {
             Session::flash('mensajeError', $ex->getMessage());
-            return Redirect::route('admin.torneos.show',array($ar->idtorneo));
+            return back();
+            //return Redirect::route('admin.torneos.show',array($ar->idtorneo));
         }
 	}
 
@@ -288,12 +292,14 @@ class FechasController extends Controller {
         {
             Fecha::destroy($request->idfecha);
             Session::flash('mensajeOk', 'Fecha Eliminada con Exito');
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //return Redirect::route('admin.torneos.show',array($request->idtorneo));
         }
         catch(QueryException  $ex)
         {
             Session::flash('mensajeError', $ex->getMessage());
-            return Redirect::route('admin.torneos.show',array($request->idtorneo));
+            return back();
+            //return Redirect::route('admin.torneos.show',array($request->idtorneo));
         }
 	}
 
