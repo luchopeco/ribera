@@ -37,7 +37,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     text-transform: uppercase;
     font-weight: 700
 }
@@ -147,7 +147,8 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-default .navbar-brand {
     color: #fed136;
-    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive
+
+    /*font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive*/
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
@@ -170,9 +171,9 @@ fieldset[disabled] .btn-xl.active {
     background-color: #fed136
 }
 .navbar-default .nav li a {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 1px;
     color: #fff
 }
@@ -194,27 +195,32 @@ fieldset[disabled] .btn-xl.active {
 @media (min-width: 768px) {
     .navbar-default {
         background-color: transparent;
-        padding: 25px 0;
+       padding: 10px 0;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
-        border: 0
+        border: 0;
+
     }
     .navbar-default .navbar-brand {
         font-size: 2em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
-        transition: all .3s
+        transition: all .3s;
+
     }
     .navbar-default .navbar-nav>.active>a {
         border-radius: 3px
     }
     .navbar-default.navbar-shrink {
         background-color: #222;
-        padding: 10px 0
+        padding: 0px 0;
+
     }
     .navbar-default.navbar-shrink .navbar-brand {
-        font-size: 1.5em
+
+        font-size: 1.5em;
+
     }
 }
 header {
@@ -227,7 +233,8 @@ header {
     background-size: cover;
     -o-background-size: cover;
     text-align: center;
-    color: #fff
+    color: #ffffff; !important;
+
 }
 header .intro-text {
     padding-top: 100px;
@@ -243,7 +250,7 @@ header .intro-text .intro-lead-in {
 header .intro-text .intro-heading {
     /*font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;*/
-    font-weight: 700;
+    font-weight: bold;
     font-size: 50px;
     line-height: 50px;
     margin-bottom: 25px
@@ -254,8 +261,8 @@ header .intro-text .intro-heading {
         padding-bottom: 200px
     }
     header .intro-text .intro-lead-in {
-        font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-style: italic;
+       /* font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: italic;*/
         font-size: 40px;
         line-height: 40px;
         margin-bottom: 25px
@@ -270,7 +277,9 @@ header .intro-text .intro-heading {
     }
 }
 section {
-    padding: 100px 0
+    padding: 50px 0;
+    color: #ffffff;
+
 }
 section h2.section-heading {
     font-size: 40px;
@@ -279,7 +288,7 @@ section h2.section-heading {
 }
 section h3.section-subheading {
     font-size: 16px;
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     text-transform: none;
     font-style: italic;
     font-weight: 400;
@@ -725,3 +734,4 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #fed136
 }
+

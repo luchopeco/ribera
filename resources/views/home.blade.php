@@ -16,58 +16,55 @@
 @endsection
 
 @section('content')
-   <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">BIENVENIDOS A </h2>
-                    <h2 class="section-heading">LIGA LA RIBERA</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+
+<header>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <div class="intro-text">
+                    <div><h1>BIENVENIDOS A</h1></div>
+                        <div class="intro-heading">LIGA LA RIBERA</div>
+                    <div>
+                        <p>Los que hacemos Liga La Ribera pretendemos lograr un espacio de integración<br>
+                        donde las palabras <strong>"fútbol, amigos y juego limpio"</strong> sean moneda corriente.</p>
+                    </div>
+                    <br>
+                    <div><a href="#services" class="page-scroll btn btn-xl">CONOCENOS MAS</a></div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Header -->
+    </div>
+</header>
 
-
-        <div class="container">
-            <div class="intro-text">
-                <div></div>
-                <div><h1>LIGA LA RIBERA</h1></div>
-                <div>
-                    <p>Los que hacemos Liga La Ribera pretendemos lograr un espacio de integración<br>
-                    donde las palabras "fútbol, amigos y juego limpio" sean moneda corriente.</p>
+<section id="noticias" >
+    <div class="row">
+        <div class="col-md-12">
+            <div id="noticias">
+                <div class="container">
+                    <div class="border-titulo-noticia">
+                        <h2>NOTICIAS</h2>
+                    </div>
+                    <br>
+                    <div class="row">
+                    @foreach($listNoticias as $noticia)
+                        <div class="col-md-3 col-sm-6">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                            </span>
+                           <div class="fecha"><span>{{$noticia->fecha}}</span></div>
+                            <h4 class="service-heading">{{strtoupper($noticia->titulo)}}</h4>
+                            <hr>
+                            <p>{{Illuminate\Support\Str::limit($noticia->texto,100, '.........')}}</p>
+                            <div class=" text-right"><a href="#" class=" btn btn-sm btn-warning">Leer Más..</a></div>
+                        </div>
+                    @endforeach
+                    </div>
                 </div>
-                <a href="#services" class="page-scroll btn btn-xl">CONOCENOS MAS</a>
             </div>
         </div>
+    </div>
+</section>
 
 
     <!-- Services Section -->
@@ -427,5 +424,16 @@
 @endsection
 
 @section('script')
-
+    <script>
+      $(function () {
+           $.vegas('slideshow', {
+           backgrounds: [
+               {src: '/img/header-bg.jpg', fade: 1000, delay: 9000}
+           ]
+           })('overlay', {
+             /** SLIDESHOW OVERLAY IMAGE **/
+          src: '/assets/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
+          });
+    });
+    </script>
 @endsection

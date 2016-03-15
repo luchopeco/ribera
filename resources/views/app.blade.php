@@ -19,10 +19,11 @@ $ruta= Route::currentRouteAction();
 
     <!-- Custom CSS -->
     <link href="css/agency.css" rel="stylesheet">
-
+    <link href="css/css.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -52,7 +53,7 @@ $ruta= Route::currentRouteAction();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><img src="img/logo.png"></a>
+                <a class="navbar-brand page-scroll" href="#page-top"><img class="img-responsive text-right" src="img/logo.png"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -152,18 +153,7 @@ $ruta= Route::currentRouteAction();
     <!-- VEGAS SLIDESHOW SCRIPTS -->
     <script src="js/jquery.easing.min.js"></script>
 
-    <script>
-      $(function () {
-           $.vegas('slideshow', {
-           backgrounds: [
-               {src: '/img/header-bg.jpg', fade: 1000, delay: 9000},
-           ]
-           })('overlay', {
-           /** SLIDESHOW OVERLAY IMAGE **/
-           src: '/assets/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
-           });
-    });
-    </script>
+
 
     @yield('script')
 </body>

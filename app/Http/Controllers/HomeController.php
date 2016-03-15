@@ -1,5 +1,7 @@
 <?php namespace torneo\Http\Controllers;
 
+use torneo\Noticia;
+
 class HomeController extends Controller {
 
 	/*
@@ -29,7 +31,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+        $listNoticias = Noticia::orderBy('orden')->get();
+		return view('home',compact('listNoticias'));
 	}
 
 }
