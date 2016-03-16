@@ -1,5 +1,5 @@
 <?php
-
+$listImagen=\torneo\Imagen::where('idtipo_imagen', 1)->where('mostrar',1)->get();
 $ruta= Route::currentRouteAction();
 ?>
 <!DOCTYPE html>
@@ -153,7 +153,20 @@ $ruta= Route::currentRouteAction();
     <!-- VEGAS SLIDESHOW SCRIPTS -->
     <script src="js/jquery.easing.min.js"></script>
 
-
+    <script>
+        $(function () {
+            $.vegas('slideshow', {
+                backgrounds: [
+                    @foreach($listImagen as $imagen)
+                    { src: '/imagenes/{{$imagen->imagen}}', fade: 1000, delay: 9000},
+                    @endforeach
+                ]
+            })('overlay', {
+             /** SLIDESHOW OVERLAY IMAGE **/
+            src: '/assets/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
+            });
+    });
+    </script>
 
     @yield('script')
 </body>

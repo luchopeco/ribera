@@ -67,3 +67,23 @@
 
     }
 }
+
+#verde{
+    background-color: #196A4A !important;
+    padding: 10px 0px 50px 0px;
+    color: #ffffff;
+    opacity: .94;
+}
+
+.border-titulo-medio{
+    border-top-color: #FBC01C;
+    border-top-width: 5px;
+    border-top-style: solid;
+    width: 10%;
+
+}
+#verde .form-control {
+    background-color: #818289;
+    color: #ffffff;
+    border-color: #818289;
+}

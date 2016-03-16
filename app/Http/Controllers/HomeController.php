@@ -1,5 +1,6 @@
 <?php namespace torneo\Http\Controllers;
 
+use torneo\Imagen;
 use torneo\Noticia;
 
 class HomeController extends Controller {
@@ -31,8 +32,9 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
+        $listDestacadosFecha=Imagen::where('idtipo_imagen',2)->get();
         $listNoticias = Noticia::orderBy('orden')->get();
-		return view('home',compact('listNoticias'));
+		return view('home',compact('listNoticias','listDestacadosFecha'));
 	}
 
 }
