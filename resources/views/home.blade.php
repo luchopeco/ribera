@@ -46,16 +46,20 @@
                     <br>
                     <div class="row">
                     @foreach($listNoticias as $noticia)
-                        <div class="col-md-3 col-sm-6 text-center">
+                        <div class="col-md-3 col-sm-6 text-center ">
                             <span class="fa-stack fa-4x ">
-                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                                <img  src="/imagenes/iconosNoticias/{{$noticia->icono}}" class="img-responsive">
                             </span>
                            <div class="fecha text-left"><span>{{$noticia->fecha}}</span></div>
                             <h4 class="service-heading text-left">{{strtoupper($noticia->titulo)}}</h4>
                             <hr>
-                            <p class="text-left">{{Illuminate\Support\Str::limit($noticia->texto,100, '.........')}}</p>
-                            <div class=" text-right"><a href="#" class=" btn btn-sm btn-warning">Leer Más..</a></div>
+                            <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($noticia->texto,100, '.........')}}</p>
+                            <div class=" text-right">
+                                <a href="#" class="btn">
+                                    <i class="fa fa-facebook-square fa-2x"></i>
+                                </a>
+                                <a href="#" class=" btn btn-sm btn-warning">Leer Más..</a>
+                            </div>
                         </div>
                     @endforeach
                     </div>

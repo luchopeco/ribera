@@ -87,3 +87,11 @@
     color: #ffffff;
     border-color: #818289;
 }
+
+.col-noticia{
+    height: 100px;
+    overflow: hidden;
+}
+#noticias i{
+    color: #1B362F;
+}

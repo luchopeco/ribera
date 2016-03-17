@@ -6,7 +6,7 @@ class Noticia extends Model{
 
     protected $table='noticias';
 
-    protected $fillable = ['titulo','fecha','texto','mostrar_en_home','mostrar_en_seccion','imagen','link','orden'];
+    protected $fillable = ['titulo','fecha','texto','mostrar_en_home','mostrar_en_seccion','imagen','link','orden','icono'];
 
     protected $primaryKey = 'idnoticia'; 
 

@@ -33,7 +33,7 @@ class HomeController extends Controller {
 	public function index()
 	{
         $listDestacadosFecha=Imagen::where('idtipo_imagen',2)->get();
-        $listNoticias = Noticia::orderBy('orden')->get();
+        $listNoticias = Noticia::where('mostrar_en_home',1)->orderBy('orden')->get();
 		return view('home',compact('listNoticias','listDestacadosFecha'));
 	}
 

@@ -57,6 +57,7 @@
                                     <th>Mostrar en Home</th>
                                     <th>Mostrar en sección</th>
                                     <th>Link</th>
+                                    <th>Icono</th>
                                 </tr>
                                 @foreach($listNoticias as $noticia)
                                     <tr >
@@ -67,6 +68,7 @@
                                         <td>{{$noticia->mostrar_en_home}}</td>
                                         <td>{{$noticia->mostrar_en_seccion}}</td>
                                         <td>{{$noticia->link}}</td>
+                                        <td><img width="30px" src="/imagenes/iconosNoticias/{{$noticia->icono}}" class="img-responsive"></td>
                                         <td><a href="#"  class="btn btn-xs btn-info editar" data-idnoticia="{{$noticia->idnoticia}}"  title="Editar"> <i class=" fa fa-edit"></i></a></td>
                                        <td><a href="noticiaimagen/{{$noticia->idnoticia}}" title="Editar Imagen " class=" btn-xs btn btn-success" ><i class=" fa fa-image"></i></a></td>
                                         <td><a href="" class="btn btn-xs btn-danger eliminar" data-idnoticia="{{$noticia->idnoticia}}"  title="Eliminar"> <i class=" fa fa-close"></i></a></td>
@@ -122,25 +124,25 @@
                               <div class="modal-body"><div class=" panel panel-info">
                               <div class=" panel-heading">Noticia</div>
                                  <div class=" panel-body">
-                                  <div clas="row">
+                                  <div class="row">
                                       <div class="col-md-12">
                                               {!!Form::label('titulo','Titulo')!!}
                                               {!!Form::Text('titulo',null,['class'=>' form-control'])!!}
                                       </div>
                                    </div>
-                                   <div clas="row">
+                                   <div class="row">
                                       <div class="col-md-12">
                                               {!!Form::label('fecha','Fecha')!!}
                                               {!!Form::Text('fecha',null,['class'=>' form-control'])!!}
                                       </div>
                                    </div>
-                                   <div clas="row">
+                                   <div class="row">
                                      <div class="col-md-12">
                                              {!!Form::label('link','Link')!!}
                                              {!!Form::Text('link',null,['class'=>' form-control'])!!}
                                      </div>
                                   </div>
-                                   <div clas="row">
+                                   <div class="row">
                                       <div class="col-md-12">
                                               {!!Form::label('texto','Contenido')!!}
                                               <!-- {!!Form::Text('texto',null,['class'=>' form-control'])!!} -->
@@ -149,8 +151,28 @@
 
                                       </div>
                                    </div>
-                                   
-                                   
+                                   <div class="row">
+                                        <div class="col-md-12">
+                                             {!!Form::label('texto','Icono')!!}
+                                             <select name="icono" id="cbxIconoAgregar" class="form-control ">
+                                                  <option value="cancha.png">Cancha</option>
+                                                  <option value="silbato.png">Silbato</option>
+                                                  <option value="pelota.png">Pelota</option>
+                                                  <option value="trofeo.png">Trofeo</option>
+                                                  <option value="periodico.png">Periodico</option>
+                                                  <option value="jugadores.png">Jugadores</option>
+                                                  <option value="jugador.png">Jugador</option>
+                                                  <option value="resultado.png">Resultado</option>
+                                                  <option value="horario.png">Horarios</option>
+                                                  <option value="jugadores.png">Jugadores</option>
+                                                  <option value="sanciones.png">Sanciones</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <br>
+                                            <img class="img-responsive center-block " id="imgIconoAgregar">
+                                        </div>
+                                   </div>
                               </div>
                          </div></div>
                               <div class="modal-footer">
@@ -213,7 +235,29 @@
                                          <div>{!!Form::checkbox('mostrar_en_seccion','0',false,['class'=>'','id'=>'mostrar_en_seccionU'])!!}</div>
                                         </div>
                                     </div>
-                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                             {!!Form::label('texto','Icono')!!}
+                                             <select name="icono" id="cbxIconoModificar" class="form-control ">
+                                                  <option value="cancha.png">Cancha</option>
+                                                  <option value="silbato.png">Silbato</option>
+                                                  <option value="pelota.png">Pelota</option>
+                                                  <option value="trofeo.png">Trofeo</option>
+                                                  <option value="periodico.png">Periodico</option>
+                                                  <option value="jugadores.png">Jugadores</option>
+                                                  <option value="jugador.png">Jugador</option>
+                                                  <option value="resultado.png">Resultado</option>
+                                                  <option value="horario.png">Horarios</option>
+                                                  <option value="jugadores.png">Jugadores</option>
+                                                  <option value="sanciones.png">Sanciones</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <br>
+                                            <img class="img-responsive center-block " id="imgIconoModificar">
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                         <div class="modal-footer">
                             <div class="row ">
@@ -294,6 +338,9 @@
                         else{
                         $('#mostrar_en_seccionU').prop('checked',false);
                         }
+
+                        $('#cbxIconoModificar').val(response.datos.icono);
+
                         $("#modalNoticiaModificar").modal("show");
                     })
                     .fail(function(){
@@ -313,7 +360,15 @@
                     });
                 }
             });
+            $( "#cbxIconoAgregar" ).change(function () {
+                $('#imgIconoAgregar').attr('src',"/imagenes/iconosNoticias/"+$(this).val());
+              });
+            $('#imgIconoAgregar').attr('src',"/imagenes/iconosNoticias/"+$( "#cbxIconoAgregar" ).val());
 
+            $( "#cbxIconoModificar" ).change(function () {
+                $('#imgIconoModificar').attr('src',"/imagenes/iconosNoticias/"+$(this).val());
+              });
+            $('#imgIconoModificar').attr('src',"/imagenes/iconosNoticias/"+$( "#cbxIconoModificar" ).val());
         });
 
         </script>

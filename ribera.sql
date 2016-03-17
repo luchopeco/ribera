@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-03-2016 a las 03:25:20
+-- Tiempo de generación: 17-03-2016 a las 05:18:13
 -- Versión del servidor: 5.6.17-log
 -- Versión de PHP: 5.5.12
 
@@ -188,7 +188,6 @@ INSERT INTO `imagenes` (`idimagen`, `titulo`, `imagen`, `mostrar`, `created_at`,
 (8, 'Sider1', 'Slider Home-8.jpg', 0, '2015-05-28 06:33:30', '2015-05-29 00:44:03', 1),
 (9, 'Slider2', 'Slider Home-9.jpg', 1, '2015-05-28 06:34:03', '2015-05-28 06:34:09', 1),
 (10, 'Slider3', 'Slider Home-10.jpg', 1, '2015-05-28 06:34:21', '2015-05-28 06:35:14', 1),
-(13, 'Equipo Ideal', 'Equipo Ideal-13.PNG', 1, '2015-05-29 00:11:09', '2015-05-29 00:20:26', 3),
 (17, '1', 'Figuras Fecha-17.jpg', 1, '2015-05-29 01:35:29', '2015-06-03 06:13:22', 2),
 (19, '2', 'Figuras Fecha-19.jpg', 1, '2015-05-29 01:35:51', '2015-05-29 01:35:57', 2),
 (20, '3', 'Figuras Fecha-20.jpg', 1, '2015-05-29 01:36:05', '2015-05-29 01:36:11', 2);
@@ -266,6 +265,7 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `imagen` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
   `orden` int(11) NOT NULL DEFAULT '0',
+  `icono` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idnoticia`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -273,10 +273,10 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 -- Volcado de datos para la tabla `noticias`
 --
 
-INSERT INTO `noticias` (`idnoticia`, `titulo`, `fecha`, `texto`, `mostrar_en_home`, `mostrar_en_seccion`, `updated_at`, `created_at`, `imagen`, `link`, `orden`) VALUES
-(1, 'Nueva Noticia', NULL, NULL, 1, 1, '2015-06-05 03:00:02', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', NULL, 2),
-(2, 'Nueva', '', 'asdasdasdasd', 1, 1, '2015-06-05 03:00:19', '2015-06-05 02:17:03', 'imagen-noticia2.jpg', 'ssssssssss', 3),
-(3, 'noticia e4aasd', 'asd', 'asdasdasdfasdfasdf', 1, 1, '2016-02-20 22:52:07', '2016-02-20 22:52:07', NULL, 'asd', 1);
+INSERT INTO `noticias` (`idnoticia`, `titulo`, `fecha`, `texto`, `mostrar_en_home`, `mostrar_en_seccion`, `updated_at`, `created_at`, `imagen`, `link`, `orden`, `icono`) VALUES
+(1, 'Nueva Noticia', 'asdasd', '', 1, 1, '2016-03-17 07:02:16', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', '', 2, 'horario.png'),
+(2, 'Nueva', 'asdasd', 'asdasdasdasdasdasd\r\nasd\r\nas\r\nd\r\nasd\r\naasdaaaaaaaaaaaaaaaaasdasd', 1, 1, '2016-03-17 07:02:27', '2015-06-05 02:17:03', 'imagen-noticia2.jpg', 'ssssssssss', 3, 'jugador.png'),
+(3, 'noticia e4aasd', 'asd', 'asdasdasdfasdfasdfasdasdasd', 1, 1, '2016-03-17 07:02:34', '2016-02-20 22:52:07', NULL, 'asd', 1, 'cancha.png');
 
 -- --------------------------------------------------------
 
@@ -442,7 +442,7 @@ CREATE TABLE IF NOT EXISTS `tipo_imagenes` (
   `idtipo_imagen` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) NOT NULL,
   PRIMARY KEY (`idtipo_imagen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `tipo_imagenes`
@@ -450,8 +450,7 @@ CREATE TABLE IF NOT EXISTS `tipo_imagenes` (
 
 INSERT INTO `tipo_imagenes` (`idtipo_imagen`, `descripcion`) VALUES
 (1, 'Slider Home'),
-(2, 'Figuras Fecha'),
-(3, 'Equipo Ideal');
+(2, 'Destacados Fecha');
 
 -- --------------------------------------------------------
 
@@ -632,11 +631,11 @@ ALTER TABLE `jugadores`
 -- Filtros para la tabla `partidos`
 --
 ALTER TABLE `partidos`
-  ADD CONSTRAINT `fk_partido_fecha1` FOREIGN KEY (`idfecha`) REFERENCES `fechas` (`idfecha`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_partidos` FOREIGN KEY (`idzona`) REFERENCES `zonas` (`idzona`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_partidos_arbitros` FOREIGN KEY (`idarbitro`) REFERENCES `arbitros` (`idarbitro`),
   ADD CONSTRAINT `FK_partidos_local` FOREIGN KEY (`idequipo_local`, `idzona`) REFERENCES `torneo_equipo` (`equipo_idequipo`, `zona_idzona`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_partidos_visitante` FOREIGN KEY (`idequipo_visitante`, `idzona`) REFERENCES `torneo_equipo` (`equipo_idequipo`, `zona_idzona`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_partidos_visitante` FOREIGN KEY (`idequipo_visitante`, `idzona`) REFERENCES `torneo_equipo` (`equipo_idequipo`, `zona_idzona`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_partido_fecha1` FOREIGN KEY (`idfecha`) REFERENCES `fechas` (`idfecha`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `partido_has_jugador`
@@ -655,8 +654,8 @@ ALTER TABLE `torneos`
 -- Filtros para la tabla `torneo_equipo`
 --
 ALTER TABLE `torneo_equipo`
-  ADD CONSTRAINT `fk_torneo_has_equipo_equipo1` FOREIGN KEY (`equipo_idequipo`) REFERENCES `equipos` (`idequipo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_torneo_equipo` FOREIGN KEY (`zona_idzona`) REFERENCES `zonas` (`idzona`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_torneo_equipo` FOREIGN KEY (`zona_idzona`) REFERENCES `zonas` (`idzona`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_torneo_has_equipo_equipo1` FOREIGN KEY (`equipo_idequipo`) REFERENCES `equipos` (`idequipo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `zonas`

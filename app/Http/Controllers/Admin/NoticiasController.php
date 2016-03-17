@@ -132,7 +132,7 @@ class NoticiasController extends Controller {
             } else {
                 $ar->mostrar_en_seccion=0;
             }
-
+            $ar->icono = $request->icono;
 
 
             $ar->save();
