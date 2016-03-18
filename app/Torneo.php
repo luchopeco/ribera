@@ -16,6 +16,7 @@ class Torneo extends Model{
 
     protected $primaryKey = 'idtorneo';
 
+
     public function MensajeConfiguracion()
     {
         $mensaje="";

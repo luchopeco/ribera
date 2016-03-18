@@ -62,8 +62,9 @@
                                     <tr >
                                         <td>{{$z->nombre}}</td>
                                         <td>{{$z->orden}}</td>
+                                        <td><a href="#"  class="btn btn-xs btn-info editar" title="Editar Nombre y Orden" data-idzona="{{$z->idzona}}"><i class="fa fa-edit"></i></a></td>
                                         <td><a href="../zonas/{{$z->idzona}}"  class="btn btn-xs btn-primary" title="Configurar Zona"><i class="fa fa-cog"></i></a></td>
-                                        <td><a href="" class="btn btn-xs btn-danger eliminar" data-idzona="{{$z->idzona}}" title="Eliminar"> <i class=" fa fa-close"></i></a></td>
+                                        <td><a href="#" class="btn btn-xs btn-danger eliminar" data-idzona="{{$z->idzona}}" title="Eliminar"> <i class=" fa fa-close"></i></a></td>
                                     </tr>
                                 @endforeach
                             </table>
@@ -372,7 +373,38 @@
       <!-- /.modal-dialog -->
 </div>
 
-
+<div class="modal fade" id="modalZonaModificar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+            <div class="modal-content">
+                   {!!Form::open(['route'=>['admin.zonas.update'],'method'=>'PUT'])!!}
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                          <h4 class="modal-title" id="myModalLabel">Agregando Zona</h4>
+                      </div>
+                      <div class="modal-body"><div class=" panel panel-info">
+                      <div class=" panel-heading">Zona</div>
+                         <div class=" panel-body">
+                          <div clas="row">
+                              <div class="col-md-12">
+                                  {!!Form::Text('idzona',"",['class'=>'hidden','id'=>'idzonaU'])!!}
+                                  Nombre
+                                  {!!Form::Text('nombre',"",['class'=>'form-control','id'=>'nombreU'])!!}
+                                  Orden a Mostrar
+                                  {!!Form::Text('orden',"",['class'=>'form-control','id'=>'ordenU'])!!}
+                              </div>
+                           </div>
+                      </div>
+                 </div></div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          {!!Form::submit('Aceptar', array('class' => 'btn btn-success'))!!}
+                      </div>
+                  {!! Form::close() !!}
+            </div>
+          <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+</div>
 
 
 @endsection
@@ -380,10 +412,27 @@
 <script src="/js/dropzone.js" type="text/javascript"></script>
 <script>
 $(function () {
-        $('.datepicker').datepicker({
-         format: 'mm/dd/yyyy',
-         startDate: '-3d'
-     });
+
+    $('body').on('click', '.editar', function (event) {
+             event.preventDefault();
+             var id_zona=$(this).attr('data-idzona');
+             $.ajax({
+                  url:"../zonas/buscar",
+                  type: "POST",
+                  dataType: "json",
+                 data:{'idzona': id_zona}
+                 })
+             .done(function(response){
+                     //alert(response.datos.titulo);
+                     $('#nombreU').val(response.datos.nombre);
+                     $('#ordenU').val(response.datos.orden);
+                      $('#idzonaU').val(response.datos.idzona);
+                     $("#modalZonaModificar").modal("show");
+                 })
+                 .fail(function(){
+                     alert(id_articulo);
+                 });
+         });
 });
 
 </script>

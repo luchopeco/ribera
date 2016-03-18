@@ -1,14 +1,14 @@
 @extends('app')
-<meta property="og:url" content="http://www.ligatifosi.com" />
-<meta property="og:title" content="Tifosi" />
+<meta property="og:url" content="http://www.ligalaribera.com.ar" />
+<meta property="og:title" content="Liga La Ribera" />
 <meta property="og:description" content="" />
 <meta property="og:image" content="http://www.ligalaribera.com.ar/..." />
-<meta property="og:image" content="http://www.ligatifosi.com/imagenes/home/escudotifosi.jpg" />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/home/escudotifosi.jpg" />
 
-<meta property="og:image" content="http://www.ligatifosi.com/imagenes/" />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/" />
 
 
-<meta property="og:image" content="http://www.ligatifosi.com/imagenes/" />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/" />
 
 <meta property="og:type" content="website" />
 @section('title')
@@ -41,6 +41,7 @@
         <div class="col-md-12">
             <div id="noticias">
                 <div class="container">
+                    <br>
                     <div class="border-titulo-noticia"></div>
                     <h2>NOTICIAS</h2>
                     <br>
@@ -102,11 +103,15 @@
         <div class="col-md-12">
             <div id="verde">
                  <div class="container">
+                    <br>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="border-titulo-medio"></div>
                             <h2>COMO LLEGO?</h2>
                             <br>
+                            <div class="map-responsive">
+                               <iframe src="https://www.google.com/maps/d/embed?mid=zdj0487fDBxk.kYA1aeXuXz0A&z=40" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="border-titulo-medio"></div>
@@ -144,7 +149,7 @@
                             <br>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <textarea id="mensaje_contacto" name="mensaje_contacto" class="form-control" placeholder="MENSAJE" rows="1"></textarea>
+                                    <textarea id="mensaje_contacto" name="mensaje_contacto" class="form-control" placeholder="MENSAJE" rows="5"></textarea>
                                     <script>
                                       var f20 = new LiveValidation('mensaje_contacto');
                                         f20.add(Validate.Presence, {failureMessage: "Obligatorio"});

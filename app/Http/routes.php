@@ -12,8 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/fixture', 'WelcomeController@fixture');
-Route::get('/fixturetorneo/{id}', 'WelcomeController@fixturetorneo');
+Route::get('/fixture', 'HomeController@fixture');
+Route::get('/fixturetorneo/{id}', 'HomeController@fixturetorneo');
+
 Route::get('/estadisticas', 'WelcomeController@estadisticas');
 Route::get('/estadisticastorneo/{id}', 'WelcomeController@estadisticastorneo');
 Route::get('/torneoportipotorneo/{id}', 'WelcomeController@torneoportipotorneo');
@@ -119,7 +120,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],
         Route::post('noticiaimagen/noticiaimagenguardar','NoticiasController@noticiaimagenguardar');
 
         Route::resource('zonas','ZonasController');
-
+        Route::post('zonas/buscar','ZonasController@buscar');
         
 
 });

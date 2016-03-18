@@ -2,6 +2,7 @@
 
 use torneo\Imagen;
 use torneo\Noticia;
+use torneo\Torneo;
 
 class HomeController extends Controller {
 
@@ -36,5 +37,17 @@ class HomeController extends Controller {
         $listNoticias = Noticia::where('mostrar_en_home',1)->orderBy('orden')->get();
 		return view('home',compact('listNoticias','listDestacadosFecha'));
 	}
+
+    public function fixture()
+    {
+        $listTorneosCombo = Torneo::all()->lists('nombre_torneo', 'idtorneo');
+        return view('fixture',compact('listTorneosCombo'));
+    }
+
+    public function fixturetorneo($id)
+    {
+        $torneo = Torneo::findOrFail($id);
+        return view('include.fixture',compact('torneo'));
+    }
 
 }

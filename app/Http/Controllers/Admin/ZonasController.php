@@ -84,12 +84,38 @@ class ZonasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request)
 	{
-		//
+        try {
+            $ar = Zona::findOrFail($request->idzona);
+            $ar->nombre = $request->nombre;
+            $ar->orden = $request->orden;
+            $ar->save();
+
+            Session::flash('mensajeOk', 'Zona Modificada con Exito');
+            return back();
+        }
+        catch(QueryException  $ex)
+        {
+            Session::flash('mensajeError', $ex->getMessage());
+            return back();
+        }
 	}
 
-	/**
+    public function buscar(Request $request)
+    {
+        $ar = Zona::findOrFail($request->idzona);
+        $response = array(
+            "result" => true,
+            "datos" => $ar
+        );
+        return json_encode($response, JSON_HEX_QUOT | JSON_HEX_TAG);
+        //return view('articulos', compact('art'));
+
+    }
+
+
+    /**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int  $id
