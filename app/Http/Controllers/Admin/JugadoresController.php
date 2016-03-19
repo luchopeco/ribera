@@ -122,6 +122,7 @@ class JugadoresController extends Controller
         try {
             $ar = Jugador::findOrFail($request->idjugador);
             $ar->nombre_jugador = $request->nombre_jugador;
+            $ar->apellido_jugador = $request->apellido_jugador;
             $ar->dni = $request->dni;
             $ar->observaciones = $request->observaciones;
 

@@ -136,7 +136,7 @@ class Torneo extends Model{
     }
 
     public function Goleadores(){
-        $goleadores =  DB::select(DB::raw("SELECT sum(phj.goles_favor) goles,j.nombre_jugador, e.nombre_equipo
+        $goleadores =  DB::select(DB::raw("SELECT sum(phj.goles_favor) goles,CONCAT(COALESCE(j.nombre_jugador,''),'',COALESCE(j.apellido_jugador,'')) as nombre_jugador, e.nombre_equipo
                               FROM partido_has_jugador phj
                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -155,7 +155,7 @@ class Torneo extends Model{
 
     public function TarjetasAmarillas()
     {
-        $amonestados =  DB::select(DB::raw("SELECT max(f.fecha)fecha, sum(phj.tarjeta_amarilla) ta,j.nombre_jugador, e.nombre_equipo
+        $amonestados =  DB::select(DB::raw("SELECT max(f.fecha)fecha, sum(phj.tarjeta_amarilla) ta,CONCAT(COALESCE(j.nombre_jugador,''),'',COALESCE(j.apellido_jugador,'')) as nombre_jugador, e.nombre_equipo
                               FROM partido_has_jugador phj
                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -178,7 +178,7 @@ class Torneo extends Model{
                                       FROM
                                     (
                                         SELECT jugador, sancion, fecha, nombre_equipo FROM
-                                    (SELECT j.nombre_jugador jugador, sum(phj.cantidad_fechas_sancion) sancion , f.fecha fecha, e.nombre_equipo
+                                    (SELECT CONCAT(COALESCE(j.nombre_jugador,''),'',COALESCE(j.apellido_jugador,'')) jugador, sum(phj.cantidad_fechas_sancion) sancion , f.fecha fecha, e.nombre_equipo
                                     FROM partidos p
                                     INNER JOIN fechas f ON f.idfecha = p.idfecha
                                     INNER JOIN zonas z ON z.idzona = f.idzona

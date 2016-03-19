@@ -10,9 +10,14 @@ class Jugador extends Model{
 
     protected $table='jugadores';
 
-    protected $fillable = ['nombre_jugador','dni','pathfoto','idequipo','observaciones','certificado','delegado','direccion','mail','obra_social','telefono','grupo_sanguineo'];
+    protected $fillable = ['nombre_jugador','dni','pathfoto','idequipo','observaciones','certificado','delegado','direccion','mail','obra_social','telefono','grupo_sanguineo','apellido_jugador'];
 
     protected $primaryKey = 'idjugador';
+
+    public function NombreApellido()
+    {
+        return $this->nombre_jugador." ".$this->apellido_jugador;
+    }
 
     public function Equipo()
     {

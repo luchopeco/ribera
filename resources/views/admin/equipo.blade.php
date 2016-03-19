@@ -61,7 +61,7 @@
                                 </tr>
                                     @foreach($equipo->ListJugadores as $jugador)
                                 <tr >
-                                    <td>{{$jugador->nombre_jugador}}</td>
+                                    <td>{{$jugador->NombreApellido()}}</td>
                                     <td>{{$jugador->dni}}</td>
                                     <td>{{$jugador->esDelegado()}}</td>
                                     <td>{{$jugador->entregoCertificado()}}</td>
@@ -95,8 +95,13 @@
                                           <div class="col-md-12">
                                                 {!!Form::Text('idequipo',$equipo->idequipo,['class'=>'hidden'])!!}
                                                 <div class="form-group">
-                                                    Nombre y Apellido
+                                                    Nombre
                                                     {!!Form::Text('nombre_jugador',null,['class'=>'form-control','required'])!!}
+                                                    <span class="help-block with-errors"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    Apellido
+                                                    {!!Form::Text('apellido_jugador',null,['class'=>'form-control','required'])!!}
                                                     <span class="help-block with-errors"></span>
                                                 </div>
                                                 <div class="form-group">
@@ -163,8 +168,13 @@
                                                     {!!Form::Text('idequipo',null,['class'=>'hidden','id'=>'idequipoU'])!!}
                                                     {!!Form::Text('idjugador',null,['class'=>'hidden','id'=>'idjugadorU'])!!}
                                                     <div class="form-group">
-                                                        Nombre y Apellido
+                                                        Nombre
                                                         {!!Form::Text('nombre_jugador',null,['class'=>'form-control','id'=>'nombre_jugadorU','required'])!!}
+                                                        <span class="help-block with-errors"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Apellido
+                                                        {!!Form::Text('apellido_jugador',null,['class'=>'form-control','id'=>'apellido_jugadorU','required'])!!}
                                                         <span class="help-block with-errors"></span>
                                                     </div>
                                                     Documento
@@ -295,6 +305,7 @@
                         .done(function(response){
                                 //alert(response.datos.titulo);
                                 $('#nombre_jugadorU').val(response.datos.nombre_jugador);
+                                 $('#apellido_jugadorU').val(response.datos.apellido_jugador);
                                 $('#dniU').val(response.datos.dni);
                                 $('#observacionesU').val(response.datos.observaciones);
                                 $('#idequipoU').val(response.datos.idequipo);

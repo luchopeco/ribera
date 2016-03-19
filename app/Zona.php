@@ -60,7 +60,7 @@ class Zona extends Model {
     }
 
     public function Goleadores(){
-        $goleadores =  DB::select(DB::raw("SELECT sum(phj.goles_favor) goles,j.nombre_jugador, e.nombre_equipo
+        $goleadores =  DB::select(DB::raw("SELECT sum(phj.goles_favor) goles,CONCAT(COALESCE(j.nombre_jugador,''),'',COALESCE(j.apellido_jugador,'')) as nombre_jugador, e.nombre_equipo
                               FROM partido_has_jugador phj
                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
