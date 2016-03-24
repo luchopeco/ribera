@@ -14,6 +14,9 @@
 Route::get('/', 'HomeController@index');
 Route::get('/fixture', 'HomeController@fixture');
 Route::get('/fixturetorneo/{id}', 'HomeController@fixturetorneo');
+Route::get('/inscripcion', 'HomeController@inscripcion');
+Route::post('/inscribirequipo', 'HomeController@inscribirequipo');
+Route::get('/noticias', 'HomeController@noticias');
 
 Route::get('/estadisticas', 'WelcomeController@estadisticas');
 Route::get('/estadisticastorneo/{id}', 'WelcomeController@estadisticastorneo');
@@ -26,15 +29,15 @@ Route::get('/equipotorneo/{idtorneo}', 'WelcomeController@equipotorneo');
 Route::post('/agregarjugador', 'WelcomeController@agregarjugador');
 
 Route::post('/mailcontacto', 'WelcomeController@mailcontacto');
-Route::get('/noticias', 'WelcomeController@noticias');
+
 Route::get('/noticia/{id}', 'WelcomeController@noticia');
 Route::get('/jugadores-de-la-fecha', 'WelcomeController@jugadoresfecha');
 Route::get('/equipo-ideal', 'WelcomeController@equipoideal');
 
 Route::get('/sucursales', 'WelcomeController@instalaciones');
-Route::get('/inscripcion', 'WelcomeController@inscripcion');
+
 Route::post('/mailinscripcion', 'WelcomeController@mailinscripcion');
-Route::post('/inscribirequipo', 'WelcomeController@inscribirequipo');
+
 Route::get('/equipo', 'WelcomeController@equipo');
 Route::get('/equiposalir', 'WelcomeController@equiposalir');
 Route::post('/loginequipo', 'WelcomeController@loginequipo');

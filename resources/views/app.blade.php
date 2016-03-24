@@ -29,7 +29,7 @@ $ruta= Route::currentRouteAction();
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <script src="/assets/js/livevalidation_standalone.compressed.js" type="text/javascript"></script>
+    <script src="js/livevalidation_standalone.compressed.js" type="text/javascript"></script>
 
     @yield('css')
 
@@ -76,12 +76,16 @@ $ruta= Route::currentRouteAction();
                     @else
                         <li ><a class="page-scroll" href="/fixture" >FIXTURE</a></li>
                     @endif
-                    <li>
-                        <a class="page-scroll" href="#contact">INSCRIPCION</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">NOTICIAS</a>
-                    </li>
+                    @if($ruta=='torneo\Http\Controllers\HomeController@inscripcion')
+                        <li class="active"><a class="page-scroll" href="/inscripcion">INSCRIPCION</a></li>
+                    @else
+                        <li ><a class="page-scroll" href="/inscripcion" >INSCRIPCION</a></li>
+                    @endif
+                    @if($ruta=='torneo\Http\Controllers\HomeController@noticias')
+                        <li class="active"><a class="page-scroll" href="/noticias">NOTICIAS</a></li>
+                    @else
+                        <li ><a class="page-scroll" href="/noticias" >NOTICIAS</a></li>
+                    @endif
                     <li>
                         <a class="page-scroll" href="#contact">EQUIPOS</a>
                     </li>
@@ -96,6 +100,8 @@ $ruta= Route::currentRouteAction();
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <div id="cargando" style="position: fixed; top: 2%; left: 50%; z-index: 1051;">
+    </div>
     @yield('content')
     <footer>
         <div class="container">
