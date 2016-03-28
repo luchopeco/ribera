@@ -652,6 +652,9 @@ ul.social-buttons li a:active {
 .btn:active:focus {
     outline: 0
 }
+.portfolio-modal{
+    padding: 0px !important;
+}
 .portfolio-modal .modal-content {
     border-radius: 0;
     background-clip: border-box;
@@ -660,7 +663,11 @@ ul.social-buttons li a:active {
     border: 0;
     min-height: 100%;
     padding: 100px 0;
-    text-align: center
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 0px;
+    opacity: .9;
 }
 .portfolio-modal .modal-content h2 {
     margin-bottom: 15px;

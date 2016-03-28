@@ -47,7 +47,7 @@
                     <br>
                     <div class="row">
                     @foreach($listNoticias as $noticia)
-                        <div class="col-md-3 col-sm-6 text-center ">
+                        <div class="col-md-3 col-sm-6 text-center " style="margin-bottom: 15px">
                             <span class="fa-stack fa-4x ">
                                 <img  src="/imagenes/iconosNoticias/{{$noticia->icono}}" class="img-responsive">
                             </span>
@@ -59,9 +59,10 @@
                                 <a href="#" class="btn">
                                     <i class="fa fa-facebook-square fa-2x"></i>
                                 </a>
-                                <a href="#" class=" btn btn-sm btn-warning">Leer Más..</a>
+                                <a href="#noticia{{$noticia->idnoticia}}" class=" btn btn-sm btn-warning" data-toggle="modal">Leer Más..</a>
                             </div>
                         </div>
+
                     @endforeach
                     </div>
                 </div>
@@ -170,6 +171,38 @@
         </div>
     </div>
 </section>
+
+@foreach($listNoticias as $noticia)
+<div class="portfolio-modal modal fade" id="noticia{{$noticia->idnoticia}}" tabindex="-1" role="dialog" aria-hidden="true" style="padding-right: 0px !important;">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="modal-body">
+                <div class="row text-left">
+                    <div class="col-md-6">
+                        <img src="/imagenes/{{$noticia->imagen}}" class="img-responsive" >
+                    </div>
+                    <div class="col-md-6">
+                        <div class="fecha"><p>{{$noticia->fecha}}</p></div>
+                        <h1>{{$noticia->titulo}}</h1>
+                        <p>{{$noticia->texto}}</p>
+                        <div class="fecha">
+                            <a href="#" class="">
+                                <i class="fa fa-facebook-square fa-2x"></i> COMPARTIR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 @endsection
 
 @section('script')
