@@ -114,9 +114,9 @@ class HomeController extends Controller {
                 {
                     $subjet = 'Inscripcion - Torneo: '.Request::get('torneo').' - Equipo: '.Input::get('nombre_equipo');
 
-                    $message->from('contacto@wiphalasistemas.com.ar', 'Inscripcion La Ribera');
+                    $message->from(env('MAIL_INSCRIPCION_DE'), 'Inscripcion La Ribera');
 
-                    $message->to('luchopeco@gmail.com')->subject($subjet);
+                    $message->to(env('MAIL_INSCRIPCION_PARA'))->subject($subjet);
 
                 });
 
@@ -158,4 +158,35 @@ class HomeController extends Controller {
         return view('noticias',compact('listNoticias','cantidadSecciones','cantidadNoticias'));
     }
 
+    public function  mailcontacto()
+    {
+        try{
+            if(Input::get('validador_contacto')=='')
+            {
+                $cuerpo="Consuta desde el Formulario de Contacto de la Web \n";
+                $cuerpo = $cuerpo . "Nombre: ". Request::get('nombre_contacto')."\n";
+                $cuerpo = $cuerpo . "Celular: ".Input::get('celular_contacto')."\n";
+                $cuerpo = $cuerpo . "Mail: ".Input::get('mail_contacto')."\n";
+                $cuerpo = $cuerpo . "Mensaje: ".Input::get('mensaje_contacto')."\n";
+
+                Mail::raw($cuerpo, function($message)
+                {
+                    $subjet = 'Consulta desde la Web - '.Request::get('nombre_contacto');
+
+                    $message->from(env('MAIL_CONTACTO_DE'), 'Contacto Web La Ribera');
+
+                    $message->to(env('MAIL_CONTACTO_PARA'))->subject($subjet);
+                });
+            }
+
+            Session::flash('mensajeOkContacto', 'Consulta Enviada Con Exito. En Breve nos pondremos en contacto.');
+            return back();
+        }
+        catch(\Exception $ex)
+        {
+            Session::flash('mensajeErrorContacto',"Discuple las molestias. El mensaje no se pudo enviar. Intente en otro momento ". $ex->getMessage());
+            return back();
+        }
+
+    }
 }

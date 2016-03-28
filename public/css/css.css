@@ -1,7 +1,8 @@
 #noticias{
     background-color: #ffffff !important;
-    padding: 10px 0px 50px 0px;
+    margin: 10px 0px 50px 0px;
     color: #1B362F;
+    opacity: 0.95;
 }
 #noticias h2 {
     padding-top: 0px;
@@ -13,6 +14,24 @@
     border: 0;
     border-top: 2px solid #FBC01C;;
 }
+
+#noticias-verde{
+    background-color: #126C48 !important;
+    margin: 10px 0px 50px 0px;
+    color: #1B362F;
+   opacity: 0.95;
+}
+#noticias-verde h2 {
+    padding-top: 0px;
+    margin-top: 10px;
+}
+#noticias-verde hr {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 0;
+    border-top: 2px solid #FBC01C;;
+}
+
 .fecha{
     color: #FBC01C;
 }
@@ -22,6 +41,7 @@
     border-top-width: 5px;
     border-top-style: solid;
     width: 5%;
+
 
 }
 

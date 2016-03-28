@@ -16,7 +16,30 @@
 @endsection
 
 @section('content')
-
+@if(Session::has('mensajeOkContacto'))
+<div class="container" style="margin-top: 100px" >
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    {{Session::get('mensajeOkContacto')}}
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+@if(Session::has('mensajeErrorContacto'))
+<div class="container" style="margin-top: 100px">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                       {{Session::get('mensajeErrorContacto')}}
+                </div>
+            </div>
+        </div>
+</div>
+@endif
 <header>
     <div class="row">
         <div class="col-md-12">
@@ -29,7 +52,7 @@
                         donde las palabras <strong>"fútbol, amigos y juego limpio"</strong> sean moneda corriente.</p>
                     </div>
                     <br>
-                    <div><a href="#services" class="page-scroll btn btn-xl">CONOCENOS MAS</a></div>
+                    <div><a href="#" class="page-scroll btn btn-xl " style="cursor:not-allowed">CONOCENOS MAS</a></div>
                 </div>
             </div>
         </div>
@@ -56,7 +79,7 @@
                             <hr>
                             <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($noticia->texto,100, '.........')}}</p>
                             <div class=" text-right">
-                                <a href="#" class="btn">
+                                <a href="#" class="btn" style="cursor:not-allowed">
                                     <i class="fa fa-facebook-square fa-2x"></i>
                                 </a>
                                 <a href="#noticia{{$noticia->idnoticia}}" class=" btn btn-sm btn-warning" data-toggle="modal">Leer Más..</a>
@@ -82,14 +105,7 @@
                     <div class="row">
                         @foreach( $listDestacadosFecha  as $imagen )
                         <div class="col-md-3 col-sm-6 portfolio-item">
-                            <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content">
-                                        <i class="fa fa-plus fa-3x"></i>
-                                    </div>
-                                </div>
-                                <img class="img-responsive" alt="" src="/imagenes/{{$imagen->imagen}}">
-                            </a>
+                            <img class="img-responsive" alt="" src="/imagenes/{{$imagen->imagen}}">
                         </div>
                         @endforeach
                     </div>

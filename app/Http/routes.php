@@ -17,6 +17,8 @@ Route::get('/fixturetorneo/{id}', 'HomeController@fixturetorneo');
 Route::get('/inscripcion', 'HomeController@inscripcion');
 Route::post('/inscribirequipo', 'HomeController@inscribirequipo');
 Route::get('/noticias', 'HomeController@noticias');
+Route::post('/mailcontacto', 'HomeController@mailcontacto');
+
 
 Route::get('/estadisticas', 'WelcomeController@estadisticas');
 Route::get('/estadisticastorneo/{id}', 'WelcomeController@estadisticastorneo');
@@ -28,7 +30,7 @@ Route::post('/modificarclave', 'WelcomeController@modificarclave');
 Route::get('/equipotorneo/{idtorneo}', 'WelcomeController@equipotorneo');
 Route::post('/agregarjugador', 'WelcomeController@agregarjugador');
 
-Route::post('/mailcontacto', 'WelcomeController@mailcontacto');
+
 
 Route::get('/noticia/{id}', 'WelcomeController@noticia');
 Route::get('/jugadores-de-la-fecha', 'WelcomeController@jugadoresfecha');

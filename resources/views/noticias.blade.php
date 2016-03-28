@@ -57,10 +57,10 @@ Noticias
                                         <hr>
                                         <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($listNoticias[$idxNoticia]->texto,100, '.........')}}</p>
                                         <div class=" text-right">
-                                            <a href="#" class="btn">
+                                            <a href="#" class="btn" style="cursor:not-allowed">
                                                 <i class="fa fa-facebook-square fa-2x"></i>
                                             </a>
-                                            <a href="#" class=" btn btn-sm btn-warning">Leer Más..</a>
+                                             <a href="#noticia{{$listNoticias[$idxNoticia]->idnoticia}}" class=" btn btn-sm btn-warning" data-toggle="modal">Leer Más..</a>
                                         </div>
                                     </div>
                                     <?php $idxNoticia ++; ?>
@@ -72,10 +72,10 @@ Noticias
             </div>
         </section>
     @else
-        <section id="noticias" >
+        <section id="noticias-verde" >
             <div class="row">
                 <div class="col-md-12">
-                    <div id="noticias">
+                    <div id="noticias-verde">
                         <div class="container">
                             <br>
                             <div class="row">
@@ -89,10 +89,10 @@ Noticias
                                         <hr>
                                         <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($listNoticias[$idxNoticia]->texto,100, '.........')}}</p>
                                         <div class=" text-right">
-                                            <a href="#" class="btn">
+                                            <a href="#" class="btn" style="cursor:not-allowed">
                                                 <i class="fa fa-facebook-square fa-2x"></i>
                                             </a>
-                                            <a href="#" class=" btn btn-sm btn-warning">Leer Más..</a>
+                                              <a href="#noticia{{$listNoticias[$idxNoticia]->idnoticia}}" class=" btn btn-sm btn-warning" data-toggle="modal">Leer Más..</a>
                                         </div>
                                     </div>
                                     <?php $idxNoticia ++; ?>
@@ -105,6 +105,39 @@ Noticias
         </section>
     @endif
 @endfor
+
+
+@foreach($listNoticias as $noticia)
+<div class="portfolio-modal modal fade" id="noticia{{$noticia->idnoticia}}" tabindex="-1" role="dialog" aria-hidden="true" style="padding-right: 0px !important;">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="modal-body">
+                <div class="row text-left">
+                    <div class="col-md-6">
+                        <img src="/imagenes/{{$noticia->imagen}}" class="img-responsive" >
+                    </div>
+                    <div class="col-md-6">
+                        <div class="fecha"><p>{{$noticia->fecha}}</p></div>
+                        <h1>{{$noticia->titulo}}</h1>
+                        <p>{{$noticia->texto}}</p>
+                        <div class="fecha">
+                            <a href="#" class="">
+                                <i class="fa fa-facebook-square fa-2x"></i> COMPARTIR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 @endsection
 
 @section('script')

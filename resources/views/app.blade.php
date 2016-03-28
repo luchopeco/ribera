@@ -66,7 +66,7 @@ $ruta= Route::currentRouteAction();
                         <li class=""><a class="page-scroll" href="/">HOME</a></li>
                     @endif
                     <li>
-                        <a class="page-scroll" href="#">LA RIBERA</a>
+                        <a class="page-scroll" href="#" style="cursor:not-allowed">LA RIBERA</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">ESTADISTICAS</a>
@@ -87,10 +87,10 @@ $ruta= Route::currentRouteAction();
                         <li ><a class="page-scroll" href="/noticias" >NOTICIAS</a></li>
                     @endif
                     <li>
-                        <a class="page-scroll" href="#contact">EQUIPOS</a>
+                        <a class="page-scroll" href="#" style="cursor:not-allowed">EQUIPOS</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">CONTACTO</a>
+                        <a class="page-scroll" href="#" style="cursor:not-allowed">CONTACTO</a>
                     </li>
 
 
