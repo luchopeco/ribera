@@ -34,13 +34,13 @@ Inscripcion
     </div>
 </div>
 </section>
-@if(Session::has('mensajeOkContacto'))
+@if(Session::has('mensajeOk'))
 <div class="container" >
     <div class="row">
         <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
             <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    {{Session::get('mensajeOkContacto')}}
+                    {{Session::get('mensajeOk')}}
             </div>
         </div>
     </div>

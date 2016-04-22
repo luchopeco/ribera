@@ -18,6 +18,7 @@ Route::get('/inscripcion', 'HomeController@inscripcion');
 Route::post('/inscribirequipo', 'HomeController@inscribirequipo');
 Route::get('/noticias', 'HomeController@noticias');
 Route::post('/mailcontacto', 'HomeController@mailcontacto');
+Route::get('/laribera', 'HomeController@laribera');
 
 
 Route::get('/estadisticas', 'WelcomeController@estadisticas');

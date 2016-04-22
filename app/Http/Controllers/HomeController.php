@@ -189,4 +189,9 @@ class HomeController extends Controller {
         }
 
     }
+
+    public function laribera()
+    {
+        return view('laribera');
+    }
 }
