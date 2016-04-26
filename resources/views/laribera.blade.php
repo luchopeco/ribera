@@ -138,8 +138,8 @@ Quienes Somos
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <h4>QUIEN
-                                <br>SERA EL
+                            <h4>QUIÉN
+                                <br>SERÁ EL
                                 <br>PRÓXIMO?</h4>
                         </div>
                     </li>

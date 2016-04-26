@@ -1,6 +1,7 @@
 <?php namespace torneo\Http\Controllers;
 
 use Doctrine\Instantiator\Exception\UnexpectedValueException;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
@@ -193,5 +194,56 @@ class HomeController extends Controller {
     public function laribera()
     {
         return view('laribera');
+    }
+
+    public function equipo()
+    {
+        try
+        {
+            if (Session::has('equipo'))
+            {
+                $equipo=  Equipo::findOrFail(Session::get('equipo'));
+                $listTorneosCombo = $equipo->ListTorneosParaCombo();
+                return view('equipo',compact('equipo','listTorneosCombo'));
+            }
+            else
+            {
+                // return view('equipo');
+                return view('login');
+            }
+        }
+        catch(\Exception $ex )
+        {
+            Session::flash('mensajeError', $ex->getMessage());
+            return view('login');
+        }
+
+    }
+
+    public function loginequipo()
+    {
+        try {
+
+            //$user = Equipo::find(23);
+            //$user->clave = Hash::make('admin');
+            //$user->save();
+            $eq = Equipo::where('nombre_usuario',  Request::input('nombre_usuario'))->firstOrFail();
+            if (Hash::check(Request::input('clave'),$eq->clave))
+            {
+                Session::put('equipo', $eq->idequipo);
+                return redirect()->action('HomeController@equipo');
+            }
+            else
+            {
+                Session::flash('mensajeError', 'Usuario y/o clave incorrecta');
+                return redirect()->action('HomeController@equipo');
+            }
+        }
+        catch(\Exception $e)
+        {
+            Session::flash('mensajeError', 'Usuario y/o clave incorrecta');
+            return redirect()->action('HomeController@equipo');
+        }
+
     }
 }
