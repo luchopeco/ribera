@@ -65,41 +65,13 @@ Quienes Somos
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="img/campeones/Deportivo-Faustino-Torneo-Final-2015.jpg" alt="Campeon">
+                            <img class="img-circle img-responsive" src="img/campeones/Esquine-FC-Torneo-2013.jpg" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2015 - Torneo Final</h4>
-                                <h3 class="subheading">Deportivo Faustino</h3>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted"></p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="img/campeones/Dep.-Cruce-Alberdi-Torneo-Inicial-2015.jpg" alt="Campeon">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2015 - Torneo Inicial</h4>
-                                <h3 class="subheading">Dep. Cruce Alberdi</h3>
+                                <h4>2013 - Torneo Unico</h4>
+                                <h3 class="subheading">Esquine FC</h3>
                                 <br>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted"></p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="img/campeones/Narices-Blancas-FC-Torneo-Final-2014.jpg" alt="">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2014 - Torneo Final</h4>
-                                <h3 class="subheading">Narices Blancas FC</h3>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted"></p>
@@ -122,20 +94,50 @@ Quienes Somos
                         </div>
                     </li>
                     <li>
+                                            <div class="timeline-image">
+                                                <img class="img-circle img-responsive" src="img/campeones/Narices-Blancas-FC-Torneo-Final-2014.jpg" alt="">
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4>2014 - Torneo Final</h4>
+                                                    <h3 class="subheading">Narices Blancas FC</h3>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p class="text-muted"></p>
+                                                </div>
+                                            </div>
+                                        </li>
+                    <li class="timeline-inverted">
+                                            <div class="timeline-image">
+                                                <img class="img-circle img-responsive" src="img/campeones/Dep.-Cruce-Alberdi-Torneo-Inicial-2015.jpg" alt="Campeon">
+                                            </div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4>2015 - Torneo Inicial</h4>
+                                                    <h3 class="subheading">Dep. Cruce Alberdi</h3>
+                                                    <br>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p class="text-muted"></p>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                    <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="img/campeones/Esquine-FC-Torneo-2013.jpg" alt="">
+                            <img class="img-circle img-responsive" src="img/campeones/Deportivo-Faustino-Torneo-Final-2015.jpg" alt="Campeon">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2013 - Torneo Unico</h4>
-                                <h3 class="subheading">Esquine FC</h3>
-                                <br>
+                                <h4>2015 - Torneo Final</h4>
+                                <h3 class="subheading">Deportivo Faustino</h3>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted"></p>
                             </div>
                         </div>
                     </li>
+
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>QUIÉN

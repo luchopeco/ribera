@@ -123,7 +123,7 @@ select {
 
 .border-titulo-medio{
     border-top-color: #FBC01C;
-    border-top-width: 5px;
+    /*border-top-width: 5px;*/
     border-top-style: solid;
     width: 10%;
 
@@ -248,5 +248,5 @@ textarea.LV_invalid_field:active {
 }
 #about .section-heading
 {
-    color: #213830;
+    color: #ffffff;
 }

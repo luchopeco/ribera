@@ -56,50 +56,12 @@
         </div>
 </section>
 
-<section id="estadisticas">
-
-    <div class="row" style="background:white !important;opacity: 0.95;">
-        <div class="col-md-12" style=""   >
-            <div class="container">
-                <div id="contenidoEstadistica" ></div>
-            </div>
-        </div>
-     </div>
-      
-</section>
+<div id="contenidoEstadisticas"></div>
 
 
 @endsection
 @section('script')
 <script type="text/javascript">
-function buscarTorneoXTipoTorneo()
- {
-    $('#cargando').html('<button class="btn btn-default btn-lg"><i class="fa fa-spinner fa-spin"></i>Cargando....</button>');
-    var id_articulo=$("#idtorneo").val();
-    $.ajax({
-         url:"/torneoportipotorneo/"+id_articulo,
-         type: "GET",
-         dataType: "HTML"
-        })
-    .done(function(response){
-           //$("#combotorneo").html(response);
-           if(id_articulo==1)
-           {
-                $("#imagentorneo").html("<img class='img-responsive center-block' src='/imagenes/home/escudotifosi.png'>");
-           }
-           else if(id_articulo==2)
-           {
-               $("#imagentorneo").html("<img class='img-responsive center-block' style='padding-top: 5px' src='/imagenes/home/ragazza02.png'>");
-           }
-           $('#cargando').html('');
-           buscarEstadisticaXTorneo();
-        })
-        .fail(function(){
-            $('#cargando').html('');
-            alert(id_articulo);
-        });
-
- }
 function buscarEstadisticaXTorneo()
  {
     $('#cargando').html('<button class="btn btn-default btn-lg"><i class="fa fa-spinner fa-spin"></i>Cargando....</button>');
@@ -111,12 +73,12 @@ function buscarEstadisticaXTorneo()
         })
     .done(function(response){
             $('#cargando').html('');
-           $("#contenidoEstadistica").html(response);
+           $("#contenidoEstadisticas").html(response);
         })
         .fail(function(){
             $('#cargando').html('');
            // alert(id_articulo);
-             $("#contenidoEstadistica").html('');
+             $("#contenidoEstadisticas").html('');
               $("#modalMensaje").modal("show");
         });
  }
