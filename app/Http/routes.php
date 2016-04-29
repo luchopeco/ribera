@@ -20,6 +20,7 @@ Route::get('/noticias', 'HomeController@noticias');
 Route::post('/mailcontacto', 'HomeController@mailcontacto');
 
 
+
 Route::get('/estadisticas', 'WelcomeController@estadisticas');
 Route::get('/estadisticastorneo/{id}', 'WelcomeController@estadisticastorneo');
 Route::get('/torneoportipotorneo/{id}', 'WelcomeController@torneoportipotorneo');

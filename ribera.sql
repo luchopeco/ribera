@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-03-2016 a las 05:18:13
+-- Tiempo de generación: 27-04-2016 a las 04:46:45
 -- Versión del servidor: 5.6.17-log
 -- Versión de PHP: 5.5.12
 
@@ -64,9 +64,8 @@ CREATE TABLE IF NOT EXISTS `equipos` (
   `aprobado` tinyint(4) NOT NULL DEFAULT '0',
   `autogestion` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`idequipo`),
-  UNIQUE KEY `NewIndex1` (`nombre_usuario`),
-  UNIQUE KEY `NewIndex2` (`nombre_equipo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
+  UNIQUE KEY `NewIndex1` (`nombre_usuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=80 ;
 
 --
 -- Volcado de datos para la tabla `equipos`
@@ -98,14 +97,30 @@ INSERT INTO `equipos` (`idequipo`, `nombre_equipo`, `escudo`, `foto`, `updated_a
 (50, 'THE REAL TEAM F.C', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (51, 'EL ALMA F.C', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (52, 'ARIZONA', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
-(53, 'ANCHA BANDA F.C', NULL, NULL, '2015-06-26 02:04:46', NULL, 0, 'ancha', '$2y$10$MMdQz6Qtfno6qErhRap1Kuemu62Qm8C1lpUDSnOeWN2ztaXkPAzR6', '', '', 1, 1),
+(53, 'ANCHA BANDA F.C', NULL, NULL, '2016-04-27 01:13:01', NULL, 0, 'ancha', '$2y$10$OEwAHrhxfIpbWuubYfyHF.9SvuKhkAPXATLY7H8o/5KDkWcSTeNy.', '', '', 1, 1),
 (54, 'DEP. FAUSTINO', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (56, 'LA POCHI', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (57, 'REAL BAÑIL', NULL, NULL, '2015-05-14 01:24:27', NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (58, 'LOS ZARATE F.C', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (59, 'TORO F.C', NULL, NULL, '2015-05-14 01:19:39', NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (60, 'POPOVACH', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
-(61, 'aaaaaa', NULL, NULL, '2015-09-09 02:19:16', '2015-09-09 02:19:16', 0, NULL, NULL, '', '', 1, 0);
+(61, 'aaaaaa', NULL, NULL, '2015-09-09 02:19:16', '2015-09-09 02:19:16', 0, NULL, NULL, '', '', 1, 0),
+(62, '', NULL, NULL, '2016-03-24 23:36:40', '2016-03-24 23:36:40', 0, NULL, NULL, 'Desea anotarse en el torneo: ', NULL, 0, 0),
+(63, 'Equipazo', NULL, NULL, '2016-03-25 00:00:17', '2016-03-24 23:44:05', 0, NULL, NULL, 'Desea anotarse en el torneo: ', NULL, 1, 0),
+(64, 'ads', NULL, NULL, '2016-03-24 23:46:02', '2016-03-24 23:46:02', 0, NULL, NULL, 'Desea anotarse en el torneo: ', NULL, 0, 0),
+(66, 'asd', NULL, NULL, '2016-03-24 23:47:37', '2016-03-24 23:47:37', 0, NULL, NULL, 'Desea anotarse en el torneo: ', NULL, 0, 0),
+(67, 'asdads', NULL, NULL, '2016-03-24 23:49:56', '2016-03-24 23:49:56', 0, NULL, NULL, 'asdads', NULL, 0, 0),
+(69, 'rrrr', NULL, NULL, '2016-03-24 23:53:24', '2016-03-24 23:53:24', 0, NULL, NULL, 'asdasd', NULL, 0, 0),
+(70, 'asd', NULL, NULL, '2016-03-24 23:54:20', '2016-03-24 23:54:20', 0, NULL, NULL, 'asd', NULL, 0, 0),
+(71, 'aasd', NULL, NULL, '2016-03-24 23:55:17', '2016-03-24 23:55:17', 0, NULL, NULL, 'asd', NULL, 0, 0),
+(72, 'zsdfasd', NULL, NULL, '2016-03-25 00:01:13', '2016-03-24 23:56:17', 0, NULL, NULL, '', NULL, 1, 0),
+(73, 'asdasd', NULL, NULL, '2016-03-25 00:07:41', '2016-03-25 00:07:41', 0, NULL, NULL, 'asdas', NULL, 0, 0),
+(74, 'adsasd', NULL, NULL, '2016-03-25 00:10:13', '2016-03-25 00:10:13', 0, NULL, NULL, '', NULL, 0, 0),
+(75, 'adasd', NULL, NULL, '2016-03-25 00:11:35', '2016-03-25 00:11:35', 0, NULL, NULL, 'asd', NULL, 0, 0),
+(76, 'adasd', NULL, NULL, '2016-03-25 00:13:01', '2016-03-25 00:13:01', 0, NULL, NULL, '', NULL, 0, 0),
+(77, 'asdasd', NULL, NULL, '2016-03-25 00:14:18', '2016-03-25 00:14:18', 0, NULL, NULL, 'asdasd', NULL, 0, 0),
+(78, 'adsasd', NULL, NULL, '2016-03-25 00:16:00', '2016-03-25 00:16:00', 0, NULL, NULL, '', NULL, 0, 0),
+(79, 'asdasd', NULL, NULL, '2016-03-25 00:17:21', '2016-03-25 00:17:21', 0, NULL, NULL, '', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -185,9 +200,9 @@ CREATE TABLE IF NOT EXISTS `imagenes` (
 --
 
 INSERT INTO `imagenes` (`idimagen`, `titulo`, `imagen`, `mostrar`, `created_at`, `updated_at`, `idtipo_imagen`) VALUES
-(8, 'Sider1', 'Slider Home-8.jpg', 0, '2015-05-28 06:33:30', '2015-05-29 00:44:03', 1),
-(9, 'Slider2', 'Slider Home-9.jpg', 1, '2015-05-28 06:34:03', '2015-05-28 06:34:09', 1),
-(10, 'Slider3', 'Slider Home-10.jpg', 1, '2015-05-28 06:34:21', '2015-05-28 06:35:14', 1),
+(8, 'Sider1', 'Slider Home-8.jpg', 1, '2015-05-28 06:33:30', '2016-03-17 23:57:31', 1),
+(9, 'Slider2', 'Slider Home-9.jpg', 1, '2015-05-28 06:34:03', '2016-03-17 23:56:29', 1),
+(10, 'Slider3', 'Slider Home-10.jpg', 1, '2015-05-28 06:34:21', '2016-03-17 23:56:46', 1),
 (17, '1', 'Figuras Fecha-17.jpg', 1, '2015-05-29 01:35:29', '2015-06-03 06:13:22', 2),
 (19, '2', 'Figuras Fecha-19.jpg', 1, '2015-05-29 01:35:51', '2015-05-29 01:35:57', 2),
 (20, '3', 'Figuras Fecha-20.jpg', 1, '2015-05-29 01:36:05', '2015-05-29 01:36:11', 2);
@@ -215,37 +230,55 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
   `certificado` tinyint(4) DEFAULT NULL,
   `delegado` tinyint(4) NOT NULL DEFAULT '0',
   `deleted_at` timestamp NULL DEFAULT NULL,
+  `apellido_jugador` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idjugador`),
   KEY `FK_jugador` (`idequipo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=829 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=846 ;
 
 --
 -- Volcado de datos para la tabla `jugadores`
 --
 
-INSERT INTO `jugadores` (`idjugador`, `nombre_jugador`, `dni`, `pathfoto`, `idequipo`, `observaciones`, `created_at`, `updated_at`, `telefono`, `grupo_sanguineo`, `mail`, `direccion`, `obra_social`, `certificado`, `delegado`, `deleted_at`) VALUES
-(1, 'LUCIANOS', '31787301', NULL, 14, 'Delegado', NULL, '2015-04-11 05:43:16', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(808, 'Mariano', 'DNI:31787300', NULL, 14, 'CACA', '2015-04-11 03:56:02', '2015-04-11 03:56:02', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(809, 'Pedro', 'qdasd', NULL, 14, 'asdasd', '2015-04-11 03:56:30', '2015-04-11 03:56:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(810, 'PEPE', 'a', NULL, 14, '', '2015-04-11 03:56:49', '2015-04-11 04:38:27', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(811, 'pepe', '', NULL, 36, '', '2015-05-04 05:08:56', '2015-05-04 05:08:56', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(812, 'manuel', '', NULL, 36, '', '2015-05-04 05:09:01', '2015-05-04 05:09:01', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(813, 'eee', '', NULL, 51, '', '2015-05-04 06:25:20', '2015-05-04 06:25:20', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(814, 'QQQQ asdads asd ads ', '', NULL, 25, '', '2015-05-04 06:31:05', '2015-06-10 00:42:42', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(815, 'qqqq', '', NULL, 25, '', '2015-05-14 00:55:30', '2015-05-14 00:55:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(816, 'ffff', '', NULL, 25, '', '2015-05-14 00:55:35', '2015-05-14 00:55:35', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(817, 'ffff', '', NULL, 54, '', '2015-05-14 00:55:50', '2015-05-14 00:55:50', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(818, 'asdasd', '', NULL, 54, '', '2015-05-14 00:55:54', '2015-05-14 00:55:54', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(819, 'asdasd', 'asd', NULL, 46, '', '2015-05-27 01:33:06', '2015-05-27 01:33:06', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
-(820, '', '', NULL, NULL, NULL, '2015-06-26 02:12:36', '2015-06-26 02:12:36', '', '', '', '', '', 0, 0, NULL),
-(821, '', '', NULL, NULL, NULL, '2015-06-26 02:14:38', '2015-06-26 02:14:38', '', '', '', '', '', 0, 0, NULL),
-(822, '', '', NULL, NULL, NULL, '2015-06-26 02:15:19', '2015-06-26 02:15:19', '', '', '', '', '', 0, 0, NULL),
-(823, '', '', NULL, NULL, NULL, '2015-06-26 02:16:14', '2015-06-26 02:16:14', '', '', '', '', '', 0, 0, NULL),
-(824, '', '', NULL, NULL, NULL, '2015-06-26 02:17:29', '2015-06-26 02:17:29', '', '', '', '', '', 0, 0, NULL),
-(825, '', '', NULL, NULL, NULL, '2015-06-26 02:17:55', '2015-06-26 02:17:55', '', '', '', '', '', 0, 0, NULL),
-(826, '', '', NULL, NULL, NULL, '2015-06-26 02:20:29', '2015-06-26 02:20:29', '', '', '', '', '', 0, 0, NULL),
-(827, 'Pablo Patricio Perez', '31787456', NULL, NULL, NULL, '2015-06-26 05:49:58', '2015-06-26 05:49:58', '34168777', 'A+', '', '', '', NULL, 0, NULL),
-(828, 'Pablo Patricio Perez', '31787456', NULL, 53, NULL, '2015-06-26 05:51:11', '2015-06-26 05:51:11', '34168777', 'A+', '', '', '', NULL, 0, NULL);
+INSERT INTO `jugadores` (`idjugador`, `nombre_jugador`, `dni`, `pathfoto`, `idequipo`, `observaciones`, `created_at`, `updated_at`, `telefono`, `grupo_sanguineo`, `mail`, `direccion`, `obra_social`, `certificado`, `delegado`, `deleted_at`, `apellido_jugador`) VALUES
+(1, 'LUCIANOS', '31787301', NULL, 14, 'Delegado', NULL, '2015-04-11 05:43:16', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(808, 'Mariano', 'DNI:31787300', NULL, 14, 'CACA', '2015-04-11 03:56:02', '2015-04-11 03:56:02', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(809, 'Pedro', 'qdasd', NULL, 14, 'asdasd', '2015-04-11 03:56:30', '2015-04-11 03:56:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(810, 'PEPE', 'a', NULL, 14, '', '2015-04-11 03:56:49', '2015-04-11 04:38:27', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(811, 'pepe', '', NULL, 36, '', '2015-05-04 05:08:56', '2015-05-04 05:08:56', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(812, 'manuel', '', NULL, 36, '', '2015-05-04 05:09:01', '2015-05-04 05:09:01', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(813, 'eee', '', NULL, 51, '', '2015-05-04 06:25:20', '2015-05-04 06:25:20', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(814, 'QQQQ asdads asd ads ', '', NULL, 25, '', '2015-05-04 06:31:05', '2015-06-10 00:42:42', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(815, 'qqqq', '', NULL, 25, '', '2015-05-14 00:55:30', '2015-05-14 00:55:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(816, 'ffff', '', NULL, 25, '', '2015-05-14 00:55:35', '2015-05-14 00:55:35', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(817, 'ffff', '', NULL, 54, '', '2015-05-14 00:55:50', '2015-05-14 00:55:50', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(818, 'asdasd', '', NULL, 54, '', '2015-05-14 00:55:54', '2015-05-14 00:55:54', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(819, 'asdasd', 'asd', NULL, 46, '', '2015-05-27 01:33:06', '2015-05-27 01:33:06', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(820, '', '', NULL, NULL, NULL, '2015-06-26 02:12:36', '2015-06-26 02:12:36', '', '', '', '', '', 0, 0, NULL, NULL),
+(821, '', '', NULL, NULL, NULL, '2015-06-26 02:14:38', '2015-06-26 02:14:38', '', '', '', '', '', 0, 0, NULL, NULL),
+(822, '', '', NULL, NULL, NULL, '2015-06-26 02:15:19', '2015-06-26 02:15:19', '', '', '', '', '', 0, 0, NULL, NULL),
+(823, '', '', NULL, NULL, NULL, '2015-06-26 02:16:14', '2015-06-26 02:16:14', '', '', '', '', '', 0, 0, NULL, NULL),
+(824, '', '', NULL, NULL, NULL, '2015-06-26 02:17:29', '2015-06-26 02:17:29', '', '', '', '', '', 0, 0, NULL, NULL),
+(825, '', '', NULL, NULL, NULL, '2015-06-26 02:17:55', '2015-06-26 02:17:55', '', '', '', '', '', 0, 0, NULL, NULL),
+(826, '', '', NULL, NULL, NULL, '2015-06-26 02:20:29', '2015-06-26 02:20:29', '', '', '', '', '', 0, 0, NULL, NULL),
+(827, 'Pablo Patricio Perez', '31787456', NULL, NULL, NULL, '2015-06-26 05:49:58', '2015-06-26 05:49:58', '34168777', 'A+', '', '', '', NULL, 0, NULL, NULL),
+(828, 'Pablo Patricio Perez', '31787456', NULL, 53, NULL, '2015-06-26 05:51:11', '2015-06-26 05:51:11', '34168777', 'A+', '', '', '', NULL, 0, NULL, NULL),
+(829, 'Pepe', '123123', NULL, 27, '', '2016-03-19 18:58:06', '2016-03-19 18:58:53', 'asdasd', 'asdads', '', '', '', 0, 0, NULL, 'Argentos'),
+(830, '', NULL, NULL, 62, 'delegado', '2016-03-24 23:36:40', '2016-03-24 23:36:40', ' - ', NULL, '', '', NULL, NULL, 1, NULL, NULL),
+(831, 'Luciano Pecovich', NULL, NULL, 63, 'delegado', '2016-03-24 23:44:05', '2016-03-24 23:44:05', 'asd - asd', NULL, 'asdas@as.com', 'asd', NULL, NULL, 1, NULL, NULL),
+(832, 'asd', NULL, NULL, 64, 'delegado', '2016-03-24 23:46:02', '2016-03-24 23:46:02', 'asd - asdasd', NULL, 'asdads@asd.com', 'asdasasd', NULL, NULL, 1, NULL, NULL),
+(833, 'asd', NULL, NULL, 66, 'delegado', '2016-03-24 23:47:37', '2016-03-24 23:47:37', 'asdasd - asd', NULL, 'asdasd@asdasd.comasd', 'asd', NULL, NULL, 1, NULL, NULL),
+(834, 'asdasd', NULL, NULL, 67, 'delegado', '2016-03-24 23:49:56', '2016-03-24 23:49:56', 'asdasd - asdasd', NULL, 'asdadsasd@asdasd.com', 'asads', NULL, NULL, 1, NULL, NULL),
+(835, 'asd', NULL, NULL, 69, 'delegado', '2016-03-24 23:53:24', '2016-03-24 23:53:24', 'asdasd - asdasdads', NULL, 'asdasd@asd.com', 'asasd', NULL, NULL, 1, NULL, NULL),
+(836, 'asd', NULL, NULL, 70, 'delegado', '2016-03-24 23:54:20', '2016-03-24 23:54:20', 'asdasda - asd', NULL, 'asads@asd.com', 'asd', NULL, NULL, 1, NULL, NULL),
+(837, 'asd', NULL, NULL, 71, 'delegado', '2016-03-24 23:55:17', '2016-03-24 23:55:17', 'asdasd - asdads', NULL, 'asdad@asda.com', 'asads', NULL, NULL, 1, NULL, NULL),
+(838, 'asdasd', NULL, NULL, 72, 'delegado', '2016-03-24 23:56:17', '2016-03-24 23:56:17', 'asdasd - asdasd', NULL, 'asdads@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
+(839, 'asdasd', NULL, NULL, 73, 'delegado', '2016-03-25 00:07:41', '2016-03-25 00:07:41', 'asdasd - asdasd', NULL, 'asdasdas@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
+(840, 'asdasd', NULL, NULL, 74, 'delegado', '2016-03-25 00:10:13', '2016-03-25 00:10:13', 'asdasd - asdasd', NULL, 'asdasd@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
+(841, 'asda', NULL, NULL, 75, 'delegado', '2016-03-25 00:11:35', '2016-03-25 00:11:35', 'asd - asd', NULL, 'asd@asd.com', 'asd', NULL, NULL, 1, NULL, NULL),
+(842, 'asdasd', NULL, NULL, 76, 'delegado', '2016-03-25 00:13:01', '2016-03-25 00:13:01', 'asdas - asdads', NULL, 'asdasd@asd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
+(843, 'asdads', NULL, NULL, 77, 'delegado', '2016-03-25 00:14:18', '2016-03-25 00:14:18', 'asdasd - asdads', NULL, 'asdasd@asd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
+(844, 'asdasd', NULL, NULL, 78, 'delegado', '2016-03-25 00:16:00', '2016-03-25 00:16:00', 'asdasd - asasd', NULL, 'asdasd@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
+(845, 'adsads', NULL, NULL, 79, 'delegado', '2016-03-25 00:17:21', '2016-03-25 00:17:21', 'asdasd - asdads', NULL, 'asdasdads@asdads.com', 'asdasdasd', NULL, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -267,16 +300,20 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `orden` int(11) NOT NULL DEFAULT '0',
   `icono` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idnoticia`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`idnoticia`, `titulo`, `fecha`, `texto`, `mostrar_en_home`, `mostrar_en_seccion`, `updated_at`, `created_at`, `imagen`, `link`, `orden`, `icono`) VALUES
-(1, 'Nueva Noticia', 'asdasd', '', 1, 1, '2016-03-17 07:02:16', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', '', 2, 'horario.png'),
-(2, 'Nueva', 'asdasd', 'asdasdasdasdasdasd\r\nasd\r\nas\r\nd\r\nasd\r\naasdaaaaaaaaaaaaaaaaasdasd', 1, 1, '2016-03-17 07:02:27', '2015-06-05 02:17:03', 'imagen-noticia2.jpg', 'ssssssssss', 3, 'jugador.png'),
-(3, 'noticia e4aasd', 'asd', 'asdasdasdfasdfasdfasdasdasd', 1, 1, '2016-03-17 07:02:34', '2016-02-20 22:52:07', NULL, 'asd', 1, 'cancha.png');
+(1, 'Nueva Noticia', 'asdasd', '', 1, 1, '2016-03-17 07:02:16', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', '', 1, 'horario.png'),
+(2, 'Nueva', 'asdasd', 'asdasdasdasdasdasd\r\nasd\r\nas\r\nd\r\nasd\r\naasdaaaaaaaaaaaaaaaaasdasd', 1, 1, '2016-03-17 07:02:27', '2015-06-05 02:17:03', 'imagen-noticia2.jpg', 'ssssssssss', 12, 'jugador.png'),
+(3, 'noticia e4aasd', 'asd', 'asdasdasdfasdfasdfasdasdasd', 1, 1, '2016-03-17 07:02:34', '2016-02-20 22:52:07', NULL, 'asd', 11, 'cancha.png'),
+(7, 'sdf', 'sdf', 'sdfsd', 1, 1, '2016-03-25 01:15:03', '2016-03-25 01:15:03', NULL, 'sdf', 5, 'cancha.png'),
+(10, 'asdads', 'asd', 'asdasd', 1, 1, '2016-03-25 01:15:56', '2016-03-25 01:15:56', NULL, 'asdasd', 8, 'cancha.png'),
+(11, 'asd', 'asd', 'asdasd', 1, 1, '2016-03-25 01:16:03', '2016-03-25 01:16:03', NULL, 'asd', 9, 'cancha.png'),
+(12, 'asd', 'asd', 'asdads', 1, 1, '2016-03-25 01:16:09', '2016-03-25 01:16:09', NULL, 'asd', 10, 'cancha.png');
 
 -- --------------------------------------------------------
 
@@ -316,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `partidos` (
   KEY `fk_partido_equipo1` (`idequipo_local`,`idzona`),
   KEY `FK_partidos` (`idzona`,`idequipo_visitante`),
   KEY `FK_partidos_visitante` (`idequipo_visitante`,`idzona`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
 -- Volcado de datos para la tabla `partidos`
@@ -340,7 +377,9 @@ INSERT INTO `partidos` (`idpartido`, `idfecha`, `idequipo_local`, `idequipo_visi
 (25, 167, 54, 36, 1, 1, '12:20', NULL, 6, 1, 1, 1, 1, '2016-03-10 01:23:56', '2016-03-10 01:24:06', 1, 0, 0, 1, 0, 0),
 (26, 185, 61, 53, 0, 0, '12', NULL, 6, 7, 1, 1, 1, '2016-03-10 01:28:16', '2016-03-10 01:28:56', 1, 0, 0, 1, 0, 0),
 (27, 185, 52, 25, 0, 1, '', NULL, 6, 7, 1, 0, 3, '2016-03-10 01:28:30', '2016-03-10 01:28:37', 0, 0, 1, 0, 1, 0),
-(28, 187, 54, 58, 2, 0, '', NULL, 6, 8, 1, 3, 0, '2016-03-10 01:34:09', '2016-03-10 01:34:20', 0, 1, 0, 0, 0, 1);
+(28, 187, 54, 58, 2, 0, '', NULL, 6, 8, 1, 3, 0, '2016-03-10 01:34:09', '2016-03-10 01:34:20', 0, 1, 0, 0, 0, 1),
+(29, 184, 61, 15, NULL, NULL, '12', NULL, 6, 4, 0, 0, 0, '2016-03-18 06:21:44', '2016-03-18 06:21:44', 0, 0, 0, 0, 0, 0),
+(30, 184, 15, 61, 0, 0, '13', NULL, 6, 4, 1, 1, 1, '2016-03-18 06:23:43', '2016-03-18 06:23:50', 1, 0, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -525,6 +564,7 @@ INSERT INTO `torneo_equipo` (`equipo_idequipo`, `zona_idzona`) VALUES
 (54, 8),
 (58, 1),
 (58, 8),
+(61, 4),
 (61, 7);
 
 -- --------------------------------------------------------
@@ -549,7 +589,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `created_at`, `updated_at`, `remember_token`) VALUES
-(1, 'admin', '$2y$10$pJK.iwoiyVqFVVHa/hDXYeeNyFuANdXfAXR1PFlyeC7ogjtB1U4ya', NULL, NULL, '2016-02-20 22:34:29', 'ePNxMqnZSXQonhSOt5BYJAeaTyfJpVKV0eDqgkeASgRi3HJIJfwnejHpjiYA');
+(1, 'admin', '$2y$10$pJK.iwoiyVqFVVHa/hDXYeeNyFuANdXfAXR1PFlyeC7ogjtB1U4ya', NULL, NULL, '2016-03-18 06:44:16', 'ypZa6NOObXh7l2hqmyOHntChyp68FV6kQfdkOxZQK1OReMQrWMJvrWbAUi2q');
 
 -- --------------------------------------------------------
 
@@ -596,7 +636,7 @@ CREATE TABLE IF NOT EXISTS `zonas` (
 --
 
 INSERT INTO `zonas` (`idzona`, `idtorneo`, `nombre`, `deleted_at`, `created_at`, `updated_at`, `orden`) VALUES
-(1, 7, 'Zona A', NULL, '2015-04-27 00:13:58', '2015-04-27 00:13:58', 0),
+(1, 7, 'Zona A', NULL, '2015-04-27 00:13:58', '2016-03-18 06:55:40', 1),
 (2, 15, 'Zona A', NULL, '2015-04-21 00:12:00', '2015-04-21 00:12:00', 0),
 (3, 16, 'Zona A', NULL, '2015-04-21 00:12:00', '2015-04-21 00:12:00', 0),
 (4, 7, 'Zona b', NULL, '2015-04-21 00:12:00', '2015-02-21 00:21:00', 0),
@@ -625,7 +665,7 @@ ALTER TABLE `imagenes`
 -- Filtros para la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-  ADD CONSTRAINT `FK_jugador` FOREIGN KEY (`idequipo`) REFERENCES `equipos` (`idequipo`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_jugador` FOREIGN KEY (`idequipo`) REFERENCES `equipos` (`idequipo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `partidos`

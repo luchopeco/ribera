@@ -1,92 +1,88 @@
 @extends('app')
 @section('meta')
-<meta property="og:url" content="http://www.ligatifosi.com/estadisticas" />
-<meta property="og:title" content="Estadísticas de la Liga" />
-<meta property="og:description" content="Visite las estádisticas de la liga" />
-<meta property="og:image" content="http://www.ligatifosi.com/imagenes/fb/fb-estadisticas1.JPG" />
+<meta property="og:url" content="http://www.ligalaribera.com.ar" />
+<meta property="og:title" content="Liga La Ribera" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/..." />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/home/escudotifosi.jpg" />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/" />
 <meta property="og:type" content="website" />
 @endsection
 @section('title')
-..::Tifosi::..
+..::Estadísticas::..
 @endsection
 @section('content')
-<div id="estadisticas" class="margin-top">
-<section id="services">
-    <div class="container">
-        <div class="row text-center header">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animate-in" data-anim-type="fade-in-up">
-                <h3>Estadisticas</h3>
-                <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
-                    <a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.ligatifosi.com/estadisticas" class=" btn button-custom btn-custom-two"><i class="fa fa-facebook"></i> Compartir</a>
+
+<!--
+<section id="section-page">
+<div class="row">
+    <div class="col-md-12">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="border-titulo-medio"></div>
+                    <h2>NOTICIAS</h2>
+                    <br>
                 </div>
+                <br>
             </div>
         </div>
-        <div class="row animate-in" data-anim-type="fade-in-up">
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="fechas-wrapper  text-center">
-                        <div class="row">
-                            <div class=" col-sm-2 col-xs-12">
-                            <div id="imagentorneo"></div>
-
-                            </div>
-                            <div class="col-sm-4 col-xs-12 text-center">
-                                <h3 class="text-center">ELEGIR TORNEO</h3>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                               {!!Form::select('idtipo_torneo', $listTiposTorneosCombo,null,array('class' => 'form-control','onchange'=>'buscarTorneoXTipoTorneo()','id'=>'idtipo_torneo'))!!}
-                            </div>
-                        </div>
-                    </div>
-              </div>
-
-             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="fechas-wrapper  text-center">
-                    <div class="row">
-                        <div class="col-sm-6 col-xs-12 text-center">
-                            <h3 class="text-cener">ELEGIR CATEGORIA</h3>
-                        </div>
-                        <div class="col-sm-6 col-xs-12">
-                        <div id="combotorneo"></div>
-
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </div>
-        <div class="row animate-in" data-anim-type="fade-in-up">
-             <div id="contenidoEstadistica">
-
-             </div>
-        </div>
     </div>
-</section>
 </div>
-    <div id="modalMensaje"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×</button>
-                <h3 class="text-danger">No se ha encontrado una Categoria </h3>
-            </div>
-            <div class=" modal-body ">
+</section>
+-->
+
+
+<!--Estadísticas SECTION START-->
+<section id="section-page" >
+
+       <div class="row">
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="border-titulo-medio"></div>
+                            <h2 >ESTADÍSTICAS</h2>
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                             {!!Form::select('idtorneo', $listTorneos,null,array('class' => 'form-control','onchange'=>'buscarEstadisticaXTorneo()','id'=>'idtorneo'))!!}   
+                        </div>
+
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+</section>
+
+<section id="estadisticas">
+
+    <div class="row" style="background:white !important;opacity: 0.95;">
+        <div class="col-md-12" style=""   >
+            <div class="container">
+                <div id="contenidoEstadistica" ></div>
+            </div>
+        </div>
+     </div>
+      
+</section>
+
+
 @endsection
 @section('script')
 <script type="text/javascript">
 function buscarTorneoXTipoTorneo()
  {
     $('#cargando').html('<button class="btn btn-default btn-lg"><i class="fa fa-spinner fa-spin"></i>Cargando....</button>');
-    var id_articulo=$("#idtipo_torneo").val();
+    var id_articulo=$("#idtorneo").val();
     $.ajax({
          url:"/torneoportipotorneo/"+id_articulo,
          type: "GET",
          dataType: "HTML"
         })
     .done(function(response){
-           $("#combotorneo").html(response);
+           //$("#combotorneo").html(response);
            if(id_articulo==1)
            {
                 $("#imagentorneo").html("<img class='img-responsive center-block' src='/imagenes/home/escudotifosi.png'>");
@@ -125,8 +121,9 @@ function buscarEstadisticaXTorneo()
         });
  }
  $(function() {
-    buscarTorneoXTipoTorneo();
+    buscarEstadisticaXTorneo();
 
  });
  </script>
 @endsection
+

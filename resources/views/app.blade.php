@@ -41,7 +41,7 @@ $ruta= Route::currentRouteAction();
     <![endif]-->
 
 </head>
-<body id="page-top" class="index">
+<body id="page-top" class="index" style="background:black;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -68,9 +68,13 @@ $ruta= Route::currentRouteAction();
                     <li>
                         <a class="page-scroll" href="#" style="cursor:not-allowed">LA RIBERA</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#about">ESTADISTICAS</a>
-                    </li>
+                    
+                    @if($ruta=='torneo\Http\Controllers\HomeController@estadisticas')
+                        <li class="active"><a class="page-scroll" href="/estadisticas">ESTADISTICAS</a></li>
+                    @else
+                        <li ><a class="page-scroll" href="/estadisticas" >ESTADISTICAS</a></li>
+                    @endif
+
                     @if($ruta=='torneo\Http\Controllers\HomeController@fixture')
                         <li class="active"><a class="page-scroll" href="/fixture">FIXTURE</a></li>
                     @else
@@ -102,7 +106,10 @@ $ruta= Route::currentRouteAction();
     </nav>
     <div id="cargando" style="position: fixed; top: 2%; left: 50%; z-index: 1051;">
     </div>
+
     @yield('content')
+    
+
     <footer>
         <div class="container">
             <div class="row">
@@ -164,6 +171,7 @@ $ruta= Route::currentRouteAction();
 
     <script>
         $(function () {
+            
             $.vegas('slideshow', {
                 backgrounds: [
                     @foreach($listImagen as $imagen)
@@ -171,9 +179,10 @@ $ruta= Route::currentRouteAction();
                     @endforeach
                 ]
             })('overlay', {
-             /** SLIDESHOW OVERLAY IMAGE **/
-            src: '/assets/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
+            //SLIDESHOW OVERLAY IMAGE
+            src: '/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
             });
+            
     });
     </script>
 
