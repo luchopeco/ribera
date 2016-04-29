@@ -52,7 +52,7 @@ Noticias
                                         <span class="fa-stack fa-4x ">
                                             <img  src="/imagenes/iconosNoticias/{{$listNoticias[$idxNoticia]->icono}}" class="img-responsive">
                                         </span>
-                                       <div class="fecha text-left"><span>{{$listNoticias[$idxNoticia]->fecha}}</span></div>
+                                        <div class="fecha text-left"><span>{{$listNoticias[$idxNoticia]->fecha}}</span></div>
                                         <h4 class="service-heading text-left">{{strtoupper($listNoticias[$idxNoticia]->titulo)}}</h4>
                                         <hr>
                                         <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($listNoticias[$idxNoticia]->texto,100, '.........')}}</p>

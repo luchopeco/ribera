@@ -63,9 +63,16 @@ $ruta= Route::currentRouteAction();
                     @if($ruta=='torneo\Http\Controllers\HomeController@index')
                         <li class="active"><a class="page-scroll" href="/">HOME</a></li>
                     @else
-                        <li class=""><a class="page-scroll" href="/">HOME</a></li>
+                        <li><a class="page-scroll" href="/">HOME</a></li>
+                    @endif
+
+                     @if($ruta=='torneo\Http\Controllers\HomeController@laribera')
+                        <li class="active"><a class="page-scroll" href="/laribera">LA RIBERA</a></li>
+                    @else
+                        <li ><a class="page-scroll" href="/laribera" >LA RIBERA</a></li>
                     @endif
                     <li>
+<<<<<<< HEAD
                         <a class="page-scroll" href="#" style="cursor:not-allowed">LA RIBERA</a>
                     </li>
                     
@@ -75,6 +82,10 @@ $ruta= Route::currentRouteAction();
                         <li ><a class="page-scroll" href="/estadisticas" >ESTADISTICAS</a></li>
                     @endif
 
+=======
+                        <a class="page-scroll" href="#" style="cursor:not-allowed">ESTADISTICAS</a>
+                    </li>
+>>>>>>> origin/master
                     @if($ruta=='torneo\Http\Controllers\HomeController@fixture')
                         <li class="active"><a class="page-scroll" href="/fixture">FIXTURE</a></li>
                     @else
@@ -90,9 +101,11 @@ $ruta= Route::currentRouteAction();
                     @else
                         <li ><a class="page-scroll" href="/noticias" >NOTICIAS</a></li>
                     @endif
-                    <li>
-                        <a class="page-scroll" href="#" style="cursor:not-allowed">EQUIPOS</a>
-                    </li>
+                    @if($ruta=='torneo\Http\Controllers\HomeController@equipo')
+                        <li class="active"><a class="page-scroll" href="/equipo">EQUIPOS</a></li>
+                    @else
+                        <li ><a class="page-scroll" href="/equipo" >EQUIPOS</a></li>
+                    @endif
                     <li>
                         <a class="page-scroll" href="#" style="cursor:not-allowed">CONTACTO</a>
                     </li>
