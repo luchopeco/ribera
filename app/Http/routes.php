@@ -21,13 +21,13 @@ Route::post('/mailcontacto', 'HomeController@mailcontacto');
 Route::get('/laribera', 'HomeController@laribera');
 Route::get('/equipo', 'HomeController@equipo');
 Route::post('/loginequipo', 'HomeController@loginequipo');
+Route::get('/estadisticas', 'HomeController@estadisticas');
+Route::get('/estadisticastorneo/{id}', 'HomeController@estadisticastorneo');
+Route::get('/torneoportipotorneo/{id}', 'HomeController@torneoportipotorneo');
+Route::get('/torneoportipotorneofixture/{id}', 'HomeController@torneoportipotorneofixture');
 
 
 
-Route::get('/estadisticas', 'WelcomeController@estadisticas');
-Route::get('/estadisticastorneo/{id}', 'WelcomeController@estadisticastorneo');
-Route::get('/torneoportipotorneo/{id}', 'WelcomeController@torneoportipotorneo');
-Route::get('/torneoportipotorneofixture/{id}', 'WelcomeController@torneoportipotorneofixture');
 Route::post('/equipoescudoguardar', 'WelcomeController@equipoescudoguardar');
 Route::post('/equipofotoguardar', 'WelcomeController@equipofotoguardar');
 Route::post('/modificarclave', 'WelcomeController@modificarclave');

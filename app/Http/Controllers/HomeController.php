@@ -246,4 +246,26 @@ class HomeController extends Controller {
         }
 
     }
+
+    public function estadisticas()
+    {
+
+        //$listTiposTorneosCombo = TipoTorneo::all()->lists('nombre_tipo_torneo', 'idtipo_torneo');
+        $listTorneos = Torneo::all()->lists('nombre_torneo','idtorneo');
+
+        //var_dump($listTorneos);die();
+        return view('estadisticas',compact('listTorneos'));
+    }
+    public function estadisticastorneo($id)
+    {
+        $torneo = Torneo::findOrFail($id);
+        //var_dump($torneo->TablaPosiciones());die();
+        return view('include.estadisticas',compact('torneo'));
+    }
+    public function torneoportipotorneo($id)
+    {
+        $listtorneos = Torneo::where('idtipo_torneo',$id)->lists('nombre_torneo', 'idtorneo');
+        return view('include.combotorneoestadisticas',compact('listtorneos'));
+    }
+
 }

@@ -71,21 +71,11 @@ $ruta= Route::currentRouteAction();
                     @else
                         <li ><a class="page-scroll" href="/laribera" >LA RIBERA</a></li>
                     @endif
-                    <li>
-<<<<<<< HEAD
-                        <a class="page-scroll" href="#" style="cursor:not-allowed">LA RIBERA</a>
-                    </li>
-                    
                     @if($ruta=='torneo\Http\Controllers\HomeController@estadisticas')
                         <li class="active"><a class="page-scroll" href="/estadisticas">ESTADISTICAS</a></li>
                     @else
                         <li ><a class="page-scroll" href="/estadisticas" >ESTADISTICAS</a></li>
                     @endif
-
-=======
-                        <a class="page-scroll" href="#" style="cursor:not-allowed">ESTADISTICAS</a>
-                    </li>
->>>>>>> origin/master
                     @if($ruta=='torneo\Http\Controllers\HomeController@fixture')
                         <li class="active"><a class="page-scroll" href="/fixture">FIXTURE</a></li>
                     @else
