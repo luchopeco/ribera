@@ -102,7 +102,7 @@
     </div>
 </section>
 
-<br>
+<br><br>
 <!-- Estadísticas -->
 <section id="verde" >
     <div class="row" id="">
@@ -128,13 +128,13 @@
                                 <div style="height:10px;"></div>
                                 <div class="row">
                                   <div class="fechas-wrapper col-fechas">
-                                      <div class="border-titulo-medio" style="width: 100%;"></div>
+                                      <div class="border-titulo-medio" style="width: 98%;"></div>
                                       <div class="table-responsive">
-                                           <table class=" table ">
+                                           <table class=" table goleadores">
                                              <tr>
-                                                 <th>Goleador</th>
-                                                 <th>Equipo</th>
-                                                 <th>G</th>
+                                                 <th>GOLEADOR</th>
+                                                 <th>EQUIPO</th>
+                                                 <th>GOLES</th>
                                              </tr>
 
                                              @foreach($torneo->Goleadores() as $goleador)
@@ -164,13 +164,13 @@
                                 <div style="height:10px;"></div>
                                 <div class="row">
                                   <div class="fechas-wrapper col-fechas">
-                                      <div class="border-titulo-medio" style="width: 100%;"></div>
+                                      <div class="border-titulo-medio" style="width: 98%;"></div>
                                       <div class="table-responsive">
-                                           <table class=" table ">
+                                           <table class=" table goleadores">
                                                  <tr>
-                                                     <th>Sancionado</th>
-                                                     <th>Equipo</th>
-                                                     <th>F</th>
+                                                     <th>SANCIONADO</th>
+                                                     <th>EQUIPO</th>
+                                                     <th>FECHAS</th>
                                                  </tr>
 
                                                  <?php ?>
@@ -218,14 +218,15 @@
                                   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="">
                                       <div class="fechas-wrapper col-fechas">
                                           <div style="height:30px;"><h4>{{$zona->nombre}}</h4></div>
+                                          <div class="border-titulo-medio" style="width: 100%;"></div>
                                           <div class="table-responsive">
 
-                                               <table class=" table ">
+                                               <table class=" table goleadores ">
 
                                                  <tr>
-                                                     <th>Goleador</th>
-                                                     <th>Equipo</th>
-                                                     <th>G</th>
+                                                     <th>GOLEADOR</th>
+                                                     <th>EQUIPO</th>
+                                                     <th>GOLES</th>
                                                  </tr>
 
                                                   @foreach($zona->Goleadores() as $goleador)
@@ -271,5 +272,11 @@
 
   table th{
     color:rgb(15, 112, 75);
+    border: 0;
+  }
+    .table.goleadores th{color:white;}
+   .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    
+    border: 0;
   }
 </style>
