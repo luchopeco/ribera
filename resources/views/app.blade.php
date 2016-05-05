@@ -54,8 +54,12 @@ $ruta= Route::currentRouteAction();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><img class="img-responsive text-left" src="img/logo.png"></a>
+                <a class="navbar-brand page-scroll" href="#page-top"><img id="imagenNormal" class="img-responsive text-left" src="img/logo.png" style="display:block;"></a>
+                <a class="navbar-brand page-scroll" href="#page-top"><img id="imagenChica"  class="img-responsive text-left" src="img/minilogo.png" style="display:none;height:80px;width:160px;margin-top:-22px;"></a>
             </div>
+
+           
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -187,6 +191,29 @@ $ruta= Route::currentRouteAction();
             });
             
     });
+    </script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+              var $win = $(window);
+              // definir mediente $pos la altura en píxeles desde el borde superior de la ventana del navegador y el elemento
+              var $pos = 0;
+              $win.scroll(function () {
+
+                    //alert($( window ).width());
+
+                     if ($win.scrollTop() <= $pos){                             
+                        $('#imagenNormal').css('display','block');
+                        $('#imagenChica').css('display','none');
+                     }               
+                     else {                
+                        $('#imagenChica').css('display','block');
+                        $('#imagenNormal').css('display','none');
+                    }
+               });
+        });
     </script>
 
     @yield('script')
