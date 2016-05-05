@@ -240,4 +240,81 @@ class Zona extends Model {
             'p6' => $this->idzona,'p7' => $this->idzona,'p8' => $this->idzona,'p9' => $this->idzona,'p10' => $this->idzona));
         return $tarjetas;
     }
+
+    public function Sancionados()
+    {
+
+        $tabla =  DB::select(DB::raw("SELECT
+                                        aux1.*,
+                                        (
+                                            aux1.sancion -(
+                                                (
+                                                    SELECT
+                                                        count(*)
+                                                    FROM
+                                                        fechas f2
+                                                        INNER JOIN zonas z2
+                                                            ON   z2.idzona = f2.idzona
+                                                    WHERE
+                                                        f2.fecha BETWEEN aux1.fecha AND CURRENT_DATE
+                                                        AND z2.idzona = :p1
+                                                ) -1
+                                            )
+                                        )     fechas_restantes
+                                    FROM
+                                        (
+                                            SELECT
+                                                jugador,
+                                                sancion,
+                                                fecha,
+                                                nombre_equipo
+                                            FROM
+                                                (
+                                                    SELECT
+                                                        CONCAT(
+                                                            COALESCE(j.nombre_jugador, ''),
+                                                            '',
+                                                            COALESCE(j.apellido_jugador, '')
+                                                        )           jugador,
+                                                        sum(phj.cantidad_fechas_sancion) sancion,
+                                                        f.fecha     fecha,
+                                                        e.nombre_equipo
+                                                    FROM
+                                                        partidos p
+                                                        INNER JOIN fechas f
+                                                            ON   f.idfecha = p.idfecha
+                                                        INNER JOIN zonas z
+                                                            ON   z.idzona = f.idzona
+                                                        LEFT JOIN partido_has_jugador phj
+                                                            ON   p.idpartido = phj.idpartido
+                                                        LEFT JOIN jugadores j
+                                                            ON   j.idjugador = phj.idjugador
+                                                        LEFT JOIN equipos e
+                                                            ON   e.idequipo = j.idequipo
+                                                    WHERE
+                                                        p.fue_jugado = 1
+                                                        AND f.fecha <= CURRENT_DATE
+                                                        AND z.idzona = :p2
+                                                    GROUP BY
+                                                        j.nombre_jugador,
+                                                        phj.cantidad_fechas_sancion,
+                                                        f.fecha
+                                                ) AS aux
+                                            WHERE
+                                                EXISTS (
+                                                    SELECT
+                                                        count(*)
+                                                    FROM
+                                                        fechas f
+                                                        INNER JOIN zonas z
+                                                            ON   z.idzona = f.idzona
+                                                    WHERE
+                                                        f.fecha BETWEEN aux.fecha AND CURRENT_DATE
+                                                        AND z.idzona = :p3
+                                                    HAVING
+                                                        count(*) <= aux.sancion
+                                                )
+                                        )  AS aux1"), array('p1' => $this->idzona,'p2' => $this->idzona,'p3' => $this->idzona));
+        return $tabla;
+    }
 }
