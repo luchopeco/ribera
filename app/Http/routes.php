@@ -28,6 +28,7 @@ Route::get('/torneoportipotorneofixture/{id}', 'HomeController@torneoportipotorn
 Route::get('/noticia/{id}', 'HomeController@noticia');
 Route::get('/equipotorneo/{idtorneo}', 'HomeController@equipotorneo');
 Route::get('/buscarzonas/{idtorneo}/{idequipo}', 'HomeController@buscarzonas');
+Route::get('/buscartablaposiciones/{idzona}/{idtorneo}', 'HomeController@buscartablaposiciones');
 
 
 

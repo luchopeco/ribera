@@ -12,6 +12,7 @@ use torneo\Imagen;
 use torneo\Jugador;
 use torneo\Noticia;
 use torneo\Torneo;
+use torneo\Zona;
 
 use torneo\TipoTorneo;
 
@@ -291,11 +292,139 @@ class HomeController extends Controller {
         $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
         return view('include.equipotorneo',compact('equipo','torneo'));
     }
+    public function buscartablaposiciones($idzona,$idtorneo){
+        $zona = Zona::findOrFail($idzona);
+        $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
+        
+        $respuesta = "";
+        if($torneo->estadisticas_x_torneo==1){
+            $respuesta = '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="">
+                <div  class="fechas-wrapper col-fechas">
+                  <div class="table-responsive">
+                    <div class="border-titulo-medio" style="width: 100%;"></div>
+                    <table class="table ">
+                      <tr >
+                        <th>EQUIPO</th>
+                        <th>PTS</th>
+                        <th>J</th>
+                        <th>G</th>
+                        <th>E</th>
+                        <th>P</th>
+                        <th>GF</th>
+                        <th>GC</th>
+                        <th>DIF</th>
+                      </tr>';
 
+                      foreach ($torneo->TablaPosiciones() as $tabla) {
+                         $respuesta.= '<tr>';
+                         $respuesta.= '<td>'.$tabla->nombre_equipo.'</td>
+                                            <td>'.$tabla->pun.'</td>
+                                            <td>'.$tabla->pj.'</td>
+                                            <td>'.$tabla->gan.'</td>
+                                            <td>'.$tabla->emp.'</td>
+                                            <td>'.$tabla->per.'</td>
+                                            <td>'.$tabla->gf.'</td>
+                                            <td>'.$tabla->gc.'</td>
+                                            <td>'.$tabla->df.'</td>';
+                         $respuesta.= ' </tr>';
+                         
+                      }
+
+                       $respuesta.= '  </table>   </div>      </div>       </div>';
+
+                       echo $respuesta;
+                       die();
+
+                     
+        }else{
+            // es por zona elegida
+              
+                
+                $respuesta= '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="">
+                  <div  class="fechas-wrapper col-fechas">
+                    <div class="table-responsive">
+                      <div class="border-titulo-medio" style="width: 100%;"></div>
+                      <table class=" table ">
+                        <tr >
+                          <th style="color:#FBC01C">'.$zona->nombre.'</th>
+                          <th>PTS</th>
+                          <th>J</th>
+                          <th>G</th>
+                          <th>E</th>
+                          <th>P</th>
+                          <th>GF</th>
+                          <th>GC</th>
+                          <th>DIF</th>
+                        </tr>';
+
+                        foreach ($zona->TablaPosiciones() as $tabla) {
+                            $respuesta.='<tr >';
+                            $respuesta.='<td>'.$tabla->nombre_equipo.'</td>';
+                            $respuesta.='<td>'.$tabla->pun.'</td>';
+                            $respuesta.='<td>'.$tabla->pj.'</td>';
+                            $respuesta.='<td>'.$tabla->gan.'</td>';
+                            $respuesta.='<td>'.$tabla->emp.'</td>';
+                            $respuesta.='<td>'.$tabla->per.'</td>';
+                            $respuesta.='<td>'.$tabla->gf.'</td>';
+                            $respuesta.='<td>'.$tabla->gc.'</td>';
+                            $respuesta.='<td>'.$tabla->df.'</td>';
+                            $respuesta.=' </tr>';
+                        }
+
+
+                        $respuesta.=' </table>
+                    </div>
+                  </div>
+                </div>';   
+
+                echo $respuesta;
+                       die();                    
+              
+        }
+/*
+        if($zona->torneo->idtorneo == $torneo->idtorneo){
+               
+                echo '<option value="'.$zona->idzona.'">'.$zona->nombre.' </option>';
+        }
+        var_dump($zona); 
+        */
+
+    }
     public function buscarzonas($idtorneo,$idequipo)
     {
+    
         $equipo=  Equipo::findOrFail(Session::get('equipo'));
         $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
+
+         /*
+          $tabla = DB::select(DB::raw("SELECT t.idtorneo, t.nombre_torneo FROM torneos t INNER JOIN zonas z on z.idtorneo = t.idtorneo
+                                        INNER JOIN torneo_equipo te ON te.zona_idzona= z.idzona
+                                        WHERE te.equipo_idequipo = :p1
+                                        ORDER BY t.deleted_at ASC , t.created_at DESC"), array('p1' => $this->idequipo));
+
+        */
+
+        foreach ($equipo->ListZonas as $zona)
+        {
+            // var_dump("esta es una zona: ".$zona->torneo->nombre_torneo);
+            //var_dump($torneo->idtorneo);die();
+            //var_dump($zona->idzona);
+            if($zona->torneo->idtorneo == $torneo->idtorneo){
+               
+                echo '<option value="'.$zona->idzona.'">'.$zona->nombre.' </option>';
+            }
+            
+            //var_dump($zona->nombre);
+            foreach($zona->ListEquipos as $eq)
+            {
+                // var_dump($eq);
+            }
+
+        }
+        die();
+
+
+
         return view('include.equipotorneo',compact('equipo','torneo'));
     }
     

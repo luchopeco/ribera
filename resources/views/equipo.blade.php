@@ -80,7 +80,7 @@
                             <option value="{{$torneo->idtorneo}}">{{$torneo->nombre_torneo}}</option>
                             @endforeach
                         </select>
-                        <h3>ZONA</h3>
+                        <h3 class="text-center">ZONA</h3>
                         <select class="form-control" onchange="buscarEquipoXZonas()" id="idzona">
                             <option>Seleccionar zona</option>                            
                         </select>
@@ -111,6 +111,8 @@
                     <span>{{$equipo->mensaje}}
                     </span>
                 </div>
+
+                <div id="tablaPosiciones"></div>
              </div>
 
              <div class="col-md-3">
@@ -344,15 +346,36 @@ function buscarZonas()
 
     var id_equipo=$("#idequipoid").val();
     
-  //  alert('id equipo='+id_equipo+' - id_torneo:'+id_articulo);
+    //alert('id equipo='+id_equipo+' - id_torneo:'+id_articulo);
 
     $.ajax({
-         url:"/buscarZonas/"+id_articulo+"/"+id_equipo,
+         url:"/buscarzonas/"+id_articulo+"/"+id_equipo,
          type: "GET",
          dataType: "HTML"
         })
     .done(function(response){
-           $("#equipo-torneo").html(response);
+           $("#idzona").html(response);
+           buscarTablaPosiciones();
+        })
+        .fail(function(){
+            alert(id_articulo);
+        });
+
+ }
+
+ function buscarTablaPosiciones()
+ {
+    var id_zona=$("#idzona").val();
+    var id_torneo=$("#idtorneo").val();
+    
+      $.ajax({
+         url:"/buscartablaposiciones/"+id_zona+"/"+id_torneo,
+         type: "GET",
+         dataType: "HTML"
+        })
+    .done(function(response){
+           $("#tablaPosiciones").html(response);
+           buscarTablaPosiciones();
         })
         .fail(function(){
             alert(id_articulo);
@@ -363,7 +386,7 @@ function buscarZonas()
 
 
   $(function() {
-     buscarEquipoXTorneo();
+     buscarZonas();
 
   });
  </script>
