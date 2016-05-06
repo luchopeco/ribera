@@ -13,6 +13,9 @@ use torneo\Jugador;
 use torneo\Noticia;
 use torneo\Torneo;
 
+use torneo\TipoTorneo;
+
+
 class HomeController extends Controller {
 
 	/*
@@ -268,6 +271,7 @@ class HomeController extends Controller {
         return view('include.combotorneoestadisticas',compact('listtorneos'));
     }
 
+
     public function noticia($id)
     {
         try {
@@ -279,5 +283,22 @@ class HomeController extends Controller {
             return redirect()->action('HomeController@index');
         }
     }
+
+
+     public function equipotorneo($idtorneo)
+    {
+        $equipo=  Equipo::findOrFail(Session::get('equipo'));
+        $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
+        return view('include.equipotorneo',compact('equipo','torneo'));
+    }
+
+    public function buscarzonas($idtorneo,$idequipo)
+    {
+        $equipo=  Equipo::findOrFail(Session::get('equipo'));
+        $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
+        return view('include.equipotorneo',compact('equipo','torneo'));
+    }
+    
+
 
 }

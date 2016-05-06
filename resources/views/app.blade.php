@@ -54,8 +54,10 @@ $ruta= Route::currentRouteAction();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
                 <a class="navbar-brand page-scroll" href="#page-top"><img id="imagenNormal" class="img-responsive text-left" src="/img/logo.png" style="display:block;"></a>
-                <a class="navbar-brand page-scroll" href="#page-top"><img id="imagenChica"  class="img-responsive text-left" src="/img/minilogo.png" style="display:none;height:80px;width:160px;margin-top:-22px;"></a>
+                <a class="navbar-brand page-scroll" href="#page-top"><img id="imagenChica"  class="img-responsive text-left" src="/img/minilogo.png" style="display:none;height:80px;width:160px;margin-top:-20px;"></a>
+
             </div>
 
            
@@ -178,7 +180,7 @@ $ruta= Route::currentRouteAction();
 
     <script>
         $(function () {
-            
+            /*
             $.vegas('slideshow', {
                 backgrounds: [
                     @foreach($listImagen as $imagen)
@@ -189,6 +191,7 @@ $ruta= Route::currentRouteAction();
             //SLIDESHOW OVERLAY IMAGE
             src: '/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
             });
+            */
             
     });
     </script>
