@@ -25,13 +25,15 @@ Route::get('/estadisticas', 'HomeController@estadisticas');
 Route::get('/estadisticastorneo/{id}', 'HomeController@estadisticastorneo');
 Route::get('/torneoportipotorneo/{id}', 'HomeController@torneoportipotorneo');
 Route::get('/torneoportipotorneofixture/{id}', 'HomeController@torneoportipotorneofixture');
+Route::get('/equipotorneo/{idtorneo}', 'HomeController@equipotorneo');
+Route::get('/buscarzonas/{idtorneo}/{idequipo}', 'HomeController@buscarzonas');
 
 
 
 Route::post('/equipoescudoguardar', 'WelcomeController@equipoescudoguardar');
 Route::post('/equipofotoguardar', 'WelcomeController@equipofotoguardar');
 Route::post('/modificarclave', 'WelcomeController@modificarclave');
-Route::get('/equipotorneo/{idtorneo}', 'WelcomeController@equipotorneo');
+
 Route::post('/agregarjugador', 'WelcomeController@agregarjugador');
 
 
