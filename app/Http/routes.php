@@ -25,7 +25,7 @@ Route::get('/estadisticas', 'HomeController@estadisticas');
 Route::get('/estadisticastorneo/{id}', 'HomeController@estadisticastorneo');
 Route::get('/torneoportipotorneo/{id}', 'HomeController@torneoportipotorneo');
 Route::get('/torneoportipotorneofixture/{id}', 'HomeController@torneoportipotorneofixture');
-
+Route::get('/noticia/{id}', 'HomeController@noticia');
 
 
 Route::post('/equipoescudoguardar', 'WelcomeController@equipoescudoguardar');
@@ -36,7 +36,6 @@ Route::post('/agregarjugador', 'WelcomeController@agregarjugador');
 
 
 
-Route::get('/noticia/{id}', 'WelcomeController@noticia');
 Route::get('/jugadores-de-la-fecha', 'WelcomeController@jugadoresfecha');
 Route::get('/equipo-ideal', 'WelcomeController@equipoideal');
 

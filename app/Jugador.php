@@ -50,15 +50,43 @@ class Jugador extends Model{
             return 'NO';
         }
     }
+
     public function goles($idtorneo)
     {
 
-        $goles =  DB::select(DB::raw("SELECT COALESCE( sum(phj.goles_favor),0) goles
-                                    FROM partido_has_jugador phj
-                                    INNER JOIN partidos p ON p.idpartido = phj.idpartido
-                                    INNER JOIN fechas f ON f.idfecha = p.idfecha
-                                    WHERE f.idtorneo= :p1
-                                    AND phj.idjugador=:p2"), array('p1' => $idtorneo, 'p2' => $this->idjugador));
+        $goles =  DB::select(DB::raw("SELECT
+                                            COALESCE(sum(phj.goles_favor), 0) goles
+                                        FROM
+                                            partido_has_jugador phj
+                                            INNER JOIN partidos p
+                                                ON   p.idpartido = phj.idpartido
+                                            INNER JOIN fechas f
+                                                ON   f.idfecha = p.idfecha
+                                                INNER JOIN zonas z ON z.idzona = f.idzona
+                                        WHERE
+                                            z.idtorneo = :p1
+                                            AND phj.idjugador = :p2"), array('p1' => $idtorneo, 'p2' => $this->idjugador));
+        foreach($goles as $g)
+        {
+            $gol = $g->goles;
+        }
+        return $gol;
+    }
+    public function golesxZona($idzona)
+    {
+
+        $goles =  DB::select(DB::raw("SELECT
+                                            COALESCE(sum(phj.goles_favor), 0) goles
+                                        FROM
+                                            partido_has_jugador phj
+                                            INNER JOIN partidos p
+                                                ON   p.idpartido = phj.idpartido
+                                            INNER JOIN fechas f
+                                                ON   f.idfecha = p.idfecha
+                                                INNER JOIN zonas z ON z.idzona = f.idzona
+                                        WHERE
+                                            z.idzona = :p1
+                                            AND phj.idjugador = :p2"), array('p1' => $idzona, 'p2' => $this->idjugador));
         foreach($goles as $g)
         {
             $gol = $g->goles;
@@ -66,22 +94,56 @@ class Jugador extends Model{
         return $gol;
     }
 
+
     public function tarjetasAmarillas($idtorneo)
     {
-        $ta =  DB::select(DB::raw("SELECT COALESCE( sum(phj.tarjeta_amarilla),0) ta
-                                    FROM partido_has_jugador phj
-                                    INNER JOIN jugadores j ON j.idjugador = phj.idjugador
-                                    INNER JOIN partidos p ON p.idpartido = phj.idpartido
-                                    INNER JOIN fechas f ON f.idfecha = p.idfecha
-                                    INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                    WHERE f.idtorneo= :p1
-                                    AND j.idjugador= :p2"), array('p1' => $idtorneo, 'p2' => $this->idjugador));
+        $ta =  DB::select(DB::raw("SELECT
+                                    COALESCE(sum(phj.tarjeta_amarilla), 0) ta
+                                FROM
+                                    partido_has_jugador phj
+                                    INNER JOIN jugadores j
+                                        ON   j.idjugador = phj.idjugador
+                                    INNER JOIN partidos p
+                                        ON   p.idpartido = phj.idpartido
+                                    INNER JOIN fechas f
+                                        ON   f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
+                                    INNER JOIN equipos e
+                                        ON   e.idequipo = j.idequipo
+                                WHERE
+                                    z.idtorneo = :p1
+                                    AND j.idjugador = :p2"), array('p1' => $idtorneo, 'p2' => $this->idjugador));
         foreach($ta as $t)
         {
             $tarjeta = $t->ta;
         }
         return $tarjeta;
     }
+    public function tarjetasAmarillasxZona($idzona)
+    {
+        $ta =  DB::select(DB::raw("SELECT
+                                    COALESCE(sum(phj.tarjeta_amarilla), 0) ta
+                                FROM
+                                    partido_has_jugador phj
+                                    INNER JOIN jugadores j
+                                        ON   j.idjugador = phj.idjugador
+                                    INNER JOIN partidos p
+                                        ON   p.idpartido = phj.idpartido
+                                    INNER JOIN fechas f
+                                        ON   f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
+                                    INNER JOIN equipos e
+                                        ON   e.idequipo = j.idequipo
+                                WHERE
+                                    z.idzona = :p1
+                                    AND j.idjugador = :p2"), array('p1' => $idzona, 'p2' => $this->idjugador));
+        foreach($ta as $t)
+        {
+            $tarjeta = $t->ta;
+        }
+        return $tarjeta;
+    }
+
     public function tarjetasAzules($idtorneo)
     {
         $ta =  DB::select(DB::raw("SELECT COALESCE( sum(phj.tarjeta_azul),0) ta
@@ -89,8 +151,9 @@ class Jugador extends Model{
                                     INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                     INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                     INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
                                     INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                    WHERE f.idtorneo= :p1
+                                    WHERE z.idtorneo= :p1
                                     AND j.idjugador= :p2"), array('p1' => $idtorneo, 'p2' => $this->idjugador));
         foreach($ta as $t)
         {
@@ -98,6 +161,24 @@ class Jugador extends Model{
         }
         return $tarjeta;
     }
+    public function tarjetasAzulesxZonas($idzona)
+    {
+        $ta =  DB::select(DB::raw("SELECT COALESCE( sum(phj.tarjeta_azul),0) ta
+                                    FROM partido_has_jugador phj
+                                    INNER JOIN jugadores j ON j.idjugador = phj.idjugador
+                                    INNER JOIN partidos p ON p.idpartido = phj.idpartido
+                                    INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
+                                    INNER JOIN equipos e ON e.idequipo = j.idequipo
+                                    WHERE z.idzona= :p1
+                                    AND j.idjugador= :p2"), array('p1' => $idzona, 'p2' => $this->idjugador));
+        foreach($ta as $t)
+        {
+            $tarjeta = $t->ta;
+        }
+        return $tarjeta;
+    }
+
     public function tarjetasRojas($idtorneo)
     {
         $ta =  DB::select(DB::raw("SELECT COALESCE( sum(phj.tarjeta_roja),0) ta
@@ -105,8 +186,9 @@ class Jugador extends Model{
                                     INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                     INNER JOIN partidos p ON p.idpartido = phj.idpartido
                                     INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
                                     INNER JOIN equipos e ON e.idequipo = j.idequipo
-                                    WHERE f.idtorneo= :p1
+                                    WHERE z.idtorneo= :p1
                                     AND j.idjugador= :p2"), array('p1' => $idtorneo, 'p2' => $this->idjugador));
         foreach($ta as $t)
         {
@@ -114,21 +196,40 @@ class Jugador extends Model{
         }
         return $tarjeta;
     }
+    public function tarjetasRojasxZonas($idzona)
+    {
+        $ta =  DB::select(DB::raw("SELECT COALESCE( sum(phj.tarjeta_roja),0) ta
+                                    FROM partido_has_jugador phj
+                                    INNER JOIN jugadores j ON j.idjugador = phj.idjugador
+                                    INNER JOIN partidos p ON p.idpartido = phj.idpartido
+                                    INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
+                                    INNER JOIN equipos e ON e.idequipo = j.idequipo
+                                    WHERE z.idzona= :p1
+                                    AND j.idjugador= :p2"), array('p1' => $idzona, 'p2' => $this->idjugador));
+        foreach($ta as $t)
+        {
+            $tarjeta = $t->ta;
+        }
+        return $tarjeta;
+    }
+
     public function fechasSancion($idtorneo)
     {
-        $ta =  DB::select(DB::raw("SELECT  COALESCE( (aux1.sancion - ((SELECT count(*) FROM fechas f2 WHERE f2.fecha BETWEEN aux1.fecha AND CURRENT_DATE AND  f2.idtorneo=:p1)-1)) , 0 ) fechas
+        $ta =  DB::select(DB::raw("SELECT  COALESCE( (aux1.sancion - ((SELECT count(*) FROM fechas f2 INNER JOIN zonas z ON z.idzona = f2.idzona WHERE f2.fecha BETWEEN aux1.fecha AND CURRENT_DATE AND  z.idtorneo=:p1)-1)) , 0 ) fechas
                                       FROM
                                     (
                                         SELECT jugador, sancion, fecha, nombre_equipo FROM
                                     (SELECT j.nombre_jugador jugador, sum(phj.cantidad_fechas_sancion) sancion , f.fecha fecha, e.nombre_equipo
                                     FROM partidos p
                                     INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
                                     LEFT JOIN partido_has_jugador phj  ON p.idpartido = phj.idpartido
                                     left JOIN jugadores j ON j.idjugador = phj.idjugador
                                     LEFT JOIN equipos e ON e.idequipo = j.idequipo
-                                    WHERE p.fue_jugado=1 and f.fecha<= CURRENT_DATE AND f.idtorneo=:p2 AND j.idjugador=:p3
+                                    WHERE p.fue_jugado=1 and f.fecha<= CURRENT_DATE AND z.idtorneo=:p2 AND j.idjugador=:p3
                                     GROUP BY j.nombre_jugador, phj.cantidad_fechas_sancion, f.fecha) AS aux
-                                    WHERE EXISTS (SELECT count(*) FROM fechas f WHERE f.fecha BETWEEN aux.fecha AND CURRENT_DATE AND f.idtorneo=:p4 HAVING count(*) <=aux.sancion )
+                                    WHERE EXISTS (SELECT count(*) FROM fechas f INNER JOIN zonas z ON z.idzona = f.idzona WHERE f.fecha BETWEEN aux.fecha AND CURRENT_DATE AND z.idtorneo=:p4 HAVING count(*) <=aux.sancion )
                                     )AS aux1"), array('p1' => $idtorneo,'p2' => $idtorneo,'p3' => $this->idjugador,'p4' => $idtorneo));
         $tarjeta=0;
         foreach($ta as $t)
@@ -137,7 +238,31 @@ class Jugador extends Model{
         }
         return $tarjeta;
     }
-
+    public function fechasSancionXzona($idzona)
+    {
+        $ta =  DB::select(DB::raw("SELECT  COALESCE( (aux1.sancion - ((SELECT count(*) FROM fechas f2 INNER JOIN zonas z ON z.idzona = f2.idzona WHERE f2.fecha BETWEEN aux1.fecha AND CURRENT_DATE AND  z.idzona=:p1)-1)) , 0 ) fechas
+                                      FROM
+                                    (
+                                        SELECT jugador, sancion, fecha, nombre_equipo FROM
+                                    (SELECT j.nombre_jugador jugador, sum(phj.cantidad_fechas_sancion) sancion , f.fecha fecha, e.nombre_equipo
+                                    FROM partidos p
+                                    INNER JOIN fechas f ON f.idfecha = p.idfecha
+                                    INNER JOIN zonas z ON z.idzona = f.idzona
+                                    LEFT JOIN partido_has_jugador phj  ON p.idpartido = phj.idpartido
+                                    left JOIN jugadores j ON j.idjugador = phj.idjugador
+                                    LEFT JOIN equipos e ON e.idequipo = j.idequipo
+                                    WHERE p.fue_jugado=1 and f.fecha<= CURRENT_DATE AND z.idzona=:p2 AND j.idjugador=:p3
+                                    GROUP BY j.nombre_jugador, phj.cantidad_fechas_sancion, f.fecha) AS aux
+                                    WHERE EXISTS (SELECT count(*) FROM fechas f INNER JOIN zonas z ON z.idzona = f.idzona WHERE f.fecha BETWEEN aux.fecha AND CURRENT_DATE AND z.idzona=:p4 HAVING count(*) <=aux.sancion )
+                                    )AS aux1"), array('p1' => $idzona,'p2' => $idzona,'p3' => $this->idjugador,'p4' => $idzona));
+        $tarjeta=0;
+        foreach($ta as $t)
+        {
+            $tarjeta = $t->fechas;
+        }
+        return $tarjeta;
+    }
+    
     public  function validaralta()
     {
         $jug = Jugador::onlyTrashed()->where('dni', $this->dni)->first();

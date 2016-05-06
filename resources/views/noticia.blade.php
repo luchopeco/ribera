@@ -1,49 +1,62 @@
 @extends('app')
-@section('meta')
-<meta property="og:url" content="http://www.ligatifosi.com/noticia/{{$noticias->idnoticia}}" />
-<meta property="og:title" content="{{$noticias->titulo}}" />
-<meta property="og:description" content="{{Illuminate\Support\Str::limit($noticias->texto,150, '')}}" />
-<meta property="og:image" content="http://www.ligatifosi.com/imagenes/{{$noticias->imagen}}" />
-<meta property="og:type" content="website" />
-@endsection
-@section('title')
-..::Tifosi::..
-@endsection
-@section('content')
+<meta property="og:url" content="http://www.ligalaribera.com.ar" />
+<meta property="og:title" content="Liga La Ribera" />
+<meta property="og:description" content="Noticias de la Liga" />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/{{$n->imagen}}" />
 
-<!--Noticias SECTION START-->
-<section id="team" class="margin-top" >
-    <div class="container">
-        <div class="row text-center header animate-in" data-anim-type="fade-in-up">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3>NOTICIAS </h3>
-                <hr />
+<meta property="og:type" content="website" />
+@section('title')
+Noticias
+@endsection
+
+@section('content')
+<section id="section-page">
+<div class="row">
+    <div class="col-md-12">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="border-titulo-medio"></div>
+                    <h2>NOTICIA</h2>
+                    <br>
+                </div>
+                <br>
             </div>
         </div>
-        <div class="row animate-in" data-anim-type="fade-in-up">
-            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
-                <div class="team-wrapperr">
-                   <div class="team-innerr" style="background-image: url('/imagenes/{{$noticias->imagen}}')" >
-                    <a  href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.ligatifosi.com/noticia/{{$noticias->idnoticia}}&p[title]={{$noticias->titulo}}&p[summary]={{Illuminate\Support\Str::limit($noticias->texto,150, '')}}&p[images][0]=http://www.ligatifosi.com/imagenes/{{$noticias->imagen}}">
-                       <i class="fa fa-facebook-f" ></i>
-                    </a>
-                    </div>
-                    <div class="description">
-                        <h3> {{$noticias->titulo}}</h3>
-                        <p>
-                        {{$noticias->texto}}
-                        </p>
-                        @if($noticias->link!="")
-                        <a href="{{$noticias->link}}" target="_blank">(Más)</a>
-                        @endif
+    </div>
+</div>
+</section>
+<section id="noticias" >
+    <div class="row">
+        <div class="col-md-12">
+            <div id="noticias">
+                <div class="container">
+                    <br>
+                    <div class="row">
+                          <div class="row text-left">
+                             <div class="col-md-6">
+                                 <img src="/imagenes/{{$n->imagen}}" class="img-responsive" >
+                             </div>
+                             <div class="col-md-6">
+                                 <div class="fecha"><p>{{$n->fecha}}</p></div>
+                                 <h1>{{$n->titulo}}</h1>
+                                 <p>{{$n->texto}}</p>
+                                 <div class="fecha">
+                                     <a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.ligalaribera.com.ar/noticia/{{$n->idnoticia}}&p[title]={{$n->titulo}}&p[summary]={{$n->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$n->imagen}}" class="btn" >
+                                         <i class="fa fa-facebook-square fa-2x"></i> COMPARTIR
+                                     </a>
+                                 </div>
+                             </div>
+                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--NoticiasSECTION END-->
+
 @endsection
+
 @section('script')
 
 @endsection

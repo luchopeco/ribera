@@ -268,4 +268,16 @@ class HomeController extends Controller {
         return view('include.combotorneoestadisticas',compact('listtorneos'));
     }
 
+    public function noticia($id)
+    {
+        try {
+            $n = Noticia::findOrFail($id);
+            return view('noticia', compact('n'));
+        }
+        catch(\Exception $ex)
+        {
+            return redirect()->action('HomeController@index');
+        }
+    }
+
 }
