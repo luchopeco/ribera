@@ -66,7 +66,7 @@
                             <td>{{date('d/m/Y', strtotime($fecha->fecha))}}</td>
                             <td>{{$fecha->observaciones}}</td>
                             <td>{{$fecha->esPlayOff()}}</td>
-                            <td><a href="#" class=" btn btn-xs btn-info" title="Imprimir Planilla Fecha" data-toggle="modal" data-target="#proximamenteModal"> <i class="fa fa-print"></i></a></td>
+                            <td><a href="../fechas/planilla/{{$fecha->idfecha}}" class=" btn btn-xs btn-info" title="Imprimir Planilla Fecha" target="_blank"> <i class="fa fa-print"></i></a></td>
                             <td><a href="../fechas/{{$fecha->idfecha}}" class="btn btn-xs btn-primary " data-idtorneo="{{$fecha->idtorneo}}" data-idfecha="{{$fecha->idfecha}}"  title="Gestionar Partidos"> <i class="fa fa-futbol-o"></i></a></td>
                             <td><a href="" class="btn btn-xs btn-info editarfecha" data-idtorneo="{{$fecha->idtorneo}}" data-idfecha="{{$fecha->idfecha}}"  title="Editar"> <i class=" fa fa-edit"></i></a></td>
                             <td><a href="../fecha/{{$fecha->idfecha}}" title="Imagenes de la  Fecha" class=" btn-xs btn btn-success" ><i class=" fa fa-image"></i></a></td>

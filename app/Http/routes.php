@@ -109,6 +109,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],
         Route::post('fecha/imagenequipoborrar','FechasController@imagenequipoborrar');
         Route::post('fecha/imagenfiguraguardar','FechasController@imagenfiguraguardar');
         Route::post('fecha/imagenfiguraborrar','FechasController@imagenfiguraborrar');
+        Route::get('fechas/planilla/{id}','FechasController@planilla');
 
         Route::resource('partidos','PartidosController');
         Route::post('partidos/buscar','PartidosController@buscar');

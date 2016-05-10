@@ -303,4 +303,15 @@ class FechasController extends Controller {
         }
 	}
 
+    public function planilla(Request $request)
+    {
+        $fecha=Fecha::findOrFail($request->id);
+        $view = \View::make('admin.pdf.planillafecha',compact('fecha'))->render();
+        $pdf =  \App::make('dompdf.wrapper');
+        $pdf->setPaper("A4", "landscape");
+        $pdf->loadHTML($view);
+        return $pdf->stream('planilaa');
+        //return view('admin.pdf.planillafecha', compact('fecha'));
+    }
+
 }

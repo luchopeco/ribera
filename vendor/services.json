@@ -23,6 +23,7 @@
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Collective\\Html\\HtmlServiceProvider",
+        "Barryvdh\\DomPDF\\ServiceProvider",
         "torneo\\Providers\\AppServiceProvider",
         "torneo\\Providers\\BusServiceProvider",
         "torneo\\Providers\\ConfigServiceProvider",
@@ -41,6 +42,7 @@
         "Illuminate\\Session\\SessionServiceProvider",
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
+        "Barryvdh\\DomPDF\\ServiceProvider",
         "torneo\\Providers\\AppServiceProvider",
         "torneo\\Providers\\BusServiceProvider",
         "torneo\\Providers\\ConfigServiceProvider",
@@ -125,7 +127,9 @@
         "translator": "Illuminate\\Translation\\TranslationServiceProvider",
         "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider",
         "html": "Collective\\Html\\HtmlServiceProvider",
-        "form": "Collective\\Html\\HtmlServiceProvider"
+        "form": "Collective\\Html\\HtmlServiceProvider",
+        "Collective\\Html\\HtmlBuilder": "Collective\\Html\\HtmlServiceProvider",
+        "Collective\\Html\\FormBuilder": "Collective\\Html\\HtmlServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [],
