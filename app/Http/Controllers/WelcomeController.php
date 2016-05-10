@@ -175,41 +175,41 @@ class WelcomeController extends Controller {
     }
 
     public function modificarclave(){
-        try
+    try
+    {
+        if(Input::get('clave-nueva')==''||Input::get('clave-nueva-2')=='')
         {
-            if(Input::get('clave-nueva')==''||Input::get('clave-nueva-2')=='')
-            {
-                Session::flash('mensajeError', 'Ingrese una clave nueva');
-                return redirect()->action('WelcomeController@equipo');
-            }
-            else if(Input::get('clave-nueva')!=Input::get('clave-nueva-2'))
-            {
-                Session::flash('mensajeError', 'Las claves nuevas no coinciden');
-                return redirect()->action('WelcomeController@equipo');
-            }
-            else{
-                $eq = Equipo::findOrFail(Request::input('idequipoC'));
-                if (Hash::check(Request::input('clave-actual'),$eq->clave))
-                {
-                    $eq->clave=Hash::make(Input::get('clave-nueva'));
-                    $eq->save();
-                    Session::flash('mensajeOk', 'Clave modificada Correctamente');
-                    return redirect()->action('WelcomeController@equipo');
-                }
-                else
-                {
-                    Session::flash('mensajeError', 'La clave actual es incorrecta');
-                    return redirect()->action('WelcomeController@equipo');
-                }
-
-            }
+            Session::flash('mensajeError', 'Ingrese una clave nueva');
+            return redirect()->action('WelcomeController@equipo');
         }
-        catch(QueryException  $ex)
+        else if(Input::get('clave-nueva')!=Input::get('clave-nueva-2'))
         {
-            Session::flash('mensajeError', $ex->getMessage());
-            return redirect()->route('admin.equipos.index');
+            Session::flash('mensajeError', 'Las claves nuevas no coinciden');
+            return redirect()->action('WelcomeController@equipo');
+        }
+        else{
+            $eq = Equipo::findOrFail(Request::input('idequipoC'));
+            if (Hash::check(Request::input('clave-actual'),$eq->clave))
+            {
+                $eq->clave=Hash::make(Input::get('clave-nueva'));
+                $eq->save();
+                Session::flash('mensajeOk', 'Clave modificada Correctamente');
+                return redirect()->action('WelcomeController@equipo');
+            }
+            else
+            {
+                Session::flash('mensajeError', 'La clave actual es incorrecta');
+                return redirect()->action('WelcomeController@equipo');
+            }
+
         }
     }
+    catch(QueryException  $ex)
+    {
+        Session::flash('mensajeError', $ex->getMessage());
+        return redirect()->route('admin.equipos.index');
+    }
+}
 
     public function torneoportipotorneofixture($id)
     {
