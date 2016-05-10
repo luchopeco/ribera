@@ -102,9 +102,9 @@ $ruta= Route::currentRouteAction();
                     @else
                         <li ><a class="page-scroll" href="/equipo" >EQUIPOS</a></li>
                     @endif
-                    <li>
-                        <a class="page-scroll" href="#" style="cursor:not-allowed">CONTACTO</a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a class="page-scroll" href="#" style="cursor:not-allowed">CONTACTO</a>--}}
+                    {{--</li>--}}
 
 
                 </ul>
@@ -180,7 +180,7 @@ $ruta= Route::currentRouteAction();
 
     <script>
         $(function () {
-            /*
+
             $.vegas('slideshow', {
                 backgrounds: [
                     @foreach($listImagen as $imagen)
@@ -191,7 +191,7 @@ $ruta= Route::currentRouteAction();
             //SLIDESHOW OVERLAY IMAGE
             src: '/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
             });
-            */
+
             
     });
     </script>

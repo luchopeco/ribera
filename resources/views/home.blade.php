@@ -52,7 +52,7 @@
                         donde las palabras <strong>"fútbol, amigos y juego limpio"</strong> sean moneda corriente.</p>
                     </div>
                     <br>
-                    <div><a href="#" class="page-scroll btn btn-xl " style="cursor:not-allowed">CONOCENOS MAS</a></div>
+                    <div><a href="/laribera" class="page-scroll btn btn-xl " >CONOCENOS MAS</a></div>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                             <hr>
                             <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($noticia->texto,100, '.........')}}</p>
                             <div class=" text-right">
-                                <a href="#" class="btn" style="cursor:not-allowed">
+                                <a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.ligalaribera.com.ar/noticia/{{$noticia->idnoticia}}&p[title]={{$noticia->titulo}}&p[summary]={{$noticia->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$noticia->imagen}}" class="btn" >
                                     <i class="fa fa-facebook-square fa-2x"></i>
                                 </a>
                                 <a href="#noticia{{$noticia->idnoticia}}" class=" btn btn-sm btn-warning" data-toggle="modal">Leer Más..</a>

@@ -1,6 +1,6 @@
 @extends('app')
 @section('title')
-..::Tifosi::..
+..::EQUIPOS::..
 @endsection
 @section('css')
 
@@ -327,6 +327,7 @@
 <script type="text/javascript">
 function buscarEquipoXTorneo()
  {
+ $('#cargando').html('<button class="btn btn-default btn-lg"><i class="fa fa-spinner fa-spin"></i>Cargando....</button>');
     var id_articulo=$("#idtorneo").val();
     $.ajax({
          url:"/equipotorneo/"+id_articulo,
@@ -334,6 +335,7 @@ function buscarEquipoXTorneo()
          dataType: "HTML"
         })
     .done(function(response){
+        $('#cargando').html('');
            $("#equipo-torneo").html(response);
         })
         .fail(function(){
@@ -343,6 +345,7 @@ function buscarEquipoXTorneo()
  }
 function buscarZonas()
  {
+ $('#cargando').html('<button class="btn btn-default btn-lg"><i class="fa fa-spinner fa-spin"></i>Cargando....</button>');
     var id_articulo=$("#idtorneo").val();
 
     var id_equipo=$("#idequipoid").val();
@@ -355,6 +358,7 @@ function buscarZonas()
          dataType: "HTML"
         })
     .done(function(response){
+        $('#cargando').html('');
            $("#idzona").html(response);
            buscarTablaPosiciones();
         })
@@ -366,6 +370,7 @@ function buscarZonas()
 
  function buscarTablaPosiciones()
  {
+ $('#cargando').html('<button class="btn btn-default btn-lg"><i class="fa fa-spinner fa-spin"></i>Cargando....</button>');
     var id_zona=$("#idzona").val();
     var id_torneo=$("#idtorneo").val();
      var id_equipo=$("#idequipoid").val();
@@ -376,6 +381,7 @@ function buscarZonas()
          dataType: "HTML"
         })
     .done(function(response){
+        $('#cargando').html('');
            $("#tablaPosiciones").html(response);
            completarEstadisticas();
         })
@@ -386,6 +392,7 @@ function buscarZonas()
  }
 
  function completarEstadisticas(){
+     $('#cargando').html('<button class="btn btn-default btn-lg"><i class="fa fa-spinner fa-spin"></i>Cargando....</button>');
       var id_zona=$("#idzona").val();
       var id_torneo=$("#idtorneo").val();
       var id_equipo=$("#idequipoid").val();
@@ -396,6 +403,7 @@ function buscarZonas()
            dataType: "HTML"
           })
           .done(function(response){
+            $('#cargando').html('');
              $("#equipo_torneo").html(response);             
           })
           .fail(function(){
