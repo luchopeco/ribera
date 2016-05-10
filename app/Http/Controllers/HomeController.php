@@ -292,13 +292,13 @@ class HomeController extends Controller {
         $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
         return view('include.equipotorneo',compact('equipo','torneo'));
     }
-    public function buscartablaposiciones($idzona,$idtorneo){
+    public function buscartablaposiciones_prueba($idzona,$idtorneo){
         $zona = Zona::findOrFail($idzona);
         $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
         
         $respuesta = "";
         if($torneo->estadisticas_x_torneo==1){
-            $respuesta = '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="">
+            $respuesta = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
                 <div  class="fechas-wrapper col-fechas">
                   <div class="table-responsive">
                     <div class="border-titulo-medio" style="width: 100%;"></div>
@@ -340,7 +340,7 @@ class HomeController extends Controller {
             // es por zona elegida
               
                 
-                $respuesta= '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="">
+                $respuesta= '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
                   <div  class="fechas-wrapper col-fechas">
                     <div class="table-responsive">
                       <div class="border-titulo-medio" style="width: 100%;"></div>
@@ -390,6 +390,276 @@ class HomeController extends Controller {
         */
 
     }
+
+
+public function buscarequipoestadisticas($idequipo,$idzona,$idtorneo){
+        $zona = Zona::findOrFail($idzona);
+        $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
+        $equipo = Equipo::findOrFail($idequipo);
+        //var_dump($equipo);die();
+
+        $jugadores = $equipo->ListJugadores;
+
+        
+        
+        $respuesta = "";
+        if($torneo->estadisticas_x_torneo==1){
+            $respuesta = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                <div  class="fechas-wrapper col-fechas">
+                  <div class="table-responsive">
+                    <div class="border-titulo-medio" style="width: 100%;"></div>
+                    <table class="table ">
+                      <tr >
+                        <th>Jugador</th>
+                        
+                        <th>GOL</th>
+                        <th>Amarilla</th>
+                        <th>Rojas</th>
+                        <th>Sanc.</th>                       
+                      </tr>';
+
+                      foreach ($jugadores as $jugador) {
+
+                         $respuesta.= '<tr>';
+                         $respuesta.= '<td>'.$jugador->NombreApellido().'</td>
+                                           
+                                            <td>'.$jugador->goles($idtorneo).'</td>
+                                            <td>'.$jugador->tarjetasAmarillas($idtorneo).'</td>
+                                            <td>'.$jugador->tarjetasRojas($idtorneo).'</td>
+                                            <td>'.$jugador->fechasSancion($idtorneo).'</td>';
+                                            
+                         $respuesta.= ' </tr>';
+                         //var_dump($jugador->nombre_jugador." - ".$jugador->golesxZona($idzona));   
+                      }  
+                     
+
+                       $respuesta.= '  </table>   </div>      </div>       </div>';
+
+                       echo $respuesta;
+                       die();
+
+                     
+        }else{
+            // es por zona elegida              
+                
+                $respuesta= '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                  <div  class="fechas-wrapper col-fechas">
+                    <div class="table-responsive">
+                      <div class="border-titulo-medio" style="width: 100%;"></div>
+                      <table class=" table ">
+                        <tr >
+                          <th style="color:#FBC01C">'.$zona->nombre.'</th>
+                            <th>Jugador</th>
+                            
+                            <th>GOL</th>
+                            <th>Amarilla</th>
+                            <th>Rojas</th>
+                            <th>Sanc.</th>        
+                        </tr>';
+
+                        foreach ($jugadores as $jugador) {
+
+                         $respuesta.= '<tr><td></td>';
+                         $respuesta.= '<td>'.$jugador->NombreApellido().'</td>
+                                            
+                                            <td>'.$jugador->golesxZona($idzona).'</td>
+                                            <td>'.$jugador->tarjetasAmarillasxZona($idzona).'</td>
+                                            <td>'.$jugador->tarjetasRojasxZonas($idzona).'</td>
+                                            <td>'.$jugador->fechasSancionXzona($idzona).'</td>';
+                                            
+                         $respuesta.= ' </tr>';
+                        
+                      }  
+
+                        $respuesta.=' </table>
+                    </div>
+                  </div>
+                </div>';   
+
+                echo $respuesta;
+                die();                    
+              
+        }
+
+
+    }
+
+    public function completarestadisticas($idequipo,$idzona,$idtorneo){
+        
+        $zona = Zona::findOrFail($idzona);
+        $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
+        $equipo = Equipo::findOrFail($idequipo);
+
+
+        $respuesta = "";
+        if($torneo->estadisticas_x_torneo==1){
+            $respuesta = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                <div  class="fechas-wrapper col-fechas">
+                  <div class="table-responsive">
+                    <div class="border-titulo-medio" style="width: 100%;"></div>
+                    <table class="table ">';                       
+
+                      //  var_dump($torneo->TablaPosiciones()[0]->pj);die(); 
+                     $posicion=1;
+                     $posicionReal=1;
+                     $golesafavor=0;
+                     $golesencontra=0;
+                     $partidosJugados=0;
+                     $ganados = 0;
+                     $empatados=0;
+                     $perdidos=0;
+                     foreach ($torneo->TablaPosiciones() as $tabla) {
+
+                        if($tabla->nombre_equipo==$equipo->nombre_equipo){
+                            $posicionReal = $posicion;
+
+                             $golesafavor=$tabla->gf;
+                             $golesencontra=$tabla->gc;
+                             $partidosJugados=$tabla->pj;
+                             $ganados = $tabla->gan;
+                             $empatados=$tabla->emp;
+                             $perdidos=$tabla->per;
+
+                        }else{
+                            $posicion++;       
+                        }
+                         
+                      }
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$posicionReal.'</td>';
+                       $respuesta.= '<td> Posición </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$partidosJugados .'</td>';
+                       $respuesta.= '<td> Partidos Jugados </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$ganados.'</td>';
+                       $respuesta.= '<td> Ganados </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$empatados.'</td>';
+                       $respuesta.= '<td> Empatados </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$perdidos.'</td>';
+                       $respuesta.= '<td> Perdidos </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$golesafavor.'</td>';
+                       $respuesta.= '<td> Goles a favor </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$golesencontra.'</td>';
+                       $respuesta.= '<td> Goles en contra </td>';
+                     $respuesta.= '</tr>';
+
+
+                       $respuesta.= '  </table>   </div>      </div>       </div>';
+
+                       echo $respuesta;
+                       die();
+
+                     
+        }else{
+            // es por zona elegida              
+                
+                $respuesta= '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                  <div  class="fechas-wrapper col-fechas">
+                    <div class="table-responsive">
+                      <div class="border-titulo-medio" style="width: 100%;"></div>
+                      <table class=" table ">';
+                      
+
+
+                          //  var_dump($torneo->TablaPosiciones()[0]->pj);die(); 
+                     $posicion=1;
+                     $posicionReal=1;
+                     $golesafavor=0;
+                     $golesencontra=0;
+                     $partidosJugados=0;
+                     $ganados = 0;
+                     $empatados=0;
+                     $perdidos=0;
+                     foreach ($zona->TablaPosiciones() as $tabla) {
+
+                        if($tabla->nombre_equipo==$equipo->nombre_equipo){
+                            $posicionReal = $posicion;
+
+                             $golesafavor=$tabla->gf;
+                             $golesencontra=$tabla->gc;
+                             $partidosJugados=$tabla->pj;
+                             $ganados = $tabla->gan;
+                             $empatados=$tabla->emp;
+                             $perdidos=$tabla->per;
+
+                        }else{
+                            $posicion++;       
+                        }
+                         
+                      }
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$posicionReal.'</td>';
+                       $respuesta.= '<td> Posición </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$partidosJugados .'</td>';
+                       $respuesta.= '<td> Partidos Jugados </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$ganados.'</td>';
+                       $respuesta.= '<td> Ganados </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$empatados.'</td>';
+                       $respuesta.= '<td> Empatados </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$perdidos.'</td>';
+                       $respuesta.= '<td> Perdidos </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$golesafavor.'</td>';
+                       $respuesta.= '<td> Goles a favor </td>';
+                     $respuesta.= '</tr>';
+
+                     $respuesta.= '<tr>';
+                       $respuesta.= '<td>'.$golesencontra.'</td>';
+                       $respuesta.= '<td> Goles en contra </td>';
+                     $respuesta.= '</tr>';
+
+
+
+                        $respuesta.=' </table>
+                    </div>
+                  </div>
+                </div>';   
+
+                echo $respuesta;
+                die();                    
+              
+        }
+
+        echo "algo";
+        die();
+    }
+
+
+    
+
     public function buscarzonas($idtorneo,$idequipo)
     {
     
@@ -413,19 +683,20 @@ class HomeController extends Controller {
                
                 echo '<option value="'.$zona->idzona.'">'.$zona->nombre.' </option>';
             }
-            
+            /*
             //var_dump($zona->nombre);
             foreach($zona->ListEquipos as $eq)
             {
                 // var_dump($eq);
             }
+            */
 
         }
         die();
 
 
 
-        return view('include.equipotorneo',compact('equipo','torneo'));
+        //return view('include.equipotorneo',compact('equipo','torneo'));
     }
     
 

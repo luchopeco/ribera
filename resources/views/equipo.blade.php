@@ -108,16 +108,17 @@
              <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-6 col-md-offset-0">
                 <div class="equipos-wrapper-redondo alto50">
                     LIGA LA RIBERA TE INFORMA:
-                    <span>{{$equipo->mensaje}}
-                    </span>
+                    <span>{{$equipo->mensaje}}</span>
                 </div>
+
+                <div style="height:20px;"></div>
 
                 <div id="tablaPosiciones"></div>
              </div>
 
              <div class="col-md-3">
                
-                  <div id="equipo-torneo">
+                  <div id="equipo_torneo">
 
     
                    </div>
@@ -336,7 +337,7 @@ function buscarEquipoXTorneo()
            $("#equipo-torneo").html(response);
         })
         .fail(function(){
-            alert(id_articulo);
+            //alert(id_articulo);
         });
 
  }
@@ -358,7 +359,7 @@ function buscarZonas()
            buscarTablaPosiciones();
         })
         .fail(function(){
-            alert(id_articulo);
+            //alert(id_articulo);
         });
 
  }
@@ -367,19 +368,39 @@ function buscarZonas()
  {
     var id_zona=$("#idzona").val();
     var id_torneo=$("#idtorneo").val();
+     var id_equipo=$("#idequipoid").val();
     
       $.ajax({
-         url:"/buscartablaposiciones/"+id_zona+"/"+id_torneo,
+         url:"/buscarequipoestadisticas/"+id_equipo+"/"+id_zona+"/"+id_torneo,
          type: "GET",
          dataType: "HTML"
         })
     .done(function(response){
            $("#tablaPosiciones").html(response);
-           buscarTablaPosiciones();
+           completarEstadisticas();
         })
         .fail(function(){
-            alert(id_articulo);
+            //alert(id_equipo);
         });
+
+ }
+
+ function completarEstadisticas(){
+      var id_zona=$("#idzona").val();
+      var id_torneo=$("#idtorneo").val();
+      var id_equipo=$("#idequipoid").val();
+      
+        $.ajax({
+           url:"/completarestadisticas/"+id_equipo+"/"+id_zona+"/"+id_torneo,
+           type: "GET",
+           dataType: "HTML"
+          })
+          .done(function(response){
+             $("#equipo_torneo").html(response);             
+          })
+          .fail(function(){
+              //alert(id_equipo);
+          });
 
  }
 
