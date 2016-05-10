@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'WelcomeController@index');
+Route::get('/index', 'HomeController@index');
 Route::get('/fixture', 'HomeController@fixture');
 Route::get('/fixturetorneo/{id}', 'HomeController@fixturetorneo');
 Route::get('/inscripcion', 'HomeController@inscripcion');
@@ -31,11 +32,11 @@ Route::get('/buscarzonas/{idtorneo}/{idequipo}', 'HomeController@buscarzonas');
 Route::get('/buscartablaposiciones/{idzona}/{idtorneo}', 'HomeController@buscartablaposiciones');
 Route::get('/buscarequipoestadisticas/{idequipo}/{idzona}/{idtorneo}', 'HomeController@buscarequipoestadisticas');
 Route::get('/completarestadisticas/{idequipo}/{idzona}/{idtorneo}', 'HomeController@completarestadisticas');
+Route::post('/modificarclave', 'HomeController@modificarclave');
+Route::post('/equipoescudoguardar', 'HomeController@equipoescudoguardar');
+Route::post('/equipofotoguardar', 'HomeController@equipofotoguardar');
 
 
-Route::post('/equipoescudoguardar', 'WelcomeController@equipoescudoguardar');
-Route::post('/equipofotoguardar', 'WelcomeController@equipofotoguardar');
-Route::post('/modificarclave', 'WelcomeController@modificarclave');
 
 Route::post('/agregarjugador', 'WelcomeController@agregarjugador');
 

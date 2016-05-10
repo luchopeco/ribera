@@ -392,97 +392,97 @@ class HomeController extends Controller {
     }
 
 
-public function buscarequipoestadisticas($idequipo,$idzona,$idtorneo){
-        $zona = Zona::findOrFail($idzona);
-        $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
-        $equipo = Equipo::findOrFail($idequipo);
-        //var_dump($equipo);die();
+    public function buscarequipoestadisticas($idequipo,$idzona,$idtorneo){
+            $zona = Zona::findOrFail($idzona);
+            $torneo= Torneo::withTrashed()->where('idtorneo',$idtorneo)->first();
+            $equipo = Equipo::findOrFail($idequipo);
+            //var_dump($equipo);die();
 
-        $jugadores = $equipo->ListJugadores;
+            $jugadores = $equipo->ListJugadores;
 
-        
-        
-        $respuesta = "";
-        if($torneo->estadisticas_x_torneo==1){
-            $respuesta = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
-                <div  class="fechas-wrapper col-fechas">
-                  <div class="table-responsive">
-                    <div class="border-titulo-medio" style="width: 100%;"></div>
-                    <table class="table ">
-                      <tr >
-                        <th>Jugador</th>
-                        
-                        <th>GOL</th>
-                        <th>Amarilla</th>
-                        <th>Rojas</th>
-                        <th>Sanc.</th>                       
-                      </tr>';
 
-                      foreach ($jugadores as $jugador) {
 
-                         $respuesta.= '<tr>';
-                         $respuesta.= '<td>'.$jugador->NombreApellido().'</td>
-                                           
-                                            <td>'.$jugador->goles($idtorneo).'</td>
-                                            <td>'.$jugador->tarjetasAmarillas($idtorneo).'</td>
-                                            <td>'.$jugador->tarjetasRojas($idtorneo).'</td>
-                                            <td>'.$jugador->fechasSancion($idtorneo).'</td>';
-                                            
-                         $respuesta.= ' </tr>';
-                         //var_dump($jugador->nombre_jugador." - ".$jugador->golesxZona($idzona));   
-                      }  
-                     
-
-                       $respuesta.= '  </table>   </div>      </div>       </div>';
-
-                       echo $respuesta;
-                       die();
-
-                     
-        }else{
-            // es por zona elegida              
-                
-                $respuesta= '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
-                  <div  class="fechas-wrapper col-fechas">
-                    <div class="table-responsive">
-                      <div class="border-titulo-medio" style="width: 100%;"></div>
-                      <table class=" table ">
-                        <tr >
-                          <th style="color:#FBC01C">'.$zona->nombre.'</th>
+            $respuesta = "";
+            if($torneo->estadisticas_x_torneo==1){
+                $respuesta = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                    <div  class="fechas-wrapper col-fechas">
+                      <div class="table-responsive">
+                        <div class="border-titulo-medio" style="width: 100%;"></div>
+                        <table class="table ">
+                          <tr >
                             <th>Jugador</th>
-                            
+
                             <th>GOL</th>
                             <th>Amarilla</th>
                             <th>Rojas</th>
-                            <th>Sanc.</th>        
-                        </tr>';
+                            <th>Sanc.</th>
+                          </tr>';
 
-                        foreach ($jugadores as $jugador) {
+                          foreach ($jugadores as $jugador) {
 
-                         $respuesta.= '<tr><td></td>';
-                         $respuesta.= '<td>'.$jugador->NombreApellido().'</td>
-                                            
-                                            <td>'.$jugador->golesxZona($idzona).'</td>
-                                            <td>'.$jugador->tarjetasAmarillasxZona($idzona).'</td>
-                                            <td>'.$jugador->tarjetasRojasxZonas($idzona).'</td>
-                                            <td>'.$jugador->fechasSancionXzona($idzona).'</td>';
-                                            
-                         $respuesta.= ' </tr>';
-                        
-                      }  
+                             $respuesta.= '<tr>';
+                             $respuesta.= '<td>'.$jugador->NombreApellido().'</td>
 
-                        $respuesta.=' </table>
-                    </div>
-                  </div>
-                </div>';   
+                                                <td>'.$jugador->goles($idtorneo).'</td>
+                                                <td>'.$jugador->tarjetasAmarillas($idtorneo).'</td>
+                                                <td>'.$jugador->tarjetasRojas($idtorneo).'</td>
+                                                <td>'.$jugador->fechasSancion($idtorneo).'</td>';
 
-                echo $respuesta;
-                die();                    
-              
+                             $respuesta.= ' </tr>';
+                             //var_dump($jugador->nombre_jugador." - ".$jugador->golesxZona($idzona));
+                          }
+
+
+                           $respuesta.= '  </table>   </div>      </div>       </div>';
+
+                           echo $respuesta;
+                           die();
+
+
+            }else{
+                // es por zona elegida
+
+                    $respuesta= '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                      <div  class="fechas-wrapper col-fechas">
+                        <div class="table-responsive">
+                          <div class="border-titulo-medio" style="width: 100%;"></div>
+                          <table class=" table ">
+                            <tr >
+                              <th style="color:#FBC01C">'.$zona->nombre.'</th>
+                                <th>Jugador</th>
+
+                                <th>GOL</th>
+                                <th>Amarilla</th>
+                                <th>Rojas</th>
+                                <th>Sanc.</th>
+                            </tr>';
+
+                            foreach ($jugadores as $jugador) {
+
+                             $respuesta.= '<tr><td></td>';
+                             $respuesta.= '<td>'.$jugador->NombreApellido().'</td>
+
+                                                <td>'.$jugador->golesxZona($idzona).'</td>
+                                                <td>'.$jugador->tarjetasAmarillasxZona($idzona).'</td>
+                                                <td>'.$jugador->tarjetasRojasxZonas($idzona).'</td>
+                                                <td>'.$jugador->fechasSancionXzona($idzona).'</td>';
+
+                             $respuesta.= ' </tr>';
+
+                          }
+
+                            $respuesta.=' </table>
+                        </div>
+                      </div>
+                    </div>';
+
+                    echo $respuesta;
+                    die();
+
+            }
+
+
         }
-
-
-    }
 
     public function completarestadisticas($idequipo,$idzona,$idtorneo){
         
@@ -698,7 +698,91 @@ public function buscarequipoestadisticas($idequipo,$idzona,$idtorneo){
 
         //return view('include.equipotorneo',compact('equipo','torneo'));
     }
-    
 
+    public function modificarclave(){
+        try
+        {
+            if(Input::get('clave-nueva')==''||Input::get('clave-nueva-2')=='')
+            {
+                Session::flash('mensajeError', 'Ingrese una clave nueva');
+                return redirect()->action('HomeController@equipo');
+            }
+            else if(Input::get('clave-nueva')!=Input::get('clave-nueva-2'))
+            {
+                Session::flash('mensajeError', 'Las claves nuevas no coinciden');
+                return redirect()->action('HomeController@equipo');
+            }
+            else{
+                $eq = Equipo::findOrFail(Request::input('idequipoC'));
+                if (Hash::check(Request::input('clave-actual'),$eq->clave))
+                {
+                    $eq->clave=Hash::make(Input::get('clave-nueva'));
+                    $eq->save();
+                    Session::flash('mensajeOk', 'Clave modificada Correctamente');
+                    return redirect()->action('HomeController@equipo');
+                }
+                else
+                {
+                    Session::flash('mensajeError', 'La clave actual es incorrecta');
+                    return redirect()->action('HomeController@equipo');
+                }
+
+            }
+        }
+        catch(QueryException  $ex)
+        {
+            Session::flash('mensajeError', $ex->getMessage());
+            return back();
+        }
+    }
+
+    public function equipoescudoguardar(Request $request)
+    {
+        try
+        {
+
+            $equipo=Equipo::findOrFail(Input::get('idequipo'));
+
+            if ( Input::hasFile('file')) {
+                $file = Input::file('file');
+                $equipo->escudo = 'escudo-equipo'.$equipo->idequipo.'.'.$file->getClientOriginalExtension();
+                //guardamos la imagen en public/imagenes/articulos con el nombre original
+                $file->move("imagenes", 'escudo-equipo'.$equipo->idequipo.'.'.$file->getClientOriginalExtension());
+                $extension = $file->getClientOriginalExtension();
+            }
+            $equipo->save();
+
+            // y retornamos un JSON con estatus en 200
+            //return Response::json(['status'=>'true'],200);
+        }
+        catch(QueryException  $ex)
+        {
+
+        }
+    }
+
+    public function equipofotoguardar(Request $request)
+    {
+        try
+        {
+            $equipo=Equipo::findOrFail(Input::get('idequipof'));
+
+            if ( Input::hasFile('file')) {
+                $file = Input::file('file');
+                $equipo->foto = 'foto-equipo'.$equipo->idequipo.'.'.$file->getClientOriginalExtension();
+                //guardamos la imagen en public/imagenes/articulos con el nombre original
+                $file->move("imagenes", 'foto-equipo'.$equipo->idequipo.'.'.$file->getClientOriginalExtension());
+                $extension = $file->getClientOriginalExtension();
+            }
+            $equipo->save();
+
+            // y retornamos un JSON con estatus en 200
+            //return Response::json(['status'=>'true'],200);
+        }
+        catch(QueryException  $ex)
+        {
+
+        }
+    }
 
 }

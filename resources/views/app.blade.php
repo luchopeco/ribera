@@ -122,6 +122,28 @@ $ruta= Route::currentRouteAction();
     <footer>
         <div class="container">
             <div class="row">
+                <div class="col-md-2 col-sm-4">
+                    <img class="img-responsive" src="/imagenes/footer/auckland.png">
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <img class="img-responsive" src="/imagenes/footer/espana.png">
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <img class="img-responsive" src="/imagenes/footer/house.png">
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <img class="img-responsive" src="/imagenes/footer/rumah.png">
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <img class="img-responsive" src="/imagenes/footer/sts.png">
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <img class="img-responsive" src="/imagenes/footer/txr.png">
+                </div>
+
+
+            </div>
+            <div class="row">
                 <div class="col-md-4">
                     {{--<span class="copyright">Copyright &copy; Your Website 2014</span>--}}
                 </div>

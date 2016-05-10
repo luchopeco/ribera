@@ -26,9 +26,13 @@
                            
                         </div>
                         <div class="col-md-5">
-                            <div style="font-size:9px;float:right;">BIENVENIDO: <span>{{$equipo->nombre_equipo}}
-                             <a href="/equiposalir" class=" btn btn-danger btn-block"><i class="fa fa-times"></i> SALIR</a></span></div>
-                             
+                            <div style="font-size:15px;float:right; font-weight: bold">
+                                <div>BIENVENIDO: {{$equipo->nombre_equipo}}</div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-3"><a href="#" data-toggle="modal" data-target="#modalClave" title="Modificar Clave" class=" btn btn-warning btn-block"><i class="fa fa-key"></i></a></div>
+                                    <div class="col-md-6 col-sm-3"><a href="/equiposalir" title="Salir" class=" btn btn-danger btn-block"><i class="fa fa-times"></i> </a></div>
+                                </div>
+                            </div>
                             <br>
                         </div>  
                     </div>

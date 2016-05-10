@@ -8,17 +8,17 @@
      <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Liga La Ribera - Rosario">
     <meta name="author" content="Wiphala Sistemas">
-    <link rel="shortcut icon" href="landing/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/landing/img/favicon.ico" type="image/x-icon">
     <title>La Ribera</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="landing/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/landing/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="landing/css/landing-page.css" rel="stylesheet">
+    <link href="/landing/css/landing-page.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="landing/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/landing/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -74,10 +74,10 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="landing/js/jquery.js"></script>
+    <script src="/landing/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="landing/js/bootstrap.min.js"></script>
+    <script src="/landing/js/bootstrap.min.js"></script>
 
 </body>
 
