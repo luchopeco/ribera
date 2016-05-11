@@ -1,16 +1,11 @@
 @extends('app')
+@section('meta')
 <meta property="og:url" content="http://www.ligalaribera.com.ar" />
 <meta property="og:title" content="Liga La Ribera" />
 <meta property="og:description" content="" />
-<meta property="og:image" content="http://www.ligalaribera.com.ar/..." />
-<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/home/escudotifosi.jpg" />
-
-<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/" />
-
-
-<meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/" />
-
+<meta property="og:image" content="http://www.ligalaribera.com.ar/img/logo.png" />
 <meta property="og:type" content="website" />
+@endsection
 @section('title')
 Noticias
 @endsection
@@ -57,7 +52,7 @@ Noticias
                                         <hr>
                                         <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($listNoticias[$idxNoticia]->texto,100, '.........')}}</p>
                                         <div class=" text-right">
-                                            <a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.ligalaribera.com.ar/noticia/{{$listNoticias[$idxNoticia]->idnoticia}}&p[title]={{$listNoticias[$idxNoticia]->titulo}}&p[summary]={{$listNoticias[$idxNoticia]->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$listNoticias[$idxNoticia]->imagen}}" class="btn" >
+                                            <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://www.ligalaribera.com.ar/noticia/{{$listNoticias[$idxNoticia]->idnoticia}}&p[title]={{$listNoticias[$idxNoticia]->titulo}}&p[summary]={{$listNoticias[$idxNoticia]->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$listNoticias[$idxNoticia]->imagen}}" class="btn" >
                                                 <i class="fa fa-facebook-square fa-2x"></i>
                                             </a>
                                              <a href="#noticia{{$listNoticias[$idxNoticia]->idnoticia}}" class=" btn btn-sm btn-warning" data-toggle="modal">Leer Más..</a>
@@ -89,7 +84,7 @@ Noticias
                                         <hr>
                                         <p class="text-left col-noticia">{{Illuminate\Support\Str::limit($listNoticias[$idxNoticia]->texto,100, '.........')}}</p>
                                         <div class=" text-right">
-                                            <a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.ligalaribera.com.ar/noticia/{{$listNoticias[$idxNoticia]->idnoticia}}&p[title]={{$listNoticias[$idxNoticia]->titulo}}&p[summary]={{$listNoticias[$idxNoticia]->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$listNoticias[$idxNoticia]->imagen}}" class="btn" >
+                                            <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://www.ligalaribera.com.ar/noticia/{{$listNoticias[$idxNoticia]->idnoticia}}&p[title]={{$listNoticias[$idxNoticia]->titulo}}&p[summary]={{$listNoticias[$idxNoticia]->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$listNoticias[$idxNoticia]->imagen}}" class="btn" >
                                                 <i class="fa fa-facebook-square fa-2x"></i>
                                             </a>
                                               <a href="#noticia{{$listNoticias[$idxNoticia]->idnoticia}}" class=" btn btn-sm btn-warning" data-toggle="modal">Leer Más..</a>
@@ -127,7 +122,7 @@ Noticias
                         <h1>{{$noticia->titulo}}</h1>
                         <p>{{$noticia->texto}}</p>
                         <div class="fecha">
-                            <a href="#" class="">
+                            <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://www.ligalaribera.com.ar/noticia/{{$noticia->idnoticia}}&p[title]={{$noticia->titulo}}&p[summary]={{$noticia->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$noticia->imagen}}" class="btn">
                                 <i class="fa fa-facebook-square fa-2x"></i> COMPARTIR
                             </a>
                         </div>

@@ -1,10 +1,12 @@
 @extends('app')
-<meta property="og:url" content="http://www.ligalaribera.com.ar" />
-<meta property="og:title" content="Liga La Ribera" />
+@section('meta')
+<meta property="og:url" content="http://www.ligalaribera.com.ar/noticia/{{$n->idnoticia}}" />
+<meta property="og:title" content="{{$n->titulo}}" />
 <meta property="og:description" content="Noticias de la Liga" />
 <meta property="og:image" content="http://www.ligalaribera.com.ar/imagenes/{{$n->imagen}}" />
-
 <meta property="og:type" content="website" />
+@endsection
+
 @section('title')
 Noticias
 @endsection
@@ -42,7 +44,7 @@ Noticias
                                  <h1>{{$n->titulo}}</h1>
                                  <p>{{$n->texto}}</p>
                                  <div class="fecha">
-                                     <a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.ligalaribera.com.ar/noticia/{{$n->idnoticia}}&p[title]={{$n->titulo}}&p[summary]={{$n->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$n->imagen}}" class="btn" >
+                                     <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.ligalaribera.com.ar/noticia/{{$n->idnoticia}}&p[title]={{$n->titulo}}&p[summary]={{$n->texto}}&p[images][0]=http://www.ligalaribera.com.ar/imagenes/{{$n->imagen}}" class="btn" >
                                          <i class="fa fa-facebook-square fa-2x"></i> COMPARTIR
                                      </a>
                                  </div>

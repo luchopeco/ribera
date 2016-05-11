@@ -1,4 +1,11 @@
 @extends('app')
+@section('meta')
+<meta property="og:url" content="http://www.ligalaribera.com.ar" />
+<meta property="og:title" content="Liga La Ribera" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="http://www.ligalaribera.com.ar/img/logo.png" />
+<meta property="og:type" content="website" />
+@endsection
 @section('title')
 ..::EQUIPOS::..
 @endsection
