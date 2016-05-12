@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-04-2016 a las 04:46:45
+-- Tiempo de generación: 12-05-2016 a las 04:06:40
 -- Versión del servidor: 5.6.17-log
 -- Versión de PHP: 5.5.12
 
@@ -97,7 +97,7 @@ INSERT INTO `equipos` (`idequipo`, `nombre_equipo`, `escudo`, `foto`, `updated_a
 (50, 'THE REAL TEAM F.C', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (51, 'EL ALMA F.C', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (52, 'ARIZONA', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
-(53, 'ANCHA BANDA F.C', NULL, NULL, '2016-04-27 01:13:01', NULL, 0, 'ancha', '$2y$10$OEwAHrhxfIpbWuubYfyHF.9SvuKhkAPXATLY7H8o/5KDkWcSTeNy.', '', '', 1, 1),
+(53, 'ANCHA BANDA F.C', 'escudo-equipo53.PNG', 'foto-equipo53.png', '2016-05-11 01:49:39', NULL, 0, 'ancha', '$2y$10$Mlzhd4ldOv5V3RTp7GexOOz6KeqchWU/.9.ZWcGPMdmGqOehqiHka', '', '', 1, 1),
 (54, 'DEP. FAUSTINO', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (56, 'LA POCHI', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
 (57, 'REAL BAÑIL', NULL, NULL, '2015-05-14 01:24:27', NULL, 0, NULL, NULL, NULL, NULL, 1, 0),
@@ -231,54 +231,62 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
   `delegado` tinyint(4) NOT NULL DEFAULT '0',
   `deleted_at` timestamp NULL DEFAULT NULL,
   `apellido_jugador` varchar(255) DEFAULT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
   PRIMARY KEY (`idjugador`),
   KEY `FK_jugador` (`idequipo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=846 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=853 ;
 
 --
 -- Volcado de datos para la tabla `jugadores`
 --
 
-INSERT INTO `jugadores` (`idjugador`, `nombre_jugador`, `dni`, `pathfoto`, `idequipo`, `observaciones`, `created_at`, `updated_at`, `telefono`, `grupo_sanguineo`, `mail`, `direccion`, `obra_social`, `certificado`, `delegado`, `deleted_at`, `apellido_jugador`) VALUES
-(1, 'LUCIANOS', '31787301', NULL, 14, 'Delegado', NULL, '2015-04-11 05:43:16', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(808, 'Mariano', 'DNI:31787300', NULL, 14, 'CACA', '2015-04-11 03:56:02', '2015-04-11 03:56:02', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(809, 'Pedro', 'qdasd', NULL, 14, 'asdasd', '2015-04-11 03:56:30', '2015-04-11 03:56:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(810, 'PEPE', 'a', NULL, 14, '', '2015-04-11 03:56:49', '2015-04-11 04:38:27', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(811, 'pepe', '', NULL, 36, '', '2015-05-04 05:08:56', '2015-05-04 05:08:56', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(812, 'manuel', '', NULL, 36, '', '2015-05-04 05:09:01', '2015-05-04 05:09:01', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(813, 'eee', '', NULL, 51, '', '2015-05-04 06:25:20', '2015-05-04 06:25:20', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(814, 'QQQQ asdads asd ads ', '', NULL, 25, '', '2015-05-04 06:31:05', '2015-06-10 00:42:42', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(815, 'qqqq', '', NULL, 25, '', '2015-05-14 00:55:30', '2015-05-14 00:55:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(816, 'ffff', '', NULL, 25, '', '2015-05-14 00:55:35', '2015-05-14 00:55:35', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(817, 'ffff', '', NULL, 54, '', '2015-05-14 00:55:50', '2015-05-14 00:55:50', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(818, 'asdasd', '', NULL, 54, '', '2015-05-14 00:55:54', '2015-05-14 00:55:54', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(819, 'asdasd', 'asd', NULL, 46, '', '2015-05-27 01:33:06', '2015-05-27 01:33:06', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
-(820, '', '', NULL, NULL, NULL, '2015-06-26 02:12:36', '2015-06-26 02:12:36', '', '', '', '', '', 0, 0, NULL, NULL),
-(821, '', '', NULL, NULL, NULL, '2015-06-26 02:14:38', '2015-06-26 02:14:38', '', '', '', '', '', 0, 0, NULL, NULL),
-(822, '', '', NULL, NULL, NULL, '2015-06-26 02:15:19', '2015-06-26 02:15:19', '', '', '', '', '', 0, 0, NULL, NULL),
-(823, '', '', NULL, NULL, NULL, '2015-06-26 02:16:14', '2015-06-26 02:16:14', '', '', '', '', '', 0, 0, NULL, NULL),
-(824, '', '', NULL, NULL, NULL, '2015-06-26 02:17:29', '2015-06-26 02:17:29', '', '', '', '', '', 0, 0, NULL, NULL),
-(825, '', '', NULL, NULL, NULL, '2015-06-26 02:17:55', '2015-06-26 02:17:55', '', '', '', '', '', 0, 0, NULL, NULL),
-(826, '', '', NULL, NULL, NULL, '2015-06-26 02:20:29', '2015-06-26 02:20:29', '', '', '', '', '', 0, 0, NULL, NULL),
-(827, 'Pablo Patricio Perez', '31787456', NULL, NULL, NULL, '2015-06-26 05:49:58', '2015-06-26 05:49:58', '34168777', 'A+', '', '', '', NULL, 0, NULL, NULL),
-(828, 'Pablo Patricio Perez', '31787456', NULL, 53, NULL, '2015-06-26 05:51:11', '2015-06-26 05:51:11', '34168777', 'A+', '', '', '', NULL, 0, NULL, NULL),
-(829, 'Pepe', '123123', NULL, 27, '', '2016-03-19 18:58:06', '2016-03-19 18:58:53', 'asdasd', 'asdads', '', '', '', 0, 0, NULL, 'Argentos'),
-(830, '', NULL, NULL, 62, 'delegado', '2016-03-24 23:36:40', '2016-03-24 23:36:40', ' - ', NULL, '', '', NULL, NULL, 1, NULL, NULL),
-(831, 'Luciano Pecovich', NULL, NULL, 63, 'delegado', '2016-03-24 23:44:05', '2016-03-24 23:44:05', 'asd - asd', NULL, 'asdas@as.com', 'asd', NULL, NULL, 1, NULL, NULL),
-(832, 'asd', NULL, NULL, 64, 'delegado', '2016-03-24 23:46:02', '2016-03-24 23:46:02', 'asd - asdasd', NULL, 'asdads@asd.com', 'asdasasd', NULL, NULL, 1, NULL, NULL),
-(833, 'asd', NULL, NULL, 66, 'delegado', '2016-03-24 23:47:37', '2016-03-24 23:47:37', 'asdasd - asd', NULL, 'asdasd@asdasd.comasd', 'asd', NULL, NULL, 1, NULL, NULL),
-(834, 'asdasd', NULL, NULL, 67, 'delegado', '2016-03-24 23:49:56', '2016-03-24 23:49:56', 'asdasd - asdasd', NULL, 'asdadsasd@asdasd.com', 'asads', NULL, NULL, 1, NULL, NULL),
-(835, 'asd', NULL, NULL, 69, 'delegado', '2016-03-24 23:53:24', '2016-03-24 23:53:24', 'asdasd - asdasdads', NULL, 'asdasd@asd.com', 'asasd', NULL, NULL, 1, NULL, NULL),
-(836, 'asd', NULL, NULL, 70, 'delegado', '2016-03-24 23:54:20', '2016-03-24 23:54:20', 'asdasda - asd', NULL, 'asads@asd.com', 'asd', NULL, NULL, 1, NULL, NULL),
-(837, 'asd', NULL, NULL, 71, 'delegado', '2016-03-24 23:55:17', '2016-03-24 23:55:17', 'asdasd - asdads', NULL, 'asdad@asda.com', 'asads', NULL, NULL, 1, NULL, NULL),
-(838, 'asdasd', NULL, NULL, 72, 'delegado', '2016-03-24 23:56:17', '2016-03-24 23:56:17', 'asdasd - asdasd', NULL, 'asdads@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
-(839, 'asdasd', NULL, NULL, 73, 'delegado', '2016-03-25 00:07:41', '2016-03-25 00:07:41', 'asdasd - asdasd', NULL, 'asdasdas@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
-(840, 'asdasd', NULL, NULL, 74, 'delegado', '2016-03-25 00:10:13', '2016-03-25 00:10:13', 'asdasd - asdasd', NULL, 'asdasd@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
-(841, 'asda', NULL, NULL, 75, 'delegado', '2016-03-25 00:11:35', '2016-03-25 00:11:35', 'asd - asd', NULL, 'asd@asd.com', 'asd', NULL, NULL, 1, NULL, NULL),
-(842, 'asdasd', NULL, NULL, 76, 'delegado', '2016-03-25 00:13:01', '2016-03-25 00:13:01', 'asdas - asdads', NULL, 'asdasd@asd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
-(843, 'asdads', NULL, NULL, 77, 'delegado', '2016-03-25 00:14:18', '2016-03-25 00:14:18', 'asdasd - asdads', NULL, 'asdasd@asd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
-(844, 'asdasd', NULL, NULL, 78, 'delegado', '2016-03-25 00:16:00', '2016-03-25 00:16:00', 'asdasd - asasd', NULL, 'asdasd@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL),
-(845, 'adsads', NULL, NULL, 79, 'delegado', '2016-03-25 00:17:21', '2016-03-25 00:17:21', 'asdasd - asdads', NULL, 'asdasdads@asdads.com', 'asdasdasd', NULL, NULL, 1, NULL, NULL);
+INSERT INTO `jugadores` (`idjugador`, `nombre_jugador`, `dni`, `pathfoto`, `idequipo`, `observaciones`, `created_at`, `updated_at`, `telefono`, `grupo_sanguineo`, `mail`, `direccion`, `obra_social`, `certificado`, `delegado`, `deleted_at`, `apellido_jugador`, `fecha_nacimiento`) VALUES
+(1, 'LUCIANOS', '31787301', NULL, 14, 'Delegado', NULL, '2015-04-11 05:43:16', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(808, 'Mariano', 'DNI:31787300', NULL, 14, 'CACA', '2015-04-11 03:56:02', '2015-04-11 03:56:02', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(809, 'Pedro', 'qdasd', NULL, 14, 'asdasd', '2015-04-11 03:56:30', '2015-04-11 03:56:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(810, 'PEPE', 'a', NULL, 14, '', '2015-04-11 03:56:49', '2015-04-11 04:38:27', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(811, 'pepe', '', NULL, 36, '', '2015-05-04 05:08:56', '2015-05-04 05:08:56', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(812, 'manuel', '', NULL, 36, '', '2015-05-04 05:09:01', '2015-05-04 05:09:01', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(813, 'eee', '', NULL, 51, '', '2015-05-04 06:25:20', '2015-05-04 06:25:20', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(814, 'QQQQ asdads asd ads ', '', NULL, 25, '', '2015-05-04 06:31:05', '2015-06-10 00:42:42', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(815, 'qqqq', '', NULL, 25, '', '2015-05-14 00:55:30', '2015-05-14 00:55:30', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(816, 'ffff', '', NULL, 25, '', '2015-05-14 00:55:35', '2015-05-14 00:55:35', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(817, 'ffff', '', NULL, 54, '', '2015-05-14 00:55:50', '2015-05-14 00:55:50', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(818, 'asdasd', '', NULL, 54, '', '2015-05-14 00:55:54', '2015-05-14 00:55:54', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(819, 'asdasd', 'asd', NULL, 46, '', '2015-05-27 01:33:06', '2015-05-27 01:33:06', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(820, '', '', NULL, NULL, NULL, '2015-06-26 02:12:36', '2015-06-26 02:12:36', '', '', '', '', '', 0, 0, NULL, NULL, NULL),
+(821, '', '', NULL, NULL, NULL, '2015-06-26 02:14:38', '2015-06-26 02:14:38', '', '', '', '', '', 0, 0, NULL, NULL, NULL),
+(822, '', '', NULL, NULL, NULL, '2015-06-26 02:15:19', '2015-06-26 02:15:19', '', '', '', '', '', 0, 0, NULL, NULL, NULL),
+(823, '', '', NULL, NULL, NULL, '2015-06-26 02:16:14', '2015-06-26 02:16:14', '', '', '', '', '', 0, 0, NULL, NULL, NULL),
+(824, '', '', NULL, NULL, NULL, '2015-06-26 02:17:29', '2015-06-26 02:17:29', '', '', '', '', '', 0, 0, NULL, NULL, NULL),
+(825, '', '', NULL, NULL, NULL, '2015-06-26 02:17:55', '2015-06-26 02:17:55', '', '', '', '', '', 0, 0, NULL, NULL, NULL),
+(826, '', '', NULL, NULL, NULL, '2015-06-26 02:20:29', '2015-06-26 02:20:29', '', '', '', '', '', 0, 0, NULL, NULL, NULL),
+(827, 'Pablo Patricio Perez', '31787456', NULL, NULL, NULL, '2015-06-26 05:49:58', '2015-06-26 05:49:58', '34168777', 'A+', '', '', '', NULL, 0, NULL, NULL, NULL),
+(828, 'Pablo Patricio Perez', '31787456', NULL, 53, NULL, '2015-06-26 05:51:11', '2015-06-26 05:51:11', '34168777', 'A+', '', '', '', NULL, 0, NULL, NULL, NULL),
+(829, 'Pepe', '123123', NULL, 27, '', '2016-03-19 18:58:06', '2016-05-12 04:52:56', 'asdasd', 'asdads', '', '', '', 0, 0, NULL, 'Argentos', '2016-05-11'),
+(830, '', NULL, NULL, 62, 'delegado', '2016-03-24 23:36:40', '2016-03-24 23:36:40', ' - ', NULL, '', '', NULL, NULL, 1, NULL, NULL, NULL),
+(831, 'Luciano Pecovich', NULL, NULL, 63, 'delegado', '2016-03-24 23:44:05', '2016-03-24 23:44:05', 'asd - asd', NULL, 'asdas@as.com', 'asd', NULL, NULL, 1, NULL, NULL, NULL),
+(832, 'asd', NULL, NULL, 64, 'delegado', '2016-03-24 23:46:02', '2016-03-24 23:46:02', 'asd - asdasd', NULL, 'asdads@asd.com', 'asdasasd', NULL, NULL, 1, NULL, NULL, NULL),
+(833, 'asd', NULL, NULL, 66, 'delegado', '2016-03-24 23:47:37', '2016-03-24 23:47:37', 'asdasd - asd', NULL, 'asdasd@asdasd.comasd', 'asd', NULL, NULL, 1, NULL, NULL, NULL),
+(834, 'asdasd', NULL, NULL, 67, 'delegado', '2016-03-24 23:49:56', '2016-03-24 23:49:56', 'asdasd - asdasd', NULL, 'asdadsasd@asdasd.com', 'asads', NULL, NULL, 1, NULL, NULL, NULL),
+(835, 'asd', NULL, NULL, 69, 'delegado', '2016-03-24 23:53:24', '2016-03-24 23:53:24', 'asdasd - asdasdads', NULL, 'asdasd@asd.com', 'asasd', NULL, NULL, 1, NULL, NULL, NULL),
+(836, 'asd', NULL, NULL, 70, 'delegado', '2016-03-24 23:54:20', '2016-03-24 23:54:20', 'asdasda - asd', NULL, 'asads@asd.com', 'asd', NULL, NULL, 1, NULL, NULL, NULL),
+(837, 'asd', NULL, NULL, 71, 'delegado', '2016-03-24 23:55:17', '2016-03-24 23:55:17', 'asdasd - asdads', NULL, 'asdad@asda.com', 'asads', NULL, NULL, 1, NULL, NULL, NULL),
+(838, 'asdasd', NULL, NULL, 72, 'delegado', '2016-03-24 23:56:17', '2016-03-24 23:56:17', 'asdasd - asdasd', NULL, 'asdads@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL, NULL),
+(839, 'asdasd', NULL, NULL, 73, 'delegado', '2016-03-25 00:07:41', '2016-03-25 00:07:41', 'asdasd - asdasd', NULL, 'asdasdas@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL, NULL),
+(840, 'asdasd', NULL, NULL, 74, 'delegado', '2016-03-25 00:10:13', '2016-03-25 00:10:13', 'asdasd - asdasd', NULL, 'asdasd@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL, NULL),
+(841, 'asda', NULL, NULL, 75, 'delegado', '2016-03-25 00:11:35', '2016-03-25 00:11:35', 'asd - asd', NULL, 'asd@asd.com', 'asd', NULL, NULL, 1, NULL, NULL, NULL),
+(842, 'asdasd', NULL, NULL, 76, 'delegado', '2016-03-25 00:13:01', '2016-03-25 00:13:01', 'asdas - asdads', NULL, 'asdasd@asd.com', 'asdasd', NULL, NULL, 1, NULL, NULL, NULL),
+(843, 'asdads', NULL, NULL, 77, 'delegado', '2016-03-25 00:14:18', '2016-03-25 00:14:18', 'asdasd - asdads', NULL, 'asdasd@asd.com', 'asdasd', NULL, NULL, 1, NULL, NULL, NULL),
+(844, 'asdasd', NULL, NULL, 78, 'delegado', '2016-03-25 00:16:00', '2016-03-25 00:16:00', 'asdasd - asasd', NULL, 'asdasd@asdasd.com', 'asdasd', NULL, NULL, 1, NULL, NULL, NULL),
+(845, 'adsads', NULL, NULL, 79, 'delegado', '2016-03-25 00:17:21', '2016-03-25 00:17:21', 'asdasd - asdads', NULL, 'asdasdads@asdads.com', 'asdasdasd', NULL, NULL, 1, NULL, NULL, NULL),
+(846, 'adsasdasdasdasds', '123123', NULL, 61, '', '2016-05-10 05:20:15', '2016-05-10 05:20:15', '123123123', '123123', '', '', '', 0, 0, NULL, 'asdasdasdasda', NULL),
+(847, 'qweqwe', '123123123', NULL, 61, '', '2016-05-10 05:20:27', '2016-05-10 05:20:27', 'qweqwe12', 'qwe', '', '', '', 0, 0, NULL, 'qweqweqwe', NULL),
+(848, 'qweqweq', 'adasd', NULL, 61, '', '2016-05-10 05:20:40', '2016-05-10 05:20:40', 'asdasd', 'asd', '', '', '', 0, 0, NULL, 'asdadsads', NULL),
+(849, 'ndsfsdf', '123123', NULL, 15, '', '2016-05-10 05:21:01', '2016-05-10 05:21:01', 'asd', 'asd', '', '', '', 0, 0, NULL, 'alfonso', NULL),
+(850, 'juan ', '123123', NULL, 15, '', '2016-05-10 05:21:12', '2016-05-10 05:21:12', 'asd', 'asd', '', '', '', 0, 0, NULL, 'elena', NULL),
+(851, 'aaa', 'asdasd', NULL, 27, '', '2016-05-12 04:25:24', '2016-05-12 04:37:34', 'asdasd', 'asdasd', '', '', '', 0, 0, NULL, 'aaaa', '2016-05-11'),
+(852, 'pepe', 'asd', NULL, 27, '', '2016-05-12 04:40:46', '2016-05-12 04:40:57', 'asd', 'asd', '', '', '', 0, 0, NULL, 'calandria', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -307,10 +315,10 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 --
 
 INSERT INTO `noticias` (`idnoticia`, `titulo`, `fecha`, `texto`, `mostrar_en_home`, `mostrar_en_seccion`, `updated_at`, `created_at`, `imagen`, `link`, `orden`, `icono`) VALUES
-(1, 'Nueva Noticia', 'asdasd', '', 1, 1, '2016-03-17 07:02:16', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', '', 1, 'horario.png'),
+(1, 'Nueva Noticia', 'asdasd', '', 1, 0, '2016-05-10 06:50:03', '2015-05-07 05:47:09', 'imagen-noticia1.jpg', '', 1, 'horario.png'),
 (2, 'Nueva', 'asdasd', 'asdasdasdasdasdasd\r\nasd\r\nas\r\nd\r\nasd\r\naasdaaaaaaaaaaaaaaaaasdasd', 1, 1, '2016-03-17 07:02:27', '2015-06-05 02:17:03', 'imagen-noticia2.jpg', 'ssssssssss', 12, 'jugador.png'),
 (3, 'noticia e4aasd', 'asd', 'asdasdasdfasdfasdfasdasdasd', 1, 1, '2016-03-17 07:02:34', '2016-02-20 22:52:07', NULL, 'asd', 11, 'cancha.png'),
-(7, 'sdf', 'sdf', 'sdfsd', 1, 1, '2016-03-25 01:15:03', '2016-03-25 01:15:03', NULL, 'sdf', 5, 'cancha.png'),
+(7, 'sdf', 'sdf', 'sdfsd', 1, 0, '2016-05-10 06:50:11', '2016-03-25 01:15:03', NULL, 'sdf', 5, 'cancha.png'),
 (10, 'asdads', 'asd', 'asdasd', 1, 1, '2016-03-25 01:15:56', '2016-03-25 01:15:56', NULL, 'asdasd', 8, 'cancha.png'),
 (11, 'asd', 'asd', 'asdasd', 1, 1, '2016-03-25 01:16:03', '2016-03-25 01:16:03', NULL, 'asd', 9, 'cancha.png'),
 (12, 'asd', 'asd', 'asdads', 1, 1, '2016-03-25 01:16:09', '2016-03-25 01:16:09', NULL, 'asd', 10, 'cancha.png');
@@ -518,7 +526,7 @@ CREATE TABLE IF NOT EXISTS `torneos` (
 --
 
 INSERT INTO `torneos` (`idtorneo`, `nombre_torneo`, `observaciones_torneo`, `idtipo_torneo`, `fecha_baja`, `updated_at`, `created_at`, `deleted_at`, `imagen`, `tablas_x_torneo`, `estadisticas_x_torneo`) VALUES
-(7, 'Primera División', 'obs', 1, NULL, '2016-03-07 05:44:36', NULL, NULL, NULL, 0, 1),
+(7, 'Primera División', 'obs', 1, NULL, '2016-05-06 01:10:42', NULL, NULL, NULL, 0, 0),
 (15, 'Nuevo Torneo', '', 1, NULL, '2015-09-09 01:04:23', '2015-04-27 00:03:13', NULL, NULL, 0, 0),
 (16, 'caca', '', 1, NULL, '2015-09-09 02:18:46', '2015-09-09 02:18:46', NULL, NULL, 0, 0),
 (17, 'Zarpado', '', 1, NULL, '2016-03-07 02:29:58', '2016-03-07 02:29:58', NULL, NULL, 1, 0),
@@ -636,10 +644,10 @@ CREATE TABLE IF NOT EXISTS `zonas` (
 --
 
 INSERT INTO `zonas` (`idzona`, `idtorneo`, `nombre`, `deleted_at`, `created_at`, `updated_at`, `orden`) VALUES
-(1, 7, 'Zona A', NULL, '2015-04-27 00:13:58', '2016-03-18 06:55:40', 1),
+(1, 7, 'Zona A', NULL, '2015-04-27 00:13:58', '2016-05-10 06:53:35', 0),
 (2, 15, 'Zona A', NULL, '2015-04-21 00:12:00', '2015-04-21 00:12:00', 0),
 (3, 16, 'Zona A', NULL, '2015-04-21 00:12:00', '2015-04-21 00:12:00', 0),
-(4, 7, 'Zona b', NULL, '2015-04-21 00:12:00', '2015-02-21 00:21:00', 0),
+(4, 7, 'Zona b', NULL, '2015-04-21 00:12:00', '2016-05-10 06:53:42', 1),
 (5, 7, 'Zona C', NULL, '2016-03-07 06:03:14', '2016-03-07 06:03:14', 3),
 (6, 7, 'Zona D', NULL, '2016-03-07 06:03:45', '2016-03-07 06:03:45', 4),
 (7, 18, 'Zona A', NULL, '2016-03-10 01:26:41', '2016-03-10 01:26:41', 0),

@@ -42,6 +42,7 @@ class JugadoresController extends Controller
     public function buscar(Request $request)
     {
         $ar = Jugador::findOrFail($request->idjugador);
+        $ar->fecha_nacimiento=implode('/',array_reverse(explode('-',$ar->fecha_nacimiento)));
         $response = array(
             "result" => true,
             "mensaje" => "No se pudo realizar la operacion",
@@ -72,6 +73,7 @@ class JugadoresController extends Controller
             } else {
                 $jugador->certificado = 0;
             }
+            $jugador->fecha_nacimiento=implode('-',array_reverse(explode('/',$request->fecha_nacimiento)));
             $jugador->validaralta();
             $jugador->save();
 
@@ -131,7 +133,7 @@ class JugadoresController extends Controller
             $ar->mail = $request->mail;
             $ar->direccion = $request->direccion;
             $ar->obra_social = $request->obra_social;
-
+            $ar->fecha_nacimiento=implode('-',array_reverse(explode('/',$request->fecha_nacimiento)));
             if ($request->delegado <> null) {
                 $ar->delegado = 1;
             } else {

@@ -38,7 +38,7 @@ class Equipo extends Model{
 
     public function ListJugadores()
     {
-        return $this->hasMany('torneo\Jugador','idequipo', 'idequipo');
+        return $this->hasMany('torneo\Jugador','idequipo', 'idequipo')->orderBy('apellido_jugador');
     }
 
     public function ListTorneosParaCombo()

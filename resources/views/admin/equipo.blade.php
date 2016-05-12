@@ -55,6 +55,7 @@
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Documento</th>
+                                    <th>Fecha Nacimiento</th>
                                     <th>Es Delegado</th>
                                     <th>Entrego Certificado</th>
                                     <th>Observaciones</th>
@@ -63,6 +64,7 @@
                                 <tr >
                                     <td>{{$jugador->NombreApellido()}}</td>
                                     <td>{{$jugador->dni}}</td>
+                                    <td>{{date('d/m/Y', strtotime($jugador->fecha_nacimiento))}}</td>
                                     <td>{{$jugador->esDelegado()}}</td>
                                     <td>{{$jugador->entregoCertificado()}}</td>
                                     <td>{{$jugador->observaciones}}</td>
@@ -104,6 +106,12 @@
                                                     {!!Form::Text('apellido_jugador',null,['class'=>'form-control','required'])!!}
                                                     <span class="help-block with-errors"></span>
                                                 </div>
+                                                 <div class="form-group">
+                                                   Fecha Nacimiento
+                                                    {!!Form::Text('fecha_nacimiento',null,['class'=>'form-control datepicker'])!!}
+                                                    <span class="help-block with-errors"></span>
+                                                </div>
+
                                                 <div class="form-group">
                                                      Documento
                                                      {!!Form::Text('dni',null,['class'=>'form-control','required'])!!}
@@ -175,6 +183,11 @@
                                                     <div class="form-group">
                                                         Apellido
                                                         {!!Form::Text('apellido_jugador',null,['class'=>'form-control','id'=>'apellido_jugadorU','required'])!!}
+                                                        <span class="help-block with-errors"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Fecha Nacimiento
+                                                     {!!Form::Text('fecha_nacimiento',null,['class'=>'form-control datepicker','id'=>'fecha_nacimientoU'])!!}
                                                         <span class="help-block with-errors"></span>
                                                     </div>
                                                     Documento
@@ -310,7 +323,7 @@
                                 $('#observacionesU').val(response.datos.observaciones);
                                 $('#idequipoU').val(response.datos.idequipo);
                                 $('#idjugadorU').val(response.datos.idjugador);
-
+                                $('#fecha_nacimientoU').val(response.datos.fecha_nacimiento);
                                 $('#telefonoU').val(response.datos.telefono);
                                 $('#grupo_sanguineoU').val(response.datos.grupo_sanguineo);
                                 $('#mailU').val(response.datos.mail);
