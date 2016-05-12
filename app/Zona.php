@@ -60,7 +60,7 @@ class Zona extends Model {
     }
 
     public function Goleadores(){
-        $goleadores =  DB::select(DB::raw("SELECT sum(phj.goles_favor) goles,CONCAT(COALESCE(j.nombre_jugador,''),'',COALESCE(j.apellido_jugador,'')) as nombre_jugador, e.nombre_equipo
+        $goleadores =  DB::select(DB::raw("SELECT sum(phj.goles_favor) goles,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo
                               FROM partido_has_jugador phj
                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -83,7 +83,7 @@ class Zona extends Model {
                                             tar.fecha_tr, tar.tar
                                             FROM
                                             (SELECT DISTINCT tam.fecha_ta, tam.ta ,taz.fecha_taz, taz.taz ,tam.nombre_jugador, tam.nombre_equipo, tam.idjugador FROM
-                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -96,7 +96,7 @@ class Zona extends Model {
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
                                             HAVING sum(phj.tarjeta_amarilla) >0) AS tam
                                             LEFT JOIN
-                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -113,7 +113,7 @@ class Zona extends Model {
                                             UNION ALL
 
                                             SELECT DISTINCT tam.fecha_ta, tam.ta ,taz.fecha_taz, taz.taz ,taz.nombre_jugador, taz.nombre_equipo, taz.idjugador FROM
-                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -126,7 +126,7 @@ class Zona extends Model {
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
                                             HAVING sum(phj.tarjeta_amarilla) >0) AS tam
                                             RIGHT JOIN
-                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -142,7 +142,7 @@ class Zona extends Model {
 
                                             LEFT JOIN
 
-                                            (SELECT max(f.fecha)fecha_tr, sum(phj.tarjeta_roja) tar,j.nombre_jugador, e.nombre_equipo,j.idjugador
+                                            (SELECT max(f.fecha)fecha_tr, sum(phj.tarjeta_roja) tar,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo,j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -163,7 +163,7 @@ class Zona extends Model {
                                             tar.fecha_tr, tar.tar
                                             FROM
                                             (SELECT DISTINCT tam.fecha_ta, tam.ta ,taz.fecha_taz, taz.taz ,tam.nombre_jugador, tam.nombre_equipo, tam.idjugador FROM
-                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -176,7 +176,7 @@ class Zona extends Model {
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
                                             HAVING sum(phj.tarjeta_amarilla) >0) AS tam
                                             LEFT JOIN
-                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -193,7 +193,7 @@ class Zona extends Model {
                                             UNION ALL
 
                                             SELECT DISTINCT tam.fecha_ta, tam.ta ,taz.fecha_taz, taz.taz ,taz.nombre_jugador, taz.nombre_equipo, taz.idjugador FROM
-                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_ta, sum(phj.tarjeta_amarilla) ta,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -206,7 +206,7 @@ class Zona extends Model {
                                             GROUP BY j.nombre_jugador, e.nombre_equipo,j.idjugador
                                             HAVING sum(phj.tarjeta_amarilla) >0) AS tam
                                             RIGHT JOIN
-                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,j.nombre_jugador, e.nombre_equipo, j.idjugador
+                                            (SELECT max(f.fecha)fecha_taz, sum(phj.tarjeta_azul) taz,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo, j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -222,7 +222,7 @@ class Zona extends Model {
 
                                             RIGHT JOIN
 
-                                            (SELECT max(f.fecha)fecha_tr, sum(phj.tarjeta_roja) tar,j.nombre_jugador, e.nombre_equipo,j.idjugador
+                                            (SELECT max(f.fecha)fecha_tr, sum(phj.tarjeta_roja) tar,CONCAT(COALESCE(j.apellido_jugador,''),', ',COALESCE(j.nombre_jugador,'')) as nombre_jugador, e.nombre_equipo,j.idjugador
                                             FROM partido_has_jugador phj
                                             INNER JOIN jugadores j ON j.idjugador = phj.idjugador
                                             INNER JOIN partidos p ON p.idpartido = phj.idpartido
@@ -272,9 +272,9 @@ class Zona extends Model {
                                                 (
                                                     SELECT
                                                         CONCAT(
-                                                            COALESCE(j.nombre_jugador, ''),
-                                                            '',
-                                                            COALESCE(j.apellido_jugador, '')
+                                                            COALESCE(j.apellido_jugador, ''),
+                                                            ', ',
+                                                            COALESCE(j.nombre_jugador, '')
                                                         )           jugador,
                                                         sum(phj.cantidad_fechas_sancion) sancion,
                                                         f.fecha     fecha,

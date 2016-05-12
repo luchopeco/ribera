@@ -1,6 +1,7 @@
 <?php namespace torneo\Http\Controllers\Admin;
 
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use torneo\Equipo;
@@ -133,8 +134,16 @@ class PartidosController extends Controller {
         {
             Session::flash('resultadoOk', 'No puede modificar un partido q ya fue jugado');
         }
-        $listJugadoresVisitantes= $equipos->ListJugadores->lists('nombre_jugador', 'idjugador');
-        $listJugadoresLocales= $equipo->ListJugadores->lists('nombre_jugador', 'idjugador');
+        $listJugadoresLocales = DB::table('jugadores')->select(DB::raw('idjugador, CONCAT( COALESCE(apellido_jugador, ""),", ", COALESCE(nombre_jugador, "")) as apenom'))
+            ->where('idequipo',$equipo->idequipo)
+            ->lists('apenom','idjugador');
+
+        $listJugadoresVisitantes = DB::table('jugadores')->select(DB::raw('idjugador, CONCAT( COALESCE(apellido_jugador, ""),", ", COALESCE(nombre_jugador, "")) as apenom'))
+            ->where('idequipo',$equipos->idequipo)
+            ->lists('apenom','idjugador');
+
+        //$listJugadoresVisitantes= $equipos->ListJugadores->lists('nombre_jugador', 'idjugador');
+        //$listJugadoresLocales= $equipo->ListJugadores->lists('apenom', 'idjugador');
         return view('admin.partido', compact('partido','listGoleadoresLocal','listGoleadoresVisitante','listJugadoresLocales','listJugadoresVisitantes'));
 
 

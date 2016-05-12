@@ -150,7 +150,7 @@
                                                             </tr>
                                                                 @foreach($listGoleadoresLocal as $jugador)
                                                             <tr >
-                                                                 <td>{{$jugador->nombre_jugador}}</td>
+                                                                 <td>{{$jugador->NombreApellido()}}</td>
                                                                  <td>{{$jugador->goles_favor}}</td>
                                                                   <td>{{$jugador->goles_contra}}</td>
                                                                   <td>{{$jugador->tarjeta_amarilla}}</td>
@@ -189,7 +189,7 @@
                                                             </tr>
                                                                 @foreach($listGoleadoresVisitante as $jugador)
                                                             <tr >
-                                                                 <td>{{$jugador->nombre_jugador}}</td>
+                                                                 <td>{{$jugador->NombreApellido()}}</td>
                                                                  <td>{{$jugador->goles_favor}}</td>
                                                                  <td>{{$jugador->goles_contra}}</td>
                                                                  <td>{{$jugador->tarjeta_amarilla}}</td>

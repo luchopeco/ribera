@@ -183,7 +183,6 @@
                           </table>
                         </div>
                       </div>
-                      <div style="float:right;" >F-> Fechas a Cumplir</div>
 
                     </div>
 

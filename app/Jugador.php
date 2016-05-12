@@ -8,6 +8,7 @@ class Jugador extends Model{
 
     use SoftDeletes;
 
+
     protected $table='jugadores';
 
     protected $fillable = ['nombre_jugador','dni','pathfoto','idequipo','observaciones','certificado','delegado','direccion','mail','obra_social','telefono','grupo_sanguineo','apellido_jugador','fecha_nacimiento'];
