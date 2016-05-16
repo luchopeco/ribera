@@ -19,12 +19,12 @@ table,td,th{
 
 }
 th{
-  height: 30px;
+  height: 25px;
   text-align: center;
   border-collapse:collapse;
 }
 td{
-  height: 30px;
+  height: 21px;
   padding-left: 5px;
   border-collapse:collapse;
 }
@@ -186,14 +186,14 @@ color: #ffffff;
 
 </div>
  <div class="clear"></div>
+ <br>
+ <div>
+     <div class="float ancho50">DT:</div>
+     <div class="float ancho50">DT:</div>
+ </div>
+ <div class="clear"></div>
+ <div>OBSERVACIONES:..............................................................................................</div>
 @endforeach
-<br>
-<div>
-    <div class="float ancho50">DT:</div>
-    <div class="float ancho50">DT:</div>
-</div>
-<div class="clear"></div>
-<br>
-<div>OBSERVACIONES:..............................................................................................</div>
+
 </body>
 </html>
