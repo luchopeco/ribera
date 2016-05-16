@@ -119,7 +119,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="border-titulo-medio"></div>
-                            <h2>COMO LLEGO?</h2>
+                            <h2>CÓMO LLEGO?</h2>
                             <br>
                             <div class="map-responsive">
                                <iframe src="https://www.google.com/maps/d/embed?mid=zdj0487fDBxk.kYA1aeXuXz0A&z=40" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>

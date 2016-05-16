@@ -41,7 +41,7 @@ class Fecha extends Model{
 
     public function ListPartidos()
     {
-        return $this->hasMany('torneo\Partido','idfecha','idfecha');
+        return $this->hasMany('torneo\Partido','idfecha','idfecha')->orderBy('hora');
     }
 
 }

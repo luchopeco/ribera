@@ -184,9 +184,13 @@ select {
 }
 #inscripcion .form-control {
     background-color: #D1D2D4;
-    color: #8E8F91;
+    color: #000000;
     border: none !important;
 }
+#inscripcion ::-webkit-input-placeholder { color: #ffffff; } /* WebKit */
+#inscripcion :-moz-placeholder { color: #ffffff; } /* Firefox 18- */
+#inscripcion ::-moz-placeholder {color: #ffffff; } /* Firefox 19+ */
+#inscripcion :-ms-input-placeholder { color: #ffffff; } /* IE 10+ */
 
 #inscripcion hr {
     margin-top: 20px;

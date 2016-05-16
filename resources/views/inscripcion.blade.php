@@ -106,7 +106,7 @@ Inscripcion
                                         <input type="text" id="validador" name="validador" value=""  class="hidden">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="text" id="nombre_equipo" name="nombre_equipo" value=""  placeholder="Nombre equipo" class="form-control">
+                                                <input type="text" id="nombre_equipo" name="nombre_equipo" value=""  placeholder="NOMBRE EQUIPO" class="form-control">
                                                 <script>
                                                     var f1= new LiveValidation('nombre_equipo', { validMessage: ' ', wait: 500});
                                                     f1.add(Validate.Presence, {failureMessage: "Obligatorio"});

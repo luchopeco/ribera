@@ -106,24 +106,24 @@
                                                     {!!Form::Text('apellido_jugador',null,['class'=>'form-control','required'])!!}
                                                     <span class="help-block with-errors"></span>
                                                 </div>
-                                                 <div class="form-group">
-                                                   Fecha Nacimiento
-                                                    {!!Form::Text('fecha_nacimiento',null,['class'=>'form-control datepicker'])!!}
-                                                    <span class="help-block with-errors"></span>
-                                                </div>
-
                                                 <div class="form-group">
                                                      Documento
                                                      {!!Form::Text('dni',null,['class'=>'form-control','required'])!!}
                                                     <span class="help-block with-errors"></span>
                                                 </div>
+                                                <div class="form-group">
+                                                   Fecha Nacimiento
+                                                    {!!Form::Text('fecha_nacimiento',null,['class'=>'form-control datepicker','required'])!!}
+                                                    <span class="help-block with-errors"></span>
+                                                </div>
+
                                                 Es Delegado
                                                 <div>{!!Form::checkbox('delegado','0',false)!!}</div>
                                                 Entrego Certificado
                                                 <div>{!!Form::checkbox('certificado','0',false)!!}</div>
                                                 <div class="form-group">
                                                      Tel/Cel
-                                                     {!!Form::Text('telefono',null,['class'=>'form-control','required'])!!}
+                                                     {!!Form::Text('telefono',null,['class'=>'form-control'])!!}
                                                     <span class="help-block with-errors"></span>
                                                 </div>
                                                 <div class="form-group">
@@ -185,20 +185,20 @@
                                                         {!!Form::Text('apellido_jugador',null,['class'=>'form-control','id'=>'apellido_jugadorU','required'])!!}
                                                         <span class="help-block with-errors"></span>
                                                     </div>
+                                                    Documento
+                                                    {!!Form::Text('dni',null,['class'=>'form-control','id'=>'dniU','required'])!!}
                                                     <div class="form-group">
                                                         Fecha Nacimiento
-                                                     {!!Form::Text('fecha_nacimiento',null,['class'=>'form-control datepicker','id'=>'fecha_nacimientoU'])!!}
+                                                     {!!Form::Text('fecha_nacimiento',null,['class'=>'form-control datepicker','id'=>'fecha_nacimientoU','required'])!!}
                                                         <span class="help-block with-errors"></span>
                                                     </div>
-                                                    Documento
-                                                    {!!Form::Text('dni',null,['class'=>'form-control','id'=>'dniU'])!!}
                                                     Es Delegado
                                                     <div>{!!Form::checkbox('delegado','0',false,['id'=>'delegadoU'])!!}</div>
                                                     Entrego Certificado
                                                     <div>{!!Form::checkbox('certificado','0',false,['id'=>'certificadoU'])!!}</div>
                                                     <div class="form-group">
                                                          Tel/Cel
-                                                         {!!Form::Text('telefono',null,['class'=>'form-control','required','id'=>'telefonoU'])!!}
+                                                         {!!Form::Text('telefono',null,['class'=>'form-control','id'=>'telefonoU'])!!}
                                                         <span class="help-block with-errors"></span>
                                                     </div>
                                                     <div class="form-group">

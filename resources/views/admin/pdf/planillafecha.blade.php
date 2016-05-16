@@ -152,7 +152,7 @@ color: #ffffff;
                 <td class="color-blanco">....</td>
                 <td class="color-blanco">....</td>
                 <td>{{$j->dni}}</td>
-                <td>{{$j->nombre_jugador}} {{$j->apellido_jugador}}</td>
+                <td>{{$j->NombreApellido()}}</td>
                 <td class="color-blanco">....</td>
                 <td class="color-blanco">....</td>
             </tr>
@@ -176,7 +176,7 @@ color: #ffffff;
                 <td class="color-blanco">....</td>
                 <td class="color-blanco">....</td>
                 <td>{{$j->dni}}</td>
-                <td>{{$j->nombre_jugador}} {{$j->apellido_jugador}}</td>
+                <td>{{$j->NombreApellido()}}</td>
                 <td class="color-blanco">....</td>
                 <td class="color-blanco">....</td>
             </tr>

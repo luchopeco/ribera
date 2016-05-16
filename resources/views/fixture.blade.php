@@ -24,10 +24,7 @@ Fixture
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <br>
-                    <div>
                     {!!Form::select('idtorneo', $listTorneosCombo,null,array('class' => 'form-control','onchange'=>'buscarFixtureXTorneo()','id'=>'idtorneo'))!!}
-                    </div>
                 </div>
                 <br>
             </div>
