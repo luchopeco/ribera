@@ -97,12 +97,14 @@
                         </select>
                         
                     </div>
+                    <br>
                    <div class="row">
                        @if($equipo->escudo=='')
                             <img class="img-responsive center-block" style="max-height: 200px" src="imagenes/escudo-generico.png">
                        @else
                             <img class="img-responsive center-block" style="max-height: 200px"  src="imagenes/{{$equipo->escudo}}">
                        @endif
+                       <br>
                          @if($equipo->foto=='')
                                <img class="img-responsive center-block" src="imagenes/equipo-generico.png">
                           @else
