@@ -35,10 +35,10 @@ Route::get('/completarestadisticas/{idequipo}/{idzona}/{idtorneo}', 'HomeControl
 Route::post('/modificarclave', 'HomeController@modificarclave');
 Route::post('/equipoescudoguardar', 'HomeController@equipoescudoguardar');
 Route::post('/equipofotoguardar', 'HomeController@equipofotoguardar');
+Route::post('/agregarjugador', 'HomeController@agregarjugador');
 
 
 
-Route::post('/agregarjugador', 'WelcomeController@agregarjugador');
 
 
 

@@ -10,7 +10,8 @@
 ..::EQUIPOS::..
 @endsection
 @section('css')
-
+  <!-- Date Picker -->
+ <link href="/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
  <link href="/css/dropzone.css" rel="stylesheet" type="text/css" />
 
 @endsection
@@ -140,7 +141,15 @@
 
           
            </div>
-            
+           <br>
+            <div class="row">
+                @if($equipo->autogestion==1)
+                    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-3 col-md-offset-3">
+                        <a href="#" data-toggle="modal" data-target="#modalJugador" class=" btn btn-warning btn-block">AGREGAR JUGADORES</a>
+                    </div>
+
+                @endif
+            </div>
 
 
         </div>
@@ -224,11 +233,19 @@
                                   <div class="col-md-12">
                                         <input type="hidden" value="{{ $equipo->idequipo }}" name="idequipoJ">
                                         <div class="form-group">
-                                            Nombre y Apellido
-                                            {!!Form::Text('nombre_jugador',null,['class'=>'form-control','id'=>'nombre_jugador'])!!}
-                                            <script>
+                                            Nombre
+                                            {!!Form::Text('nombre_jugador',null,['class'=>'form-control'])!!}
+                                             <script>
                                                 var f1= new LiveValidation('nombre_jugador', { validMessage: ' ', wait: 500});
                                                 f1.add(Validate.Presence, {failureMessage: "Obligatorio"});
+                                            </script>
+                                        </div>
+                                        <div class="form-group">
+                                            Apellido
+                                            {!!Form::Text('apellido_jugador',null,['class'=>'form-control'])!!}
+                                             <script>
+                                                var f7= new LiveValidation('apellido_jugador', { validMessage: ' ', wait: 500});
+                                                f7.add(Validate.Presence, {failureMessage: "Obligatorio"});
                                             </script>
                                         </div>
                                         <div class="form-group">
@@ -237,6 +254,14 @@
                                              <script>
                                                  var f2= new LiveValidation('dni', { validMessage: ' ', wait: 500});
                                                  f2.add(Validate.Presence, {failureMessage: "Obligatorio"});
+                                             </script>
+                                        </div>
+                                         <div class="form-group">
+                                           Fecha Nacimiento
+                                            {!!Form::Text('fecha_nacimiento',null,['class'=>'form-control datepicker'])!!}
+                                            <script>
+                                                 var f8= new LiveValidation('fecha_nacimiento', { validMessage: ' ', wait: 500});
+                                                 f8.add(Validate.Presence, {failureMessage: "Obligatorio"});
                                              </script>
                                         </div>
                                         <div class="form-group">
@@ -335,7 +360,12 @@
 </div>
 @endsection
 @section('script')
-
+<!-- jQuery 2.1.3 -->
+<script src="/js/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+<!-- jQuery UI 1.11.2 -->
+<script src="/js/plugins/jQueryUI/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script src="/js/jquery.datetimepicker.js" type="text/javascript"></script>
 <script src="/js/dropzone.js" type="text/javascript"></script>
 <script type="text/javascript">
 function buscarEquipoXTorneo()
@@ -430,9 +460,28 @@ function buscarZonas()
   $(function() {
      buscarZonas();
 
+    jQuery('.datepicker').datetimepicker({
+             lang:'es',
+             i18n:{
+              de:{
+               months:[
+                'Enero','Febrero','Marzo','Abril',
+                'Mayo','Junio','Julio','Agosto',
+                'Septiembre','Octubre','Noviembre','Diciembre',
+               ],
+               dayOfWeek:[
+                "Dom.", "Lun", "Mar", "Mie",
+                "Jue", "Vie", "Sab",
+               ]
+              }
+             },
+             timepicker:false,
+             format:'d/m/Y'
+            });
+
+
   });
  </script>
-
  <style type="text/css">
 .datoEstilo{
      background-color: #FBC01C !important;

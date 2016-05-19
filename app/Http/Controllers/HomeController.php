@@ -802,4 +802,41 @@ class HomeController extends Controller {
         }
     }
 
+    public function agregarjugador(Request $request)
+    {
+        try{
+            $jugador = new Jugador();
+            $jugador->apellido_jugador=Input::get('apellido_jugador');
+            $jugador->nombre_jugador=Input::get('nombre_jugador');
+            $jugador->fecha_nacimiento=implode('-',array_reverse(explode('/',Input::get('fecha_nacimiento'))));
+        
+            $jugador->dni=Input::get('dni');
+            $jugador->telefono=Input::get('telefono');
+            $jugador->grupo_sanguineo=Input::get('grupo_sanguineo');
+            $jugador->mail=Input::get('mail');
+            $jugador->direccion=Input::get('direccion');
+            $jugador->obra_social=Input::get('obra_social');
+            $jugador->idequipo=Session::get('equipo');
+            $jugador->validaralta();
+            $jugador->save();
+
+            Session::flash('mensajeOk', 'Jugador Agregado Correctamente');
+            return back();
+        }
+        catch(\Exception  $ex)
+        {
+            if ($ex->getMessage()==env('MSJ_ERRORJUGADOR'))
+            {
+                Session::flash('mensajeError', $ex->getMessage());
+                return back();
+            }
+            else
+            {
+                Session::flash('mensajeError', 'El jugador No se pudo Agregar');
+                return back();
+            }
+
+        }
+    }
+
 }
