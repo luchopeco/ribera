@@ -108,8 +108,8 @@
                           @else
                                <img class="img-responsive center-block" src="imagenes/{{$equipo->foto}}">
                           @endif
-                        <div class="col-xs-6"><a href="#" data-toggle="modal" data-target="#modalEscudo" >CAMBIAR ESCUDO</a></div>
-                        <div class="col-xs-6 text-right"><a href="#" data-toggle="modal" data-target="#modalFoto">CAMBIAR FOTO</a></div>
+                        <div class="col-xs-6 col-md-7"><a href="#" data-toggle="modal" data-target="#modalEscudo" style="color:#196A4A;font-size:12px" >CAMBIAR ESCUDO</a></div>
+                        <div class="col-xs-6  col-md-5 text-right"><a href="#" data-toggle="modal" data-target="#modalFoto" style="color:#196A4A;font-size:12px">CAMBIAR FOTO</a></div>
                    </div>
                </div>
 
@@ -117,9 +117,9 @@
 
             
              <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-6 col-md-offset-0">
-                <div class="equipos-wrapper-redondo alto50">
-                    LIGA LA RIBERA TE INFORMA:
-                    <span>{{$equipo->mensaje}}</span>
+                <div class="equipos-wrapper-redondo riberaInforma alto50">
+                    <div class="tituloEstilo"> LIGA LA RIBERA TE INFORMA: </div>
+                    <span style="">{{$equipo->mensaje}} </span>
                 </div>
 
                 <div style="height:20px;"></div>
@@ -430,4 +430,50 @@ function buscarZonas()
 
   });
  </script>
+
+ <style type="text/css">
+.datoEstilo{
+     background-color: #FBC01C !important;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none !important;
+    font-size: 18px !important;
+    min-height: 40px;
+    margin: 10px 0 0 0;
+    BORDER-RADIUS: 4PX;
+    PADDING: 7PX;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+.tituloEstilo{
+      color: #196A4A !important;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none !important;
+    font-size: 14px !important;
+    min-height: 40px;
+    margin: 10px 0 0 0;
+    BORDER-RADIUS: 4PX;
+    PADDING: 6PX;
+}
+
+.riberaInforma{
+     background-color: #FBC01C !important;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none !important;
+    font-size: 18px !important;
+    min-height: 40px;
+    margin: 10px 0 0 0;
+    BORDER-RADIUS: 4PX;
+    PADDING: 7PX;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+ </style>
+}
+}
 @endsection

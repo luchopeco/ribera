@@ -496,7 +496,8 @@ class HomeController extends Controller {
             $respuesta = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
                 <div  class="fechas-wrapper col-fechas">
                   <div class="table-responsive">
-                    <div class="border-titulo-medio" style="width: 100%;"></div>
+                  <div style="height:25px;"> </div>
+                    <!-- <div class="border-titulo-medio" style="width: 100%;"></div> -->
                     <table class="table ">';                       
 
                       //  var_dump($torneo->TablaPosiciones()[0]->pj);die(); 
@@ -527,42 +528,58 @@ class HomeController extends Controller {
                       }
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$posicionReal.'</td>';
-                       $respuesta.= '<td> Posición </td>';
+                       $respuesta.= '<td><div class="datoEstilo" > '.$posicionReal.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Posición </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$partidosJugados .'</td>';
-                       $respuesta.= '<td> Partidos Jugados </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$partidosJugados .'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Partidos Jugados </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$ganados.'</td>';
-                       $respuesta.= '<td> Ganados </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$ganados.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Ganados</div> </td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$empatados.'</td>';
-                       $respuesta.= '<td> Empatados </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$empatados.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Empatados</div> </td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$perdidos.'</td>';
-                       $respuesta.= '<td> Perdidos </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$perdidos.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Perdidos </td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$golesafavor.'</td>';
-                       $respuesta.= '<td> Goles a favor </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$golesafavor.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Goles a favor </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$golesencontra.'</td>';
-                       $respuesta.= '<td> Goles en contra </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$golesencontra.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Goles en contra </div></td>';
                      $respuesta.= '</tr>';
 
 
-                       $respuesta.= '  </table>   </div>      </div>       </div>';
+                    
+
+                   
+
+
+                       $respuesta.= '  </table>   </div>   ';
+              
+
+                 $respuesta.= '<tr>';
+                   
+                    $respuesta.= '<td><div class="tituloEstilo"> ULTIMA FECHA </div></td>';
+                   $respuesta.= '<td><div class="datoEstilo" >'.$partidosJugados.'</div></td>';
+                  
+                 $respuesta.= '</tr>';
+
+
+                        $respuesta.='  </div>       </div>';
 
                        echo $respuesta;
                        die();
@@ -574,7 +591,7 @@ class HomeController extends Controller {
                 $respuesta= '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
                   <div  class="fechas-wrapper col-fechas">
                     <div class="table-responsive">
-                      <div class="border-titulo-medio" style="width: 100%;"></div>
+                       <div style="height:25px;"> </div><!-- <div class="border-titulo-medio" style="width: 100%;"></div>-->
                       <table class=" table ">';
                       
 
@@ -607,38 +624,38 @@ class HomeController extends Controller {
                       }
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$posicionReal.'</td>';
-                       $respuesta.= '<td> Posición </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$posicionReal.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Posición </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$partidosJugados .'</td>';
-                       $respuesta.= '<td> Partidos Jugados </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$partidosJugados .'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Partidos Jugados </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$ganados.'</td>';
-                       $respuesta.= '<td> Ganados </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$ganados.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Ganados </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$empatados.'</td>';
-                       $respuesta.= '<td> Empatados </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$empatados.'</div></td>';
+                       $respuesta.= '<td> <div class="tituloEstilo">Empatados </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$perdidos.'</td>';
-                       $respuesta.= '<td> Perdidos </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$perdidos.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Perdidos </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$golesafavor.'</td>';
-                       $respuesta.= '<td> Goles a favor </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$golesafavor.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Goles a favor </div></td>';
                      $respuesta.= '</tr>';
 
                      $respuesta.= '<tr>';
-                       $respuesta.= '<td>'.$golesencontra.'</td>';
-                       $respuesta.= '<td> Goles en contra </td>';
+                       $respuesta.= '<td><div class="datoEstilo" >'.$golesencontra.'</div></td>';
+                       $respuesta.= '<td><div class="tituloEstilo"> Goles en contra </div></td>';
                      $respuesta.= '</tr>';
 
 
