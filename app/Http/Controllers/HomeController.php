@@ -573,8 +573,8 @@ class HomeController extends Controller {
 
                  $respuesta.= '<tr>';
                    
-                    $respuesta.= '<td><div class="tituloEstilo"> ULTIMA FECHA </div></td>';
-                   $respuesta.= '<td><div class="datoEstilo" >'.$partidosJugados.'</div></td>';
+                    //$respuesta.= '<td><div class="tituloEstilo"> ULTIMA FECHA </div></td>';
+                   //$respuesta.= '<td><div class="datoEstilo" >'.$partidosJugados.'</div></td>';
                   
                  $respuesta.= '</tr>';
 
@@ -809,7 +809,7 @@ class HomeController extends Controller {
             $jugador->apellido_jugador=Input::get('apellido_jugador');
             $jugador->nombre_jugador=Input::get('nombre_jugador');
             $jugador->fecha_nacimiento=implode('-',array_reverse(explode('/',Input::get('fecha_nacimiento'))));
-        
+
             $jugador->dni=Input::get('dni');
             $jugador->telefono=Input::get('telefono');
             $jugador->grupo_sanguineo=Input::get('grupo_sanguineo');
