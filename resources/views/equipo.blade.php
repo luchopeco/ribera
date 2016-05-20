@@ -360,8 +360,7 @@
 </div>
 @endsection
 @section('script')
-<!-- jQuery 2.1.3 -->
-<script src="/js/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+
 <!-- jQuery UI 1.11.2 -->
 <script src="/js/plugins/jQueryUI/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
