@@ -138,6 +138,7 @@ class EquiposController extends Controller {
                 $ar->nombre_equipo = $request->nombre_equipo;
                 $ar->mensaje = $request->mensaje;
                 $ar->observaciones = $request->observaciones;
+                $ar->director_tecnico = $request->director_tecnico;
                 if ($request->nombre_usuario=='')
                 {
                     $ar->nombre_usuario=null;

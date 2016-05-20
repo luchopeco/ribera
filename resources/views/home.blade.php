@@ -118,7 +118,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="border-titulo-medio"></div>
+                            <div class="border-titulo-noticia"></div>
                             <h2>CÓMO LLEGO?</h2>
                             <br>
                             <div class="map-responsive">
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div id="contacto" class="col-md-6">
-                            <div class="border-titulo-medio"></div>
+                            <div class="border-titulo-noticia"></div>
                             <h2>CONTACTANOS</h2>
                             <br>
                         {!!Form::open(['url'=>'/mailcontacto','method'=>'POST','enctype'=>'multipart/form-data'])!!}

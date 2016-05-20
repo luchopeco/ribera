@@ -62,6 +62,7 @@
                   <th>Equipo</th>
                   <th title="Torneos en los que esta Inscripto">Torneos</th>
                   <th title="Cantidad Jugadores">Jugadores</th>
+                  <th>DT</th>
                   <th>Usuario</th>
                   <th>Autogestion</th>
                   <th>Observaciones</th>
@@ -77,6 +78,7 @@
                     @endforeach
                   </td>
                   <td>{{$equipo->ListJugadores()->count()}}</td>
+                  <td>{{$equipo->director_tecnico}}</td>
                   <td>{{$equipo->nombre_usuario}}</td>
                   <td>{{$equipo->autogestionHabilitada()}}</td>
                   <td>{{Illuminate\Support\Str::limit($equipo->observaciones,40, '...')}}</td>
@@ -113,6 +115,8 @@
                   <div class="form-group">
                     {!!Form::label('nombre','Nombre')!!}
                     {!!Form::Text('nombre_equipo',null,['class'=>' form-control','required'])!!}
+                    Director Tecnico
+                    <div>{!!Form::Text('director_tecnico',null,['class'=>' form-control'])!!}</div>
                     Es Libre
                     <div>{!!Form::checkbox('es_libre','0',false)!!}</div>
                     Observaciones
@@ -168,6 +172,8 @@
                       {!!Form::Text('idequipo',null,['class'=>' hidden form-control','id'=>'idequipoU'])!!}
                       {!!Form::label('nombre','Nombre')!!}
                       {!!Form::Text('nombre_equipo',null,['class'=>' form-control','id'=>'nombre_equipoU','required'])!!}
+                       Director Tecnico
+                      <div>{!!Form::Text('director_tecnico',null,['class'=>' form-control','id'=>'director_tecnicoU'])!!}</div>
                       Es Libre
                       <div>{!!Form::checkbox('es_libre','0',false,['id'=>'es_libreU'])!!}</div>
                       Observaciones
@@ -278,6 +284,7 @@
         .done(function(response){
           //alert(response.datos.titulo);
           $('#nombre_equipoU').val(response.datos.nombre_equipo);
+          $('#director_tecnicoU').val(response.datos.director_tecnico);
           $('#idequipoU').val(response.datos.idequipo);
           $('#mensajeU').val(response.datos.mensaje);
           $('#observacionesU').val(response.datos.observaciones);

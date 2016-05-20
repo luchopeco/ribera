@@ -53,6 +53,7 @@
                         <div class="table-responsive">
                             <table id="editar"  class=" table table-bordered table-condensed table-hover">
                                 <tr>
+                                    <th>#</th>
                                     <th>Nombre</th>
                                     <th>Documento</th>
                                     <th>Fecha Nacimiento</th>
@@ -60,8 +61,11 @@
                                     <th>Entrego Certificado</th>
                                     <th>Observaciones</th>
                                 </tr>
+                                    <?php $cont=0; ?>
                                     @foreach($equipo->ListJugadores as $jugador)
+                                    <?php $cont= $cont+1; ?>
                                 <tr >
+                                    <td>{{$cont}}</td>
                                     <td>{{$jugador->NombreApellido()}}</td>
                                     <td>{{$jugador->dni}}</td>
                                     <td>{{date('d/m/Y', strtotime($jugador->fecha_nacimiento))}}</td>

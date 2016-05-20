@@ -188,8 +188,8 @@ color: #ffffff;
  <div class="clear"></div>
  <br>
  <div>
-     <div class="float ancho50">DT:</div>
-     <div class="float ancho50">DT:</div>
+     <div class="float ancho50">DT: {{$p->EquipoLocal->director_tecnico}}</div>
+     <div class="float ancho50">DT: {{$p->EquipoVisitante->director_tecnico}}</div>
  </div>
  <div class="clear"></div>
  <div>OBSERVACIONES:..............................................................................................</div>

@@ -41,7 +41,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="border-titulo-medio"></div>
+                            <div class="border-titulo-noticia"></div>
                             <h2 >ESTADÍSTICAS</h2>
                             <br>
                         </div>

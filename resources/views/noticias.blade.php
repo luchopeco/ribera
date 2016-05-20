@@ -17,7 +17,7 @@ Noticias
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="border-titulo-medio"></div>
+                    <div class="border-titulo-noticia"></div>
                     <h2>NOTICIAS</h2>
                     <br>
                 </div>

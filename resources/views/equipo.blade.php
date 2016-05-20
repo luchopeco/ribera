@@ -26,7 +26,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5">
-                            <div class="border-titulo-medio"></div>
+                            <div class="border-titulo-noticia"></div>
                             <h2 >{{$equipo->nombre_equipo}}</h2>
                             <br>
                         </div>
