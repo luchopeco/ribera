@@ -524,7 +524,18 @@ function buscarZonas()
     padding-right: 16px;
     padding-left: 16px;
 }
+
+.table.limpia{
+  padding: 0 !important;
+  //background: red !important;
+}
+.table.limpia > tbody > tr > td {
+  padding: 0 !important;
+  border-top: 0;
+}
  </style>
+}
+}
 }
 }
 @endsection

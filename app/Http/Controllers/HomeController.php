@@ -13,6 +13,8 @@ use torneo\Jugador;
 use torneo\Noticia;
 use torneo\Torneo;
 use torneo\Zona;
+use torneo\Fecha;
+use torneo\Partido;
 
 use torneo\TipoTorneo;
 
@@ -491,6 +493,7 @@ class HomeController extends Controller {
         $equipo = Equipo::findOrFail($idequipo);
 
 
+
         $respuesta = "";
         if($torneo->estadisticas_x_torneo==1){
             $respuesta = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
@@ -498,7 +501,7 @@ class HomeController extends Controller {
                   <div class="table-responsive">
                   <div style="height:25px;"> </div>
                     <!-- <div class="border-titulo-medio" style="width: 100%;"></div> -->
-                    <table class="table ">';                       
+                    <table class="table limpia">';                       
 
                       //  var_dump($torneo->TablaPosiciones()[0]->pj);die(); 
                      $posicion=1;
@@ -562,27 +565,65 @@ class HomeController extends Controller {
                        $respuesta.= '<td><div class="tituloEstilo"> Goles en contra </div></td>';
                      $respuesta.= '</tr>';
 
-
-                    
-
-                   
-
-
                        $respuesta.= '  </table>   </div>   ';
               
 
-                 $respuesta.= '<tr>';
-                   
-                    //$respuesta.= '<td><div class="tituloEstilo"> ULTIMA FECHA </div></td>';
-                   //$respuesta.= '<td><div class="datoEstilo" >'.$partidosJugados.'</div></td>';
-                  
-                 $respuesta.= '</tr>';
+                 $uf=null;
+                 $pf=null;
+                 $time = date("Y-m-d ", time());
+                 
+                 foreach ($zona->ListFechas as $fecha) {
+                    if($fecha->fecha < $time){
+                        $uf = $fecha;
+                    }
+                    if($fecha->fecha >  $time){
+
+                        if($pf==null){
+                            $pf = $fecha;
+                        }
+                    }   
+                 }
+
+                 
+                 $respuesta .= '<div class="col-sm-12 col-xs-12" style="padding:0;">
+                                  <div class="equipos-wrapper">
+                                    <div class=""> <h3>ULT. FECHA</h3> </div><div class="border-titulo-medio"></div>
+                                    <div class="resultado">';
+
+                        if($uf!=null){
+                            foreach ($uf->ListPartidos as $partido) { 
+                                if($partido->EquipoLocal->idequipo == $equipo->idequipo || $partido->EquipoVisitante->idequipo == $equipo->idequipo){                               
+                                    $respuesta .= $partido->EquipoLocal->nombre_equipo.'<span class="text-danger">'.$partido->goles_local.'</span> -vs- <span class="text-danger">'.$partido->goles_visitante.'</span> '.$partido->EquipoVisitante->nombre_equipo;
+                                }
+                            }
+                        }
+                 $respuesta .= ' </div>                    
+                                      </div>
+                                </div>';
 
 
-                        $respuesta.='  </div>       </div>';
 
-                       echo $respuesta;
-                       die();
+                $respuesta .= '<div class="col-sm-12 col-xs-12" style="padding:0;">
+                                  <div class="equipos-wrapper">
+                                    <div class=""> <h3>PROX. FECHA</h3> </div><div class="border-titulo-medio"></div>
+                                    <div class="resultado">';
+
+                        if($pf!=null){
+                            foreach ($pf->ListPartidos as $partido) { 
+                                if($partido->EquipoLocal->idequipo == $equipo->idequipo || $partido->EquipoVisitante->idequipo == $equipo->idequipo){                               
+                                    $respuesta .= $partido->EquipoLocal->nombre_equipo.'<span class="text-danger">'.$partido->goles_local.'</span> -vs- <span class="text-danger">'.$partido->goles_visitante.'</span> '.$partido->EquipoVisitante->nombre_equipo;
+                                }
+                            }
+                        }
+                 $respuesta .= ' </div>                    
+                                      </div>
+                                </div>';
+
+
+            $respuesta.='  </div>       </div>';
+
+           echo $respuesta;
+           die();
 
                      
         }else{
@@ -592,7 +633,7 @@ class HomeController extends Controller {
                   <div  class="fechas-wrapper col-fechas">
                     <div class="table-responsive">
                        <div style="height:25px;"> </div><!-- <div class="border-titulo-medio" style="width: 100%;"></div>-->
-                      <table class=" table ">';
+                      <table class=" table limpia">';
                       
 
 
@@ -661,9 +702,68 @@ class HomeController extends Controller {
 
 
                         $respuesta.=' </table>
-                    </div>
+                    </div>';
+
+
+                 $uf=null;
+                 $pf=null;
+                 $time = date("Y-m-d ", time());
+                 
+                 foreach ($zona->ListFechas as $fecha) {
+                    if($fecha->fecha < $time){
+                        $uf = $fecha;
+                    }
+                    if($fecha->fecha >  $time){
+
+                        if($pf==null){
+                            $pf = $fecha;
+                        }
+                    }   
+                 }
+
+                 
+                 $respuesta .= '<div class="col-sm-12 col-xs-12" style="padding:0;">
+                                  <div class="equipos-wrapper">
+                                    <div class=""> <h3>ULT. FECHA</h3> </div><div class="border-titulo-medio"></div>
+                                    <div class="resultado">';
+
+                        if($uf!=null){
+                            foreach ($uf->ListPartidos as $partido) { 
+                                if($partido->EquipoLocal->idequipo == $equipo->idequipo || $partido->EquipoVisitante->idequipo == $equipo->idequipo){                               
+                                    $respuesta .= $partido->EquipoLocal->nombre_equipo.'<span class="text-danger">'.$partido->goles_local.'</span> -vs- <span class="text-danger">'.$partido->goles_visitante.'</span> '.$partido->EquipoVisitante->nombre_equipo;
+                                }
+                            }
+                        }
+                 $respuesta .= ' </div>                    
+                                      </div>
+                                </div>';
+
+
+
+                $respuesta .= '<div class="col-sm-12 col-xs-12" style="padding:0;">
+                                  <div class="equipos-wrapper">
+                                    <div class=""> <h3>PROX. FECHA</h3> </div><div class="border-titulo-medio"></div>
+                                    <div class="resultado">';
+
+                        if($pf!=null){
+                            foreach ($pf->ListPartidos as $partido) { 
+                                if($partido->EquipoLocal->idequipo == $equipo->idequipo || $partido->EquipoVisitante->idequipo == $equipo->idequipo){                               
+                                    $respuesta .= $partido->EquipoLocal->nombre_equipo.'<span class="text-danger">'.$partido->goles_local.'</span> -vs- <span class="text-danger">'.$partido->goles_visitante.'</span> '.$partido->EquipoVisitante->nombre_equipo;
+                                }
+                            }
+                        }
+                 $respuesta .= ' </div>                    
+                                      </div>
+                                </div>';
+
+
+                    $respuesta .='
                   </div>
                 </div>';   
+
+
+
+
 
                 echo $respuesta;
                 die();                    
