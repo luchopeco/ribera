@@ -130,7 +130,7 @@ class Torneo extends Model{
                             GROUP BY  p.idequipo_visitante)
                             ) AS tabla
                             GROUP BY id, nombre_equipo
-                            ORDER BY pun desc, df  DESC"), array(
+                            ORDER BY pun desc, df  DESC, gf desc, gc asc"), array(
                                             'p1' => $this->idtorneo,'p2' => $this->idtorneo));
         return $tabla;
     }
