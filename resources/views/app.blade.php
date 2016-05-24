@@ -232,7 +232,7 @@ $ruta= Route::currentRouteAction();
         $(function () {
               var $win = $(window);
               // definir mediente $pos la altura en píxeles desde el borde superior de la ventana del navegador y el elemento
-              var $pos = 0;
+              var $pos = 103;
               $win.scroll(function () {
 
                     //alert($( window ).width());
