@@ -54,7 +54,7 @@ class Zona extends Model {
                             GROUP BY  p.idequipo_visitante)
                             ) AS tabla
                             GROUP BY id, nombre_equipo
-                            ORDER BY pun desc, df  DESC, gf desc, gc asc"), array(
+                            ORDER BY pun desc, df  DESC, gf desc, gc asc, gan asc, emp asc, per DESC"), array(
             'p1' => $this->idzona,'p2' => $this->idzona));
         return $tabla;
     }
@@ -256,7 +256,7 @@ class Zona extends Model {
                                                         INNER JOIN zonas z2
                                                             ON   z2.idzona = f2.idzona
                                                     WHERE
-                                                        f2.fecha BETWEEN aux1.fecha AND CURRENT_DATE
+                                                        f2.fecha >= aux1.fecha AND f2.fecha <  CURRENT_DATE
                                                         AND z2.idzona = :p1
                                                 ) -1
                                             )
@@ -309,10 +309,11 @@ class Zona extends Model {
                                                         INNER JOIN zonas z
                                                             ON   z.idzona = f.idzona
                                                     WHERE
-                                                        f.fecha BETWEEN aux.fecha AND CURRENT_DATE
+                                                        (f.fecha BETWEEN aux.fecha AND (CURRENT_DATE - INTERVAL 1 DAY))
                                                         AND z.idzona = :p3
                                                     HAVING
                                                         count(*) <= aux.sancion
+														AND count(*) > 0
                                                 )
                                         )  AS aux1"), array('p1' => $this->idzona,'p2' => $this->idzona,'p3' => $this->idzona));
         return $tabla;

@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Torneo.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Torneo.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Torneo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.384615" vertical-offset="171" max-vertical-offset="1037">
-              <caret line="106" column="29" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.34798536" vertical-offset="388" max-vertical-offset="1173">
+              <caret line="176" column="219" selection-start-line="176" selection-start-column="219" selection-end-line="176" selection-end-column="219" />
               <folding>
                 <element signature="e#489#1108#0#PHP" expanded="false" />
                 <element signature="e#563#819#0#PHP" expanded="false" />
@@ -50,83 +50,53 @@
                 <element signature="e#2229#2546#0#PHP" expanded="false" />
                 <element signature="e#2336#2515#0#PHP" expanded="false" />
                 <element signature="e#2442#2504#0#PHP" expanded="false" />
-                <element signature="e#4669#4768#0#PHP" expanded="false" />
-                <element signature="e#4805#5813#0#PHP" expanded="false" />
-                <element signature="e#4858#5777#0#PHP" expanded="false" />
-                <element signature="e#4869#5715#0#PHP" expanded="false" />
-                <element signature="e#5717#5776#0#PHP" expanded="false" />
-                <element signature="e#5819#6889#0#PHP" expanded="false" />
-                <element signature="e#5885#6853#0#PHP" expanded="false" />
-                <element signature="e#5896#6820#0#PHP" expanded="false" />
-                <element signature="e#6895#8663#0#PHP" expanded="false" />
-                <element signature="e#6950#8633#0#PHP" expanded="false" />
-                <element signature="e#6961#8552#0#PHP" expanded="false" />
-                <element signature="e#8719#8758#0#PHP" expanded="false" />
-                <element signature="e#8763#8939#0#PHP" expanded="false" />
-                <element signature="e#8802#8933#0#PHP" expanded="false" />
-                <element signature="e#8884#8933#0#PHP" expanded="false" />
-                <element signature="e#8945#23079#0#PHP" expanded="false" />
-                <element signature="e#8999#23038#0#PHP" expanded="false" />
-                <element signature="e#9010#22699#0#PHP" expanded="false" />
-                <element signature="e#22701#23037#0#PHP" expanded="false" />
-                <marker date="1463853423009" expanded="true" signature="2631:4665" placeholder="SELECT sum(e..sum..." />
-                <marker date="1463853423009" expanded="false" signature="2826:3612" placeholder="SELECT sum(p..partidos..." />
-                <marker date="1463853423009" expanded="false" signature="3684:4497" placeholder="SELECT sum(p..partidos..." />
-                <marker date="1463853423009" expanded="false" signature="4878:5713" placeholder="SELECT sum(p..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="5905:6818" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="6970:8512" placeholder="SELECT aux1...jugador..." />
-                <marker date="1463853423009" expanded="false" signature="7004:7151" placeholder="SELECT count..fechas..." />
-                <marker date="1463853423009" expanded="false" signature="7295:8466" placeholder="SELECT jugad..CONCAT..." />
-                <marker date="1463853423009" expanded="false" signature="7383:8235" placeholder="SELECT CONCA..partidos..." />
-                <marker date="1463853423009" expanded="false" signature="8294:8464" placeholder="SELECT count..fechas..." />
-                <marker date="1463853423009" expanded="false" signature="9019:15771" placeholder="SELECT DISTI..fecha_ta..." />
-                <marker date="1463853423009" expanded="false" signature="9019:22695" placeholder="SELECT DISTI..." />
-                <marker date="1463853423009" expanded="false" signature="9318:11852" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853423009" expanded="false" signature="9483:10576" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="10684:11767" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="11953:14488" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853423009" expanded="false" signature="12118:13211" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="13320:14403" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="14601:15682" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="15869:22613" placeholder="SELECT DISTI..fecha_ta..." />
-                <marker date="1463853423009" expanded="false" signature="16159:18693" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853423009" expanded="false" signature="16324:17417" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="17525:18608" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="18794:21329" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853423009" expanded="false" signature="18959:20052" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="20161:21244" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853423009" expanded="false" signature="21443:22525" placeholder="SELECT max(f..partido_has_jugador..." />
+                <element signature="e#2552#4827#0#PHP" expanded="false" />
+                <element signature="e#2611#4797#0#PHP" expanded="false" />
+                <element signature="e#2622#4695#0#PHP" expanded="false" />
+                <element signature="e#4697#4796#0#PHP" expanded="false" />
+                <element signature="e#4833#5841#0#PHP" expanded="false" />
+                <element signature="e#4886#5805#0#PHP" expanded="false" />
+                <element signature="e#4897#5743#0#PHP" expanded="false" />
+                <element signature="e#5745#5804#0#PHP" expanded="false" />
+                <element signature="e#5847#6917#0#PHP" expanded="false" />
+                <element signature="e#5913#6881#0#PHP" expanded="false" />
+                <element signature="e#5924#6848#0#PHP" expanded="false" />
+                <element signature="e#8789#8828#0#PHP" expanded="false" />
+                <element signature="e#8833#9009#0#PHP" expanded="false" />
+                <element signature="e#8872#9003#0#PHP" expanded="false" />
+                <element signature="e#8954#9003#0#PHP" expanded="false" />
+                <element signature="e#9015#23149#0#PHP" expanded="false" />
+                <element signature="e#9069#23108#0#PHP" expanded="false" />
+                <element signature="e#9080#22769#0#PHP" expanded="false" />
+                <element signature="e#22771#23107#0#PHP" expanded="false" />
+                <marker date="1464302035627" expanded="false" signature="2631:4693" placeholder="SELECT sum(e..sum..." />
+                <marker date="1464302035627" expanded="false" signature="2826:3612" placeholder="SELECT sum(p..partidos..." />
+                <marker date="1464302035627" expanded="false" signature="3684:4497" placeholder="SELECT sum(p..partidos..." />
+                <marker date="1464302035627" expanded="false" signature="4906:5741" placeholder="SELECT sum(p..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="5933:6846" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="true" signature="6998:8582" placeholder="SELECT aux1...jugador..." />
+                <marker date="1464302035627" expanded="true" signature="7032:7200" placeholder="SELECT count..fechas..." />
+                <marker date="1464302035627" expanded="true" signature="7344:8536" placeholder="SELECT jugad..CONCAT..." />
+                <marker date="1464302035627" expanded="true" signature="7432:8284" placeholder="SELECT CONCA..partidos..." />
+                <marker date="1464302035627" expanded="true" signature="8343:8534" placeholder="SELECT count..fechas..." />
+                <marker date="1464302035627" expanded="false" signature="9089:15841" placeholder="SELECT DISTI..fecha_ta..." />
+                <marker date="1464302035627" expanded="false" signature="9089:22765" placeholder="SELECT DISTI..." />
+                <marker date="1464302035627" expanded="false" signature="9388:11922" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035627" expanded="false" signature="9553:10646" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="10754:11837" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="12023:14558" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035627" expanded="false" signature="12188:13281" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="13390:14473" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="14671:15752" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="15939:22683" placeholder="SELECT DISTI..fecha_ta..." />
+                <marker date="1464302035627" expanded="false" signature="16229:18763" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035627" expanded="false" signature="16394:17487" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="17595:18678" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="18864:21399" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035627" expanded="false" signature="19029:20122" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="20231:21314" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035627" expanded="false" signature="21513:22595" placeholder="SELECT max(f..partido_has_jugador..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="agency.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/agency.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5440" max-vertical-offset="12750">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.153846" vertical-offset="3740" max-vertical-offset="4522">
-              <caret line="234" column="28" selection-start-line="234" selection-start-column="28" selection-end-line="234" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1218638" vertical-offset="0" max-vertical-offset="2397">
-              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -134,46 +104,51 @@
       <file leaf-file-name="Zona.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Zona.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="5525">
-              <caret line="56" column="72" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
+            <state vertical-scroll-proportion="-8.423077" vertical-offset="410" max-vertical-offset="1785">
+              <caret line="258" column="121" selection-start-line="258" selection-start-column="121" selection-end-line="258" selection-end-column="121" />
               <folding>
-                <marker date="1463853422993" expanded="true" signature="770:2800" placeholder="SELECT sum(e..sum..." />
-                <marker date="1463853422993" expanded="true" signature="965:1749" placeholder="SELECT sum(p..partidos..." />
-                <marker date="1463853422993" expanded="true" signature="1821:2632" placeholder="SELECT sum(p..partidos..." />
-                <marker date="1463853422993" expanded="true" signature="2977:3810" placeholder="SELECT sum(p..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="3972:10719" placeholder="SELECT DISTI..fecha_ta..." />
-                <marker date="1463853422993" expanded="true" signature="3972:17636" placeholder="SELECT DISTI..." />
-                <marker date="1463853422993" expanded="true" signature="4271:6803" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853422993" expanded="true" signature="4436:5528" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="5636:6718" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="6904:9437" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853422993" expanded="true" signature="7069:8161" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="8270:9352" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="9550:10630" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="10817:17554" placeholder="SELECT DISTI..fecha_ta..." />
-                <marker date="1463853422993" expanded="true" signature="11107:13639" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853422993" expanded="true" signature="11272:12364" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="12472:13554" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="13740:16272" placeholder="SELECT DISTI..max..." />
-                <marker date="1463853422993" expanded="true" signature="13905:14996" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="15105:16187" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="16386:17466" placeholder="SELECT max(f..partido_has_jugador..." />
-                <marker date="1463853422993" expanded="true" signature="17997:22752" placeholder="SELECT aux1...jugador..." />
-                <marker date="1463853422993" expanded="true" signature="18256:18848" placeholder="SELECT count..fechas..." />
-                <marker date="1463853422993" expanded="true" signature="19138:22701" placeholder="SELECT jugad..CONCAT..." />
-                <marker date="1463853422993" expanded="true" signature="19527:21710" placeholder="SELECT CONCA..partidos..." />
-                <marker date="1463853422993" expanded="true" signature="21927:22651" placeholder="SELECT count..fechas..." />
+                <element signature="e#261#358#0#PHP" expanded="false" />
+                <element signature="e#363#532#0#PHP" expanded="false" />
+                <element signature="e#537#685#0#PHP" expanded="false" />
+                <element signature="e#691#2926#0#PHP" expanded="false" />
+                <element signature="e#750#2896#0#PHP" expanded="false" />
+                <element signature="e#761#2830#0#PHP" expanded="false" />
+                <element signature="e#2832#2895#0#PHP" expanded="false" />
+                <element signature="e#2932#3920#0#PHP" expanded="false" />
+                <element signature="e#2985#3884#0#PHP" expanded="false" />
+                <element signature="e#2996#3840#0#PHP" expanded="false" />
+                <element signature="e#3842#3883#0#PHP" expanded="false" />
+                <element signature="e#3926#17944#0#PHP" expanded="false" />
+                <element signature="e#3980#17911#0#PHP" expanded="false" />
+                <element signature="e#3991#17668#0#PHP" expanded="false" />
+                <element signature="e#17670#17910#0#PHP" expanded="false" />
+                <marker date="1464302035615" expanded="false" signature="770:2828" placeholder="SELECT sum(e..sum..." />
+                <marker date="1464302035615" expanded="false" signature="965:1749" placeholder="SELECT sum(p..partidos..." />
+                <marker date="1464302035615" expanded="false" signature="1821:2632" placeholder="SELECT sum(p..partidos..." />
+                <marker date="1464302035615" expanded="false" signature="3005:3838" placeholder="SELECT sum(p..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="4000:10747" placeholder="SELECT DISTI..fecha_ta..." />
+                <marker date="1464302035615" expanded="false" signature="4000:17664" placeholder="SELECT DISTI..." />
+                <marker date="1464302035615" expanded="false" signature="4299:6831" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035615" expanded="false" signature="4464:5556" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="5664:6746" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="6932:9465" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035615" expanded="false" signature="7097:8189" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="8298:9380" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="9578:10658" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="10845:17582" placeholder="SELECT DISTI..fecha_ta..." />
+                <marker date="1464302035615" expanded="false" signature="11135:13667" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035615" expanded="false" signature="11300:12392" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="12500:13582" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="13768:16300" placeholder="SELECT DISTI..max..." />
+                <marker date="1464302035615" expanded="false" signature="13933:15024" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="15133:16215" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="false" signature="16414:17494" placeholder="SELECT max(f..partido_has_jugador..." />
+                <marker date="1464302035615" expanded="true" signature="18025:22822" placeholder="SELECT aux1...jugador..." />
+                <marker date="1464302035615" expanded="true" signature="18284:18897" placeholder="SELECT count..fechas..." />
+                <marker date="1464302035615" expanded="true" signature="19187:22771" placeholder="SELECT jugad..CONCAT..." />
+                <marker date="1464302035615" expanded="true" signature="19576:21759" placeholder="SELECT CONCA..partidos..." />
+                <marker date="1464302035615" expanded="true" signature="21976:22721" placeholder="SELECT count..fechas..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="torneo.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/torneo.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="7565">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -234,11 +209,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/EquiposController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/equipos.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pdf/planillafecha.blade.php" />
-        <option value="$PROJECT_DIR$/app/Zona.php" />
-        <option value="$PROJECT_DIR$/app/Torneo.php" />
         <option value="$PROJECT_DIR$/public/css/css.css" />
         <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Zona.php" />
+        <option value="$PROJECT_DIR$/app/Torneo.php" />
       </list>
     </option>
   </component>
@@ -381,7 +356,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ej1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../viandas" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/wamp/www/LaRiberaV1/ribera/app/Http/Controllers/Admin/EquiposController.php" />
@@ -426,15 +401,15 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="b88151c2-7da4-48a4-919f-c82c7ae5e1fc" server_name="www.ribera.com">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="b88151c2-7da4-48a4-919f-c82c7ae5e1fc" server_name="www.ribera.com">
       <method />
     </configuration>
     <configuration default="false" name="Unnamed" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Unnamed">
@@ -478,20 +453,20 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2632375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26701966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -511,9 +486,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19969743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -534,7 +509,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="45" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -842,44 +817,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/torneo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="7565">
+        <state vertical-scroll-proportion="-2.4908426" vertical-offset="1360" max-vertical-offset="7565">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Zona.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="5525">
-          <caret line="56" column="72" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
-          <folding>
-            <marker date="1463853422993" expanded="true" signature="770:2800" placeholder="SELECT sum(e..sum..." />
-            <marker date="1463853422993" expanded="true" signature="965:1749" placeholder="SELECT sum(p..partidos..." />
-            <marker date="1463853422993" expanded="true" signature="1821:2632" placeholder="SELECT sum(p..partidos..." />
-            <marker date="1463853422993" expanded="true" signature="2977:3810" placeholder="SELECT sum(p..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="3972:10719" placeholder="SELECT DISTI..fecha_ta..." />
-            <marker date="1463853422993" expanded="true" signature="3972:17636" placeholder="SELECT DISTI..." />
-            <marker date="1463853422993" expanded="true" signature="4271:6803" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853422993" expanded="true" signature="4436:5528" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="5636:6718" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="6904:9437" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853422993" expanded="true" signature="7069:8161" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="8270:9352" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="9550:10630" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="10817:17554" placeholder="SELECT DISTI..fecha_ta..." />
-            <marker date="1463853422993" expanded="true" signature="11107:13639" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853422993" expanded="true" signature="11272:12364" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="12472:13554" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="13740:16272" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853422993" expanded="true" signature="13905:14996" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="15105:16187" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="16386:17466" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853422993" expanded="true" signature="17997:22752" placeholder="SELECT aux1...jugador..." />
-            <marker date="1463853422993" expanded="true" signature="18256:18848" placeholder="SELECT count..fechas..." />
-            <marker date="1463853422993" expanded="true" signature="19138:22701" placeholder="SELECT jugad..CONCAT..." />
-            <marker date="1463853422993" expanded="true" signature="19527:21710" placeholder="SELECT CONCA..partidos..." />
-            <marker date="1463853422993" expanded="true" signature="21927:22651" placeholder="SELECT count..fechas..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,7 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-200.43958" vertical-offset="114451" max-vertical-offset="115022">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,14 +842,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7089041" vertical-offset="708" max-vertical-offset="5151">
           <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3740" max-vertical-offset="4522">
+          <caret line="234" column="28" selection-start-line="234" selection-start-column="28" selection-end-line="234" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3041145" vertical-offset="68" max-vertical-offset="2397">
+          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Zona.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.423077" vertical-offset="410" max-vertical-offset="1785">
+          <caret line="258" column="121" selection-start-line="258" selection-start-column="121" selection-end-line="258" selection-end-column="121" />
+          <folding>
+            <element signature="e#261#358#0#PHP" expanded="false" />
+            <element signature="e#363#532#0#PHP" expanded="false" />
+            <element signature="e#537#685#0#PHP" expanded="false" />
+            <element signature="e#691#2926#0#PHP" expanded="false" />
+            <element signature="e#750#2896#0#PHP" expanded="false" />
+            <element signature="e#761#2830#0#PHP" expanded="false" />
+            <element signature="e#2832#2895#0#PHP" expanded="false" />
+            <element signature="e#2932#3920#0#PHP" expanded="false" />
+            <element signature="e#2985#3884#0#PHP" expanded="false" />
+            <element signature="e#2996#3840#0#PHP" expanded="false" />
+            <element signature="e#3842#3883#0#PHP" expanded="false" />
+            <element signature="e#3926#17944#0#PHP" expanded="false" />
+            <element signature="e#3980#17911#0#PHP" expanded="false" />
+            <element signature="e#3991#17668#0#PHP" expanded="false" />
+            <element signature="e#17670#17910#0#PHP" expanded="false" />
+            <marker date="1464302035615" expanded="false" signature="770:2828" placeholder="SELECT sum(e..sum..." />
+            <marker date="1464302035615" expanded="false" signature="965:1749" placeholder="SELECT sum(p..partidos..." />
+            <marker date="1464302035615" expanded="false" signature="1821:2632" placeholder="SELECT sum(p..partidos..." />
+            <marker date="1464302035615" expanded="false" signature="3005:3838" placeholder="SELECT sum(p..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="4000:10747" placeholder="SELECT DISTI..fecha_ta..." />
+            <marker date="1464302035615" expanded="false" signature="4000:17664" placeholder="SELECT DISTI..." />
+            <marker date="1464302035615" expanded="false" signature="4299:6831" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035615" expanded="false" signature="4464:5556" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="5664:6746" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="6932:9465" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035615" expanded="false" signature="7097:8189" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="8298:9380" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="9578:10658" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="10845:17582" placeholder="SELECT DISTI..fecha_ta..." />
+            <marker date="1464302035615" expanded="false" signature="11135:13667" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035615" expanded="false" signature="11300:12392" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="12500:13582" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="13768:16300" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035615" expanded="false" signature="13933:15024" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="15133:16215" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="false" signature="16414:17494" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035615" expanded="true" signature="18025:22822" placeholder="SELECT aux1...jugador..." />
+            <marker date="1464302035615" expanded="true" signature="18284:18897" placeholder="SELECT count..fechas..." />
+            <marker date="1464302035615" expanded="true" signature="19187:22771" placeholder="SELECT jugad..CONCAT..." />
+            <marker date="1464302035615" expanded="true" signature="19576:21759" placeholder="SELECT CONCA..partidos..." />
+            <marker date="1464302035615" expanded="true" signature="21976:22721" placeholder="SELECT count..fechas..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Torneo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.384615" vertical-offset="171" max-vertical-offset="1037">
-          <caret line="106" column="29" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.34798536" vertical-offset="388" max-vertical-offset="1173">
+          <caret line="176" column="219" selection-start-line="176" selection-start-column="219" selection-end-line="176" selection-end-column="219" />
           <folding>
             <element signature="e#489#1108#0#PHP" expanded="false" />
             <element signature="e#563#819#0#PHP" expanded="false" />
@@ -931,69 +935,53 @@
             <element signature="e#2229#2546#0#PHP" expanded="false" />
             <element signature="e#2336#2515#0#PHP" expanded="false" />
             <element signature="e#2442#2504#0#PHP" expanded="false" />
-            <element signature="e#4669#4768#0#PHP" expanded="false" />
-            <element signature="e#4805#5813#0#PHP" expanded="false" />
-            <element signature="e#4858#5777#0#PHP" expanded="false" />
-            <element signature="e#4869#5715#0#PHP" expanded="false" />
-            <element signature="e#5717#5776#0#PHP" expanded="false" />
-            <element signature="e#5819#6889#0#PHP" expanded="false" />
-            <element signature="e#5885#6853#0#PHP" expanded="false" />
-            <element signature="e#5896#6820#0#PHP" expanded="false" />
-            <element signature="e#6895#8663#0#PHP" expanded="false" />
-            <element signature="e#6950#8633#0#PHP" expanded="false" />
-            <element signature="e#6961#8552#0#PHP" expanded="false" />
-            <element signature="e#8719#8758#0#PHP" expanded="false" />
-            <element signature="e#8763#8939#0#PHP" expanded="false" />
-            <element signature="e#8802#8933#0#PHP" expanded="false" />
-            <element signature="e#8884#8933#0#PHP" expanded="false" />
-            <element signature="e#8945#23079#0#PHP" expanded="false" />
-            <element signature="e#8999#23038#0#PHP" expanded="false" />
-            <element signature="e#9010#22699#0#PHP" expanded="false" />
-            <element signature="e#22701#23037#0#PHP" expanded="false" />
-            <marker date="1463853423009" expanded="true" signature="2631:4665" placeholder="SELECT sum(e..sum..." />
-            <marker date="1463853423009" expanded="false" signature="2826:3612" placeholder="SELECT sum(p..partidos..." />
-            <marker date="1463853423009" expanded="false" signature="3684:4497" placeholder="SELECT sum(p..partidos..." />
-            <marker date="1463853423009" expanded="false" signature="4878:5713" placeholder="SELECT sum(p..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="5905:6818" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="6970:8512" placeholder="SELECT aux1...jugador..." />
-            <marker date="1463853423009" expanded="false" signature="7004:7151" placeholder="SELECT count..fechas..." />
-            <marker date="1463853423009" expanded="false" signature="7295:8466" placeholder="SELECT jugad..CONCAT..." />
-            <marker date="1463853423009" expanded="false" signature="7383:8235" placeholder="SELECT CONCA..partidos..." />
-            <marker date="1463853423009" expanded="false" signature="8294:8464" placeholder="SELECT count..fechas..." />
-            <marker date="1463853423009" expanded="false" signature="9019:15771" placeholder="SELECT DISTI..fecha_ta..." />
-            <marker date="1463853423009" expanded="false" signature="9019:22695" placeholder="SELECT DISTI..." />
-            <marker date="1463853423009" expanded="false" signature="9318:11852" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853423009" expanded="false" signature="9483:10576" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="10684:11767" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="11953:14488" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853423009" expanded="false" signature="12118:13211" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="13320:14403" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="14601:15682" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="15869:22613" placeholder="SELECT DISTI..fecha_ta..." />
-            <marker date="1463853423009" expanded="false" signature="16159:18693" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853423009" expanded="false" signature="16324:17417" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="17525:18608" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="18794:21329" placeholder="SELECT DISTI..max..." />
-            <marker date="1463853423009" expanded="false" signature="18959:20052" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="20161:21244" placeholder="SELECT max(f..partido_has_jugador..." />
-            <marker date="1463853423009" expanded="false" signature="21443:22525" placeholder="SELECT max(f..partido_has_jugador..." />
+            <element signature="e#2552#4827#0#PHP" expanded="false" />
+            <element signature="e#2611#4797#0#PHP" expanded="false" />
+            <element signature="e#2622#4695#0#PHP" expanded="false" />
+            <element signature="e#4697#4796#0#PHP" expanded="false" />
+            <element signature="e#4833#5841#0#PHP" expanded="false" />
+            <element signature="e#4886#5805#0#PHP" expanded="false" />
+            <element signature="e#4897#5743#0#PHP" expanded="false" />
+            <element signature="e#5745#5804#0#PHP" expanded="false" />
+            <element signature="e#5847#6917#0#PHP" expanded="false" />
+            <element signature="e#5913#6881#0#PHP" expanded="false" />
+            <element signature="e#5924#6848#0#PHP" expanded="false" />
+            <element signature="e#8789#8828#0#PHP" expanded="false" />
+            <element signature="e#8833#9009#0#PHP" expanded="false" />
+            <element signature="e#8872#9003#0#PHP" expanded="false" />
+            <element signature="e#8954#9003#0#PHP" expanded="false" />
+            <element signature="e#9015#23149#0#PHP" expanded="false" />
+            <element signature="e#9069#23108#0#PHP" expanded="false" />
+            <element signature="e#9080#22769#0#PHP" expanded="false" />
+            <element signature="e#22771#23107#0#PHP" expanded="false" />
+            <marker date="1464302035627" expanded="false" signature="2631:4693" placeholder="SELECT sum(e..sum..." />
+            <marker date="1464302035627" expanded="false" signature="2826:3612" placeholder="SELECT sum(p..partidos..." />
+            <marker date="1464302035627" expanded="false" signature="3684:4497" placeholder="SELECT sum(p..partidos..." />
+            <marker date="1464302035627" expanded="false" signature="4906:5741" placeholder="SELECT sum(p..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="5933:6846" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="true" signature="6998:8582" placeholder="SELECT aux1...jugador..." />
+            <marker date="1464302035627" expanded="true" signature="7032:7200" placeholder="SELECT count..fechas..." />
+            <marker date="1464302035627" expanded="true" signature="7344:8536" placeholder="SELECT jugad..CONCAT..." />
+            <marker date="1464302035627" expanded="true" signature="7432:8284" placeholder="SELECT CONCA..partidos..." />
+            <marker date="1464302035627" expanded="true" signature="8343:8534" placeholder="SELECT count..fechas..." />
+            <marker date="1464302035627" expanded="false" signature="9089:15841" placeholder="SELECT DISTI..fecha_ta..." />
+            <marker date="1464302035627" expanded="false" signature="9089:22765" placeholder="SELECT DISTI..." />
+            <marker date="1464302035627" expanded="false" signature="9388:11922" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035627" expanded="false" signature="9553:10646" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="10754:11837" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="12023:14558" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035627" expanded="false" signature="12188:13281" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="13390:14473" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="14671:15752" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="15939:22683" placeholder="SELECT DISTI..fecha_ta..." />
+            <marker date="1464302035627" expanded="false" signature="16229:18763" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035627" expanded="false" signature="16394:17487" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="17595:18678" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="18864:21399" placeholder="SELECT DISTI..max..." />
+            <marker date="1464302035627" expanded="false" signature="19029:20122" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="20231:21314" placeholder="SELECT max(f..partido_has_jugador..." />
+            <marker date="1464302035627" expanded="false" signature="21513:22595" placeholder="SELECT max(f..partido_has_jugador..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846" vertical-offset="3740" max-vertical-offset="4522">
-          <caret line="234" column="28" selection-start-line="234" selection-start-column="28" selection-end-line="234" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1218638" vertical-offset="0" max-vertical-offset="2397">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
