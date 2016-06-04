@@ -2,6 +2,12 @@
 <html lang="es">
 <head>
 <style>
+@page {
+            margin-top: 10px;
+            margin-left: 15px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
 body{
   font-family: verdana, sans-serif;
   font-size: 12px;
@@ -45,11 +51,14 @@ div{
 .ancho20{
   width:158px !important;
 }
+.ancho35{
+  width: 300px !important;
+}
 .ancho40{
   width: 370px !important;
 }
 .ancho50{
-  width: 510px !important;
+  width: 540px !important;
 }
 .ancho10{
   width: 79px !important;
@@ -58,13 +67,13 @@ div{
   width: 53px !important;
 }
 .ancho-separador-equipo-cabecera{
-  width: 47px !important;
+  width: 70px !important;
 }
 .ancho100{
   width: 1123px !important;
 }
 .ancho-garn{
-  width: 15px !important;
+  width: 16px !important;
 
 }
 .ancho-dni
@@ -74,7 +83,7 @@ div{
 }
 .ancho-firma
 {
-  width: 100px !important;
+  width: 140px !important;
 
 }
 .ancho-nombre
@@ -115,12 +124,12 @@ color: #ffffff;
     @endif
 <div>
     <div class=" float ancho20 bordesnegros" >FECHA N°: {{$fecha->numero_fecha}} </div>
-    <div class="float ancho30 separador">.</div>
+    <div class="float ancho35 separador">.</div>
     <div class="float ancho10 bordesnegros text-center">
         <h3>CANCHA<br><span class="color-blanco">....</span></h3>
     </div>
     <div class=" float ancho20 text-center  " >HORARIO: {{$p->hora}}</div>
-    <div class=" float ancho20 text-center " >FECHA: {{date('d/m/Y', strtotime($fecha->fecha))}} </div>
+    <div class=" float ancho40 text-center " >FECHA: {{date('d/m/Y', strtotime($fecha->fecha))}} </div>
 </div>
 <div class="clear"></div>
 <div>

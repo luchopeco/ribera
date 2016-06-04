@@ -132,6 +132,19 @@
     .collapsing {
         overflow: hidden!important;
     }
+    .navbar-default {
+
+        background-color: #1D382F;
+        border-color: transparent
+
+    }
+    .navbar-brand > img {
+        height: 400%;
+        width: auto;
+        margin: 0 auto;
+        padding-top: 0;
+
+    }
 }
 
 #verde{
@@ -296,3 +309,43 @@ textarea.LV_invalid_field:active {
 {
     color: #ffffff;
 }
+/*Para evitar leve desplazamiento hacia los costados*/
+header .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#noticias .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#portfolio .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#verde .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#blanco .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#section-page .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#inscripcion .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#inscripcion #blanco {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+#noticias-verde .row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+/*Para evitar leve desplazamiento hacia los costados*/

@@ -29,11 +29,10 @@ Fixture
                 <br>
             </div>
         </div>
-        <div id="contenidoFixture"></div>
     </div>
 </div>
 </section>
-
+<div id="contenidoFixture"></div>
 @endsection
 
 @section('script')

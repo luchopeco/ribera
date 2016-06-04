@@ -9,7 +9,7 @@
                     <h1>{{$zona->nombre}}</h1>
                     <div class="row">
                         @foreach($zona->ListFechas as $fecha)
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6" style="min-height: 400px">
                             <!-- Segun si la fecha fue jugada o no cambio el color del borde-->
                             <?php $jugado=false;?>
                             @foreach($fecha->ListPartidos as $partido)

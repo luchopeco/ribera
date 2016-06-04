@@ -86,9 +86,9 @@ $ruta= Route::currentRouteAction();
                         <li ><a class="page-scroll" href="/laribera" >LA RIBERA</a></li>
                     @endif
                     @if($ruta=='torneo\Http\Controllers\HomeController@estadisticas')
-                        <li class="active"><a class="page-scroll" href="/estadisticas">ESTADISTICAS</a></li>
+                        <li class="active"><a class="page-scroll" href="/estadisticas">ESTADÍSTICAS</a></li>
                     @else
-                        <li ><a class="page-scroll" href="/estadisticas" >ESTADISTICAS</a></li>
+                        <li ><a class="page-scroll" href="/estadisticas" >ESTADÍSTICAS</a></li>
                     @endif
                     @if($ruta=='torneo\Http\Controllers\HomeController@fixture')
                         <li class="active"><a class="page-scroll" href="/fixture">FIXTURE</a></li>
@@ -96,9 +96,9 @@ $ruta= Route::currentRouteAction();
                         <li ><a class="page-scroll" href="/fixture" >FIXTURE</a></li>
                     @endif
                     @if($ruta=='torneo\Http\Controllers\HomeController@inscripcion')
-                        <li class="active"><a class="page-scroll" href="/inscripcion">INSCRIPCION</a></li>
+                        <li class="active"><a class="page-scroll" href="/inscripcion">INSCRIPCIÓN</a></li>
                     @else
-                        <li ><a class="page-scroll" href="/inscripcion" >INSCRIPCION</a></li>
+                        <li ><a class="page-scroll" href="/inscripcion" >INSCRIPCIÓN</a></li>
                     @endif
                     @if($ruta=='torneo\Http\Controllers\HomeController@noticias')
                         <li class="active"><a class="page-scroll" href="/noticias">NOTICIAS</a></li>
@@ -219,7 +219,7 @@ $ruta= Route::currentRouteAction();
                 ]
             })('overlay', {
             //SLIDESHOW OVERLAY IMAGE
-            src: '/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
+            //src: '/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
             });
 
             

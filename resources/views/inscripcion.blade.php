@@ -25,7 +25,7 @@ Inscripcion
             <div class="row">
                 <div class="col-md-12">
                     <div class="border-titulo-noticia"></div>
-                    <h2>Inscripcion</h2>
+                    <h2>Inscripción</h2>
                     <br>
                 </div>
                 <br>
@@ -86,6 +86,7 @@ Inscripcion
                             <br>
                             <div class="row">
                                 <div class="col-md-6"><a href="/descargar/AutorizacionMenores.pdf" target="_blank" class=" btn btn-block btn-warning">AUTORIZACION MENORES</a></div>
+                                <div class="hidden-lg hidden-md "> <br></div>
                                 <div class="col-md-6"><a href="/descargar/DESLINDE-DE-RESPONSABILIDADultimo.pdf" target="_blank" class=" btn btn-block btn-warning">DESLINDE RESPONSABILIDAD</a></div>
                             </div>
                             <br>
@@ -132,6 +133,7 @@ Inscripcion
                                                     f23.add(Validate.Presence, {failureMessage: "Obligatorio"});
                                                 </script>
                                             </div>
+                                            <div class="hidden-md hidden-lg"><br></div>
                                             <div class="col-md-6">
                                                 {!!Form::Text('mail',null,['class'=>' form-control','placeholder'=>'EMAIL','id'=>'mail'])!!}
                                                 <script>
@@ -150,6 +152,7 @@ Inscripcion
                                                     f25.add(Validate.Presence, {failureMessage: "Obligatorio"});
                                                 </script>
                                             </div>
+                                               <div class="hidden-md hidden-lg"><br></div>
                                             <div class="col-md-6">
                                                 {!!Form::Text('domicilio',null,['class'=>' form-control','placeholder'=>'DOMICILIO','id'=>'domicilio'])!!}
                                                 <script>
