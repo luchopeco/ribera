@@ -5,11 +5,11 @@
     <div class="row" id="fixture">
         <div class="col-md-12">
             <div @if( $aux%2 ==0) id="verde" @else id="blanco" @endif>
-                <div class="container">
+                <div class="container col-480">
                     <h1>{{$zona->nombre}}</h1>
                     <div class="row">
                         @foreach($zona->ListFechas as $fecha)
-                        <div class="col-lg-4 col-md-6" style="min-height: 400px">
+                        <div class="col-lg-4 col-md-6 col-480" style="min-height: 400px">
                             <!-- Segun si la fecha fue jugada o no cambio el color del borde-->
                             <?php $jugado=false;?>
                             @foreach($fecha->ListPartidos as $partido)

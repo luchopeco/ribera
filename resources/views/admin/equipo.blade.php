@@ -132,7 +132,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                      Grupo Sanguineo
-                                                     {!!Form::Text('grupo_sanguineo',null,['class'=>'form-control','required'])!!}
+                                                     {!!Form::Text('grupo_sanguineo',null,['class'=>'form-control'])!!}
                                                     <span class="help-block with-errors"></span>
                                                 </div>
                                                 <div class="form-group">
@@ -207,7 +207,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                          Grupo Sanguineo
-                                                         {!!Form::Text('grupo_sanguineo',null,['class'=>'form-control','required','id'=>'grupo_sanguineoU'])!!}
+                                                         {!!Form::Text('grupo_sanguineo',null,['class'=>'form-control','id'=>'grupo_sanguineoU'])!!}
                                                         <span class="help-block with-errors"></span>
                                                     </div>
                                                     <div class="form-group">

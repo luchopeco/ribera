@@ -111,8 +111,8 @@
                           @else
                                <img class="img-responsive center-block" src="imagenes/{{$equipo->foto}}">
                           @endif
-                        <div class="col-xs-6 col-md-7"><a href="#" data-toggle="modal" data-target="#modalEscudo" style="color:#196A4A;font-size:12px" >CAMBIAR ESCUDO</a></div>
-                        <div class="col-xs-6  col-md-5 text-right"><a href="#" data-toggle="modal" data-target="#modalFoto" style="color:#196A4A;font-size:12px">CAMBIAR FOTO</a></div>
+                        <div class="col-xs-6 col-md-7"><a href="#" data-toggle="modal" data-target="#modalEscudo" style="color:#196A4A;font-size:10px" >CAMBIAR ESCUDO</a></div>
+                        <div class="col-xs-6  col-md-5 text-right"><a href="#" data-toggle="modal" data-target="#modalFoto" style="color:#196A4A;font-size:10px">CAMBIAR FOTO</a></div>
                    </div>
                </div>
 
@@ -234,18 +234,20 @@
                                         <input type="hidden" value="{{ $equipo->idequipo }}" name="idequipoJ">
                                         <div class="form-group">
                                             Nombre
-                                            {!!Form::Text('nombre_jugador',null,['class'=>'form-control'])!!}
+                                            {!!Form::Text('nombre_jugador',null,['class'=>'form-control','id'=>'nombre_jugador'])!!}
                                              <script>
                                                 var f1= new LiveValidation('nombre_jugador', { validMessage: ' ', wait: 500});
                                                 f1.add(Validate.Presence, {failureMessage: "Obligatorio"});
+                                                f1.add(Validate.Format, { pattern: /[a-zA-Z]/i,failureMessage: "Debe ingresar letras" });
                                             </script>
                                         </div>
                                         <div class="form-group">
                                             Apellido
-                                            {!!Form::Text('apellido_jugador',null,['class'=>'form-control'])!!}
+                                            {!!Form::Text('apellido_jugador',null,['class'=>'form-control','id'=>'apellido_jugador'])!!}
                                              <script>
                                                 var f7= new LiveValidation('apellido_jugador', { validMessage: ' ', wait: 500});
                                                 f7.add(Validate.Presence, {failureMessage: "Obligatorio"});
+                                                f7.add(Validate.Format, { pattern: /[a-zA-Z]/i,failureMessage: "Debe ingresar letras" });
                                             </script>
                                         </div>
                                         <div class="form-group">
@@ -254,6 +256,7 @@
                                              <script>
                                                  var f2= new LiveValidation('dni', { validMessage: ' ', wait: 500});
                                                  f2.add(Validate.Presence, {failureMessage: "Obligatorio"});
+                                                 f2.add(Validate.Numericality, {failureMessage: "Debe ingresar numeros"});
                                              </script>
                                         </div>
                                          <div class="form-group">
@@ -275,10 +278,6 @@
                                         <div class="form-group">
                                              Grupo Sanguineo
                                              {!!Form::Text('grupo_sanguineo',null,['class'=>'form-control','id'=>'grupo_sanguineo'])!!}
-                                            <script>
-                                                 var f4= new LiveValidation('grupo_sanguineo', { validMessage: ' ', wait: 500});
-                                                 f4.add(Validate.Presence, {failureMessage: "Obligatorio"});
-                                             </script>
                                         </div>
                                         <div class="form-group">
                                              Mail
@@ -428,7 +427,7 @@ function buscarZonas()
            completarEstadisticas();
         })
         .fail(function(){
-            //alert(id_equipo);
+             $('#cargando').html('');
         });
 
  }
@@ -449,7 +448,7 @@ function buscarZonas()
              $("#equipo_torneo").html(response);             
           })
           .fail(function(){
-              //alert(id_equipo);
+               $('#cargando').html('');
           });
 
  }

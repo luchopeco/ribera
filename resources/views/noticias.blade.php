@@ -45,7 +45,7 @@ Noticias
                                 @for($ii = 0; $ii < $cant; $ii++)
                                     <div class="col-md-3 col-sm-6 text-center ">
                                         <span class="fa-stack fa-4x ">
-                                            <img  src="/imagenes/iconosNoticias/{{$listNoticias[$idxNoticia]->icono}}" class="img-responsive">
+                                            <img  src="/imagenes/iconosNoticias/{{$listNoticias[$idxNoticia]->icono}}" class="img-responsive  center-block">
                                         </span>
                                         <div class="fecha text-left"><span>{{$listNoticias[$idxNoticia]->fecha}}</span></div>
                                         <h4 class="service-heading text-left">{{strtoupper($listNoticias[$idxNoticia]->titulo)}}</h4>

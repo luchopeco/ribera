@@ -63,8 +63,8 @@ $ruta= Route::currentRouteAction();
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="#page-top"><img id="imagenNormal" class="img-responsive text-left" src="/img/logo.png" style="display:block;"></a>
-                <a class="navbar-brand page-scroll" href="#page-top"><img id="imagenChica"  class="img-responsive text-left" src="/img/minilogo.png" style="display:none;height:80px;width:160px;margin-top:-20px;"></a>
+                <a class="navbar-brand page-scroll" ><img id="imagenNormal" class="img-responsive text-left" src="/img/logo.png" style="display:block;"></a>
+                <a class="navbar-brand page-scroll" ><img id="imagenChica"  class="img-responsive text-left" src="/img/minilogo.png" style="display:none;height:80px;width:160px;margin-top:-20px;"></a>
 
             </div>
 
@@ -130,23 +130,23 @@ $ruta= Route::currentRouteAction();
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-2 col-sm-4">
-                    <img class="img-responsive" src="/imagenes/footer/auckland.png">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive center-block" src="/imagenes/footer/auckland.png">
                 </div>
-                <div class="col-md-2 col-sm-4">
-                    <img class="img-responsive" src="/imagenes/footer/espana.png">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive center-block" src="/imagenes/footer/espana.png">
                 </div>
-                <div class="col-md-2 col-sm-4">
-                    <img class="img-responsive" src="/imagenes/footer/house.png">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive center-block" src="/imagenes/footer/house.png">
                 </div>
-                <div class="col-md-2 col-sm-4">
-                    <img class="img-responsive" src="/imagenes/footer/rumah.png">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive center-block" src="/imagenes/footer/rumah.png">
                 </div>
-                <div class="col-md-2 col-sm-4">
-                    <img class="img-responsive" src="/imagenes/footer/sts.png">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive center-block" src="/imagenes/footer/sts.png">
                 </div>
-                <div class="col-md-2 col-sm-4">
-                    <img class="img-responsive" src="/imagenes/footer/txr.png">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive center-block" src="/imagenes/footer/txr.png">
                 </div>
 
 
@@ -227,27 +227,6 @@ $ruta= Route::currentRouteAction();
     </script>
 
 
-
-    <script type="text/javascript">
-        $(function () {
-              var $win = $(window);
-              // definir mediente $pos la altura en píxeles desde el borde superior de la ventana del navegador y el elemento
-              var $pos = 103;
-              $win.scroll(function () {
-
-                    //alert($( window ).width());
-
-                     if ($win.scrollTop() <= $pos){                             
-                        $('#imagenNormal').css('display','block');
-                        $('#imagenChica').css('display','none');
-                     }               
-                     else {                
-                        $('#imagenChica').css('display','block');
-                        $('#imagenNormal').css('display','none');
-                    }
-               });
-        });
-    </script>
 
     @yield('script')
 </body>

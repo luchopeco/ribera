@@ -66,7 +66,7 @@ Inscripcion
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-xs-2"><img src="imagenes/iconosNoticias/cancha.png" class="img-responsive"></div>
+                                <div class="col-xs-2 hidden-xs"><img src="imagenes/iconosNoticias/cancha.png" class="img-responsive"></div>
                                 <div class="col-xs-10"><h2>¿CÓMO INSCRIBIR MI EQUIPO?</h2></div>
                             </div>
                             <br>
@@ -91,13 +91,13 @@ Inscripcion
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-12"><a href="/descargar/REGLAMENTO.pdf" target="_blank" class=" btn btn-block btn-warning">DESCARGAR REGLAMENTO LIGA LA RIBERA</a></div>
+                                <div class="col-md-12"><a href="/descargar/REGLAMENTO.pdf" target="_blank" class=" btn btn-block btn-warning">REGLAMENTO LIGA LA RIBERA</a></div>
                             </div>
                             <br>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-xs-2"><img src="imagenes/iconosNoticias/jugador.png" class="img-responsive"></div>
+                                <div class="col-xs-2 hidden-xs"><img src="imagenes/iconosNoticias/jugador.png" class="img-responsive"></div>
                                 <div class="col-xs-10"><h2>Datos Del Equipo</h2></div>
                             </div>
                             <br>
@@ -121,6 +121,7 @@ Inscripcion
                                                 <script>
                                                     var f2= new LiveValidation('nombre', { validMessage: ' ', wait: 500});
                                                     f2.add(Validate.Presence, {failureMessage: "Obligatorio"});
+                                                    f2.add(Validate.Format, { pattern: /[a-zA-Z]/i,failureMessage: "Debe ingresar letras" });
                                                 </script>
                                             </div>
                                         </div>

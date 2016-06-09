@@ -47,7 +47,7 @@
                         donde las palabras <strong>"fútbol, amigos y juego limpio"</strong> sean moneda corriente.</p>
                     </div>
                     <br>
-                    <div><a href="/laribera" class="page-scroll btn btn-xl " >CONOCENOS MAS</a></div>
+                    <div><a href="/laribera" class="page-scroll btn btn-xl " >CONOCENOS MÁS</a></div>
                 </div>
             </div>
         </div>
@@ -66,8 +66,8 @@
                     <div class="row">
                     @foreach($listNoticias as $noticia)
                         <div class="col-md-3 col-sm-6 text-center " style="margin-bottom: 15px">
-                            <span class="fa-stack fa-4x ">
-                                <img  src="/imagenes/iconosNoticias/{{$noticia->icono}}" class="img-responsive">
+                            <span class="fa-stack fa-4x" >
+                                <img  src="/imagenes/iconosNoticias/{{$noticia->icono}}" class="img-responsive center-block">
                             </span>
                            <div class="fecha text-left"><span>{{$noticia->fecha}}</span></div>
                             <h4 class="service-heading text-left">{{strtoupper($noticia->titulo)}}</h4>
@@ -126,6 +126,7 @@
                                <!--<iframe src="https://www.google.com/maps/d/embed?mid=zdj0487fDBxk.kYA1aeXuXz0A&z=40" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>-->
                             </div>
                         </div>
+                        <div class="hidden-md hidden-lg"><br><br></div>
                         <div id="contacto" class="col-md-6">
                             <div class="border-titulo-noticia"></div>
                             <h2>CONTACTANOS</h2>
@@ -138,6 +139,7 @@
                                     <script>
                                       var f1 = new LiveValidation('nombre_contacto');
                                         f1.add(Validate.Presence, {failureMessage: "Obligatorio"});
+                                         f1.add(Validate.Format, { pattern: /[a-zA-Z]/i,failureMessage: "Debe ingresar letras" });
                                     </script>
                                 </div>
                             </div>
@@ -151,6 +153,7 @@
                                         f5.add(Validate.Presence, {failureMessage: "Obligatorio"});
                                     </script>
                                 </div>
+                                <div class="hidden-md hidden-lg"><br></div>
                                 <div class="col-md-6">
                                     {!!Form::Text('celular',null,['class'=>' form-control','placeholder'=>'CELULAR','id'=>'celular'])!!}
                                     <script>
