@@ -297,7 +297,8 @@ class Zona extends Model {
                                                         AND z.idzona = :p2
                                                     GROUP BY
                                                         j.nombre_jugador,
-                                                        phj.cantidad_fechas_sancion,
+                                                        j.apellido_jugador,
+                                                        e.nombre_equipo,
                                                         f.fecha
                                                 ) AS aux
                                             WHERE

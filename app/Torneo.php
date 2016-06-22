@@ -187,7 +187,7 @@ class Torneo extends Model{
                                     left JOIN jugadores j ON j.idjugador = phj.idjugador
                                     LEFT JOIN equipos e ON e.idequipo = j.idequipo
                                     WHERE p.fue_jugado=1 and f.fecha<= CURRENT_DATE AND z.idtorneo=:p2
-                                    GROUP BY j.nombre_jugador, phj.cantidad_fechas_sancion, f.fecha) AS aux
+                                    GROUP BY j.nombre_jugador,j.apellido_jugador, e.nombre_equipo, f.fecha) AS aux
                                     WHERE EXISTS (SELECT count(*) FROM fechas f INNER JOIN zonas z ON z.idzona = f.idzona WHERE (f.fecha BETWEEN aux.fecha AND (CURRENT_DATE - INTERVAL 1 DAY)) AND z.idtorneo=:p3 HAVING count(*) <=aux.sancion AND count(*) > 0 )
 
                                     )AS aux1
