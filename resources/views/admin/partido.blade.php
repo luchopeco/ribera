@@ -46,7 +46,13 @@
                                     <i class="fa fa-question-circle"></i><b class="caret"></b>
                                 </button>
                                 <ul class="multiselect-container dropdown-menu pull-right">
-                                    <li>Desde Aqui se asignan resultados a un partido</li>
+                                    <li>Desde Aqui se asignan resultados a un partido.</li>
+                                    <li>Se cargan los goleadores, las tarjetas y las sanciones.</li>
+                                    <li>Las sanciones se indican por cantidad de fechas de sanción.</li>
+                                    <li>Las sanciones se actualizan (ahora) al dia siguiente de cada fecha.</li>
+                                    <li>Es importantes que las fechas de los torneos, tengan correctamente cargado el dia </li>
+                                    <li>en que se juega. O al menos, que las fechas jugadas tengan dias pasados, y las que </li>
+                                    <li>no se jugaron tengan dias futuros.</li>
                                 </ul>
                             </div>
                         </div>

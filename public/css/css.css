@@ -379,4 +379,11 @@ header .row{
         padding-top: 0;
 
     }
+    #imagenNormal{
+        display: none !important;
+
+    }
+    #imagenChica{
+        display: block !important;
+    }
 }

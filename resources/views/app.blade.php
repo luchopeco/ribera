@@ -65,7 +65,6 @@ $ruta= Route::currentRouteAction();
 
                 <a class="navbar-brand page-scroll" ><img id="imagenNormal" class="img-responsive text-left" src="/img/logo.png" style="display:block;"></a>
                 <a class="navbar-brand page-scroll" ><img id="imagenChica"  class="img-responsive text-left" src="/img/minilogo.png" style="display:none;height:80px;width:160px;margin-top:-20px;"></a>
-
             </div>
 
            
