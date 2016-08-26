@@ -181,7 +181,7 @@ class JugadoresController extends Controller
     {
         try {
             Jugador::destroy($request->idjugador);
-            Session::flash('mensajeOk', 'Jugador En Lista Negra con Exito');
+            Session::flash('mensajeOk', 'Jugador dado de baja con exito');
             return Redirect::route('admin.equipos.show', array($request->idequipo));
         } catch (QueryException  $ex) {
             Session::flash('mensajeError', $ex->getMessage());
@@ -196,9 +196,9 @@ class JugadoresController extends Controller
         try {
             $tor = Jugador::withTrashed()->where('idjugador', $request->idjugador)->first();
             $tor->restore();
-            Session::flash('mensajeOk', 'Jugador Quitado de la Lista Negra Con Exito');
-            $listJugador = Jugador::onlyTrashed()->get();
-            return view('admin.listanegra', compact('listJugador'));
+            Session::flash('mensajeOk', 'Jugador dado de alta Con Exito');
+
+            return back();
         } catch (QueryException  $ex) {
             Session::flash('mensajeError', $ex->getMessage());
             $listJugador = Jugador::onlyTrashed()->get();

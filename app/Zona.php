@@ -13,7 +13,7 @@ class Zona extends Model {
 
     public function Torneo()
     {
-        return $this->belongsTo('torneo\Torneo','idtorneo');
+        return $this->belongsTo('torneo\Torneo','idtorneo')->withTrashed();;
     }
     public function ListEquipos()
     {

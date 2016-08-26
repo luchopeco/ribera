@@ -38,7 +38,15 @@ class Equipo extends Model{
 
     public function ListJugadores()
     {
-        return $this->hasMany('torneo\Jugador','idequipo', 'idequipo')->orderBy('apellido_jugador');
+        return $this->hasMany('torneo\Jugador','idequipo', 'idequipo')->orderBy('apellido_jugador')->orderBy('nombre_jugador');
+    }
+    public function ListJugadoresWithTrashed()
+    {
+        return $this->hasMany('torneo\Jugador','idequipo', 'idequipo')->withTrashed()->orderBy('apellido_jugador')->orderBy('nombre_jugador');
+    }
+    public function ListJugadoresOnlyTrashed()
+    {
+        return $this->hasMany('torneo\Jugador','idequipo', 'idequipo')->onlyTrashed()->orderBy('apellido_jugador')->orderBy('nombre_jugador');
     }
 
     public function ListTorneosParaCombo()

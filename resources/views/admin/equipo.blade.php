@@ -43,8 +43,7 @@
                                     <i class="fa fa-question-circle"></i><b class="caret"></b>
                                 </button>
                                 <ul class="multiselect-container dropdown-menu pull-right">
-                                    <li>Desde Aqui Puede Agregar modificar o eliminar los jugadores del equipo</li>
-                                       <li>Tambien puede poner el jugador en lista negra</li>
+                                    <li>Desde Aqui Puede Agregar modificar , eliminar o dar de baja los jugadores del equipo</li>
                                 </ul>
                             </div>
                         </div>
@@ -72,7 +71,7 @@
                                     <td>{{$jugador->esDelegado()}}</td>
                                     <td>{{$jugador->entregoCertificado()}}</td>
                                     <td>{{$jugador->observaciones}}</td>
-                                    <td><a href="#"  class="btn btn-xs btn-lista-negra listanegra" data-idjugador="{{$jugador->idjugador}}" data-idequipo="{{$equipo->idequipo}}"  title="Poner en Lista Negra"><i class="fa fa-thumbs-down"></i></a></td>
+                                    <td><a href="#"  class="btn btn-xs btn-lista-negra listanegra" data-idjugador="{{$jugador->idjugador}}" data-idequipo="{{$equipo->idequipo}}"  title="Dar de Baja"><i class="fa fa-thumbs-down"></i></a></td>
                                     <td><a href="" class="btn btn-xs btn-info editar" data-idjugador="{{$jugador->idjugador}}" data-idequipo="{{$equipo->idequipo}}"  title="Modificar"> <i class=" fa fa-edit"></i></a></td>
                                     <td><a href="" class="btn btn-xs btn-danger eliminar" data-idjugador="{{$jugador->idjugador}}" data-idequipo="{{$equipo->idequipo}}"  title="Eliminar"> <i class=" fa fa-close"></i></a></td>
                                 </tr>
@@ -83,7 +82,45 @@
                 </div>
             </div>
         </div>
-
+@if($equipo->ListJugadoresOnlyTrashed->count()>0)
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class=" panel panel-danger">
+                            <div class=" panel-heading"><strong>Jugadores Dados De Baja</strong>
+                            </div>
+                            <div class=" panel-body">
+                                <div class="table-responsive">
+                                    <table id="editar"  class=" table table-bordered table-condensed table-hover">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Documento</th>
+                                            <th>Fecha Nacimiento</th>
+                                            <th>Es Delegado</th>
+                                            <th>Entrego Certificado</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                            <?php $cont=0; ?>
+                                            @foreach($equipo->ListJugadoresOnlyTrashed as $jugador)
+                                            <?php $cont= $cont+1; ?>
+                                        <tr >
+                                            <td>{{$cont}}</td>
+                                            <td>{{$jugador->NombreApellido()}}</td>
+                                            <td>{{$jugador->dni}}</td>
+                                            <td>{{date('d/m/Y', strtotime($jugador->fecha_nacimiento))}}</td>
+                                            <td>{{$jugador->esDelegado()}}</td>
+                                            <td>{{$jugador->entregoCertificado()}}</td>
+                                            <td>{{$jugador->observaciones}}</td>
+                                            <td><a href="#"  class="btn btn-xs btn-success alta" data-idjugador="{{$jugador->idjugador}}"  title="Dar de Alta Jugador"><i class="fa fa-thumbs-up"></i></a></td>
+                                        </tr>
+                                            @endforeach
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+@endif
 
         <div class="modal fade" id="modalJugadorAgregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -278,14 +315,14 @@
                     {!!Form::open(['url'=>['admin/jugadores/baja'],'method'=>'POST'])!!}
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h4 class="modal-title" id="myModalLabel">Poniendo Jugador En Lista Negra</h4>
+                            <h4 class="modal-title" id="myModalLabel">Baja Jugador</h4>
                         </div>
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     {!!Form::Text('idequipo',null,['class'=>'hidden','id'=>'idequipoL'])!!}
                                     {!!Form::Text('idjugador',null,['class'=>'hidden','id'=>'idjugadorL'])!!}
-                                    <h3>¿Desea poner el Jugador en Lista Negra?</h3>
+                                    <h3>¿Desea dar de baja al jugador?</h3>
                                     <div id="caca"></div>
                                 </div>
                             </div>
@@ -305,6 +342,38 @@
                 <!-- /.modal-dialog -->
           </div>
         </div>
+
+                <div class="modal fade" id="modalalta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                   <div class="modal-content">
+                                      {!!Form::open(['url'=>['admin/jugadores/alta'],'method'=>'POST'])!!}
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Alta Jugador</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                               <div class="row">
+                                                    <div class="col-md-12">
+                                                        {!!Form::Text('idjugador',null,['class'=>'hidden','id'=>'idjugadorLL'])!!}
+                                                        <h3>¿Desea dar de alta al jugador?</h3>
+                                                        <div id="caca"></div>
+                                                    </div>
+                                               </div>
+                                        <div class="modal-footer">
+                                            <div class="row ">
+                                                <div class="col-md-12">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    {!!Form::submit('Aceptar', array('class' => 'btn btn-success'))!!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                      {!! Form::close() !!}
+                                   </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                          </div>
+                        </div>
 
         @endsection
         @section('script')
@@ -370,6 +439,12 @@
                             $("#idjugadorL").val(id_jugador);
                             $("#idequipoL").val(id_equipo);
                             $("#modalJugadorListaNegra").modal("show");
+                        });
+            $('body').on('click', '.alta', function (event) {
+                            event.preventDefault();
+                            var id_arbitro=$(this).attr('data-idjugador');
+                            $("#idjugadorLL").val(id_arbitro);
+                            $("#modalalta").modal("show");
                         });
 
         });

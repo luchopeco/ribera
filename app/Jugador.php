@@ -8,7 +8,6 @@ class Jugador extends Model{
 
     use SoftDeletes;
 
-
     protected $table='jugadores';
 
     protected $fillable = ['nombre_jugador','dni','pathfoto','idequipo','observaciones','certificado','delegado','direccion','mail','obra_social','telefono','grupo_sanguineo','apellido_jugador','fecha_nacimiento'];
@@ -266,11 +265,12 @@ class Jugador extends Model{
     
     public  function validaralta()
     {
-        $jug = Jugador::onlyTrashed()->where('dni', $this->dni)->first();
-        if($jug!=null)
-        {
-            throw new \Exception(env('MSJ_ERRORJUGADOR'));
-        }
+        //no valido nada
+        //$jug = Jugador::onlyTrashed()->where('dni', $this->dni)->first();
+        //if($jug!=null)
+       // {
+           // throw new \Exception(env('MSJ_ERRORJUGADOR'));
+        //}
     }
 
 }

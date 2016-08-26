@@ -77,7 +77,7 @@ class PartidosController extends Controller {
         $listGoleadoresLocal = array();
         $sum=0;
         $equipo = Equipo::findOrFail($partido->EquipoLocal->idequipo);
-        foreach($equipo->ListJugadores as $jugador)
+        foreach($equipo->ListJugadoresWithTrashed as $jugador)
         {
             foreach($partido->ListGoleadores as $goleador)
             {
@@ -96,11 +96,12 @@ class PartidosController extends Controller {
 
         };
 
+
         ///mando todos los jugadores visitantes con goles
         $listGoleadoresVisitante = array();
         $sum=0;
         $equipos = Equipo::findOrFail($partido->EquipoVisitante->idequipo);
-        foreach($equipos->ListJugadores as $jugador)
+        foreach($equipos->ListJugadoresWithTrashed as $jugador)
         {
             foreach($partido->ListGoleadores as $goleador)
             {
@@ -136,10 +137,14 @@ class PartidosController extends Controller {
         }
         $listJugadoresLocales = DB::table('jugadores')->select(DB::raw('idjugador, CONCAT( COALESCE(apellido_jugador, ""),", ", COALESCE(nombre_jugador, "")) as apenom'))
             ->where('idequipo',$equipo->idequipo)
+            ->where('deleted_at',null)
+            ->orderBy('apenom')
             ->lists('apenom','idjugador');
 
         $listJugadoresVisitantes = DB::table('jugadores')->select(DB::raw('idjugador, CONCAT( COALESCE(apellido_jugador, ""),", ", COALESCE(nombre_jugador, "")) as apenom'))
             ->where('idequipo',$equipos->idequipo)
+            ->where('deleted_at',null)
+            ->orderBy('apenom')
             ->lists('apenom','idjugador');
 
         //$listJugadoresVisitantes= $equipos->ListJugadores->lists('nombre_jugador', 'idjugador');

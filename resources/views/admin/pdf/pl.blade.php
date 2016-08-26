@@ -57,6 +57,7 @@ tr{
   width: 40mm;
   max-width: 40mm;
   min-width: 40mm;
+  overflow: hidden;
 }
 .ancho-133{
   width: 133mm;
@@ -138,6 +139,7 @@ tr{
   width: 88mm;
   max-width: 88mm;
   min-width: 88mm;
+    overflow: hidden;
 }
 .ancho-44{
   width: 44mm;
@@ -178,7 +180,7 @@ tr{
   <table>
     <tr >
       <td class="ancho-40 alto-8">
-        <strong style="font-size: 18px">{{$fecha->numero_fecha}}</strong>
+        <strong style="font-size: 12pt">{{$fecha->numero_fecha}}</strong>
       </td>
       <td class="sin-borde ancho-85">
 
@@ -297,7 +299,7 @@ tr{
           <td class="alto-8 ancho-6">
 
           </td>
-          <td class="alto-8 ancho-19">
+          <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[0]->dni; } catch(\Exception $e) {}?>
           </td>
           <td class="alto-8 ancho-58">
@@ -321,7 +323,7 @@ tr{
           <td class="alto-8 ancho-6">
 
           </td>
-          <td class="alto-8 ancho-19">
+          <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoVisitante->ListJugadores[0]->dni; } catch(\Exception $e) {}?>
           </td>
           <td class="alto-8 ancho-58">
@@ -344,7 +346,7 @@ tr{
            <td class="alto-8 ancho-5">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
               <?php try{  echo $p->EquipoLocal->ListJugadores[1]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -368,7 +370,7 @@ tr{
            <td class="alto-8 ancho-5">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[1]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -391,7 +393,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[2]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -415,7 +417,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[2]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -438,7 +440,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoLocal->ListJugadores[3]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -462,7 +464,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[3]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -485,7 +487,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[4]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -509,7 +511,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[4]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -532,7 +534,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[5]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -556,7 +558,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[5]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -579,7 +581,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoLocal->ListJugadores[6]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -603,7 +605,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[6]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -626,7 +628,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[7]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -650,7 +652,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[7]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -673,7 +675,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
            <?php try{  echo $p->EquipoLocal->ListJugadores[8]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -697,7 +699,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoVisitante->ListJugadores[8]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -720,7 +722,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[9]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -744,7 +746,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[9]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -767,7 +769,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[10]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -791,7 +793,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[10]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -814,7 +816,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[11]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -838,7 +840,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[11]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -861,7 +863,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
             <?php try{  echo $p->EquipoLocal->ListJugadores[12]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -885,7 +887,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[12]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -908,7 +910,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoLocal->ListJugadores[13]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -932,7 +934,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[13]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -955,7 +957,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoLocal->ListJugadores[14]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -979,7 +981,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[14]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -1002,7 +1004,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoLocal->ListJugadores[15]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -1026,7 +1028,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[15]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -1049,7 +1051,7 @@ tr{
            <td class="alto-8 ancho-6">
 
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoLocal->ListJugadores[16]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
@@ -1073,7 +1075,7 @@ tr{
            <td class="alto-8 ancho-6">
     
            </td>
-           <td class="alto-8 ancho-19">
+           <td class="alto-8 ancho-19 text-center">
              <?php try{  echo $p->EquipoVisitante->ListJugadores[16]->dni; } catch(\Exception $e) {}?>
            </td>
            <td class="alto-8 ancho-58">
