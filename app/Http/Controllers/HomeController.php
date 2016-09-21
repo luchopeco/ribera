@@ -83,13 +83,13 @@ class HomeController extends Controller {
 
                 //primero verifico que el jugador no este en lista negra
                 $delegado = new Jugador();
-                $delegado->nombre_jugador = Input::get('nombre');
+                $delegado->nombre_jugador =ucwords( Input::get('nombre'));
                // $delegado->dni = Input::get('dni');
                 $delegado->validaralta();
 
                 //Crear un equipo en la BD
                 $equipoNuevo = new Equipo();
-                $equipoNuevo->nombre_equipo = Input::get('nombre_equipo');
+                $equipoNuevo->nombre_equipo = ucwords(Input::get('nombre_equipo'));
                 $equipoNuevo->observaciones = Input::get('mensaje');
                 $equipoNuevo->aprobado = 0;
                 $equipoNuevo->save();
@@ -108,8 +108,8 @@ class HomeController extends Controller {
 
                 $cuerpo="Nueva Inscripcion \n";
                // $cuerpo = $cuerpo . "Torneo: ". Request::get('torneo')."\n";
-                $cuerpo = $cuerpo . "Nombre Equipo: ".Input::get('nombre_equipo')."\n";
-                $cuerpo = $cuerpo . "Nombre Delegado: ".Input::get('nombre')."\n";
+                $cuerpo = $cuerpo . "Nombre Equipo: ".ucwords(Input::get('nombre_equipo'))."\n";
+                $cuerpo = $cuerpo . "Nombre Delegado: ".ucwords(Input::get('nombre'))."\n";
                // $cuerpo = $cuerpo . "DNI Delegado: ".Input::get('dni')."\n";
                 $cuerpo = $cuerpo . "Celular Delegado: ".Input::get('celular')."\n";
                 $cuerpo = $cuerpo . "Mail Delegado: ".Input::get('mail')."\n";
@@ -905,23 +905,33 @@ class HomeController extends Controller {
     public function agregarjugador(Request $request)
     {
         try{
-            $jugador = new Jugador();
-            $jugador->apellido_jugador=Input::get('apellido_jugador');
-            $jugador->nombre_jugador=Input::get('nombre_jugador');
-            $jugador->fecha_nacimiento=implode('-',array_reverse(explode('/',Input::get('fecha_nacimiento'))));
+            $e = Equipo::findOrFail(Session::get('equipo'));
+            $cant = $e->ListJugadores->count();
+            if($cant >= 17)
+            {
+                Session::flash('mensajeError', 'No se ha podido inscribir el Jugador. Supera la cantidad máxima de inscriptos (17 Jugadores)');
+                return back();
+            }
+            else{
+                $jugador = new Jugador();
+                $jugador->apellido_jugador= ucwords(Input::get('apellido_jugador'));
+                $jugador->nombre_jugador=ucwords(Input::get('nombre_jugador'));
+                $jugador->fecha_nacimiento=implode('-',array_reverse(explode('/',Input::get('fecha_nacimiento'))));
 
-            $jugador->dni=Input::get('dni');
-            $jugador->telefono=Input::get('telefono');
-            $jugador->grupo_sanguineo=Input::get('grupo_sanguineo');
-            $jugador->mail=Input::get('mail');
-            $jugador->direccion=Input::get('direccion');
-            $jugador->obra_social=Input::get('obra_social');
-            $jugador->idequipo=Session::get('equipo');
-            $jugador->validaralta();
-            $jugador->save();
+                $jugador->dni=Input::get('dni');
+                $jugador->telefono=Input::get('telefono');
+                $jugador->grupo_sanguineo=Input::get('grupo_sanguineo');
+                $jugador->mail=Input::get('mail');
+                $jugador->direccion=Input::get('direccion');
+                $jugador->obra_social=Input::get('obra_social');
+                $jugador->idequipo=Session::get('equipo');
+                $jugador->validaralta();
+                $jugador->save();
 
-            Session::flash('mensajeOk', 'Jugador Agregado Correctamente');
-            return back();
+                Session::flash('mensajeOk', 'Jugador Agregado Correctamente');
+                return back();
+            }
+
         }
         catch(\Exception  $ex)
         {

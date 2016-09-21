@@ -134,6 +134,33 @@
             <div class="col-md-6">
                 <div class=" panel panel-default">
                     <div class=" panel-heading">
+                        <strong>FairPlay </strong>
+                    </div>
+                    <div class=" panel-body">
+                        <div class="table-responsive">
+                            <table id="editar"  class=" table table-bordered table-condensed table-hover">
+                                <tr>
+                                    <th>Equipo</th>
+                                    <th>Rojas</th>
+                                    <th>Amarillas</th>
+                                    <th title="Partidos Jugaods">PJ</th>
+                                </tr>
+                                @foreach($torneo->TarjetasEquipos() as $t)
+                                <tr >
+                                    <td>{{$t->nombre_equipo}}</td>
+                                    <td>{{$t->tr}}</td>
+                                    <td>{{$t->ta}}</td>
+                                    <td>{{$t->pj}}</td>
+                                </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class=" panel panel-default">
+                    <div class=" panel-heading">
                         <strong>Tarjetas</strong>
                         <div class="pull-right">
                             <div class="btn-group">

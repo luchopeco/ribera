@@ -377,5 +377,32 @@ class Torneo extends Model{
                 return $tarjetas;
     }
 
+    public function TarjetasEquipos()
+    {
+        $tabla =  DB::select(DB::raw("SELECT a1.*, a2.pj FROM (SELECT
+			e.nombre_equipo,
+			SUM(COALESCE(phj.tarjeta_amarilla,0)) ta ,
+			SUM(COALESCE( phj.tarjeta_roja,0)) tr ,
+			p.idzona FROM partido_has_jugador phj
+				INNER JOIN jugadores j ON j.idjugador = phj.idjugador
+				INNER JOIN equipos e ON e.idequipo = j.idequipo
+				INNER JOIN partidos p ON p.idpartido = phj.idpartido
+					INNER JOIN zonas z ON z.idzona = p.idzona
+				WHERE z.idtorneo = :p1
+
+				GROUP BY e.nombre_equipo, p.idzona
+ORDER BY tr, ta)  AS a1
+INNER JOIN
+(SELECT count(DISTINCT p.idpartido) pj, e.nombre_equipo FROM partidos p
+INNER JOIN equipos e ON p.idequipo_local = e.idequipo OR p.idequipo_visitante = e.idequipo
+INNER JOIN zonas z ON z.idzona = p.idzona
+WHERE z.idtorneo = :p2
+GROUP BY e.nombre_equipo) AS a2
+ON a1.nombre_equipo = a2.nombre_equipo
+ORDER BY tr,ta"), array(
+            'p1' => $this->idtorneo,'p2' => $this->idtorneo));
+        return $tabla;
+    }
+
 
 }
