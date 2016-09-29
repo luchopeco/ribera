@@ -337,7 +337,7 @@ class Zona extends Model {
                                 INNER JOIN
                                 (SELECT count(DISTINCT p.idpartido) pj, e.nombre_equipo FROM partidos p
                                 INNER JOIN equipos e ON p.idequipo_local = e.idequipo OR p.idequipo_visitante = e.idequipo
-                                WHERE p.idzona = :p1
+                                WHERE p.idzona = :p1 and p.fue_jugado=1
                                 GROUP BY e.nombre_equipo) AS a2
                                 ON a1.nombre_equipo = a2.nombre_equipo
                                 ORDER BY tr,ta"), array(

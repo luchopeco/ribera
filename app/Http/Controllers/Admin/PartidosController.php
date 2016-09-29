@@ -222,14 +222,22 @@ class PartidosController extends Controller {
                 $ar->puntos_local=3;
                 $ar->puntos_visitante = 0;
                 $ar->ganado_local=1;
+                $ar->perdido_local=0;
+                $ar->ganado_visitante=0;
                 $ar->perdido_visitante=1;
+                $ar->empatado_local=0;
+                $ar->empatado_visitante=0;
             }
             else if ($ar->goles_visitante > $ar->goles_local )
             {
                 $ar->puntos_visitante=3;
                 $ar->puntos_local=0;
                 $ar->ganado_visitante=1;
+                $ar->perdido_visitante=0;
                 $ar->perdido_local=1;
+                $ar->ganado_local=0;
+                $ar->empatado_local=0;
+                $ar->empatado_visitante=0;
             }
             else if($ar->goles_visitante == $ar->goles_local )
             {
@@ -237,6 +245,10 @@ class PartidosController extends Controller {
                 $ar->puntos_local=1;
                 $ar->empatado_local=1;
                 $ar->empatado_visitante=1;
+                $ar->ganado_visitante=0;
+                $ar->perdido_visitante=0;
+                $ar->perdido_local=0;
+                $ar->ganado_local=0;
             }
             $ar->save();
 
