@@ -217,6 +217,11 @@ class PartidosController extends Controller {
             $ar->goles_local =$request->goles_local;
             $ar->goles_visitante=$request->goles_visitante;
             $ar->fue_jugado=1;
+            if($ar->Fecha->es_play_off==1)
+            {
+                $ar->penales_local=$request->penales_local;
+                $ar->penales_visitante=$request->penales_visitante;
+            }
             if($ar->goles_local > $ar->goles_visitante)
             {
                 $ar->puntos_local=3;

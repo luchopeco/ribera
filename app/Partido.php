@@ -8,7 +8,7 @@ class Partido extends Model{
     protected $table='partidos';
 
     protected $fillable = ['idpartido','idfecha','idequipo_local','idequipo_visitante','goles_local',
-        'goles_visitante','hora','idarbitro','idzona'];
+        'goles_visitante','hora','idarbitro','idzona','penales_local','penales_visitante'];
 
     protected $primaryKey = 'idpartido';
 
