@@ -38,10 +38,6 @@ Route::post('/equipofotoguardar', 'HomeController@equipofotoguardar');
 Route::post('/agregarjugador', 'HomeController@agregarjugador');
 
 
-
-
-
-
 Route::get('/jugadores-de-la-fecha', 'WelcomeController@jugadoresfecha');
 Route::get('/equipo-ideal', 'WelcomeController@equipoideal');
 
@@ -135,7 +131,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],
 
         Route::resource('zonas','ZonasController');
         Route::post('zonas/buscar','ZonasController@buscar');
-        
+
+        Route::get('reportes/listadojugadores','ReportesController@listadojugadores');
+        Route::get('reportes/index','ReportesController@index');
+        Route::get('reportes','ReportesController@index');
 
 });
 

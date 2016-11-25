@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 use torneo\Equipo;
 use torneo\Imagen;
 use torneo\Jugador;
@@ -948,5 +949,7 @@ class HomeController extends Controller {
 
         }
     }
+
+
 
 }

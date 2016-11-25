@@ -137,7 +137,7 @@ return [
 		'Illuminate\View\ViewServiceProvider',
         'Collective\Html\HtmlServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider',
-
+        'Maatwebsite\Excel\ExcelServiceProvider',
 		/*
 		 * Application Service Providers...
 		 */
@@ -197,6 +197,8 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'PDF' => 'Barryvdh\DomPDF\Facade',
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+
 
 
 	],
