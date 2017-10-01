@@ -178,18 +178,14 @@
                                     <th>Equipo</th>
                                     <th>Ult. Fecha Am.</th>
                                     <th>Tar. Amarillas</th>
-<<<<<<< HEAD
                                     <th>Ult. Fecha Az.</th>
                                     <th>Tar. Azules</th>
-=======
->>>>>>> origin/master
                                     <th>Ult. Fecha Ro.</th>
                                     <th>Tar. Rojas</th>
                                 </tr>
                                 @foreach($torneo->Tarjetas() as $goleador)
                                     <?php
                                     $azulmasamarillo = 0;
-<<<<<<< HEAD
                                     if($goleador->ta != null && $goleador->ta % 4 !=0 && $goleador->ta % 2 ==0 ){
                                     $azulmasamarillo = 1;
                                     }
@@ -216,28 +212,7 @@
                                         {{$goleador->tar}}
                                     </td>
                                 </tr>
-=======
-                                    if($goleador->ta != null && $goleador->ta % 4 !=0 && $goleador->ta % 2 ==0 && $goleador->taz % 2 !=0 && $goleador->taz!=null ){
-                                        $azulmasamarillo = 1;
-                                    }
-                                    ?>
-                                    <tr >
-                                        <td>{{$goleador->nombre_jugador}}</td>
-                                        <td>{{$goleador->nombre_equipo}}</td>
-                                        <td @if($goleador->ta % 4 ==0 && $goleador->ta!=null) class="danger" @endif @if($azulmasamarillo ==1) class="danger" @endif>
-                                            @if($goleador->fecha_ta!=null) {{date('d/m/Y', strtotime($goleador->fecha_ta))}}@endif
-                                        </td>
-                                        <td @if($goleador->ta % 4 ==0 && $goleador->ta!=null)  class="danger" @endif @if($azulmasamarillo ==1) class="danger" @endif>
-                                            {{$goleador->ta}}
-                                        </td>
-                                        <td @if($goleador->tar!=null) class="danger" @endif >
-                                            @if($goleador->fecha_tr!=null)  {{date('d/m/Y', strtotime($goleador->fecha_tr))}} @endif
-                                        </td>
-                                        <td @if($goleador->tar!=null) class="danger" @endif >
-                                            {{$goleador->tar}}
-                                        </td>
-                                    </tr>
->>>>>>> origin/master
+
                                 @endforeach
                             </table>
                         </div>
@@ -319,7 +294,6 @@
         <!-- /.modal-dialog -->
     </div>
 
-<<<<<<< HEAD
 <div class="modal fade" id="modalAyudaTarjetas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -354,29 +328,6 @@
                                     <p class="text-danger"> Por ejemplo, el jugador puede acumular 4 tarjetas amarillas durante las cuatro primeras fechas, pero luego no recibir mas tarjetas. En este caso,
                                     el jugador siempre aparecera coloreado de rojo, luego de la fecha 4.</p>
                                 </div>
-=======
-    <div class="modal fade" id="modalAyudaTarjetas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Acerca de las Tarjetas</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="box box-solid">
-                                <div class="box-header with-border">
-                                    <i class="fa fa-question-circle"></i>
-                                    <h3 class="box-title">Se colorean de ROJO.</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <ul>
-                                        <li>Los jugadores que sumen tarjetas rojas multipos de 1</li>
-                                        <li>Los jugadores que sumen tarjestas amarillas multiplos de 4</li>
-                                    </ul>
-                                </div><!-- /.box-body -->
->>>>>>> origin/master
                             </div>
                         </div>
                     </div>
