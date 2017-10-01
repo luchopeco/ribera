@@ -121,9 +121,21 @@ class ZonasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request)
 	{
-		//
-	}
+        try
+        {
+            Zona::destroy($request->idzona);
+            Session::flash('mensajeOk', 'Zona Eliminada con Exito');
+            return back();
+        }
+        catch(\Exception  $ex)
+        {
+            $z = Zona::findOrFail($request->idzona);
+            Session::flash('mensajeError', $ex->getMessage());
+            return redirect()->route('admin.torneos.show', ['id' => $z->idtorneo]);
+        }
+
+    }
 
 }
