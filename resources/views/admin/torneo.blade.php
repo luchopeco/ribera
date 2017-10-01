@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class=" panel panel-default">
                     <div class=" panel-heading">
                         <strong>FairPlay </strong>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class=" panel panel-default">
                     <div class=" panel-heading">
                         <strong>Tarjetas</strong>
@@ -177,14 +177,16 @@
                                     <th>Jugador</th>
                                     <th>Equipo</th>
                                     <th>Ult. Fecha Am.</th>
-                                    <th>Tar. Amarillas</th>                                                                     
+                                    <th>Tar. Amarillas</th>
+                                    <th>Ult. Fecha Az.</th>
+                                    <th>Tar. Azules</th>
                                     <th>Ult. Fecha Ro.</th>
                                     <th>Tar. Rojas</th>
                                 </tr>
                                 @foreach($torneo->Tarjetas() as $goleador)
                                   <?php
                                     $azulmasamarillo = 0;
-                                    if($goleador->ta != null && $goleador->ta % 4 !=0 && $goleador->ta % 2 ==0 && $goleador->taz % 2 !=0 && $goleador->taz!=null ){
+                                    if($goleador->ta != null && $goleador->ta % 4 !=0 && $goleador->ta % 2 ==0 ){
                                     $azulmasamarillo = 1;
                                     }
                                   ?>
@@ -196,7 +198,13 @@
                                     </td>
                                     <td @if($goleador->ta % 4 ==0 && $goleador->ta!=null)  class="danger" @endif @if($azulmasamarillo ==1) class="danger" @endif>
                                         {{$goleador->ta}}
-                                    </td>                                                               
+                                    </td>
+                                    <td @if($goleador->taz % 2 ==0 && $goleador->taz!=null) class="danger" @endif>
+                                        @if($goleador->fecha_taz!=null)  {{date('d/m/Y', strtotime($goleador->fecha_taz))}} @endif
+                                    </td>
+                                    <td @if($goleador->taz % 2 ==0 && $goleador->taz!=null) class="danger" @endif>
+                                        {{$goleador->taz}}
+                                    </td>
                                     <td @if($goleador->tar!=null) class="danger" @endif >
                                         @if($goleador->fecha_tr!=null)  {{date('d/m/Y', strtotime($goleador->fecha_tr))}} @endif
                                     </td>
@@ -303,7 +311,8 @@
                                         <div class="box-body">
                                           <ul>
                                             <li>Los jugadores que sumen tarjetas rojas multipos de 1</li>
-                                            <li>Los jugadores que sumen tarjestas amarillas multiplos de 4</li>                                            
+                                            <li>Los jugadores que sumen tarjestas amarillas multiplos de 4</li>
+                                              <li>Los jugadores que sumen tarjetas azules multiplos de 2</li>
                                           </ul>
                                         </div><!-- /.box-body -->
                                       </div>

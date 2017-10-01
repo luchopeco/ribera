@@ -162,6 +162,7 @@
                                                         <th>Gol. Favor</th>
                                                         <th>Gol. Contra</th>
                                                         <th>T. Amarilla</th>
+                                                        <th>T. Azul</th>
                                                         <th>T. Roja</th>
                                                         <th>Sancion</th>
                                                     </tr>
@@ -171,6 +172,7 @@
                                                             <td>{{$jugador->goles_favor}}</td>
                                                             <td>{{$jugador->goles_contra}}</td>
                                                             <td>{{$jugador->tarjeta_amarilla}}</td>
+                                                            <td>{{$jugador->tarjeta_azul}}</td>
                                                             <td>{{$jugador->tarjeta_roja}}</td>
                                                             <td>{{$jugador->cantidad_fechas_sancion}}</td>
                                                             <td><a href="/admin/partidos/{{$partido->idpartido}}/{{$jugador->idjugador}}" class="btn btn-xs btn-danger" title="Eliminar"> <i class=" fa fa-close"></i></a></td>
@@ -199,6 +201,7 @@
                                                         <th>Gol. Favor</th>
                                                         <th>Gol. Contra</th>
                                                         <th>T. Amarilla</th>
+                                                        <th>T. Azul</th>
                                                         <th>T. Roja</th>
                                                         <th>Sancion</th>
                                                     </tr>
@@ -208,6 +211,7 @@
                                                             <td>{{$jugador->goles_favor}}</td>
                                                             <td>{{$jugador->goles_contra}}</td>
                                                             <td>{{$jugador->tarjeta_amarilla}}</td>
+                                                            <td>{{$jugador->tarjeta_azul}}</td>
                                                             <td>{{$jugador->tarjeta_roja}}</td>
                                                             <td>{{$jugador->cantidad_fechas_sancion}}</td>
                                                             <td><a href="/admin/partidos/{{$partido->idpartido}}/{{$jugador->idjugador}}" class="btn btn-xs btn-danger" title="Eliminar"> <i class=" fa fa-close"></i></a></td>
@@ -279,7 +283,7 @@
                                         <span class="help-block with-errors"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-3" style="display:none">
+                                <div class="col-md-3" >
                                     <div class="form-group">
                                         T. Azul
                                         {!!Form::Number('tarjeta_azul',0,['class'=>'form-control','required'])!!}
@@ -367,7 +371,7 @@
                                         <span class="help-block with-errors"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-3" style="display:none">
+                                <div class="col-md-3" >
                                     <div class="form-group">
                                         T. Azul
                                         {!!Form::Number('tarjeta_azul',0,['class'=>'form-control','required'])!!}

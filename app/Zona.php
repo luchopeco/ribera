@@ -15,10 +15,17 @@ class Zona extends Model {
     {
         return $this->belongsTo('torneo\Torneo','idtorneo')->withTrashed();;
     }
+
     public function ListEquipos()
     {
         return $this->belongsToMany('torneo\Equipo','torneo_equipo','zona_idzona','equipo_idequipo')->orderBy('nombre_equipo');
     }
+
+    public function ListDescuentosPuntos()
+    {
+        return $this->hasMany('torneo\DescuentoPunto','idzona','idzona');
+    }
+
     public function ListFechas()
     {
         return $this->hasMany('torneo\Fecha','idzona','idzona')->orderBy('fecha')->orderBy('numero_fecha');
@@ -26,36 +33,115 @@ class Zona extends Model {
 
     public function TablaPosiciones()
     {
+            $tabla =  DB::select(DB::raw("SELECT
+                sum(emp)        emp,
+                sum(gan)        gan,
+                sum(per)        per,
+                sum(puntos)     pun,
+                sum(gf)         gf,
+                sum(gc)         gc,
+                sum(df)         df,
+                sum(pj)         pj,
+                id,
+                nombre_equipo
+            FROM
+                (
+                    (
+                        SELECT
+                            sum(p.empatado_local)      emp,
+                            sum(p.ganado_local)        gan,
+                            sum(p.perdido_local)       per,
+                            sum(p.puntos_local)        puntos,
+                            sum(p.goles_local)         gf,
+                            sum(p.goles_visitante)     gc,
+                            sum(p.goles_local) - sum(p.goles_visitante) df,
+                            p.idequipo_local           id,
+                            e.nombre_equipo,
+                            count(*)                   pj
+                        FROM
+                            partidos p
+                            INNER JOIN equipos e
+                                ON   p.idequipo_local = e.idequipo
+                            INNER JOIN fechas f
+                                ON   f.idfecha = p.idfecha
+                            INNER JOIN zonas z
+                                ON   z.idzona = p.idzona
+                        WHERE
+                            p.fue_jugado = 1
+                            AND z.idzona = :p1
+                            AND f.es_play_off = 0
+                            AND e.es_libre = 0
+                        GROUP BY
+                            p.idequipo_local
+                    )
 
-        $tabla =  DB::select(DB::raw("SELECT sum(emp) emp,sum(gan) gan,sum(per) per, sum(puntos) pun, sum(gf) gf, sum(gc) gc , sum(df) df, sum(pj) pj, id, nombre_equipo FROM
-                            (
-                            (SELECT sum(p.empatado_local) emp ,sum(p.ganado_local) gan,sum(p.perdido_local) per , sum(p.puntos_local) puntos, sum(p.goles_local) gf , sum(p.goles_visitante) gc,
-                            sum(p.goles_local) - sum(p.goles_visitante) df , p.idequipo_local id , e.nombre_equipo, count(*) pj
-                              FROM partidos p
-                              INNER JOIN equipos e ON p.idequipo_local = e.idequipo
-                              INNER JOIN fechas f ON f.idfecha = p.idfecha
-                              INNER JOIN zonas z ON z.idzona = p.idzona
-                            WHERE p.fue_jugado=1 AND z.idzona = :p1
-                            AND f.es_play_off =0
-                            AND e.es_libre=0
-                            GROUP BY p.idequipo_local)
+                    UNION ALL
 
-                            UNION  all
-
-                            (SELECT sum(p.empatado_visitante) emp,sum(p.ganado_visitante) gan,sum(p.perdido_visitante) per , sum(p.puntos_visitante) puntos , sum(p.goles_visitante) gf, sum(p.goles_local) gc,
-                            sum(p.goles_visitante) - sum(p.goles_local) df , p.idequipo_visitante id , e.nombre_equipo, count(*) pj
-                              FROM partidos p
-                              INNER JOIN equipos e ON p.idequipo_visitante = e.idequipo
-                              INNER JOIN fechas f ON f.idfecha = p.idfecha
-                              INNER JOIN zonas z ON z.idzona = p.idzona
-                            WHERE p.fue_jugado=1 AND z.idzona = :p2
-                            AND f.es_play_off=0
-                            AND e.es_libre=0
-                            GROUP BY  p.idequipo_visitante)
-                            ) AS tabla
-                            GROUP BY id, nombre_equipo
-                            ORDER BY pun desc, df  DESC, gf desc, gc asc, gan asc, emp asc, per DESC"), array(
-            'p1' => $this->idzona,'p2' => $this->idzona));
+                    (
+                        SELECT
+                            sum(p.empatado_visitante) emp,
+                            sum(p.ganado_visitante)      gan,
+                            sum(p.perdido_visitante)     per,
+                            sum(p.puntos_visitante)      puntos,
+                            sum(p.goles_visitante)       gf,
+                            sum(p.goles_local)           gc,
+                            sum(p.goles_visitante) - sum(p.goles_local) df,
+                            p.idequipo_visitante         id,
+                            e.nombre_equipo,
+                            count(*)                     pj
+                        FROM
+                            partidos p
+                            INNER JOIN equipos e
+                                ON   p.idequipo_visitante = e.idequipo
+                            INNER JOIN fechas f
+                                ON   f.idfecha = p.idfecha
+                            INNER JOIN zonas z
+                                ON   z.idzona = p.idzona
+                        WHERE
+                            p.fue_jugado = 1
+                            AND z.idzona = :p2
+                            AND f.es_play_off = 0
+                            AND e.es_libre = 0
+                        GROUP BY
+                            p.idequipo_visitante
+                    )
+                    UNION ALL(
+                        SELECT
+                            SUM(0)         emp,
+                            SUM(0)         gan,
+                            SUM(0)         per,
+                            0 -SUM(dp.puntos_a_descontar) puntos,
+                            SUM(0)         gf,
+                            SUM(0)         gc,
+                            SUM(0)         df,
+                            e.idequipo     id,
+                            e.nombre_equipo,
+                            SUM(0)         pj
+                        FROM
+                            descuentos_puntos dp
+                            INNER JOIN zonas z
+                                ON   dp.idzona = z.idzona
+                            INNER JOIN equipos e
+                                ON   dp.idequipo = e.idequipo
+                        WHERE
+                            z.idzona = :p3
+                        GROUP BY
+                            e.idequipo,
+                            e.nombre_equipo
+                    )
+                )            AS tabla
+            GROUP BY
+                id,
+                nombre_equipo
+            ORDER BY
+                pun DESC,
+                df DESC,
+                gf DESC,
+                gc ASC,
+                gan ASC,
+                emp ASC,
+                per DESC"),
+            array('p1' => $this->idzona,'p2' => $this->idzona,'p3' => $this->idzona));
         return $tabla;
     }
 
@@ -312,9 +398,9 @@ class Zona extends Model {
                                                     WHERE
                                                         (f.fecha BETWEEN aux.fecha AND (CURRENT_DATE - INTERVAL 1 DAY))
                                                         AND z.idzona = :p3
-                                                    HAVING
-                                                        count(*) <= aux.sancion
-														AND count(*) > 0
+                                                    HAVING COUNT(*) <=aux.sancion
+                                                    AND
+                                                         count(*) > 0
                                                 )
                                         )  AS aux1"), array('p1' => $this->idzona,'p2' => $this->idzona,'p3' => $this->idzona));
         return $tabla;

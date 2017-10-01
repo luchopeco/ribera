@@ -136,6 +136,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],
         Route::get('reportes/index','ReportesController@index');
         Route::get('reportes','ReportesController@index');
 
+        Route::resource('DescuentosPuntos','DescuentosPuntosController');
+
 });
 
 

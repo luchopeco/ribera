@@ -52,6 +52,13 @@
                                         @endforeach
                                     </table>
                                 </div>
+                                <div class="row">
+                                    @foreach ($torneo->ListZonas as $zona)
+                                        @foreach($zona->ListDescuentosPuntos as $dp)
+                                            <div> <small class="text-danger">{{$dp->Equipo->nombre_equipo}} {{$dp->puntos_a_descontar}} puntos descontados. Obs: {{$dp->observaciones}}</small></div>
+                                        @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                         <?php
@@ -90,6 +97,11 @@
                                         @endforeach
                                     </table>
                                 </div>
+                                <div class="row">
+                                    @foreach($zona->ListDescuentosPuntos as $dp)
+                                        <div> <small class="text-danger">{{$dp->Equipo->nombre_equipo}} {{$dp->puntos_a_descontar}} puntos descontados. Obs: {{$dp->observaciones}}</small></div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                         <?php   }   ?>
@@ -98,7 +110,7 @@
                         @if($torneo->imagen != null)
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="">
 
-                                 <a href="/imagenes/{{$torneo->imagen}}" target="_blank" >   <img class="img-responsive" src="/imagenes/{{$torneo->imagen}}" ></a>
+                                <a href="/imagenes/{{$torneo->imagen}}" target="_blank" >   <img class="img-responsive" src="/imagenes/{{$torneo->imagen}}" ></a>
 
                             </div>
                         @endif

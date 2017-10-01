@@ -111,7 +111,36 @@
         </div>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Descuento de Puntos <a href="" id="btnNuevaDescuentoPunto" title="Agregar Descuento de Puntos"
+                                       class=" btn-xs btn btn-success" data-toggle="modal" data-target="#modalDescuentoPuntos"><i class=" fa fa-plus"></i></a>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table  class=" table table-bordered table-condensed table-hover">
+                        <tr>
+                            <th>Equipo</th>
+                            <th>Obs</th>
+                            <th>Puntos</th>
+                            <th></th>
+                        </tr>
+                        @foreach($z->ListDescuentosPuntos as $dd)
+                            <tr>
+                                <td>{{$dd->Equipo->nombre_equipo}}</td>
+                                <td>{{$dd->observaciones}}</td>
+                                <td>{{$dd->puntos_a_descontar}}</td>
+                                <td><a href="" class="btn btn-xs btn-danger eliminar-dp"  data-iddescuento="{{$dd->id}}"  title="Eliminar"> <i class=" fa fa-close"></i></a></td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @if($z->Torneo->tablas_x_torneo==0)
 <div class="row">
     <div class="col-md-12">
@@ -146,6 +175,7 @@
         </div>
     </div>
 </div>
+
 @endif
 
 @if($z->Torneo->estadisticas_x_torneo==0)
@@ -176,7 +206,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class=" panel panel-default">
             <div class=" panel-heading">
                 <strong>FairPlay </strong>
@@ -204,7 +234,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8">
     <div class=" panel panel-default">
         <div class=" panel-heading">
             <strong>Tarjetas</strong>
@@ -224,6 +254,8 @@
                         <th>Equipo</th>
                         <th>Ult. Fecha Am.</th>
                         <th>Tar. Amarillas</th>
+                        <th>Ult. Fecha Az.</th>
+                        <th>Tar. Azules</th>
                         <th>Ult. Fecha Ro.</th>
                         <th>Tar. Rojas</th>
                     </tr>
@@ -242,7 +274,13 @@
                         </td>
                         <td @if($goleador->ta % 4 ==0 && $goleador->ta!=null)  class="danger" @endif @if($azulmasamarillo ==1) class="danger" @endif>
                             {{$goleador->ta}}
-                        </td>                       
+                        </td>
+                        <td @if($goleador->taz % 2 ==0 && $goleador->taz!=null) class="danger" @endif>
+                            @if($goleador->fecha_taz!=null)  {{date('d/m/Y', strtotime($goleador->fecha_taz))}} @endif
+                        </td>
+                        <td @if($goleador->taz % 2 ==0 && $goleador->taz!=null) class="danger" @endif>
+                            {{$goleador->taz}}
+                        </td>
                         <td @if($goleador->tar!=null) class="danger" @endif >
                             @if($goleador->fecha_tr!=null)  {{date('d/m/Y', strtotime($goleador->fecha_tr))}} @endif
                         </td>
@@ -460,7 +498,8 @@
                                 <div class="box-body">
                                   <ul>
                                     <li>Los jugadores que sumen tarjetas rojas multipos de 1</li>
-                                    <li>Los jugadores que sumen tarjestas amarillas multiplos de 4</li>                                   
+                                    <li>Los jugadores que sumen tarjestas amarillas multiplos de 4</li>
+                                      <li>Los jugadores que sumen tarjetas azules multiplos de 2</li>
                                   </ul>
                                 </div><!-- /.box-body -->
                               </div>
@@ -485,6 +524,79 @@
                     </div>
                 </div>
 
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modalDescuentoPuntos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {!!Form::open(['route'=>'admin.DescuentosPuntos.store','method'=>'POST', 'data-toggle='>'validator'])!!}
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Nuevo Descuento de Puntos</h4>
+            </div>
+            <div class="modal-body"><div class=" panel panel-info">
+                    <div class=" panel-heading">Descuento Punto</div>
+                    <div class=" panel-body">
+                        <div clas="row">
+                            <div class="col-md-12">
+                                {!!Form::Text('idzona',$z->idzona,['class'=>'hidden'])!!}
+                                {!!Form::select('idequipo', $listEquipos,null,array('class' => 'form-control'))!!}
+                            </div>
+                        </div>
+                        <div clas="row">
+                            <div class="col-md-12">
+                                Observaciones
+                                {!!Form::Text('observaciones',null,['class'=>'form-control','required'])!!}
+                            </div>
+                        </div>
+                        <div clas="row">
+                            <div class="col-md-12">
+                               Puntos
+                                {!!Form::Number('puntos_a_descontar',null,['class'=>'form-control','required'])!!}
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                {!!Form::submit('Agregar', array('class' => 'btn btn-success'))!!}
+            </div>
+            {!! Form::close() !!}
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modalDescuentoEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {!!Form::open(['url'=>['admin/DescuentosPuntos/destroy'],'method'=>'DELETE'])!!}
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Eliminando Descuento de puntos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        {!!Form::Text('id',null,['class'=>'hidden','id'=>'idDescuentoD'])!!}
+                        <h3>¿Desea Eliminar el Descuento de puntos?</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        {!!Form::submit('Eliminar', array('class' => 'btn btn-success'))!!}
+                    </div>
+                </div>
+            </div>
+            {!! Form::close() !!}
         </div>
         <!-- /.modal-content -->
     </div>
@@ -548,6 +660,12 @@ $(function () {
         $("#modalEquipoEliminar").modal("show");
     });
 
+    $('body').on('click', '.eliminar-dp', function (event) {
+        event.preventDefault();
+        var id_dp=$(this).attr('data-iddescuento');
+        $("#idDescuentoD").val(id_dp);
+        $("#modalDescuentoEliminar").modal("show");
+    });
 });
 </script>
 @endsection
