@@ -36,6 +36,7 @@ Route::post('/modificarclave', 'HomeController@modificarclave');
 Route::post('/equipoescudoguardar', 'HomeController@equipoescudoguardar');
 Route::post('/equipofotoguardar', 'HomeController@equipofotoguardar');
 Route::post('/agregarjugador', 'HomeController@agregarjugador');
+Route::get('/detallepartido/{id}', 'HomeController@detallePartido');
 
 
 Route::get('/jugadores-de-la-fecha', 'WelcomeController@jugadoresfecha');

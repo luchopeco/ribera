@@ -374,7 +374,7 @@
                     <?php try{
 
                         if($p->EquipoLocal->ListJugadores[$i]->fechasSancion($fecha->Zona->idtorneo) > 0){
-                            echo '-';
+                            echo $p->EquipoLocal->ListJugadores[$i]->fechasSancion($fecha->Zona->idtorneo) ;
                         }
                         else{
 
@@ -465,7 +465,7 @@
                     <?php try{
 
                         if($p->EquipoVisitante->ListJugadores[$i]->fechasSancion($fecha->Zona->idtorneo) > 0){
-                            echo '-';
+                            echo $p->EquipoVisitante->ListJugadores[$i]->fechasSancion($fecha->Zona->idtorneo);
                         }
                         else{
 

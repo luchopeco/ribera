@@ -952,4 +952,9 @@ class HomeController extends Controller {
 
 
 
+    public function detallePartido($id)
+    {
+
+        return view('include.partido');
+    }
 }

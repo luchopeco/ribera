@@ -15,6 +15,7 @@ Fixture
 <section id="section-page">
 <div class="row">
     <div class="col-md-12">
+
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -32,7 +33,37 @@ Fixture
     </div>
 </div>
 </section>
-<div id="contenidoFixture"></div>
+
+<div id="contenidoFixture">
+
+</div>
+
+<div class="modal fade" id="modalDetallePartido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Detalle Partido</h4>
+            </div>
+            <div class="modal-body">
+                <div id="detallePartido">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+
+
 @endsection
 
 @section('script')
@@ -58,7 +89,28 @@ function buscarFixtureXTorneo()
         });
  }
  $(function() {
-  buscarFixtureXTorneo();
+    buscarFixtureXTorneo();
+    $('body').on('click', '.btn-partido', function (event) {
+        event.preventDefault();
+        var id_partido=$(this).attr('data-idpartido');
+        //alert( id_partido);
+        $.ajax({
+         url:"/detallepartido/"+id_partido,
+         type: "GET",
+         dataType: "HTML"
+        })
+    .done(function(response){
+            $('#cargando').html('');
+            $("#detallePartido").html(response);
+            $("#modalDetallePartido").modal("show");
+        })
+        .fail(function(){
+            $('#cargando').html('');
+            //alert(id_articulo);           
+            $("#modalMensaje").modal("show");
+        });
+  
+    });
  });
  </script>
 

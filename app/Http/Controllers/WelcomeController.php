@@ -435,4 +435,5 @@ class WelcomeController extends Controller {
         $listEquipoIdeal=Imagen::where('idtipo_imagen',3)->get();
         return view('equipo-ideal',compact('listEquipoIdeal'));
     }
+
 }

@@ -155,7 +155,7 @@ class Zona extends Model {
                             INNER JOIN zonas z ON z.idzona = f.idzona
                             WHERE z.idzona= :p1
                             AND e.es_libre=0
-                            GROUP BY j.nombre_jugador, e.nombre_equipo
+                            GROUP BY j.nombre_jugador ,j.apellido_jugador, e.nombre_equipo
                             ORDER BY goles DESC
                             LIMIT 10"), array(
             'p1' => $this->idzona));

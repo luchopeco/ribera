@@ -111,10 +111,8 @@ select {
 }
 
 #fixture  h2{
+    margin-bottom: 0px;
 
-    border-bottom-color: #FBC01C !important;
-    border-bottom: solid 2px;
-    box-shadow: 0 2px 0 #E5E7E6;
 }
 .txt-verde{
     color: #196A4A;
@@ -386,4 +384,12 @@ header .row{
     #imagenChica{
         display: block !important;
     }
+}
+
+.border-fecha{
+    border-bottom-color: #FBC01C !important;
+    border-bottom: solid 2px;
+    border-bottom-color: currentcolor;
+    box-shadow: 0 2px 0 #E5E7E6;
+    margin-bottom: 10px;
 }
